@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'MedievalSharp', 'Uncial Antiqua', serif;
+  background: url('/assets/img/scroll-parchment.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #3b1f0f;
+}
+
+a {
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #ffd700;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Uncial Antiqua', cursive;
+  color: #5a2d0c;
+  text-shadow: 1px 1px #ffe0a8;
+  margin-bottom: 1rem;
+}
+
+.container {
+  background: rgba(255, 248, 220, 0.94); /* pergamino */
+  border: 4px double #a0522d;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+button {
+  background: linear-gradient(to bottom, #a0522d, #7b3f00);
+  color: #ffe;
+  padding: 10px 20px;
+  border: 2px solid #d4af37;
+  border-radius: 10px;
+  font-family: 'MedievalSharp', serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background: #c76d24;
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #ffd700;
+}

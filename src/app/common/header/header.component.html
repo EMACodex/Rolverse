@@ -1,0 +1,9 @@
+<header class="header-container">
+  <nav class="logo-nav">
+    @for (i of [1, 2, 3, 4, 5, 6, 7, 8]; track i) {
+      <div class="logo-wrapper" title="Nombre del juego {{ i }}">
+        <img src="assets/img/logo{{ i }}.png" alt="Logo {{ i }}" class="game-logo" />
+      </div>
+    }
+  </nav>
+</header>
