@@ -1,9 +1,10 @@
 .header-container {
   border-bottom: 5px solid #d4af37;
-  padding: 16px 0;
+  padding: 32px 0; /* antes era 16px 0 */
   display: flex;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  position: relative;
 }
 
 .logo-nav {
@@ -27,4 +28,36 @@
   width: auto;
   padding: 4px;
   border-radius: 5px;
+}
+
+.logo-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: auto;
+  background: url('/assets/img/parchment-tooltip.png') no-repeat center center;
+  background-size: cover;
+  color: #4b1e1e;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 14px;
+  position: absolute;
+  bottom: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  white-space: nowrap;
+  box-shadow: 0 0 10px #000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.logo-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }
