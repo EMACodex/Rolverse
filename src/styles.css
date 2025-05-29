@@ -51,3 +51,12 @@ button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 8px #ffd700;
 }
+
+.header-container {
+  background-image: url('/assets/img/header.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
