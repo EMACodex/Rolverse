@@ -59,4 +59,26 @@ button:hover {
   background-repeat: no-repeat;
 }
 
+.home-background {
+  /* ocupa toda la pantalla */
+  display: block;
+  min-height: 100vh;
+
+  /* fondo de fantasía medieval */
+  background-image: url('/assets/img/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  /* capa oscura para contrastar texto */
+  position: relative;
+}
+.home-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  pointer-events: none;
+}
 
