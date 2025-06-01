@@ -7,7 +7,14 @@ body {
   background: url('/assets/img/scroll-parchment.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #3b1f0f;
+  box-sizing: border-box;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 
 a {
   color: #d4af37;

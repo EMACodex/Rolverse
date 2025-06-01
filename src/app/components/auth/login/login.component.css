@@ -1,8 +1,17 @@
-.register-container {
+.contenedor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/assets/img/dsvds.jpg');
+  background-size: cover;
+}
+
+.login-container {
   max-width: 400px;
   margin: 2rem auto;
   padding: 2rem 2.5rem;
-  background-color: #1e1e2f;
+  background-color: #1e1e2fab;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   color: #e0e0e0;
@@ -34,6 +43,7 @@
   font-weight: 600;
   font-size: 1rem;
   color: #f0a500;
+
 }
 
 .input-field {
@@ -44,6 +54,7 @@
   background-color: #2a2a3d;
   color: #eee;
   transition: border-color 0.3s ease;
+
 }
 
 .input-field:focus {
