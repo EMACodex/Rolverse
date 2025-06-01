@@ -53,9 +53,16 @@
   </div>
 
   <div class="login-button-wrapper">
-    <button class="rpg-login-button" routerLink="/login">
-      🛡️ Iniciar Sesión
-    </button>
+    @if (isLoggedIn()) {
+      <button class="rpg-login-button" (click)="logout()">
+        ⚔️ Cerrar Sesión
+      </button>
+    }
+    @else{
+      <button class="rpg-login-button" routerLink="/login">
+        🛡️ Iniciar Sesión
+      </button>
+    }
   </div>
 </header>
 

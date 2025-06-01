@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="form-container">
+      <form class="example-form" [formGroup]="formGroup">
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="password" [type]="!visible ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="visible = !visible">{{!visible ? 'visibility_off' : 'visibility'}}</mat-icon>
+            @if (formGroup.get('password')?.hasError('passwordMismatch') && !formGroup.get('password')?.hasError('required')) {
+                <mat-error>La contraseña no cumple los requisitos.</mat-error>
+            }
+            @if (formGroup.get('password')?.hasError('required')) {
+                <mat-error>La contraseña es obligatorio.</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>Repite la contraseña</mat-label>
+            <input matInput formControlName="passwordRep" [type]="!visibleRep ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="visibleRep = !visibleRep">{{!visibleRep ? 'visibility_off' : 'visibility'}}</mat-icon>
+            @if (formGroup.get('passwordRep')?.hasError('passwordMismatch') && !formGroup.get('passwordRep')?.hasError('required')) {
+                <mat-error>La contraseña no cumple los requisitos.</mat-error>
+            }
+            @if (formGroup.get('passwordRep')?.hasError('required')) {
+                <mat-error>La contraseña es obligatorio.</mat-error>
+            }
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="btn" (click)="resetPass()">Enviar recuperacion</button>
+      </form>
+    </div>
+  </div>
