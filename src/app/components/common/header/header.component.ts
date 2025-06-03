@@ -23,4 +23,8 @@ export class HeaderComponent {
   logout(): void {
     this.AuthService.logout();
   }
+
+  isSessionRoute(): boolean {
+    return window.location.pathname.includes('/login') || window.location.pathname.includes('/register');
+  }
 }
