@@ -3,11 +3,10 @@
 
 
 .header-container {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  height: 120px;   /* O la altura que uses */
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -123,4 +122,9 @@
 .rpg-login-button:hover {
   transform: scale(1.05);
   background: linear-gradient(#d1a864, #8b6a36);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 12px;
 }
