@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent {
   // Lista de los cuatro banners. Ajusta las rutas a las tuyas dentro de src/assets/img/
-  slides = [
+  slides: { id:number, img:string}[] = [
     { id: 0, img: 'assets/img/banner1.jpg' },
     { id: 1, img: 'assets/img/banner2.jpg' },
     { id: 2, img: 'assets/img/banner3.jpg' },
