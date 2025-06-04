@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 120px;   /* O la altura que uses */
+  height: 70px;   /* O la altura que uses */
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -44,7 +44,7 @@
 .logo-nav {
   display: flex;
   gap: 30px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   pointer-events: auto; /* permite clics dentro de nav */
