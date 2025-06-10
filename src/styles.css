@@ -202,7 +202,7 @@ select:focus {
 }
 
 /* ========================
-   Footer (footer)
+   Footer 
    ======================== */
 footer {
   background-color: var(--color-marron-tost);
@@ -226,7 +226,7 @@ footer {
 }
 
 /* ========================
-   Header específico (qué ya tenías)
+   Header específico 
    ======================== */
 .header-container {
   background-image: url('/assets/img/header.jpg');
@@ -236,7 +236,7 @@ footer {
 }
 
 /* ========================
-   Fondo de HomeComponent (.home-background)
+   Fondo de HomeComponent 
    ======================== */
 .home-background {
   display: block;
