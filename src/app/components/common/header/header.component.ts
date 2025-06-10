@@ -25,6 +25,6 @@ export class HeaderComponent {
   }
 
   isSessionRoute(): boolean {
-    return window.location.pathname.includes('/login') || window.location.pathname.includes('/register');
+    return window.location.pathname.includes('/session');
   }
 }
