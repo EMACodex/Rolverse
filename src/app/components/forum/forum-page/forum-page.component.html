@@ -3,4 +3,11 @@
     <h1>Concilio de Rol y Estrategia</h1>
     <h2>Foro</h2>
   </div>
-</div>  
+  @if(userInfo.role == 'admin') {
+    <div class="admin-actions">
+      <button class="create-forum" (click)="openCreateForumDialog()">+</button>
+    </div>
+  }
+</div>
+
+

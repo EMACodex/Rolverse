@@ -205,7 +205,7 @@ select:focus {
 }
 
 /* ========================
-   Footer 
+   Footer
    ======================== */
 footer {
   background-color: var(--color-marron-tost);
@@ -229,7 +229,7 @@ footer {
 }
 
 /* ========================
-   Header específico 
+   Header específico
    ======================== */
 .header-container {
   background-image: url('/assets/img/header.jpg');
@@ -239,7 +239,7 @@ footer {
 }
 
 /* ========================
-   Fondo de HomeComponent 
+   Fondo de HomeComponent
    ======================== */
 .home-background {
   display: block;
@@ -262,3 +262,7 @@ footer {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.transparent-backdrop {
+  background: transparent !important;
+}

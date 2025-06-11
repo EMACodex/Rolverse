@@ -42,8 +42,7 @@ export const routes: Routes = [
   },
   {
     path: 'forum',
-    component: ForumPageComponent,
-    canActivate: [authGuard]
+    component: ForumPageComponent
   },
   {
     path: '**',
