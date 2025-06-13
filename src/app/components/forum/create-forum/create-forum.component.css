@@ -1,15 +1,6 @@
-.contenedor {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-image: url('/assets/img/fondo 3.jpg');
-  background-size: cover;
-}
 
-.login-container {
-  max-width: 400px;
-  margin: 2rem auto;
+.create-container {
+  max-width: 450px;
   padding: 2rem 2.5rem;
   background-color: #1e1e2fab;
   border-radius: 8px;
@@ -45,13 +36,22 @@
   color: #f0a500;
 }
 
+.input-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .input-field {
   padding: 0.5rem 0.75rem;
+  padding-right: 30px;
   font-size: 1rem;
   border-radius: 4px;
   border: 1.5px solid #555;
   background-color: #2a2a3d;
   color: #eee;
+  width: 100%;
+  box-sizing: border-box;
   transition: border-color 0.3s ease;
 }
 
@@ -59,6 +59,13 @@
   outline: none;
   border-color: #f0a500;
   box-shadow: 0 0 8px #f0a500aa;
+}
+
+.input-icon {
+  position: absolute;
+  right: 10px;
+  font-size: 16px;
+  color: #666;
 }
 
 .btn-submit {
@@ -83,59 +90,9 @@
   background-color: #d18f00;
 }
 
-.error, .error-message {
+.error {
   color: #ff6b6b;
   font-weight: 600;
   margin-top: 0.25rem;
   font-size: 0.9rem;
-}
-
-.links {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.link {
-  font-size: 0.9rem;
-  color: #f0a500;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.link:hover {
-  color: #d18f00;
-  text-decoration: underline;
-}
-
-.input-icon-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.input-field {
-  padding-right: 30px; /* Espacio para el icono en el lado derecho */
-  width: 100%;
-}
-
-.input-icon {
-  position: absolute;
-  right: 10px; /* Coloca el icono en el lado derecho */
-  font-size: 16px;
-  color: #666;
-}
-
-.error {
-  color: red;
-  font-size: 12px;
-}
-
-.btn-submit {
-  margin-top: 20px;
-}
-
-.links {
-  margin-top: 10px;
 }

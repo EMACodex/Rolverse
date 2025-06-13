@@ -1,11 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RUTA_API } from '../../environment';
-import { LoginCredentials, Response, RegisterCredentials, DecodedToken } from '../interfaces/auth.interface';
-import { Observable } from 'rxjs';
+import { LoginCredentials, Response, RegisterCredentials, DecodedToken, tokenData } from '../interfaces/auth.interface';
+import { Observable, of, throwError  } from 'rxjs';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
-
 
 
 @Injectable({
@@ -34,6 +33,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('token');
+    this.router.navigate(['/']);
   }
 
   sendMailRecoversPass(email: string): Observable<boolean> {
@@ -60,5 +60,21 @@ export class AuthService {
     return user?.roles.includes('admin') ?? false;
   }
 
+
+  getTokenData(): Observable<tokenData> {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      return throwError(() => new Error('No token found'));
+    }
+
+    try {
+      const decodedToken = jwtDecode<tokenData>(token);
+      return of(decodedToken);
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return throwError(() => new Error('Invalid token'));
+    }
+  }
 
 }
