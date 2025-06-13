@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RUTA_API } from '../../../environment';
+import { RUTA_API } from '../../environment';
 import { HttpClient } from '@angular/common/http';
 import { ForumInterface, ForumResponse } from '../interfaces/forum.interface';
 import { Observable } from 'rxjs';
