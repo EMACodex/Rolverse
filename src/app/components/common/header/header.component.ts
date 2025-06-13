@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
   isAdmin = false;
 
@@ -24,12 +24,25 @@ export class HeaderComponent {
   ) { }
 
   ngOnInit(): void {
-    this.isAdmin = this.AuthService.isAdmin();
+    const user = this.AuthService.getCurrentUser();
+
+    if (user) {
+      if (Array.isArray((user as any).roles)) {
+        this.isAdmin = (user as any).roles.includes('admin');
+      }
+      else if (typeof (user as any).role === 'string') {
+        this.isAdmin = (user as any).role === 'admin';
+      }
+    }
+
   }
+
 
   isLoggedIn(): boolean {
     return this.AuthService.isAuth();
   }
+
+  
 
   logout(): void {
     this.AuthService.logout();
