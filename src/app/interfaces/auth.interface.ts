@@ -19,3 +19,9 @@ export interface RegisterCredentials {
   email: string;
   password: string;
 }
+
+export interface DecodedToken {
+  id: number;
+  roles: string[];
+  exp: number;
+}

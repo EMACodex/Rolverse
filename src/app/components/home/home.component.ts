@@ -1,11 +1,12 @@
-// src/app/home/home.component.ts
-
 import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+import { NewsComponent } from '../news/news.component';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatTabsModule, NewsComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

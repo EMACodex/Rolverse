@@ -263,6 +263,14 @@ footer {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+::ng-deep .cdk-overlay-container, 
+::ng-deep .cdk-overlay-pane {
+  z-index: 2000 !important; /* asegúrate de que va por encima */
+  pointer-events: auto !important;
 .transparent-backdrop {
   background: transparent !important;
+}
 }
