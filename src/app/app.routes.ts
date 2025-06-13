@@ -15,8 +15,8 @@ export const routes: Routes = [
     path: '',
     component: HomeComponent
   },
-    {
-    path: 'login',
+  {
+    path: 'session/login',
     component: LoginComponent,
     canActivate: [notAuthGuard]
   },
@@ -39,6 +39,15 @@ export const routes: Routes = [
     path: 'profile',
     component: PersonalComponent,
     canActivate: [authGuard]
+  },
+  {
+    path: 'noticias/agregar',
+    loadComponent: () => import('./components/news/add-new/add-new.component').then(m => m.AddNewComponent),
+    canActivate: [authGuard] 
+  },
+  {    
+    path: 'forum',
+    component: ForumPageComponent
   },
   {
     path: '**',
