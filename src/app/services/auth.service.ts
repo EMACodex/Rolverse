@@ -1,9 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RUTA_API } from '../../../environment';
-import { LoginCredentials, Response, RegisterCredentials } from '../interfaces/auth.interface';
+import { RUTA_API } from '../../environment';
+import { LoginCredentials, Response, RegisterCredentials, DecodedToken } from '../interfaces/auth.interface';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +43,22 @@ export class AuthService {
   resetPass(token: string, password: string): Observable<boolean> {
     return this.http.put<boolean>(`${this.apiURL}/recover`, { token, password });
   }
+  getCurrentUser(): DecodedToken | null {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+
+    try {
+      return jwtDecode(token) as DecodedToken;
+    } catch (e) {
+      console.error('Error decodificando el token', e);
+      return null;
+    }
+  }
+
+  isAdmin(): boolean {
+    const user = this.getCurrentUser();
+    return user?.roles.includes('admin') ?? false;
+  }
+
 
 }
