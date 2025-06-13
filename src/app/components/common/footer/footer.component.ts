@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-footer',
+  standalone: true,
+  imports: [RouterLink],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })

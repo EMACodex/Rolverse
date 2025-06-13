@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RUTA_API } from '../../../environment';
 import { HttpClient } from '@angular/common/http';
-import { ForumInterface, ForumResponse } from '../interfaces/forum.interface';
+import { ForumInterface, ForumResponse, getForumResponse } from '../interfaces/forum.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,8 +15,8 @@ export class ForumService {
     private http: HttpClient
   ) { }
 
-  getAllForums() {
-    return this.http.get(`${this.apiURL}/all`);
+  getAllForums(): Observable<getForumResponse> {
+    return this.http.get<getForumResponse>(`${this.apiURL}/all`);
   }
 
   getForumById(id: string) {

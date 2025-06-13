@@ -12,11 +12,6 @@
   margin-top: 2.5%;
 }
 
-.h1 {
-  text-align: center !important;
-  margin-top: 20px;
-}
-
 .admin-actions {
   position: fixed;
   bottom: 20px;
@@ -43,4 +38,52 @@
 
 .transparent-backdrop {
   background: transparent !important;
+}
+
+.title h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 3.5rem;
+  color: #D4AF37;
+  text-shadow: 4px 4px 8px #000;
+  margin-bottom: 0.2rem;
+}
+
+.title h2 {
+  font-family: 'Cinzel', serif;
+  color: #e0c891;
+  font-size: 2rem;
+  text-shadow: 1px 1px 4px #000;
+  margin-top: 0;
+}
+
+.forum-card {
+  background: rgba(20, 10, 5, 0.8);
+  border: 2px solid #c9a769;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 30px auto;
+  width: 85%;
+  max-width: 800px;
+  color: #fefae0;
+  box-shadow: 0 0 15px rgba(255, 215, 100, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.forum-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 230, 120, 0.5);
+}
+
+.forum-card h3 {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #ffd700;
+}
+
+.forum-card p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #e8dcc4;
 }

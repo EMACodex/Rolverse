@@ -3,6 +3,12 @@
     <h1>Concilio de Rol y Estrategia</h1>
     <h2>Foro</h2>
   </div>
+  @for (forum of allForums; track $index) {
+    <div class="forum-card" (click)="openForum(forum.id)">
+      <h3>{{ forum.title }}</h3>
+      <p>{{ forum.description }}</p>
+    </div>
+  }
   @if(userInfo.role == 'admin') {
     <div class="admin-actions">
       <button class="create-forum" (click)="openCreateForumDialog()">+</button>
