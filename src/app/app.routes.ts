@@ -8,6 +8,7 @@ import { SendMailComponent } from './components/auth/recover-password/send-mail/
 import { ResetPassComponent } from './components/auth/recover-password/reset-pass/reset-pass.component';
 import { PersonalComponent } from './components/profile/personal/personal.component';
 import { ForumPageComponent } from './components/forum/forum-page/forum-page.component';
+import { ForumDetailComponent } from './components/forum/forum-detail/forum-detail.component';
 
 
 export const routes: Routes = [
@@ -43,12 +44,15 @@ export const routes: Routes = [
   {
     path: 'noticias/agregar',
     loadComponent: () => import('./components/news/add-new/add-new.component').then(m => m.AddNewComponent),
-    canActivate: [authGuard] 
+    canActivate: [authGuard]
   },
-  {    
+  {
     path: 'forum',
     component: ForumPageComponent
   },
+  {
+    path: 'forum/:id',
+    component: ForumDetailComponent },
   {
     path: '**',
     redirectTo: ''

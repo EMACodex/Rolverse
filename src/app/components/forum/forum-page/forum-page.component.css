@@ -20,20 +20,40 @@
 }
 
 .create-forum {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  font-size: 30px;
+  background: radial-gradient(circle at 30% 30%, #ffe066, #d4af37);
+  color: #2d1a05;
+  border: 3px solid #8c6f1f;
+  font-size: 2rem;
+  font-family: 'Cinzel Decorative', cursive;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(255, 230, 100, 0.6), 0 0 30px rgba(255, 230, 100, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  animation: pulse-glow 2s infinite;
 }
 
 .create-forum:hover {
-  background-color: #0056b3;
+  background: radial-gradient(circle at 30% 30%, #fff3b0, #ffd93d);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 20px rgba(255, 250, 200, 0.9), 0 0 40px rgba(255, 230, 150, 0.6);
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 230, 100, 0.3), 0 0 20px rgba(255, 230, 100, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 230, 100, 0.6), 0 0 35px rgba(255, 230, 100, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 230, 100, 0.3), 0 0 20px rgba(255, 230, 100, 0.1);
+  }
 }
 
 .transparent-backdrop {
@@ -86,4 +106,29 @@
   font-size: 1rem;
   line-height: 1.4;
   color: #e8dcc4;
+}
+
+.delete-forum {
+  background-color: #6b0f0f;
+  color: #ffe0b2;
+  border: 2px solid #a63232;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(139, 0, 0, 0.6);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.delete-forum:hover {
+  background-color: #a80000;
+  color: #fff5cc;
+  box-shadow: 0 0 12px rgba(255, 50, 50, 0.9);
+  transform: scale(1.05);
+}
+
+.forum-actions {
+  text-align: right;
 }

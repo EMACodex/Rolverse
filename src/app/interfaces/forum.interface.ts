@@ -1,17 +1,22 @@
 
 
 export interface ForumInterface {
-  id?: string;
+  id?: number;
   title: string;
   description: string;
 }
 
-export interface getForumResponse {
+export interface getForumsResponse {
   message: string;
   data?: ForumInterface[];
 }
 
-export interface ForumResponse {
+export interface getForumResponse {
   message: string;
-  data?: ForumInterface[];
+  data?: ForumInterface;
+}
+
+export interface deleteForumResponse {
+  message: string;
+  data: ForumInterface;
 }
