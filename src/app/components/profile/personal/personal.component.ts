@@ -7,6 +7,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { MessageInterface } from '../../../interfaces/message';
+import { MessageService } from 'app/services/message.service';
 
 @Component({
   selector: 'app-personal',
@@ -24,9 +26,11 @@ import { RouterModule } from '@angular/router';
 export class PersonalComponent {
 
   user!: personalUser;
+  lastMessages: MessageInterface[] = [];
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private messageService: MessageService
   ) {
   }
 
@@ -46,9 +50,33 @@ export class PersonalComponent {
     this.userService.getUserById(userId.id).subscribe({
       next: (res) => {
         this.user = res.data;
+        console.log('image:', this.user.rank_image);
       },
       error: (error) => {
         console.error('Error fetching user data:', error);
+      }
+    });
+
+    this.obtenerUltimosMensajes();
+  }
+
+  obtenerUltimosMensajes() {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      console.error('No token found in localStorage');
+      return;
+    }
+
+    let userId = jwtDecode(token) as { id: number };
+
+    this.messageService.getLastMessagesFromUser(userId.id).subscribe({
+      next: (res: any) => {
+        this.lastMessages = res.data;
+        console.log('Last messages:', this.lastMessages);
+      },
+      error: (error) => {
+        console.error('Error fetching last messages:', error);
       }
     });
   }
