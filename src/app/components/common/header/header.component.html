@@ -6,7 +6,12 @@
         </a>
     </div>
 
-    <div class="center-wrapper">
+    <!-- Botón hamburguesa para móvil -->
+    <button class="hamburger" (click)="toggleMobileMenu()">
+      ☰
+    </button>
+
+    <div class="center-wrapper" [class.open]="mobileMenuOpen">
       <nav class="logo-nav">
 
         <div class="logo-wrapper">
@@ -83,6 +88,10 @@
         </button>
       }
     </div>
+
+
+
+
   </header>
 }
 

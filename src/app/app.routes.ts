@@ -9,48 +9,78 @@ import { ResetPassComponent } from './components/auth/recover-password/reset-pas
 import { PersonalComponent } from './components/profile/personal/personal.component';
 import { ForumPageComponent } from './components/forum/forum-page/forum-page.component';
 
-
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'session/login',
     component: LoginComponent,
-    canActivate: [notAuthGuard]
+    canActivate: [notAuthGuard],
   },
   {
     path: 'session/register',
     component: RegisterComponent,
-    canActivate: [notAuthGuard]
+    canActivate: [notAuthGuard],
   },
   {
     path: 'session/sendRecover',
     component: SendMailComponent,
-    canActivate: [notAuthGuard]
+    canActivate: [notAuthGuard],
   },
   {
     path: 'session/recover/:token',
     component: ResetPassComponent,
-    canActivate: [notAuthGuard]
+    canActivate: [notAuthGuard],
   },
   {
     path: 'profile',
     component: PersonalComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   },
   {
     path: 'noticias/agregar',
-    loadComponent: () => import('./components/news/add-new/add-new.component').then(m => m.AddNewComponent),
-    canActivate: [authGuard] 
+    loadComponent: () =>
+      import('./components/news/add-new/add-new.component').then(
+        (m) => m.AddNewComponent
+      ),
+    canActivate: [authGuard],
   },
-  {    
+  {
+    path: 'noticias/:id',
+    loadComponent: () =>
+      import('./components/news/view-news/view-news.component').then(
+        (m) => m.ViewNewsComponent
+      ),
+  },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import('./components/contact/contact.component').then(
+        (m) => m.ContactoComponent
+      ),
+  },
+  {
+    path: 'about',
+    loadComponent: () =>
+      import('./components/about/about.component').then(
+        (m) => m.AboutComponent
+      ),
+  },
+  {
+    path: 'author/:name',
+    loadComponent: () =>
+      import('./components/about-view/about-view.component').then(
+        (m) => m.AboutViewComponent
+      ),
+  },
+  {
     path: 'forum',
-    component: ForumPageComponent
+    component: ForumPageComponent,
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];

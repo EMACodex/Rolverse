@@ -17,7 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
 export class HeaderComponent implements OnInit {
 
   isAdmin = false;
-
+  mobileMenuOpen = false;
+  
   constructor(
     private AuthService: AuthService,
     private router: Router
@@ -37,6 +38,9 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
 
   isLoggedIn(): boolean {
     return this.AuthService.isAuth();
