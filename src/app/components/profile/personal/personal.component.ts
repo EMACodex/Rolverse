@@ -18,24 +18,21 @@ import { MessageService } from 'app/services/message.service';
     RouterModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
   ],
   templateUrl: './personal.component.html',
-  styleUrl: './personal.component.css'
+  styleUrl: './personal.component.css',
 })
 export class PersonalComponent {
-
   user!: personalUser;
   lastMessages: MessageInterface[] = [];
 
   constructor(
     private userService: UserService,
     private messageService: MessageService
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
-
     const token = localStorage.getItem('token');
 
     if (!token) {
@@ -54,7 +51,7 @@ export class PersonalComponent {
       },
       error: (error) => {
         console.error('Error fetching user data:', error);
-      }
+      },
     });
 
     this.obtenerUltimosMensajes();
@@ -74,15 +71,14 @@ export class PersonalComponent {
       next: (res: any) => {
         this.lastMessages = res.data.map((m: MessageInterface) => ({
           ...m,
-          text: m.text.replace(/\\n/g, '\n') // si vienen escapados
+          text: m.text.replace(/\\n/g, '\n'), // si vienen escapados
         }));
 
         console.log('Last messages:', this.lastMessages);
       },
       error: (error) => {
         console.error('Error fetching last messages:', error);
-      }
+      },
     });
   }
-
 }

@@ -1,7 +1,8 @@
-.contenedor{
+.contenedor {
+  padding-top: 134px;
   min-height: 100vh;
   width: 100%;
-  background: url('/assets/img/fondo.jpg') no-repeat center center;
+  background: url("/assets/img/fondo.jpg") no-repeat center center;
   background-size: cover;
   position: relative;
   overflow: hidden;
@@ -10,10 +11,10 @@
 .forum-detail-container {
   background-color: #1f1b24;
   color: #f0e6d2;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   max-width: 900px;
   margin: 2rem auto;
   border: 2px solid #9c784b;
@@ -83,14 +84,14 @@
 }
 
 .forum-not-found h2 {
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: "Cinzel Decorative", cursive;
   color: #ffdd57;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 .forum-not-found p {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   color: #e0c891;
   margin-bottom: 2rem;
@@ -102,7 +103,7 @@
   color: #ffe0b2;
   padding: 10px 20px;
   border-radius: 6px;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   text-decoration: none;
   transition: all 0.3s ease;
   border: 1px solid #a63232;
@@ -118,7 +119,7 @@
   margin-top: 1rem;
   background: transparent;
   color: #e8dcc4;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
 }
 
 .image-preview {
@@ -142,11 +143,11 @@
   max-width: 900px;
   box-shadow: 0 0 20px rgba(255, 215, 100, 0.2);
   color: #fefae0;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
 }
 
 .create-message-container h3 {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #ffd700;
@@ -164,7 +165,7 @@
   height: 120px;
   padding: 10px;
   font-size: 1rem;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
   background-color: #2e2533;
   color: #fefae0;
   border: 1px solid #c9a769;
@@ -177,7 +178,7 @@
 }
 
 .file-input {
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
   color: #fefae0;
   border: none;
   background-color: transparent;
@@ -190,7 +191,7 @@
   border: 2px solid #a63232;
   border-radius: 8px;
   padding: 10px 20px;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
