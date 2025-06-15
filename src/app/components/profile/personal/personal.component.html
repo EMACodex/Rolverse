@@ -27,7 +27,9 @@
     <div class="messages-list">
       @for (message of lastMessages; track $index) {
         <div class="message-item">
-          <p class="message-content">{{ message.text }}</p>
+          <p class="message-content">
+            {{ message.text }}
+          </p>
           <p class="message-date">{{ message.creation_date| date: 'dd/MM/yyyy HH:mm' }}</p>
         </div>
       }

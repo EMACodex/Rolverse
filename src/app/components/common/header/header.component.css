@@ -191,3 +191,85 @@
   background-color: var(--color-marron-tost);
   color: var(--color-pergamino);
 }
+
+/* --- RESPONSIVE HEADER --- */
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    height: auto;
+    padding: 16px;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .main-logo-wrapper {
+    order: 1;
+  }
+
+  .main-logo {
+    height: 60px;
+  }
+
+  .center-wrapper {
+    position: static;
+    transform: none;
+    order: 2;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .logo-nav {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .game-logo {
+    height: 48px;
+  }
+
+  .tooltip-text {
+    font-size: 12px;
+    padding: 6px 10px;
+    bottom: 95%;
+  }
+
+  .login-button-wrapper {
+    order: 3;
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .rpg-login-button {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-logo {
+    height: 50px;
+  }
+
+  .game-logo {
+    height: 40px;
+  }
+
+  .tooltip-text {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .rpg-login-button {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+}

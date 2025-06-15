@@ -60,6 +60,7 @@
 .message-content {
   font-size: 1rem;
   line-height: 1.5;
+  white-space: pre-line;
 }
 
 .no-messages {
@@ -218,4 +219,97 @@
   border: 2px solid #c9a769;
   border-radius: 10px;
   box-shadow: 0 0 12px rgba(255, 230, 150, 0.3);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+@media (max-width: 768px) {
+  .forum-detail-container,
+  .create-message-container,
+  .forum-not-found {
+    margin: 1rem;
+    padding: 1.5rem;
+    max-width: 95%;
+  }
+
+  .forum-header h1 {
+    font-size: 2rem;
+  }
+
+  .messages-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .message-card {
+    padding: 0.8rem;
+  }
+
+  .message-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .create-message-container h3 {
+    font-size: 1.3rem;
+  }
+
+  .create-message-container textarea {
+    height: 100px;
+    font-size: 0.95rem;
+  }
+
+  .send-message {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .image-preview img {
+    max-width: 180px;
+  }
+
+  .back-button {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .forum-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .create-message-container h3 {
+    font-size: 1.1rem;
+  }
+
+  .create-message-container textarea {
+    height: 90px;
+    font-size: 0.9rem;
+  }
+
+  .send-message {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+
+  .message-meta {
+    font-size: 0.75rem;
+  }
+
+  .message-content {
+    font-size: 0.95rem;
+  }
+
+  .image-preview img {
+    max-width: 150px;
+  }
+
+  .forum-not-found h2 {
+    font-size: 1.5rem;
+  }
+
+  .forum-not-found p {
+    font-size: 0.9rem;
+  }
 }

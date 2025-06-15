@@ -72,7 +72,11 @@ export class PersonalComponent {
 
     this.messageService.getLastMessagesFromUser(userId.id).subscribe({
       next: (res: any) => {
-        this.lastMessages = res.data;
+        this.lastMessages = res.data.map((m: MessageInterface) => ({
+          ...m,
+          text: m.text.replace(/\\n/g, '\n') // si vienen escapados
+        }));
+
         console.log('Last messages:', this.lastMessages);
       },
       error: (error) => {
