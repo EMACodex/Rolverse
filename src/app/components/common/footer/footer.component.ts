@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, RouterModule } from '@angular/router';
+import {
+  Router,
+  NavigationEnd,
+  RouterLink,
+  RouterModule,
+} from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { ContactoComponent } from '../../contact/contact.component';
@@ -7,7 +12,7 @@ import { ContactoComponent } from '../../contact/contact.component';
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, RouterModule, ContactoComponent],
+  imports: [CommonModule, RouterModule, ContactoComponent, RouterLink],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css'],
 })
