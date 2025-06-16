@@ -11,9 +11,26 @@
 
   <div class="center-wrapper" [class.open]="mobileMenuOpen">
     <nav class="logo-nav">
+      <!-- D&D -->
       <div class="logo-wrapper">
-        <img src="assets/img/d&d.png" alt="D&D" class="game-logo" />
+        <div
+          class="game-logo-button"
+          [matMenuTriggerFor]="ddMenu"
+          #ddTrigger="matMenuTrigger"
+          (menuOpened)="swTrigger?.closeMenu()"
+        >
+          <img src="assets/img/d&d.png" alt="D&D" class="game-logo" />
+        </div>
         <span class="tooltip-text">D&D</span>
+
+        <mat-menu
+          #ddMenu="matMenu"
+          class="pergamino-menu"
+          [hasBackdrop]="false"
+        >
+          <button mat-menu-item routerLink="/personajes">Personajes</button>
+          <button mat-menu-item routerLink="/mapas">Mapas</button>
+        </mat-menu>
       </div>
 
       <!-- Pathfinder (comentado) -->
@@ -64,9 +81,32 @@
         </div>
         -->
 
+      <!-- Star Wars -->
       <div class="logo-wrapper">
-        <img src="assets/img/starwars.png" alt="Star Wars" class="game-logo" />
+        <div
+          class="game-logo-button"
+          [matMenuTriggerFor]="swMenu"
+          #swTrigger="matMenuTrigger"
+          (menuOpened)="ddTrigger?.closeMenu()"
+        >
+          <img
+            src="assets/img/starwars.png"
+            alt="Star Wars"
+            class="game-logo"
+          />
+        </div>
         <span class="tooltip-text">Star Wars</span>
+
+        <mat-menu
+          #swMenu="matMenu"
+          class="pergamino-menu"
+          [hasBackdrop]="false"
+        >
+          <button mat-menu-item routerLink="/starwars/personajes">
+            Personajes
+          </button>
+          <button mat-menu-item routerLink="/starwars/planetas">Mapas</button>
+        </mat-menu>
       </div>
 
       <div class="logo-wrapper">

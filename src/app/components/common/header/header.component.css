@@ -202,6 +202,17 @@
   cursor: pointer;
 }
 
+.game-logo-button {
+  display: inline-block; /* como un botón, pero sin estilos de botón */
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+}
+
 /* ==========================
    MÓVIL
    ========================== */

@@ -77,6 +77,34 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'personajes',
+    loadComponent: () =>
+      import(
+        './components/dungeon-characters/dungeon-character.component'
+      ).then((m) => m.DungeonCharacterComponent),
+  },
+  {
+    path: 'mapas',
+    loadComponent: () =>
+      import('./components/dungeon-world/dungeon-world.component').then(
+        (m) => m.DungeonWorldComponent
+      ),
+  },
+  {
+    path: 'starwars/personajes',
+    loadComponent: () =>
+      import(
+        './components/starwars-character/starwars-character.component'
+      ).then((m) => m.StarwarsCharacterComponent),
+  },
+  {
+    path: 'starwars/planetas',
+    loadComponent: () =>
+      import('./components/starwars-world/starwars-world.component').then(
+        (m) => m.StarwarsWorldComponent
+      ),
+  },
+  {
     path: 'forum',
     component: ForumPageComponent,
   },
