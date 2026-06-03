@@ -1,28 +1,70 @@
-<div class="dungeon-bg">
-  <h2 class="section-title">Mapas</h2>
+<div class="maps-bg">
+  <div class="maps-container">
+    <h1 class="main-title">Mapas de Dungeons & Dragons</h1>
 
-  <div class="grid-container">
-    @for (map of maps; track map) {
-    <div class="thumb-container">
-      <img
-        [src]="map"
-        alt="Dungeon World map"
-        class="thumb"
-        (click)="openModal(map)"
-      />
-      <a [href]="map" [download]="getFileName(map)" class="download-button">
-        Descargar Mapa
-      </a>
-    </div>
-    } @if (selectedMap) {
-    <div class="overlay" (click)="closeModal()">
-      <img
-        [src]="selectedMap"
-        alt="Mapa ampliado"
-        class="modal-img"
-        (click)="$event.stopPropagation()"
-      />
-    </div>
-    }
+    <section class="maps-section">
+      <article class="maps-card main-maps-card">
+        <h2>Qué son los mapas en Dungeons & Dragons</h2>
+
+        <p>
+          Los mapas en Dungeons & Dragons son una herramienta para organizar el
+          mundo de juego y ayudar a los jugadores a imaginar dónde están, hacia
+          dónde pueden ir y qué peligros pueden encontrar. No son solo dibujos
+          decorativos: sirven para construir la aventura.
+        </p>
+
+        <p>
+          Un buen mapa puede mostrar un reino completo, una ciudad importante,
+          una mazmorra abandonada, una fortaleza enemiga, un bosque encantado o
+          una ruta de viaje. Cada lugar puede esconder misiones, secretos,
+          enemigos, aliados y decisiones importantes para el grupo.
+        </p>
+
+        <p>
+          Para el Dungeon Master, los mapas ayudan a preparar encuentros,
+          calcular distancias, colocar enemigos, organizar escenas y mantener la
+          coherencia de la partida. Para los jugadores, hacen que el mundo sea
+          más fácil de entender y les permiten tomar decisiones con más
+          claridad.
+        </p>
+
+        <p>
+          En una partida rápida, un mapa puede ser tan sencillo como una aldea,
+          una cueva y un camino peligroso entre ambas. En una campaña larga,
+          puede convertirse en un continente lleno de reinos, dioses antiguos,
+          guerras, ruinas y lugares legendarios.
+        </p>
+      </article>
+
+      <div class="maps-grid">
+        @for (mapType of mapTypes; track mapType.name) {
+          <article class="map-card">
+            <h3>{{ mapType.name }}</h3>
+            <p>{{ mapType.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="maps-card download-info-card">
+        <h2>Mapas listos para descargar</h2>
+
+        <p>
+          En el botón de abajo encontrarás una selección de mapas preparados
+          para usar como inspiración, apoyo visual o base para crear partidas de
+          Dungeons & Dragons de forma rápida y sencilla.
+        </p>
+      </article>
+
+      <div class="maps-download-wrapper">
+        <a
+          [href]="dndMapsPdfUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="maps-download-button"
+        >
+          Descargar mapas de D&D
+        </a>
+      </div>
+    </section>
   </div>
 </div>

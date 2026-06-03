@@ -1,0 +1,71 @@
+<div class="maps-bg">
+  <div class="maps-container">
+    <h1 class="main-title">Mapas de Pathfinder</h1>
+
+    <section class="maps-section">
+      <article class="maps-card main-maps-card">
+        <h2>Qué son los mapas en Pathfinder</h2>
+
+        <p>
+          Los mapas en Pathfinder sirven para organizar el mundo de juego y dar
+          forma a las aventuras. No son solo imágenes decorativas: ayudan al
+          Game Master a preparar escenas, rutas, encuentros, regiones y lugares
+          importantes dentro de la historia.
+        </p>
+
+        <p>
+          Pathfinder suele trabajar con mundos de fantasía muy amplios, ciudades
+          llenas de facciones, mazmorras antiguas, templos perdidos, caminos
+          peligrosos y territorios marcados por magia, guerras o criaturas
+          extrañas. Un mapa permite que todo eso sea más claro para los
+          jugadores.
+        </p>
+
+        <p>
+          Para el Game Master, un mapa ayuda a colocar enemigos, calcular
+          distancias, preparar encuentros tácticos y mantener la coherencia de
+          la campaña. Para los jugadores, permite tomar decisiones con más
+          facilidad: qué camino seguir, qué zona investigar o dónde preparar una
+          emboscada.
+        </p>
+
+        <p>
+          En una partida rápida, un mapa puede ser una aldea, una ruta comercial
+          y unas ruinas cercanas. En una campaña larga, puede convertirse en una
+          región completa de Golarion con ciudades, dioses, facciones, amenazas
+          antiguas y secretos por descubrir.
+        </p>
+      </article>
+
+      <div class="maps-grid">
+        @for (mapType of mapTypes; track mapType.name) {
+          <article class="map-card">
+            <h3>{{ mapType.name }}</h3>
+            <p>{{ mapType.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="maps-card download-info-card">
+        <h2>Mapas listos para descargar</h2>
+
+        <p>
+          En el botón de abajo encontrarás una selección de mapas preparados
+          para usar como inspiración, apoyo visual o base para crear partidas de
+          Pathfinder de forma rápida y sencilla.
+        </p>
+      </article>
+
+      <div class="maps-download-wrapper">
+        <a
+          [href]="pathfinderMapsPdfUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="maps-download-button"
+        >
+          Descargar mapas de Pathfinder
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="stories-bg">
+  <div class="stories-container">
+    <h1 class="main-title">Historia de La Leyenda de los 5 Anillos</h1>
+
+    <section class="stories-section">
+      <article class="story-card main-history-card">
+        <h2>La historia en La Leyenda de los 5 Anillos</h2>
+
+        <p>
+          La Leyenda de los 5 Anillos se desarrolla en Rokugan, un imperio de
+          inspiración samurái donde el honor, la lealtad, la política, la
+          tradición y el deber pesan tanto como la espada. Sus historias no se
+          centran únicamente en vencer enemigos, sino en tomar decisiones que
+          afectan a la reputación, la familia, el clan y el equilibrio espiritual
+          del mundo.
+        </p>
+
+        <p>
+          En este tipo de partidas, los personajes pueden ser samuráis, cortesanos,
+          shugenja, monjes, duelistas, exploradores, magistrados o ronin. Cada uno
+          tiene un lugar dentro de la sociedad y una responsabilidad marcada por
+          su origen, su escuela, su señor y el clan al que pertenece.
+        </p>
+
+        <p>
+          Las aventuras pueden empezar con una misión aparentemente sencilla:
+          escoltar a un emisario, investigar una muerte sospechosa, resolver una
+          disputa entre familias o proteger un templo. Sin embargo, pronto suelen
+          aparecer dilemas de honor, secretos políticos, presiones sociales,
+          amenazas espirituales o decisiones donde no existe una respuesta
+          completamente limpia.
+        </p>
+
+        <p>
+          La fuerza de La Leyenda de los 5 Anillos está en que cada historia puede
+          mezclar acción, ceremonia, investigación, drama personal y tensión moral.
+          Una batalla puede decidir una frontera, pero una palabra mal dicha en la
+          corte puede destruir una alianza. Por eso, la historia no solo avanza por
+          los combates, sino por las decisiones y consecuencias de los personajes.
+        </p>
+      </article>
+
+      <div class="stories-grid">
+        @for (theme of storyThemes; track theme.name) {
+          <article class="story-theme-card">
+            <h3>{{ theme.name }}</h3>
+            <p>{{ theme.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="story-card download-info-card">
+        <h2>Historias listas para jugar</h2>
+
+        <p>
+          En el botón de abajo encontrarás historias preparadas para usar como
+          base de partidas de La Leyenda de los 5 Anillos. Puedes utilizarlas
+          como aventuras rápidas, inspiración para campañas o punto de partida
+          para crear conflictos propios dentro de Rokugan.
+        </p>
+      </article>
+
+      <div class="stories-download-wrapper">
+        <a
+          [href]="fiveRingsStoriesPdfUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="stories-download-button"
+        >
+          Descargar historias de La Leyenda de los 5 Anillos
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

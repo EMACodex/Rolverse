@@ -1,12 +1,18 @@
 /* Aplica estilos al host de este componente */
 :host {
-  display: flex; /* para centrar contenido */
-  justify-content: center; /* horizontal */
-  align-items: center; /* vertical */
-  min-height: calc(100vh - 170px); /* ajusta según header/footer */
-  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 
-  /* Imagen de fondo */
+  min-height: 100vh;
+
+  padding-top: 170px;
+  padding-bottom: 4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  box-sizing: border-box;
+
   background: url("/assets/img/contact.jpg") no-repeat center center fixed;
   background-size: cover;
 }
@@ -34,4 +40,136 @@
 }
 .contact-box a:hover {
   text-decoration: underline;
+}
+
+.contact-form {
+  margin-top: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--color-marron-tost);
+  font-weight: bold;
+  font-family: "Cinzel", serif;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+
+  border-radius: 8px;
+  border: 2px solid #8b6a36;
+
+  background: rgba(255, 248, 220, 0.9);
+
+  font-family: "Cardo", serif;
+  font-size: 1rem;
+
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 160px;
+}
+
+.contact-submit-button {
+  margin-top: 1rem;
+
+  font-family: "Cinzel", serif;
+  background: linear-gradient(#b08c4f, #7c5e2b);
+  border: 3px solid #4b2e15;
+  color: #fff;
+
+  padding: 12px 24px;
+  border-radius: 10px;
+
+  font-size: 1rem;
+  cursor: pointer;
+
+  transition: transform 0.1s ease-in-out;
+}
+
+.contact-submit-button:hover {
+  transform: scale(1.03);
+  background: linear-gradient(#d1a864, #8b6a36);
+}
+
+.success-message {
+  margin-top: 1rem;
+  color: green;
+  font-weight: bold;
+}
+
+.error-message {
+  margin-top: 1rem;
+  color: red;
+  font-weight: bold;
+}
+
+.field-error {
+  margin-top: 0.4rem;
+  color: #a80000;
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-family: "Cardo", serif;
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding-top: 120px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 3rem;
+    background-attachment: scroll;
+  }
+
+  .contact-box {
+    padding: 1.3rem;
+  }
+
+  .contact-box h1,
+  .contact-box h2 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+
+  .form-group textarea {
+    min-height: 120px;
+  }
+
+  .contact-submit-button {
+    width: 100%;
+    padding: 0.85rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :host {
+    padding-top: 105px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .contact-box {
+    padding: 1rem;
+  }
+
+  .contact-box h1,
+  .contact-box h2 {
+    font-size: 1.25rem;
+  }
 }

@@ -1,0 +1,186 @@
+<div class="system-bg">
+  <div class="system-container">
+    <h1 class="main-title">Sistema de Juego Warhammer 40,000</h1>
+
+    <div class="tabs-wrapper">
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'resumen'"
+        (click)="setTab('resumen')"
+      >
+        Resumen
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'rogueTrader'"
+        (click)="setTab('rogueTrader')"
+      >
+        Rogue Trader
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'second'"
+        (click)="setTab('second')"
+      >
+        2ª edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'third'"
+        (click)="setTab('third')"
+      >
+        3ª edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'fourth'"
+        (click)="setTab('fourth')"
+      >
+        4ª edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'fifth'"
+        (click)="setTab('fifth')"
+      >
+        5ª edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'sixth'"
+        (click)="setTab('sixth')"
+      >
+        6ª edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'seventh'"
+        (click)="setTab('seventh')"
+      >
+        7ª edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'eighth'"
+        (click)="setTab('eighth')"
+      >
+        8ª edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'ninth'"
+        (click)="setTab('ninth')"
+      >
+        9ª edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'tenth'"
+        (click)="setTab('tenth')"
+      >
+        10ª edición
+      </button>
+    </div>
+
+    @if (selectedTab === "resumen") {
+      <section class="summary-section">
+        <div class="questions-grid">
+          <article class="question-card question-card-wide">
+            <h3>Qué es Warhammer 40,000</h3>
+            <p>
+              Warhammer 40,000 es un juego de guerra con miniaturas ambientado
+              en un futuro oscuro donde imperios humanos, razas alienígenas,
+              dioses del Caos, máquinas de guerra y ejércitos fanáticos luchan
+              por dominar una galaxia en guerra eterna. Cada jugador construye
+              un ejército, despliega sus unidades sobre una mesa con
+              escenografía y juega una misión mediante turnos, dados, objetivos
+              y reglas de facción.
+            </p>
+          </article>
+
+          <article class="question-card">
+            <h3>Cómo evolucionó el sistema</h3>
+            <p>
+              Warhammer 40,000 comenzó con Rogue Trader, una edición muy
+              narrativa y cercana al rol. Después pasó por etapas más
+              detalladas, ediciones centradas en grandes ejércitos, sistemas con
+              formaciones y versiones modernas más ágiles, orientadas a
+              objetivos, misiones y reglas de facción más claras.
+            </p>
+          </article>
+
+          <article class="question-card">
+            <h3>Qué versión se juega actualmente</h3>
+            <p>
+              La base moderna más usada recientemente es Warhammer 40,000 10ª
+              edición, mientras que la 11ª edición ya ha sido anunciada como la
+              siguiente etapa del juego. Para empezar, lo más práctico es usar
+              la edición vigente en tu grupo y jugar primero partidas pequeñas.
+            </p>
+          </article>
+        </div>
+
+        <div class="manual-download-wrapper">
+          <a
+            [href]="warhammerGameSystemPdfUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="manual-download-button"
+          >
+            Descargar sistema de juego de Warhammer
+          </a>
+        </div>
+      </section>
+    }
+
+    @if (selectedTab === "rogueTrader") {
+      <app-warhammer-rogue-trader></app-warhammer-rogue-trader>
+    }
+
+    @if (selectedTab === "second") {
+      <app-warhammer-second-edition></app-warhammer-second-edition>
+    }
+
+    @if (selectedTab === "third") {
+      <app-warhammer-third-edition></app-warhammer-third-edition>
+    }
+
+    @if (selectedTab === "fourth") {
+      <app-warhammer-fourth-edition></app-warhammer-fourth-edition>
+    }
+
+    @if (selectedTab === "fifth") {
+      <app-warhammer-fifth-edition></app-warhammer-fifth-edition>
+    }
+
+    @if (selectedTab === "sixth") {
+      <app-warhammer-sixth-edition></app-warhammer-sixth-edition>
+    }
+
+    @if (selectedTab === "seventh") {
+      <app-warhammer-seventh-edition></app-warhammer-seventh-edition>
+    }
+
+    @if (selectedTab === "eighth") {
+      <app-warhammer-eighth-edition></app-warhammer-eighth-edition>
+    }
+
+    @if (selectedTab === "ninth") {
+      <app-warhammer-ninth-edition></app-warhammer-ninth-edition>
+    }
+
+    @if (selectedTab === "tenth") {
+      <app-warhammer-tenth-edition></app-warhammer-tenth-edition>
+    }
+  </div>
+</div>

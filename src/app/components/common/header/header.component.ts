@@ -1,28 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
-
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatMenuModule, MatIconModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-
   isAdmin = false;
   mobileMenuOpen = false;
-  
+
   constructor(
     private AuthService: AuthService,
-    private router: Router
-  ) { }
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
     const user = this.AuthService.getCurrentUser();
@@ -30,12 +34,15 @@ export class HeaderComponent implements OnInit {
     if (user) {
       if (Array.isArray((user as any).roles)) {
         this.isAdmin = (user as any).roles.includes('admin');
-      }
-      else if (typeof (user as any).role === 'string') {
+      } else if (typeof (user as any).role === 'string') {
         this.isAdmin = (user as any).role === 'admin';
       }
     }
-
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.mobileMenuOpen = false;
+      }
+    });
   }
 
   toggleMobileMenu() {
@@ -45,8 +52,6 @@ export class HeaderComponent implements OnInit {
   isLoggedIn(): boolean {
     return this.AuthService.isAuth();
   }
-
-  
 
   logout(): void {
     this.AuthService.logout();

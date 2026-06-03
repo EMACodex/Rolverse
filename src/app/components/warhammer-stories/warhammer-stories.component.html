@@ -1,0 +1,72 @@
+<div class="stories-bg">
+  <div class="stories-container">
+    <h1 class="main-title">Historia de Warhammer</h1>
+
+    <section class="stories-section">
+      <article class="story-card main-history-card">
+        <h2>La historia de Warhammer 40,000</h2>
+
+        <p>
+          Warhammer 40,000 presenta un futuro oscuro, violento y decadente donde
+          la humanidad se encuentra atrapada en una guerra interminable. No es
+          una historia de héroes perfectos ni de imperios luminosos, sino de
+          supervivencia, fanatismo, sacrificio y horror cósmico.
+        </p>
+
+        <p>
+          En el centro de este universo se encuentra el Imperio de la Humanidad,
+          una civilización gigantesca que domina millones de mundos, pero que
+          vive consumida por la guerra, la burocracia, la religión y el miedo a
+          la corrupción. El Emperador es venerado como una figura divina, aunque
+          su imperio se mantiene en pie a base de sangre, disciplina y obediencia.
+        </p>
+
+        <p>
+          Las historias de Warhammer pueden desarrollarse en campos de batalla,
+          ciudades colmena, fortalezas espaciales, mundos funerarios, planetas
+          salvajes, naves perdidas o regiones contaminadas por el Caos. Cada
+          escenario puede convertirse en una campaña donde los personajes deben
+          sobrevivir, investigar, luchar o tomar decisiones difíciles.
+        </p>
+
+        <p>
+          La clave de una buena historia de Warhammer está en el tono: todo debe
+          sentirse enorme, peligroso y decadente. Una misión sencilla puede
+          esconder una conspiración, una reliquia puede atraer a varios ejércitos
+          y una victoria puede tener un precio terrible.
+        </p>
+      </article>
+
+      <div class="stories-grid">
+        @for (story of stories; track story.title) {
+          <article class="story-card">
+            <h3>{{ story.title }}</h3>
+            <p>{{ story.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="story-card download-info-card">
+        <h2>Historias listas para jugar</h2>
+
+        <p>
+          En el botón de abajo encontrarás historias preparadas para usar como
+          base de partidas de Warhammer. Puedes utilizarlas para crear misiones,
+          campañas, investigaciones, combates, conflictos entre facciones y
+          aventuras ambientadas en mundos oscuros y peligrosos.
+        </p>
+      </article>
+
+      <div class="stories-download-wrapper">
+        <a
+          [href]="warhammerStoriesPdfUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="stories-download-button"
+        >
+          Descargar historias de Warhammer
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

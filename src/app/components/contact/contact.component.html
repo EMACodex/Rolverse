@@ -3,9 +3,65 @@
     Si quieres colaborar con nosotros, puedes proponernos lo que quieras, tanto
     si es para enviar tu propio material y que lo compartamos a través de la
     web, como si eres ilustrador o diseñador, cualquier idea y material de rol
-    es bienvenido, súmate a nosotros grumete, te escuchamos en
+    es bienvenido, súmate a nosotros pequeño hobbit, te escuchamos en
     <a href="mailto:rolverse.oficial@gmail.com">
       {{ "rolverse.oficial" + "@" + "gmail.com" }}
     </a>
   </p>
+
+  <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" formControlName="name" />
+      @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched)
+      {
+      <p class="field-error">El nombre debe tener entre 2 y 50 caracteres.</p>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Correo electrónico</label>
+      <input type="email" formControlName="email" />
+      @if (contactForm.get('email')?.invalid &&
+      contactForm.get('email')?.touched) {
+      <p class="field-error">Introduce un correo electrónico válido.</p>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Asunto</label>
+      <input type="text" formControlName="subject" />
+      @if (contactForm.get('subject')?.invalid &&
+      contactForm.get('subject')?.touched) {
+      <p class="field-error">El asunto debe tener al menos 3 caracteres.</p>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Mensaje</label>
+      <textarea rows="6" formControlName="message"></textarea>
+      @if (contactForm.get('message')?.invalid &&
+      contactForm.get('message')?.touched) {
+      <p class="field-error">El mensaje debe tener al menos 10 caracteres.</p>
+      }
+    </div>
+
+    <button
+      type="submit"
+      class="contact-submit-button"
+      [disabled]="contactForm.invalid"
+    >
+      Enviar mensaje
+    </button>
+
+    @if (successMessage) {
+    <p class="success-message">
+      {{ successMessage }}
+    </p>
+    } @if (errorMessage) {
+    <p class="error-message">
+      {{ errorMessage }}
+    </p>
+    }
+  </form>
 </div>

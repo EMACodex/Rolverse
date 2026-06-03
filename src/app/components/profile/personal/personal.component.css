@@ -131,3 +131,79 @@
   text-align: right;
   font-style: italic;
 }
+
+@media (max-width: 768px) {
+  .contenedor {
+    padding-top: 115px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .contenedor h1 {
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .personal-content {
+    width: 100%;
+    padding: 1.2rem;
+    gap: 1.5rem;
+  }
+
+  .escudo-container {
+    width: 150px;
+    height: 220px;
+  }
+
+  .personal-info {
+    width: 100%;
+    flex: 0 0 100%;
+    padding: 1rem;
+  }
+
+  .personal-info-rol h2 {
+    font-size: 1.3rem;
+  }
+
+  .personal-info-rol p {
+    font-size: 0.95rem;
+  }
+
+  .messages {
+    width: 100%;
+    padding: 1.2rem;
+  }
+
+  .messages h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor h1 {
+    font-size: 1.6rem;
+  }
+
+  .escudo-container {
+    width: 120px;
+    height: 180px;
+  }
+
+  .personal-content {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .messages {
+    padding: 1rem;
+  }
+
+  .message-content {
+    font-size: 0.9rem;
+  }
+
+  .message-date {
+    text-align: left;
+  }
+}

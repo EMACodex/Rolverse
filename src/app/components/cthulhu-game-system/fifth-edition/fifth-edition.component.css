@@ -1,0 +1,82 @@
+.edition-page {
+  text-align: left;
+}
+
+.edition-hero {
+  background: rgba(255, 248, 220, 0.94);
+  border: 3px double var(--color-marron-tost);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.8rem;
+  color: #3b1f0f;
+  text-align: center;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.45);
+}
+
+.edition-hero span {
+  display: inline-block;
+  font-family: "Cinzel", serif;
+  color: var(--color-dorado);
+  background: #3b1f0f;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 0.8rem;
+}
+
+.edition-hero h2 {
+  font-family: "Cinzel", serif;
+  color: var(--color-marron-tost);
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.edition-hero p {
+  font-family: "Cardo", serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.edition-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.edition-card {
+  background: rgba(255, 248, 220, 0.94);
+  border: 3px double var(--color-marron-tost);
+  border-radius: 12px;
+  padding: 1.4rem;
+  color: #3b1f0f;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.45);
+}
+
+.edition-card h3 {
+  font-family: "Cinzel", serif;
+  color: var(--color-marron-tost);
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+.edition-card ul {
+  padding-left: 1.2rem;
+}
+
+.edition-card li {
+  font-family: "Cardo", serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+
+@media (max-width: 768px) {
+  .edition-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .edition-hero h2 {
+    font-size: 1.6rem;
+  }
+}

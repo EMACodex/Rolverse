@@ -1,0 +1,66 @@
+<div class="bestiary-bg">
+  <div class="bestiary-container">
+    <h1 class="main-title">Bestiario de La Leyenda de los 5 Anillos</h1>
+
+    <section class="bestiary-section">
+      <article class="bestiary-card main-bestiary-card">
+        <h2>Qué es un bestiario en La Leyenda de los 5 Anillos</h2>
+
+        <p>
+          Un bestiario en La Leyenda de los 5 Anillos reúne criaturas,
+          espíritus, demonios, horrores de las Tierras Sombrías y seres
+          sobrenaturales que pueden aparecer en las historias de Rokugán. No
+          sirve únicamente para preparar combates, sino también para construir
+          misterio, tensión, corrupción espiritual y conflictos relacionados con
+          el honor, el deber y la tradición.
+        </p>
+
+        <p>
+          En este tipo de juego, una criatura no siempre debe ser un enemigo que
+          se derrota con una espada. Puede ser una advertencia de los kami, una
+          consecuencia de una promesa rota, una maldición familiar, una prueba
+          para un samurái o una amenaza nacida de las Tierras Sombrías. Por eso,
+          cada criatura debería tener un propósito dentro de la historia.
+        </p>
+
+        <p>
+          Para usar bien un bestiario, el director de juego puede pensar en tres
+          preguntas: qué representa la criatura, qué quiere y qué precio tendrá
+          enfrentarse a ella. Así, los monstruos dejan de ser simples obstáculos
+          y se convierten en parte del drama, la política, la espiritualidad y
+          el peligro de Rokugán.
+        </p>
+      </article>
+
+      <div class="creatures-grid">
+        @for (creature of creatures; track creature.name) {
+          <article class="creature-card">
+            <h3>{{ creature.name }}</h3>
+            <p>{{ creature.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="bestiary-card download-info-card">
+        <h2>Bestiario listo para descargar</h2>
+
+        <p>
+          En el botón de abajo encontrarás un bestiario preparado para consultar
+          criaturas, crear encuentros y montar historias de La Leyenda de los 5
+          Anillos de forma rápida y sencilla.
+        </p>
+      </article>
+
+      <div class="bestiary-download-wrapper">
+        <a
+          [href]="fiveRingsBestiaryPdfUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bestiary-download-button"
+        >
+          Descargar bestiario de la leyenda de los 5 anillos
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

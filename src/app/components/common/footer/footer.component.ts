@@ -12,7 +12,7 @@ import { ContactoComponent } from '../../contact/contact.component';
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, RouterModule, ContactoComponent, RouterLink],
+  imports: [CommonModule, RouterModule, RouterLink],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css'],
 })

@@ -1,38 +1,73 @@
-<div class="starwars-bg">
-  <h2 class="section-title">Personajes</h2>
+<div class="characters-bg">
+  <div class="characters-container">
+    <h1 class="main-title">Personajes de Star Wars</h1>
 
-  <div class="grid-container">
-    @for (img of images; track img) {
-    <div class="thumb-container">
-      <img
-        [src]="img"
-        alt="Star Wars personaje"
-        class="thumb"
-        (click)="openModal(img)"
-      />
-      <a [href]="img" [download]="getFileName(img)" class="download-button">
-        Descargar Personaje
-      </a>
-    </div>
-    } @if (selectedImg) {
-    <div class="overlay" (click)="closeModal()">
-      <img
-        [src]="selectedImg"
-        alt="Personaje ampliado"
-        class="modal-img"
-        (click)="$event.stopPropagation()"
-      />
-    </div>
-    }
-  </div>
+    <section class="characters-section">
+      <article class="character-card main-character-card">
+        <h2>Qué es un personaje en Star Wars</h2>
 
-  <div class="pdf-download-wrapper">
-    <a
-      href="assets/img/personajes star wars/hoja personaje star wars.pdf"
-      download="hoja-personaje-starwars.pdf"
-      class="pdf-download-button"
-    >
-      Descargar Hoja de Personaje
-    </a>
+        <p>
+          Un personaje de Star Wars es mucho más que una ficha de juego. Es una
+          persona, droide, guerrero, piloto, usuario de la Fuerza, explorador o
+          superviviente que vive aventuras dentro de una galaxia marcada por la
+          guerra, la esperanza, la corrupción, los grandes imperios y las
+          pequeñas decisiones personales.
+        </p>
+
+        <p>
+          En una partida, los personajes pueden formar parte de una tripulación,
+          una célula rebelde, una orden de usuarios de la Fuerza, una banda de
+          contrabandistas o un grupo de fugitivos perseguidos por una amenaza
+          superior. Cada uno aporta habilidades, conflictos, objetivos y una
+          forma distinta de enfrentarse al peligro.
+        </p>
+
+        <p>
+          Para crear un personaje, normalmente se define su origen, su papel en
+          el grupo, sus habilidades principales, su relación con la Fuerza si la
+          tiene, su equipo y su motivación. Lo importante no es que sea
+          perfecto, sino que tenga algo que perder, algo que proteger y una
+          razón para lanzarse a la aventura.
+        </p>
+
+        <p>
+          Las mejores historias de Star Wars nacen del contraste entre grandes
+          conflictos galácticos y decisiones personales: salvar a un amigo,
+          resistir la tentación del poder, proteger un planeta, escapar de un
+          enemigo imposible o elegir entre obedecer órdenes o hacer lo correcto.
+        </p>
+      </article>
+
+      <div class="characters-grid">
+        @for (character of characterTypes; track character.name) {
+          <article class="character-type-card">
+            <h3>{{ character.name }}</h3>
+            <p>{{ character.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="character-card download-info-card">
+        <h2>Hojas de personaje listas para descargar</h2>
+
+        <p>
+          En el botón de abajo encontrarás hojas de personaje preparadas para
+          usarlas en partidas de Star Wars. Puedes descargarlas, imprimirlas o
+          utilizarlas como base para crear héroes, villanos, pilotos, soldados,
+          droides o usuarios de la Fuerza de forma rápida y sencilla.
+        </p>
+      </article>
+
+      <div class="characters-download-wrapper">
+        <a
+          [href]="starwarsCharacterPdfUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="characters-download-button"
+        >
+          Descargar hojas de personaje de Star Wars
+        </a>
+      </div>
+    </section>
   </div>
 </div>

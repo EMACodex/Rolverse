@@ -1,0 +1,250 @@
+.maps-bg {
+  position: relative;
+  min-height: calc(100vh - 100px);
+  padding-top: 140px;
+  padding-bottom: 4rem;
+  background: url("/assets/img/mundos pathfinder/fondo.png") no-repeat center
+    center;
+  background-size: cover;
+  text-align: center;
+  overflow: hidden;
+}
+
+.maps-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.76),
+    rgba(0, 0, 0, 0.58),
+    rgba(0, 0, 0, 0.84)
+  );
+  z-index: 0;
+}
+
+.maps-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+.maps-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(20, 16, 12, 0.82);
+  border: 4px double var(--color-dorado);
+  border-radius: 14px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+}
+
+.main-title {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 4px #000;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+  padding-bottom: 0.35rem;
+  font-family: "Cinzel", serif;
+}
+
+.main-subtitle {
+  color: #f5e6b8;
+  font-size: 1.1rem;
+  max-width: 850px;
+  margin: 1rem auto 2rem;
+  line-height: 1.6;
+  font-family: "Cardo", serif;
+}
+
+.maps-section {
+  width: 100%;
+}
+
+.maps-card,
+.map-card {
+  background: rgba(255, 248, 220, 0.94);
+  border: 3px double var(--color-marron-tost);
+  border-radius: 12px;
+  padding: 1.7rem;
+  color: #3b1f0f;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.45);
+}
+
+.maps-card h2,
+.map-card h3 {
+  color: var(--color-marron-tost);
+  font-family: "Cinzel", serif;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.maps-card h2 {
+  font-size: 1.5rem;
+}
+
+.map-card h3 {
+  font-size: 1.25rem;
+}
+
+.maps-card p,
+.map-card p {
+  font-family: "Cardo", serif;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.maps-card p:last-child,
+.map-card p:last-child {
+  margin-bottom: 0;
+}
+
+.main-maps-card {
+  max-width: 1000px;
+  margin: 0 auto 1.8rem;
+}
+
+.maps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.download-info-card {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.maps-download-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.maps-download-button {
+  font-family: "Cinzel", serif;
+  display: inline-block;
+  text-decoration: none;
+  background: linear-gradient(#f1d27a, #b08c4f);
+  color: #2d1608;
+  border: 3px double #4b2e15;
+  border-radius: 10px;
+  padding: 0.9rem 1.6rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow:
+    0 0 14px rgba(212, 175, 55, 0.7),
+    0 0 18px rgba(0, 0, 0, 0.65);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.maps-download-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(#ffe08a, #c99a45);
+  box-shadow:
+    0 0 18px rgba(241, 210, 122, 0.95),
+    0 0 28px rgba(212, 175, 55, 0.85),
+    0 0 22px rgba(0, 0, 0, 0.75);
+}
+
+.maps-download-button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 1024px) {
+  .maps-container {
+    width: 92%;
+    padding: 1.5rem;
+  }
+
+  .main-title {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .maps-bg {
+    padding-top: 130px;
+  }
+
+  .maps-container {
+    width: 92%;
+    padding: 1.2rem;
+  }
+
+  .main-title {
+    font-size: 1.9rem;
+  }
+
+  .main-subtitle {
+    font-size: 1rem;
+  }
+
+  .maps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .maps-card,
+  .map-card {
+    padding: 1.3rem;
+  }
+
+  .maps-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .map-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .maps-card p,
+  .map-card p {
+    font-size: 1rem;
+  }
+
+  .maps-download-button {
+    width: 100%;
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 0.85rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .maps-bg {
+    padding-top: 120px;
+    padding-bottom: 2rem;
+  }
+
+  .maps-container {
+    width: 94%;
+    padding: 1rem;
+  }
+
+  .main-title {
+    font-size: 1.55rem;
+  }
+
+  .maps-card h2 {
+    font-size: 1.15rem;
+  }
+
+  .map-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .maps-card p,
+  .map-card p {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,97 @@
+<div class="system-bg">
+  <div class="system-container">
+    <h1 class="main-title">Sistema de Juego Pathfinder</h1>
+
+    <div class="tabs-wrapper">
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'resumen'"
+        (click)="setTab('resumen')"
+      >
+        Resumen
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'first'"
+        (click)="setTab('first')"
+      >
+        Pathfinder 1e
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'second'"
+        (click)="setTab('second')"
+      >
+        Pathfinder 2e
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'remaster'"
+        (click)="setTab('remaster')"
+      >
+        Pathfinder Remaster
+      </button>
+    </div>
+
+    @if (selectedTab === "resumen") {
+      <section class="summary-section">
+        <div class="questions-grid">
+          <article class="question-card question-card-wide">
+            <h3>Qué es Pathfinder</h3>
+            <p>
+              Pathfinder es un juego de rol de fantasía donde los jugadores
+              interpretan héroes, exploradores, guerreros, lanzadores de
+              conjuros, pícaros, campeones o aventureros dentro de un mundo
+              lleno de ruinas antiguas, monstruos, magia, dioses, imperios y
+              amenazas sobrenaturales. Las partidas son dirigidas por un Game
+              Master, que presenta la historia, describe los escenarios,
+              controla a los enemigos y decide cuándo las acciones necesitan una
+              tirada de dados.
+            </p>
+          </article>
+
+          <article class="question-card">
+            <h3>Cómo evolucionó el sistema</h3>
+            <p>
+              Pathfinder empezó como una evolución del estilo d20 y D&D 3.5.
+              Después pasó a una segunda edición más ordenada, equilibrada y
+              táctica, con reglas propias más claras.
+            </p>
+          </article>
+
+          <article class="question-card">
+            <h3>Qué versión se juega más actualmente</h3>
+            <p>
+              Actualmente la base moderna más recomendable es Pathfinder 2e
+              junto con su Remaster, porque está más organizada, tiene mejor
+              equilibrio y resulta más clara para campañas nuevas.
+            </p>
+          </article>
+        </div>
+
+        <div class="manual-download-wrapper">
+          <a
+            [href]="pathfinderManualPdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="manual-download-button"
+          >
+            Descargar manual completo de Pathfinder
+          </a>
+        </div>
+      </section>
+    }
+    @if (selectedTab === "first") {
+      <app-pathfinder-first-edition></app-pathfinder-first-edition>
+    }
+    @if (selectedTab === "second") {
+      <app-pathfinder-second-edition></app-pathfinder-second-edition>
+    }
+    @if (selectedTab === "remaster") {
+      <app-pathfinder-remaster></app-pathfinder-remaster>
+    }
+  </div>
+</div>

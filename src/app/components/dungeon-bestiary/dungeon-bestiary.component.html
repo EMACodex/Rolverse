@@ -1,0 +1,69 @@
+<div class="bestiary-bg">
+  <div class="bestiary-container">
+    <h1 class="main-title">Bestiario de Dungeons & Dragons</h1>
+
+    <section class="bestiary-section">
+      <article class="bestiary-card main-bestiary-card">
+        <h2>Qué es un bestiario en Dungeons & Dragons</h2>
+
+        <p>
+          Un bestiario es una colección de criaturas, monstruos y enemigos que
+          el Dungeon Master puede utilizar para crear encuentros, aventuras y
+          campañas. No se trata solo de una lista de enemigos para combatir,
+          sino de una herramienta para dar vida al mundo de juego.
+        </p>
+
+        <p>
+          Cada criatura puede cumplir una función diferente dentro de la
+          historia: proteger un tesoro, servir a un villano, habitar una región
+          salvaje, custodiar una ruina antigua, sembrar el terror en una aldea o
+          poner a prueba las decisiones morales de los personajes.
+        </p>
+
+        <p>
+          En Dungeons & Dragons, las bestias y monstruos ayudan a definir el
+          tono de la partida. Un grupo de goblins puede iniciar una aventura de
+          bajo nivel, un dragón puede cerrar una campaña épica y un lich puede
+          convertirse en el enemigo principal de toda una región.
+        </p>
+
+        <p>
+          Para usar bien un bestiario, el Máster debe pensar en tres cosas: qué
+          quiere la criatura, dónde vive y cómo reaccionará ante los personajes.
+          Así, los monstruos dejan de ser simples obstáculos y se convierten en
+          parte activa de la historia.
+        </p>
+      </article>
+
+      <div class="creatures-grid">
+        @for (creature of creatures; track creature.name) {
+          <article class="creature-card">
+            <h3>{{ creature.name }}</h3>
+            <p>{{ creature.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="bestiary-card download-info-card">
+        <h2>Bestiario listo para descargar</h2>
+
+        <p>
+          En el botón de abajo encontrarás un bestiario preparado para consultar
+          criaturas, inspirarte al crear encuentros y montar partidas de
+          Dungeons & Dragons de forma rápida y sencilla.
+        </p>
+      </article>
+
+      <div class="bestiary-download-wrapper">
+        <a
+          [href]="dndBestiaryPdfUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bestiary-download-button"
+        >
+          Descargar bestiario de D&D
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,235 @@
+.system-bg {
+  position: relative;
+  min-height: calc(100vh - 100px);
+  padding-top: 140px;
+  padding-bottom: 4rem;
+  background: url("/assets/img/cthulhu sistema de juego/fondo.png") no-repeat
+    center center;
+  background-size: cover;
+  text-align: center;
+  overflow: hidden;
+}
+
+.system-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.74),
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.84)
+  );
+  z-index: 0;
+}
+
+.system-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+.system-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(20, 16, 12, 0.82);
+  border: 4px double var(--color-dorado);
+  border-radius: 14px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+}
+
+.main-title {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 4px #000;
+  margin-bottom: 1.8rem;
+  display: inline-block;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+  padding-bottom: 0.35rem;
+  font-family: "Cinzel", serif;
+}
+
+.tabs-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2.5rem;
+}
+
+.tab-button {
+  font-family: "Cinzel", serif;
+  background: linear-gradient(#b08c4f, #7c5e2b);
+  color: #fff;
+  border: 2px solid #4b2e15;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition:
+    transform 0.15s ease,
+    background 0.2s ease;
+}
+
+.tab-button:hover {
+  transform: scale(1.04);
+  background: linear-gradient(#d1a864, #8b6a36);
+}
+
+.tab-button.active {
+  background: linear-gradient(#f1d27a, #b08c4f);
+  color: #2d1608;
+  border-color: var(--color-dorado);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+.summary-section {
+  width: 100%;
+}
+
+.questions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.question-card {
+  background: rgba(255, 248, 220, 0.94);
+  border: 3px double var(--color-marron-tost);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #3b1f0f;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.45);
+  text-align: center;
+}
+
+.question-card-wide {
+  grid-column: 1 / -1;
+}
+
+.question-card h3 {
+  color: var(--color-marron-tost);
+  font-family: "Cinzel", serif;
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+}
+
+.question-card p {
+  font-family: "Cardo", serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.manual-download-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.manual-download-button {
+  font-family: "Cinzel", serif;
+  display: inline-block;
+  text-decoration: none;
+  background: linear-gradient(#f1d27a, #b08c4f);
+  color: #2d1608;
+  border: 3px double #4b2e15;
+  border-radius: 10px;
+  padding: 0.9rem 1.6rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow:
+    0 0 14px rgba(212, 175, 55, 0.7),
+    0 0 18px rgba(0, 0, 0, 0.65);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.manual-download-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(#ffe08a, #c99a45);
+  box-shadow:
+    0 0 18px rgba(241, 210, 122, 0.95),
+    0 0 28px rgba(212, 175, 55, 0.85),
+    0 0 22px rgba(0, 0, 0, 0.75);
+}
+
+.manual-download-button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 1024px) {
+  .system-container {
+    width: 92%;
+    padding: 1.5rem;
+  }
+
+  .main-title {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .system-bg {
+    padding-top: 130px;
+  }
+
+  .system-container {
+    width: 92%;
+    padding: 1.2rem;
+  }
+
+  .questions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .question-card-wide {
+    grid-column: auto;
+  }
+
+  .main-title {
+    font-size: 1.9rem;
+  }
+
+  .tab-button {
+    width: 100%;
+  }
+
+  .manual-download-button {
+    width: 100%;
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 0.85rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .system-bg {
+    padding-top: 120px;
+    padding-bottom: 2rem;
+  }
+
+  .system-container {
+    width: 94%;
+    padding: 1rem;
+  }
+
+  .main-title {
+    font-size: 1.6rem;
+  }
+
+  .question-card {
+    padding: 1.2rem;
+  }
+
+  .question-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .question-card p {
+    font-size: 0.95rem;
+  }
+}

@@ -1,37 +1,71 @@
-<div class="dungeon-bg">
-  <h2 class="section-title">Personajes</h2>
+<div class="characters-bg">
+  <div class="characters-container">
+    <h1 class="main-title">Personajes de Dungeons & Dragons</h1>
 
-  <div class="grid-container">
-    @for (img of images; track img) {
-    <div class="thumb-container">
-      <img
-        [src]="img"
-        alt="Dungeon character"
-        class="thumb"
-        (click)="openModal(img)"
-      />
-      <a [href]="img" [download]="getFileName(img)" class="download-button">
-        Descargar Personaje
-      </a>
-    </div>
-    } @if (selectedImg) {
-    <div class="overlay" (click)="closeModal()">
-      <img
-        [src]="selectedImg"
-        alt="Ampliada"
-        class="modal-img"
-        (click)="$event.stopPropagation()"
-      />
-    </div>
-    }
-  </div>
-  <div class="pdf-download-wrapper">
-    <a
-      href="assets/img/personajes dungeon/hoja de personaje.pdf"
-      download="hoja-de-personaje.pdf"
-      class="pdf-download-button"
-    >
-      Descargar Hoja de Personaje D&D 5e
-    </a>
+    <section class="characters-section">
+      <article class="character-card main-character-card">
+        <h2>Qué es un personaje en Dungeons & Dragons</h2>
+
+        <p>
+          Un personaje es el héroe, aventurero o protagonista que interpreta
+          cada jugador dentro de la historia. No es solo una ficha con números:
+          es una identidad dentro del mundo, con una clase, una raza o especie,
+          un pasado, una motivación y una forma concreta de resolver problemas.
+        </p>
+
+        <p>
+          En una partida, los personajes exploran mazmorras, hablan con aliados,
+          negocian con enemigos, investigan misterios, combaten criaturas y
+          toman decisiones que pueden cambiar el destino de una aldea, una
+          ciudad o un reino entero.
+        </p>
+
+        <p>
+          Para crear un personaje de Dungeons & Dragons, normalmente se elige
+          una clase, una especie, un trasfondo, unos atributos principales,
+          equipo y habilidades. Después, el jugador le da personalidad: qué
+          quiere, qué teme, qué protege y por qué se une al grupo de
+          aventureros.
+        </p>
+
+        <p>
+          Un buen personaje no tiene que ser perfecto. Puede ser valiente,
+          cobarde, ambicioso, noble, torpe, arrogante o misterioso. Lo
+          importante es que tenga una razón para vivir aventuras y que pueda
+          crecer a medida que avanza la campaña.
+        </p>
+      </article>
+
+      <div class="characters-grid">
+        @for (character of characterTypes; track character.name) {
+          <article class="character-type-card">
+            <h3>{{ character.name }}</h3>
+            <p>{{ character.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="character-card download-info-card">
+        <h2>Hojas de personaje listas para descargar</h2>
+
+        <p>
+          En el botón de abajo encontrarás hojas de personaje preparadas para
+          usarlas en partidas de Dungeons & Dragons. Puedes descargarlas,
+          imprimirlas o utilizarlas como base para crear aventureros nuevos de
+          forma rápida y sencilla.
+        </p>
+      </article>
+
+      <div class="characters-download-wrapper">
+        <a
+          [href]="dndCharacterSheetUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="characters-download-button"
+        >
+          Descargar hojas de personaje de D&D
+        </a>
+      </div>
+    </section>
   </div>
 </div>

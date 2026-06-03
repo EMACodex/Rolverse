@@ -1,90 +1,413 @@
-@if(!isSessionRoute()){
-<header class="header-container">
-  <div class="main-logo-wrapper">
-    <a routerLink="/">
-      <img src="assets/img/logo.png" alt="Rolverse Logo" class="main-logo" />
-    </a>
-  </div>
+@if (!isSessionRoute()) {
+  <header class="header-container">
+    <div class="main-logo-wrapper">
+      <a routerLink="/">
+        <img src="assets/img/logo.png" alt="Rolverse Logo" class="main-logo" />
+      </a>
+    </div>
 
-  <!-- Botón hamburguesa para móvil -->
-  <button class="hamburger" (click)="toggleMobileMenu()">☰</button>
+    <!-- Botón para móvil -->
+    <button class="hamburger" (click)="toggleMobileMenu()">☰</button>
 
-  <div class="center-wrapper" [class.open]="mobileMenuOpen">
-    <nav class="logo-nav">
-      <!-- D&D -->
-      <div class="logo-wrapper">
+    <div class="center-wrapper" [class.open]="mobileMenuOpen">
+      <nav class="logo-nav">
+        <!-- D&D -->
         <div
-          class="game-logo-button"
+          class="logo-wrapper"
           [matMenuTriggerFor]="ddMenu"
           #ddTrigger="matMenuTrigger"
           (menuOpened)="swTrigger?.closeMenu()"
         >
           <img src="assets/img/d&d.png" alt="D&D" class="game-logo" />
+
+          <span class="tooltip-text">D&D</span>
+
+          <mat-menu
+            #ddMenu="matMenu"
+            class="pergamino-menu"
+            backdropClass="transparent-backdrop"
+          >
+            <button mat-menu-item routerLink="/personajes">
+              <img
+                src="assets/img/personajes dungeon/personajes.png"
+                alt=""
+                class="menu-icon"
+              />
+              Personajes
+            </button>
+            <button mat-menu-item routerLink="/mapas">
+              <img
+                src="assets/img/mundos dungeon/mapas.png"
+                alt=""
+                class="menu-icon"
+              />
+              Mapas
+            </button>
+            <button mat-menu-item routerLink="/sistema-de-juego">
+              <img
+                src="assets/img/sistema juego dungeon/libro.png"
+                alt=""
+                class="menu-icon"
+              />
+              Sistema de Juego
+            </button>
+            <button mat-menu-item routerLink="/historias-dungeon">
+              <img
+                src="assets/img/historia dungeon/historia.png"
+                alt=""
+                class="menu-icon"
+              />
+              Historia
+            </button>
+            <button mat-menu-item routerLink="/bestiario-dungeon">
+              <img
+                src="assets/img/bestiario dungeon/bestia.png"
+                alt=""
+                class="menu-icon"
+              />
+              Bestiario
+            </button>
+          </mat-menu>
         </div>
-        <span class="tooltip-text">D&D</span>
 
-        <mat-menu
-          #ddMenu="matMenu"
-          class="pergamino-menu"
-          backdropClass="transparent-backdrop"
-        >
-          <button mat-menu-item routerLink="/personajes">Personajes</button>
-          <button mat-menu-item routerLink="/mapas">Mapas</button>
-        </mat-menu>
-      </div>
-
-      <!-- Pathfinder (comentado) -->
-      <!--
-        <div class="logo-wrapper">
-          <img src="assets/img/pathfinder.png" alt="Pathfinder" class="game-logo" />
-          <span class="tooltip-text">Pathfinder</span>
-        </div>
-        -->
-
-      <!-- Anima (comentado) -->
-      <!--
-        <div class="logo-wrapper">
-          <img src="assets/img/anima.png" alt="Anima" class="game-logo" />
-          <span class="tooltip-text">Anima</span>
-        </div>
-        -->
-
-      <!-- Warhammer 40000 (comentado) -->
-      <!--
-        <div class="logo-wrapper">
-          <img src="assets/img/warhammer 40000.png" alt="Warhammer 40000" class="game-logo" />
-          <span class="tooltip-text">Warhammer 40000</span>
-        </div>
-        -->
-
-      <!-- Cthulhu (comentado) -->
-      <!--
-        <div class="logo-wrapper">
-          <img src="assets/img/cthulu.png" alt="Cthulhu" class="game-logo" />
-          <span class="tooltip-text">Cthulhu</span>
-        </div>
-        -->
-
-      <!-- La Leyenda de los 5 Anillos (comentado) -->
-      <!--
-        <div class="logo-wrapper">
-          <img src="assets/img/5 anillos.png" alt="Leyenda de los 5 Anillos" class="game-logo" />
-          <span class="tooltip-text">La Leyenda de los 5 Anillos</span>
-        </div>
-        -->
-
-      <!-- Masks (comentado) -->
-      <!--
-        <div class="logo-wrapper">
-          <img src="assets/img/masks.png" alt="Masks" class="game-logo" />
-          <span class="tooltip-text">Masks</span>
-        </div>
-        -->
-
-      <!-- Star Wars -->
-      <div class="logo-wrapper">
+        <!-- Pathfinder -->
         <div
-          class="game-logo-button"
+          class="logo-wrapper"
+          [matMenuTriggerFor]="pathfinderMenu"
+          #pathfinderTrigger="matMenuTrigger"
+          (menuOpened)="ddTrigger?.closeMenu(); swTrigger?.closeMenu()"
+        >
+          <img
+            src="assets/img/pathfinder.png"
+            alt="Pathfinder"
+            class="game-logo"
+          />
+
+          <span class="tooltip-text">Pathfinder</span>
+
+          <mat-menu
+            #pathfinderMenu="matMenu"
+            class="pergamino-menu"
+            backdropClass="transparent-backdrop"
+          >
+            <button mat-menu-item routerLink="/pathfinder-personajes">
+              <img
+                src="assets/img/personajes pathfinder/mago.png"
+                alt=""
+                class="menu-icon"
+              />
+              Personajes
+            </button>
+
+            <button mat-menu-item routerLink="/pathfinder-mapas">
+              <img
+                src="assets/img/mundos pathfinder/mapas.png"
+                alt=""
+                class="menu-icon"
+              />
+              Mapas
+            </button>
+
+            <button mat-menu-item routerLink="/pathfinder-sistema-de-juego">
+              <img
+                src="assets/img/sistema juego pathfinder/pathfinder.png"
+                alt=""
+                class="menu-icon"
+              />
+              Sistema de Juego
+            </button>
+
+            <button mat-menu-item routerLink="/pathfinder-historias">
+              <img
+                src="assets/img/historia pathfinder/historia.png"
+                alt=""
+                class="menu-icon"
+              />
+              Historia
+            </button>
+            <button mat-menu-item routerLink="/pathfinder-bestiario">
+              <img
+                src="assets/img/bestiario pathfinder/bestiario.png"
+                alt=""
+                class="menu-icon"
+              />
+              Bestiario
+            </button>
+          </mat-menu>
+        </div>
+
+        <!-- Anima -->
+        <div
+          class="logo-wrapper"
+          [matMenuTriggerFor]="animaMenu"
+          #animaTrigger="matMenuTrigger"
+          (menuOpened)="
+            ddTrigger?.closeMenu();
+            pathfinderTrigger?.closeMenu();
+            swTrigger?.closeMenu()
+          "
+        >
+          <img src="assets/img/anima.png" alt="Anima" class="game-logo" />
+
+          <span class="tooltip-text">Anima</span>
+
+          <mat-menu
+            #animaMenu="matMenu"
+            class="pergamino-menu"
+            backdropClass="transparent-backdrop"
+          >
+            <button mat-menu-item routerLink="/anima-personajes">
+              <img
+                src="assets/img/personajes anima/personajes.png"
+                alt=""
+                class="menu-icon"
+              />
+              Personajes
+            </button>
+            <button mat-menu-item routerLink="/anima-mapas">
+              <img
+                src="assets/img/mundos anima/mapa.png"
+                alt=""
+                class="menu-icon"
+              />
+              Mapas
+            </button>
+            <button mat-menu-item routerLink="/anima-sistema-de-juego">
+              <img
+                src="assets/img/sistema juego anima/sistema de juego.png"
+                alt=""
+                class="menu-icon"
+              />
+              Sistema de Juego
+            </button>
+            <button mat-menu-item routerLink="/anima-historias">
+              <img
+                src="assets/img/historia anima/historia.png"
+                alt=""
+                class="menu-icon"
+              />
+              Historia
+            </button>
+            <button mat-menu-item routerLink="/anima-bestiario">
+              <img
+                src="assets/img/bestiario anima/bestiario.png"
+                alt=""
+                class="menu-icon"
+              />
+              Bestiario
+            </button>
+          </mat-menu>
+        </div>
+
+        <!-- Warhammer -->
+        <div
+          class="logo-wrapper"
+          [matMenuTriggerFor]="warhammerMenu"
+          #warhammerTrigger="matMenuTrigger"
+          (menuOpened)="
+            ddTrigger?.closeMenu();
+            pathfinderTrigger?.closeMenu();
+            animaTrigger?.closeMenu();
+            swTrigger?.closeMenu()
+          "
+        >
+          <img
+            src="assets/img/warhammer.png"
+            alt="Warhammer"
+            class="game-logo"
+          />
+
+          <span class="tooltip-text">Warhammer</span>
+
+          <mat-menu
+            #warhammerMenu="matMenu"
+            class="pergamino-menu"
+            backdropClass="transparent-backdrop"
+          >
+            <button mat-menu-item routerLink="/warhammer-personajes">
+              <img
+                src="assets/img/personajes warhammer/personaje.png"
+                alt=""
+                class="menu-icon"
+              />
+              Personajes
+            </button>
+            <button mat-menu-item routerLink="/warhammer-mapas">
+              <img
+                src="assets/img/mapas warhammer/mapas.png"
+                alt=""
+                class="menu-icon"
+              />
+              Mapas
+            </button>
+            <button mat-menu-item routerLink="/warhammer-sistema-de-juego">
+              <img
+                src="assets/img/sistema juego warhammer/sistema juego.png"
+                alt=""
+                class="menu-icon"
+              />
+              Sistema de Juego
+            </button>
+            <button mat-menu-item routerLink="/warhammer-historias">
+              <img
+                src="assets/img/historia warhammer/historia.png"
+                alt=""
+                class="menu-icon"
+              />
+              Historia
+            </button>
+            <button mat-menu-item routerLink="/warhammer-bestiario">
+              <img
+                src="assets/img/bestiario warhammer/bestiario.png"
+                alt=""
+                class="menu-icon"
+              />
+              Bestiario
+            </button>
+          </mat-menu>
+        </div>
+
+        <!-- Cthulhu -->
+        <div
+          class="logo-wrapper"
+          [matMenuTriggerFor]="cthulhuMenu"
+          #cthulhuTrigger="matMenuTrigger"
+          (menuOpened)="
+            ddTrigger?.closeMenu();
+            pathfinderTrigger?.closeMenu();
+            animaTrigger?.closeMenu();
+            warhammerTrigger?.closeMenu();
+            swTrigger?.closeMenu()
+          "
+        >
+          <img src="assets/img/cthulu.png" alt="Cthulhu" class="game-logo" />
+
+          <span class="tooltip-text">Cthulhu</span>
+
+          <mat-menu
+            #cthulhuMenu="matMenu"
+            class="pergamino-menu"
+            backdropClass="transparent-backdrop"
+          >
+            <button mat-menu-item routerLink="/cthulhu-personajes">
+              <img
+                src="assets/img/cthulhu personajes/personajes.png"
+                alt=""
+                class="menu-icon"
+              />
+              Personajes
+            </button>
+            <button mat-menu-item routerLink="/cthulhu-mapas">
+              <img
+                src="assets/img/cthulhu mapas/mapa.png"
+                alt=""
+                class="menu-icon"
+              />
+              Mapas
+            </button>
+            <button mat-menu-item routerLink="/cthulhu-sistema-de-juego">
+              <img
+                src="assets/img/cthulhu sistema de juego/sistema de juego.png"
+                alt=""
+                class="menu-icon"
+              />
+              Sistema de Juego
+            </button>
+            <button mat-menu-item routerLink="/cthulhu-historias">
+              <img
+                src="assets/img/cthulhu historia/historia.png"
+                alt=""
+                class="menu-icon"
+              />
+              Historia
+            </button>
+            <button mat-menu-item routerLink="/cthulhu-bestiario">
+              <img
+                src="assets/img/cthulhu bestiario/bestiario.png"
+                alt=""
+                class="menu-icon"
+              />
+              Bestiario
+            </button>
+          </mat-menu>
+        </div>
+
+        <!-- La Leyenda de los 5 Anillos -->
+        <div
+          class="logo-wrapper"
+          [matMenuTriggerFor]="fiveRingsMenu"
+          #fiveRingsTrigger="matMenuTrigger"
+          (menuOpened)="
+            ddTrigger?.closeMenu();
+            pathfinderTrigger?.closeMenu();
+            animaTrigger?.closeMenu();
+            warhammerTrigger?.closeMenu();
+            cthulhuTrigger?.closeMenu();
+            swTrigger?.closeMenu()
+          "
+        >
+          <img
+            src="assets/img/5 anillos.png"
+            alt="Leyenda de los 5 Anillos"
+            class="game-logo"
+          />
+
+          <span class="tooltip-text">La Leyenda de los 5 Anillos</span>
+
+          <mat-menu
+            #fiveRingsMenu="matMenu"
+            class="pergamino-menu"
+            backdropClass="transparent-backdrop"
+          >
+            <button mat-menu-item routerLink="/leyenda-5-anillos-personajes">
+              <img
+                src="assets/img/leyenda 5 anillos personajes/personajes.png"
+                alt=""
+                class="menu-icon"
+              />
+              Personajes
+            </button>
+            <button mat-menu-item routerLink="/leyenda-5-anillos-mapas">
+              <img
+                src="assets/img/leyenda 5 anillos mapa/mapa.png"
+                alt=""
+                class="menu-icon"
+              />
+              Mapas
+            </button>
+            <button
+              mat-menu-item
+              routerLink="/leyenda-5-anillos-sistema-de-juego"
+            >
+              <img
+                src="assets/img/leyenda 5 anillos sistema de juego/sistema de juego.png"
+                alt=""
+                class="menu-icon"
+              />
+              Sistema de Juego
+            </button>
+            <button mat-menu-item routerLink="/leyenda-5-anillos-historias">
+              <img
+                src="assets/img/leyenda 5 anillos historia/historia.png"
+                alt=""
+                class="menu-icon"
+              />
+              Historia
+            </button>
+            <button mat-menu-item routerLink="/leyenda-5-anillos-bestiario">
+              <img
+                src="assets/img/leyenda 5 anillos bestiario/bestiario.png"
+                alt=""
+                class="menu-icon"
+              />
+              Bestiario
+            </button>
+          </mat-menu>
+        </div>
+
+        <!-- Star Wars -->
+        <div
+          class="logo-wrapper"
           [matMenuTriggerFor]="swMenu"
           #swTrigger="matMenuTrigger"
           (menuOpened)="ddTrigger?.closeMenu()"
@@ -94,52 +417,87 @@
             alt="Star Wars"
             class="game-logo"
           />
+
+          <span class="tooltip-text">Star Wars</span>
+
+          <mat-menu
+            #swMenu="matMenu"
+            class="pergamino-menu"
+            backdropClass="transparent-backdrop"
+          >
+            <button mat-menu-item routerLink="/starwars/personajes">
+              <img
+                src="assets/img/personajes star wars/jedi.png"
+                alt=""
+                class="menu-icon"
+              />
+              Personajes
+            </button>
+            <button mat-menu-item routerLink="/starwars/planetas">
+              <img
+                src="assets/img/mundos star wars/mundos.png"
+                alt=""
+                class="menu-icon"
+              />
+              Planetas
+            </button>
+            <button mat-menu-item routerLink="/starwars/sistema-de-juego">
+              <img
+                src="assets/img/star wars sistema de juego/sistema de juego.png"
+                alt=""
+                class="menu-icon"
+              />
+              Sistema de Juego
+            </button>
+            <button mat-menu-item routerLink="/starwars/historias">
+              <img
+                src="assets/img/star wars historia/historia.png"
+                alt=""
+                class="menu-icon"
+              />
+              Historias
+            </button>
+            <button mat-menu-item routerLink="/starwars/bestiario">
+              <img
+                src="assets/img/star wars bestiario/bestiario.png"
+                alt=""
+                class="menu-icon"
+              />
+              Bestiario
+            </button>
+          </mat-menu>
         </div>
-        <span class="tooltip-text">Star Wars</span>
 
-        <mat-menu
-          #swMenu="matMenu"
-          class="pergamino-menu"
-          backdropClass="transparent-backdrop"
-        >
-          <button mat-menu-item routerLink="/starwars/personajes">
-            Personajes
-          </button>
-          <button mat-menu-item routerLink="/starwars/planetas">Mapas</button>
-        </mat-menu>
-      </div>
-
-      <div class="logo-wrapper">
-        <a routerLink="/forum">
+        <!-- Forum -->
+        <div class="logo-wrapper" routerLink="/forum">
           <img src="assets/img/forum.png" alt="Foro" class="game-logo" />
-        </a>
-        <span class="tooltip-text">Foro</span>
-      </div>
-    </nav>
-  </div>
-
-  <div class="login-button-wrapper">
-    @if (isLoggedIn()) {
-    <div class="auth-buttons">
-      <button class="rpg-login-button" [matMenuTriggerFor]="userMenu">
-        Mi cuenta ▼
-      </button>
-
-      <mat-menu #userMenu="matMenu" class="pergamino-menu">
-        @if (isAdmin) {
-        <button mat-menu-item [routerLink]="'/noticias/agregar'">
-          📝 Agregar Noticia
-        </button>
-        }
-        <button mat-menu-item (click)="logout()">⚔️ Cerrar Sesión</button>
-        <button mat-menu-item [routerLink]="'/profile'">👤 Perfil</button>
-      </mat-menu>
+          <span class="tooltip-text">Foro</span>
+        </div>
+      </nav>
     </div>
-    } @else {
-    <button class="rpg-login-button" routerLink="/session/login">
-      🛡️ Iniciar Sesión
-    </button>
-    }
-  </div>
-</header>
+
+    <div class="login-button-wrapper">
+      @if (isLoggedIn()) {
+        <div class="auth-buttons">
+          <button class="rpg-login-button" [matMenuTriggerFor]="userMenu">
+            Mi cuenta ▼
+          </button>
+
+          <mat-menu #userMenu="matMenu" class="pergamino-menu">
+            @if (isAdmin) {
+              <button mat-menu-item [routerLink]="'/noticias/agregar'">
+                📝 Agregar Noticia
+              </button>
+            }
+            <button mat-menu-item (click)="logout()">⚔️ Cerrar Sesión</button>
+            <button mat-menu-item [routerLink]="'/profile'">👤 Perfil</button>
+          </mat-menu>
+        </div>
+      } @else {
+        <button class="rpg-login-button" routerLink="/session/login">
+          🛡️ Iniciar Sesión
+        </button>
+      }
+    </div>
+  </header>
 }

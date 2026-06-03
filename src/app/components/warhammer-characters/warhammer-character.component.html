@@ -1,0 +1,65 @@
+<div class="characters-bg">
+  <div class="characters-container">
+    <h1 class="main-title">Personajes de Warhammer</h1>
+
+    <section class="characters-section">
+      <article class="character-card main-character-card">
+        <h2>Qué representa un personaje en Warhammer</h2>
+
+        <p>
+          En Warhammer, un personaje no es solo una ficha de combate. Es una
+          pieza dentro de un universo brutal, religioso, militar y decadente,
+          donde la guerra, la corrupción, la fe y la supervivencia marcan cada
+          decisión. Cada personaje puede pertenecer a una facción, servir a un
+          señor, obedecer una doctrina o intentar sobrevivir en medio de un
+          conflicto mucho más grande que él.
+        </p>
+
+        <p>
+          Las partidas pueden centrarse en soldados enviados a una guerra
+          imposible, inquisidores investigando herejías, psíquicos perseguidos
+          por sus propios dones, tecnosacerdotes buscando reliquias antiguas o
+          guerreros enfrentados a amenazas xenos, demoníacas o traidoras.
+        </p>
+
+        <p>
+          Para crear un personaje útil en una partida de Warhammer conviene
+          definir tres cosas: a qué facción pertenece, qué deber o misión lo
+          empuja hacia delante y qué precio está dispuesto a pagar para cumplir
+          su objetivo. Esa mezcla de deber, miedo, fanatismo y supervivencia es
+          lo que da fuerza al personaje.
+        </p>
+      </article>
+
+      <div class="character-types-grid">
+        @for (character of characterTypes; track character.name) {
+          <article class="character-type-card">
+            <h3>{{ character.name }}</h3>
+            <p>{{ character.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="character-card download-info-card">
+        <h2>Hojas y material de personajes</h2>
+
+        <p>
+          En el botón de abajo encontrarás el material descargable de personajes
+          de Warhammer para usarlo como base en tus partidas, crear arquetipos y
+          preparar personajes de forma rápida y sencilla.
+        </p>
+      </article>
+
+      <div class="characters-download-wrapper">
+        <a
+          [href]="warhammerCharactersUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="characters-download-button"
+        >
+          Descargar personajes de Warhammer
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

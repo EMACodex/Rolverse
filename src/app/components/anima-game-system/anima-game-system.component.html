@@ -1,0 +1,128 @@
+<div class="system-bg">
+  <div class="system-container">
+    <h1 class="main-title">Sistema de Juego de Ánima</h1>
+
+    <div class="tabs-wrapper">
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'resumen'"
+        (click)="setTab('resumen')"
+      >
+        Resumen
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'beyondFantasy'"
+        (click)="setTab('beyondFantasy')"
+      >
+        Beyond Fantasy
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'coreExxet'"
+        (click)="setTab('coreExxet')"
+      >
+        Core Exxet
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'shadowOmega'"
+        (click)="setTab('shadowOmega')"
+      >
+        La Sombra de Omega
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'beyondGoodEvil'"
+        (click)="setTab('beyondGoodEvil')"
+      >
+        Más Allá del Bien y del Mal
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'twilightGods'"
+        (click)="setTab('twilightGods')"
+      >
+        El Ocaso de los Dioses
+      </button>
+    </div>
+
+    @if (selectedTab === "resumen") {
+      <section class="summary-section">
+        <div class="questions-grid">
+          <article class="question-card question-card-wide">
+            <h3>Qué es Ánima</h3>
+            <p>
+              Ánima es un juego de rol de fantasía oscura y épica ambientado en
+              el mundo de Gaïa, un escenario lleno de imperios, organizaciones
+              secretas, criaturas sobrenaturales, poderes ocultos, magia, artes
+              marciales, mentalismo y conflictos entre fuerzas humanas y
+              divinas. Los jugadores interpretan personajes con habilidades muy
+              diferentes, desde guerreros, hechiceros y psíquicos hasta expertos
+              en Ki, invocadores, asesinos, nobles, exploradores o seres
+              marcados por poderes especiales.
+            </p>
+          </article>
+
+          <article class="question-card">
+            <h3>Cómo evolucionó el sistema</h3>
+            <p>
+              Ánima comenzó con Beyond Fantasy como juego de rol principal, un
+              sistema muy completo y detallado. Después fue ampliándose con
+              revisiones, suplementos y líneas de juego como Core Exxet, además
+              de juegos de cartas y mesa como La Sombra de Omega, Más Allá del
+              Bien y del Mal y El Ocaso de los Dioses.
+            </p>
+          </article>
+
+          <article class="question-card">
+            <h3>Qué versión se recomienda actualmente</h3>
+            <p>
+              Para jugar rol de mesa, la base más completa es Ánima: Beyond
+              Fantasy junto con Core Exxet. Para una experiencia más rápida y
+              cerrada, las cajas de cartas y mesa como La Sombra de Omega
+              permiten partidas más directas, con personajes, misiones,
+              localizaciones y enemigos ya preparados.
+            </p>
+          </article>
+        </div>
+
+        <div class="manual-download-wrapper">
+          <a
+            [href]="animaGameSystemPdfUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="manual-download-button"
+          >
+            Descargar sistema de juego de Ánima
+          </a>
+        </div>
+      </section>
+    }
+
+    @if (selectedTab === "beyondFantasy") {
+      <app-anima-beyond-fantasy></app-anima-beyond-fantasy>
+    }
+
+    @if (selectedTab === "coreExxet") {
+      <app-anima-core-exxet></app-anima-core-exxet>
+    }
+
+    @if (selectedTab === "shadowOmega") {
+      <app-anima-shadow-omega></app-anima-shadow-omega>
+    }
+
+    @if (selectedTab === "beyondGoodEvil") {
+      <app-anima-beyond-good-evil></app-anima-beyond-good-evil>
+    }
+
+    @if (selectedTab === "twilightGods") {
+      <app-anima-twilight-gods></app-anima-twilight-gods>
+    }
+  </div>
+</div>

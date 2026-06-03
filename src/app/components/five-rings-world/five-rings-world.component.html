@@ -1,0 +1,73 @@
+<div class="maps-bg">
+  <div class="maps-container">
+    <h1 class="main-title">Mapas de La Leyenda de los 5 Anillos</h1>
+
+    <section class="maps-section">
+      <article class="maps-card main-maps-card">
+        <h2>Qué son los mapas en La Leyenda de los 5 Anillos</h2>
+
+        <p>
+          Los mapas en La Leyenda de los 5 Anillos ayudan a situar las historias
+          dentro de Rokugán, un imperio marcado por el honor, los clanes, la
+          tradición, la guerra, la política y el mundo espiritual. No sirven solo
+          para saber dónde están los personajes, sino para entender qué tierras
+          pertenecen a cada clan, qué rutas son peligrosas y qué lugares tienen
+          importancia social, militar o sagrada.
+        </p>
+
+        <p>
+          Un mapa puede representar una provincia completa, una fortaleza de
+          clan, una aldea de campesinos, un templo ancestral, una casa de té, un
+          bosque embrujado o una frontera amenazada. Cada localización puede
+          convertirse en el centro de una historia de honor, deber, traición,
+          romance, venganza o sacrificio.
+        </p>
+
+        <p>
+          Para el Game Master, los mapas ayudan a preparar escenas, viajes,
+          conflictos políticos, misiones diplomáticas, investigaciones y
+          enfrentamientos. Para los jugadores, permiten comprender mejor las
+          distancias, los territorios de cada clan y las consecuencias de sus
+          decisiones dentro del Imperio Esmeralda.
+        </p>
+
+        <p>
+          En una partida sencilla, un mapa puede mostrar una aldea, un camino y
+          un santuario cercano. En una campaña larga, puede mostrar todo un
+          territorio de clan lleno de fortalezas, familias rivales, templos,
+          bosques prohibidos y amenazas ocultas.
+        </p>
+      </article>
+
+      <div class="maps-grid">
+        @for (mapType of mapTypes; track mapType.name) {
+          <article class="map-card">
+            <h3>{{ mapType.name }}</h3>
+            <p>{{ mapType.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="maps-card download-info-card">
+        <h2>Mapas listos para descargar</h2>
+
+        <p>
+          En el botón de abajo encontrarás mapas preparados para usar como apoyo
+          visual, inspiración o base para crear partidas de La Leyenda de los 5
+          Anillos de forma rápida y sencilla.
+        </p>
+      </article>
+
+      <div class="maps-download-wrapper">
+        <a
+          [href]="fiveRingsMapsPdfUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="maps-download-button"
+        >
+          Descargar mapas de La Leyenda de los 5 Anillos
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

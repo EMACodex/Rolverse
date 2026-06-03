@@ -33,7 +33,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 15px rgba(255, 230, 100, 0.6),
+  box-shadow:
+    0 0 15px rgba(255, 230, 100, 0.6),
     0 0 30px rgba(255, 230, 100, 0.3);
   transition: all 0.3s ease;
   position: relative;
@@ -43,21 +44,25 @@
 .create-forum:hover {
   background: radial-gradient(circle at 30% 30%, #fff3b0, #ffd93d);
   transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 0 20px rgba(255, 250, 200, 0.9),
+  box-shadow:
+    0 0 20px rgba(255, 250, 200, 0.9),
     0 0 40px rgba(255, 230, 150, 0.6);
 }
 
 @keyframes pulse-glow {
   0% {
-    box-shadow: 0 0 10px rgba(255, 230, 100, 0.3),
+    box-shadow:
+      0 0 10px rgba(255, 230, 100, 0.3),
       0 0 20px rgba(255, 230, 100, 0.1);
   }
   50% {
-    box-shadow: 0 0 20px rgba(255, 230, 100, 0.6),
+    box-shadow:
+      0 0 20px rgba(255, 230, 100, 0.6),
       0 0 35px rgba(255, 230, 100, 0.3);
   }
   100% {
-    box-shadow: 0 0 10px rgba(255, 230, 100, 0.3),
+    box-shadow:
+      0 0 10px rgba(255, 230, 100, 0.3),
       0 0 20px rgba(255, 230, 100, 0.1);
   }
 }
@@ -92,7 +97,9 @@
   max-width: 800px;
   color: #fefae0;
   box-shadow: 0 0 15px rgba(255, 215, 100, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
 }
 
 .forum-card:hover {
@@ -137,4 +144,86 @@
 
 .forum-actions {
   text-align: right;
+}
+
+@media (max-width: 768px) {
+  .contenedor {
+    padding-top: 115px;
+    overflow: visible;
+  }
+
+  .title {
+    margin-top: 1rem;
+    padding: 0 1rem;
+  }
+
+  .title h1 {
+    font-size: 2.1rem;
+    line-height: 1.15;
+  }
+
+  .title h2 {
+    font-size: 1.4rem;
+  }
+
+  .forum-card {
+    width: 90%;
+    padding: 1.2rem;
+    margin: 1.2rem auto;
+  }
+
+  .forum-card h3 {
+    font-size: 1.35rem;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  .forum-card p {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .forum-actions {
+    text-align: center;
+  }
+
+  .delete-forum {
+    width: 100%;
+  }
+
+  .admin-actions {
+    bottom: 14px;
+    right: 14px;
+  }
+
+  .create-forum {
+    width: 54px;
+    height: 54px;
+    font-size: 1.45rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title h1 {
+    font-size: 1.65rem;
+  }
+
+  .title h2 {
+    font-size: 1.1rem;
+  }
+
+  .forum-card {
+    width: 92%;
+    padding: 1rem;
+  }
+
+  .forum-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .create-forum {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
 }

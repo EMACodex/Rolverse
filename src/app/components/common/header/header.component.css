@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 70px; /* O la altura que uses */
+  height: 70px;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -18,6 +18,7 @@
 .main-logo-wrapper {
   position: relative;
   z-index: 2;
+  flex-shrink: 0;
 }
 
 .main-logo {
@@ -35,7 +36,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: none; /* para no interferir con clics */
+  pointer-events: none;
   z-index: 1;
 }
 
@@ -45,17 +46,41 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  pointer-events: auto; /* permite clics dentro de nav */
+  pointer-events: auto;
 }
 
 /* ICONOS DE JUEGOS */
 .logo-wrapper {
-  position: relative;
+  width: 60px;
+  height: 60px;
   display: inline-block;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
   border: 2px solid transparent;
   border-radius: 6px;
+  position: relative;
+}
+
+.game-logo-button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.logo-wrapper .game-logo {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  object-fit: contain;
 }
 
 .logo-wrapper:hover {
@@ -73,7 +98,6 @@
 .tooltip-text {
   visibility: hidden;
   width: auto;
-  background: url("/assets/img/parchment-tooltip.png") no-repeat center center;
   background-size: cover;
   color: #4b1e1e;
   text-align: center;
@@ -103,6 +127,7 @@
   display: flex;
   align-items: center;
   z-index: 2;
+  flex-shrink: 0;
 }
 
 .rpg-login-button {
@@ -116,6 +141,7 @@
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.1s ease-in-out;
+  white-space: nowrap;
 }
 
 .rpg-login-button:hover {
@@ -128,18 +154,25 @@
   gap: 12px;
 }
 
+::ng-deep .pergamino-menu .menu-icon {
+  width: 20px;
+  height: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
 ::ng-deep .mat-menu-panel.custom-menu {
   background-color: var(--color-pergamino) !important;
   border: 3px double var(--color-marron-tost);
   border-radius: 10px;
   min-width: 200px;
-  padding: 8px 0; /* separa verticalmente los items */
+  padding: 8px 0;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  overflow: hidden !important; /* 🔥 elimina barra de scroll */
+  overflow: hidden !important;
 }
 
 ::ng-deep .mat-menu-content {
-  padding: 0 12px; /* 🔥 margen lateral interno */
+  padding: 0 12px;
   overflow: hidden !important;
 }
 
@@ -158,7 +191,7 @@
 }
 
 ::ng-deep .pergamino-menu {
-  background-image: url("/assets/img/scroll-parchment.jpg"); /* tu fondo pergamino */
+  background-image: url("/assets/img/scroll-parchment.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -196,7 +229,10 @@
   background-color: transparent !important;
 }
 
-/* 1) Oculta el botón hamburguesa en escritorio */
+/* ==========================
+   Responsive móvil
+   ========================== */
+
 .hamburger {
   display: none;
   background: transparent;
@@ -206,71 +242,196 @@
   cursor: pointer;
 }
 
-.game-logo-button {
-  display: inline-block; /* como un botón, pero sin estilos de botón */
-  padding: 0;
-  margin: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
-  outline: none;
-  cursor: pointer;
-}
-
-/* ==========================
-   MÓVIL
-   ========================== */
-
-@media (max-width: 768px) {
-  /* 1) Iconos más pequeños solo en móvil */
-  .game-logo {
-    height: 40px;
-    width: auto;
+/* Tablets y móvil */
+@media (max-width: 900px) {
+  .header-container {
+    height: 86px;
+    padding: 8px 12px;
+    gap: 8px;
   }
 
-  /* 1) Muestra el botón hamburguesa junto a "Mi cuenta" */
+  .main-logo {
+    height: 58px;
+    padding: 2px;
+  }
+
   .hamburger {
-    display: block;
-    position: absolute;
-    top: 36px;
-    right: 8px;
-    margin-right: 190px;
-    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    margin-left: auto;
+    margin-right: 0;
+    width: 42px;
+    height: 42px;
+    font-size: 2rem;
+    line-height: 1;
+    z-index: 1003;
     color: var(--color-marron-tost);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 1002;
   }
 
-  /* 2) Ocultamos el nav habitual */
+  .login-button-wrapper {
+    margin-left: 4px;
+    z-index: 1003;
+  }
+
+  .rpg-login-button {
+    padding: 8px 10px;
+    border-width: 2px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+  }
+
   .center-wrapper {
     display: none;
   }
 
-  /* 3) El dropdown se posiciona respecto al contenedor de login */
   .center-wrapper.open {
-    display: flex;
-    position: absolute;
-    top: calc(70px + 32px);
-    right: 24px;
-    background: var(--color-pergamino);
-    border: 4px double var(--color-marron-tost);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
+    display: block;
+    position: fixed;
+    top: 86px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    padding: 1rem;
+    background: rgba(255, 248, 220, 0.97);
+    border-top: 4px double var(--color-marron-tost);
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 0;
+    border-radius: 0;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
+    overflow-y: auto;
+    overflow-x: hidden;
     z-index: 1001;
+    pointer-events: auto;
+  }
+
+  .center-wrapper.open .logo-nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(80px, 1fr));
+    gap: 1rem;
+    align-items: start;
+    justify-content: center;
+  }
+
+  .center-wrapper.open .logo-wrapper {
+    width: 100%;
+    height: auto;
+    min-height: 92px;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.4rem;
+    padding: 0.7rem 0.4rem;
+    border: 2px solid rgba(75, 46, 21, 0.35);
+    border-radius: 10px;
+    background: rgba(255, 248, 220, 0.4);
+    box-sizing: border-box;
+  }
+
+  .center-wrapper.open .logo-wrapper:hover {
+    transform: none;
+  }
+
+  .center-wrapper.open .game-logo-button,
+  .center-wrapper.open .logo-wrapper > a {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .center-wrapper.open .logo-wrapper > .game-logo,
+  .center-wrapper.open .game-logo-button .game-logo,
+  .center-wrapper.open .logo-wrapper > a .game-logo {
+    width: 48px !important;
+    height: 48px !important;
+    object-fit: contain;
+    padding: 0 !important;
+  }
+
+  .center-wrapper.open .tooltip-text {
+    position: static;
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    background: transparent;
+    color: var(--color-marron-tost);
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    font-family: "Cinzel", serif;
+    font-size: 0.72rem;
+    line-height: 1.2;
+  }
+
+  ::ng-deep .pergamino-menu {
+    max-width: calc(100vw - 32px) !important;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .header-container {
+    height: 78px;
+    padding: 8px 10px;
+  }
+
+  .main-logo {
+    height: 50px;
+  }
+
+  .hamburger {
+    width: 38px;
+    height: 38px;
+    font-size: 1.8rem;
+  }
+
+  .rpg-login-button {
+    padding: 7px 8px;
+    font-size: 0.78rem;
+  }
+
+  .center-wrapper.open {
+    top: 78px;
+    padding: 0.8rem;
+  }
+
+  .center-wrapper.open .logo-nav {
+    grid-template-columns: repeat(2, minmax(105px, 1fr));
     gap: 0.75rem;
   }
 
-  /* 4) Apilamos iconos verticalmente en el dropdown */
-  .center-wrapper.open .logo-nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
   .center-wrapper.open .logo-wrapper {
-    border: none; /* quita cualquier borde */
+    min-height: 86px;
+    padding: 0.6rem 0.35rem;
+  }
+
+  .center-wrapper.open .game-logo-button,
+  .center-wrapper.open .logo-wrapper > a {
+    width: 44px;
+    height: 44px;
+  }
+
+  .center-wrapper.open .logo-wrapper > .game-logo,
+  .center-wrapper.open .game-logo-button .game-logo,
+  .center-wrapper.open .logo-wrapper > a .game-logo {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .center-wrapper.open .tooltip-text {
+    font-size: 0.68rem;
   }
 }

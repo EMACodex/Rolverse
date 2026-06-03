@@ -1,0 +1,73 @@
+<div class="characters-bg">
+  <div class="characters-container">
+    <h1 class="main-title">Personajes de Pathfinder</h1>
+
+    <section class="characters-section">
+      <article class="character-card main-character-card">
+        <h2>Qué es un personaje en Pathfinder</h2>
+
+        <p>
+          Un personaje en Pathfinder es el aventurero que interpreta cada
+          jugador dentro de la historia. No es solo una ficha con números: es
+          una combinación de ascendencia, trasfondo, clase, habilidades, dotes,
+          equipo, personalidad y decisiones dentro del mundo de juego.
+        </p>
+
+        <p>
+          Pathfinder da mucho peso a la creación del personaje. Cada elección
+          ayuda a definir cómo actúa en combate, cómo resuelve problemas, qué
+          papel cumple dentro del grupo y qué tipo de historia puede
+          protagonizar. Dos personajes de la misma clase pueden sentirse muy
+          distintos según sus dotes, habilidades y forma de jugar.
+        </p>
+
+        <p>
+          En una partida, los personajes investigan misterios, exploran ruinas,
+          negocian con facciones, sobreviven a viajes peligrosos y se enfrentan
+          a criaturas mediante un sistema táctico basado en decisiones claras.
+          El grupo funciona mejor cuando cada jugador aporta algo diferente:
+          defensa, daño, magia, curación, exploración, conocimiento o apoyo
+          social.
+        </p>
+
+        <p>
+          Para crear un buen personaje de Pathfinder conviene pensar primero en
+          una idea sencilla: quién era antes de la aventura, por qué se une al
+          grupo, qué busca conseguir y qué estaría dispuesto a arriesgar.
+          Después, esa idea se traduce en reglas mediante ascendencia,
+          trasfondo, clase, habilidades, dotes y equipo inicial.
+        </p>
+      </article>
+
+      <div class="characters-grid">
+        @for (character of characterTypes; track character.name) {
+          <article class="character-type-card">
+            <h3>{{ character.name }}</h3>
+            <p>{{ character.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="character-card download-info-card">
+        <h2>Hojas de personaje listas para descargar</h2>
+
+        <p>
+          En el botón de abajo encontrarás hojas de personaje preparadas para
+          partidas de Pathfinder. Puedes descargarlas, imprimirlas o usarlas
+          como base para crear aventureros nuevos de forma rápida y sencilla.
+        </p>
+      </article>
+
+      <div class="characters-download-wrapper">
+        <a
+          [href]="pathfinderCharacterSheetUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="characters-download-button"
+        >
+          Descargar hojas de personaje de Pathfinder
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

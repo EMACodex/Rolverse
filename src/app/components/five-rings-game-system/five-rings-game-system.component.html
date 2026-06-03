@@ -1,0 +1,123 @@
+<div class="system-bg">
+  <div class="system-container">
+    <h1 class="main-title">Sistema de Juego La Leyenda de los 5 Anillos</h1>
+
+    <div class="tabs-wrapper">
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'resumen'"
+        (click)="setTab('resumen')"
+      >
+        Resumen
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'first'"
+        (click)="setTab('first')"
+      >
+        1ª Edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'second'"
+        (click)="setTab('second')"
+      >
+        2ª Edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'third'"
+        (click)="setTab('third')"
+      >
+        3ª Edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'fourth'"
+        (click)="setTab('fourth')"
+      >
+        4ª Edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'fifth'"
+        (click)="setTab('fifth')"
+      >
+        5ª Edición
+      </button>
+    </div>
+
+    @if (selectedTab === "resumen") {
+      <section class="summary-section">
+        <div class="questions-grid">
+          <article class="question-card question-card-wide">
+            <h3>Qué es La Leyenda de los 5 Anillos</h3>
+            <p>
+              La Leyenda de los 5 Anillos es un juego de rol ambientado en
+              Rokugán, un imperio inspirado en la fantasía samurái, los clanes,
+              la política cortesana, los duelos de honor, la guerra, los kami y
+              las amenazas espirituales. Los jugadores interpretan samuráis,
+              cortesanos, shugenja, monjes, exploradores o guerreros al servicio
+              de su clan, atrapados entre el deber, el honor, los sentimientos y
+              las órdenes de sus superiores.
+            </p>
+          </article>
+
+          <article class="question-card">
+            <h3>Cómo evolucionó el sistema</h3>
+            <p>
+              Las primeras cuatro ediciones usaban el sistema clásico Roll &
+              Keep con dados de diez caras. La quinta edición cambió hacia un
+              sistema más narrativo con dados especiales, estrés emocional,
+              oportunidades y decisiones centradas en el conflicto interno del
+              personaje.
+            </p>
+          </article>
+
+          <article class="question-card">
+            <h3>Qué edición se juega más actualmente</h3>
+            <p>
+              Actualmente se suelen encontrar dos líneas fuertes: la cuarta
+              edición, muy querida por quienes prefieren el sistema clásico, y
+              la quinta edición, más moderna y narrativa. La elección depende de
+              si el grupo quiere reglas tradicionales o una experiencia más
+              dramática y emocional.
+            </p>
+          </article>
+        </div>
+
+        <div class="manual-download-wrapper">
+          <a
+            [href]="fiveRingsGameSystemPdfUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="manual-download-button"
+          >
+            Descargar sistema de juego de la leyenda de los 5 anillos
+          </a>
+        </div>
+      </section>
+    }
+
+    @if (selectedTab === "first") {
+      <app-five-rings-first-edition></app-five-rings-first-edition>
+    }
+    @if (selectedTab === "second") {
+      <app-five-rings-second-edition></app-five-rings-second-edition>
+    }
+    @if (selectedTab === "third") {
+      <app-five-rings-third-edition></app-five-rings-third-edition>
+    }
+    @if (selectedTab === "fourth") {
+      <app-five-rings-fourth-edition></app-five-rings-fourth-edition>
+    }
+    @if (selectedTab === "fifth") {
+      <app-five-rings-fifth-edition></app-five-rings-fifth-edition>
+    }
+  </div>
+</div>

@@ -1,0 +1,138 @@
+<div class="system-bg">
+  <div class="system-container">
+    <h1 class="main-title">Sistema de Juego Star Wars</h1>
+
+    <div class="tabs-wrapper">
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'resumen'"
+        (click)="setTab('resumen')"
+      >
+        Resumen
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'wegFirst'"
+        (click)="setTab('wegFirst')"
+      >
+        WEG D6 1ª Edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'wegSecond'"
+        (click)="setTab('wegSecond')"
+      >
+        WEG D6 2ª / Revised
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'd20Original'"
+        (click)="setTab('d20Original')"
+      >
+        D20 Original
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'd20Revised'"
+        (click)="setTab('d20Revised')"
+      >
+        D20 Revised
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'saga'"
+        (click)="setTab('saga')"
+      >
+        Saga Edition
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'ffgEdge'"
+        (click)="setTab('ffgEdge')"
+      >
+        FFG / Edge Studio
+      </button>
+    </div>
+
+    @if (selectedTab === "resumen") {
+      <section class="summary-section">
+        <div class="questions-grid">
+          <article class="question-card question-card-wide">
+            <h3>Qué es el sistema de juego de Star Wars</h3>
+            <p>
+              Star Wars ha tenido varias líneas de rol de mesa, cada una con una
+              forma distinta de representar aventuras galácticas. Algunas se
+              centran en dados de seis caras y acción cinematográfica rápida,
+              otras usan reglas d20 cercanas a Dungeons & Dragons, y las más
+              modernas emplean dados narrativos para mezclar éxito, amenaza,
+              ventaja, complicaciones y drama en una misma tirada.
+            </p>
+          </article>
+
+          <article class="question-card">
+            <h3>Cómo evolucionó el sistema</h3>
+            <p>
+              Primero llegó la etapa de West End Games con el sistema D6, muy
+              ágil y cinematográfico. Después Wizards of the Coast publicó las
+              versiones d20 y Saga Edition. Más tarde Fantasy Flight Games y
+              Edge Studio desarrollaron una línea narrativa dividida en
+              contrabandistas, rebeldes y usuarios de la Fuerza.
+            </p>
+          </article>
+
+          <article class="question-card">
+            <h3>Qué versión elegir para jugar</h3>
+            <p>
+              Si quieres rapidez clásica, WEG D6 funciona muy bien. Si prefieres
+              algo parecido a D&D, d20 o Saga son más familiares. Si buscas
+              partidas narrativas con consecuencias, tensión cinematográfica y
+              mucha improvisación, la línea FFG / Edge Studio es la opción más
+              moderna.
+            </p>
+          </article>
+        </div>
+
+        <div class="manual-download-wrapper">
+          <a
+            [href]="starwarsGameSystemPdfUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="manual-download-button"
+          >
+            Descargar sistema de juego de Star Wars
+          </a>
+        </div>
+      </section>
+    }
+
+    @if (selectedTab === "wegFirst") {
+      <app-starwars-west-end-first></app-starwars-west-end-first>
+    }
+
+    @if (selectedTab === "wegSecond") {
+      <app-starwars-west-end-second></app-starwars-west-end-second>
+    }
+
+    @if (selectedTab === "d20Original") {
+      <app-starwars-d20-original></app-starwars-d20-original>
+    }
+
+    @if (selectedTab === "d20Revised") {
+      <app-starwars-d20-revised></app-starwars-d20-revised>
+    }
+
+    @if (selectedTab === "saga") {
+      <app-starwars-saga-edition></app-starwars-saga-edition>
+    }
+
+    @if (selectedTab === "ffgEdge") {
+      <app-starwars-ffg-edge></app-starwars-ffg-edge>
+    }
+  </div>
+</div>

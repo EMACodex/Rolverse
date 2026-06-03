@@ -1,0 +1,38 @@
+import { Component } from '@angular/core';
+import { FirstEditionComponent } from './first-edition/first-edition.component';
+import { SecondEditionComponent } from './second-edition/second-edition.component';
+import { ThirdEditionComponent } from './third-edition/third-edition.component';
+import { FourthEditionComponent } from './fourth-edition/fourth-edition.component';
+import { FifthEditionComponent } from './fifth-edition/fifth-edition.component';
+
+type FiveRingsSystemTab =
+  | 'resumen'
+  | 'first'
+  | 'second'
+  | 'third'
+  | 'fourth'
+  | 'fifth';
+
+@Component({
+  selector: 'app-five-rings-game-system',
+  standalone: true,
+  imports: [
+    FirstEditionComponent,
+    SecondEditionComponent,
+    ThirdEditionComponent,
+    FourthEditionComponent,
+    FifthEditionComponent,
+  ],
+  templateUrl: './five-rings-game-system.component.html',
+  styleUrls: ['./five-rings-game-system.component.css'],
+})
+export class FiveRingsGameSystemComponent {
+  selectedTab: FiveRingsSystemTab = 'resumen';
+
+  readonly fiveRingsGameSystemPdfUrl =
+    'https://drive.google.com/uc?export=download&id=1-EQfjZZ9doVsEMcJiHYMXutOdlBHtA8A';
+
+  setTab(tab: FiveRingsSystemTab): void {
+    this.selectedTab = tab;
+  }
+}

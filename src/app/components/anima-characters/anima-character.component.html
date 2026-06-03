@@ -1,0 +1,72 @@
+<div class="characters-bg">
+  <div class="characters-container">
+    <h1 class="main-title">Personajes de Ánima</h1>
+
+    <section class="characters-section">
+      <article class="character-card main-character-card">
+        <h2>Qué representa un personaje en Ánima</h2>
+
+        <p>
+          En Ánima, un personaje no es solo una ficha con atributos y poderes.
+          Es una figura marcada por su origen, sus secretos, sus habilidades
+          sobrenaturales y su papel dentro de un mundo lleno de conspiraciones,
+          criaturas imposibles, organizaciones ocultas y fuerzas que la mayoría
+          de la gente desconoce.
+        </p>
+
+        <p>
+          Cada jugador puede crear un héroe, antihéroe, mercenario, místico,
+          investigador, espadachín, psíquico, asesino o elegido por una fuerza
+          superior. Lo importante es que el personaje tenga una motivación clara:
+          proteger a alguien, descubrir la verdad, escapar de su pasado, dominar
+          un poder prohibido o cambiar el destino de una región entera.
+        </p>
+
+        <p>
+          La creación de personajes en Ánima permite mezclar combate, poderes,
+          habilidades sociales, capacidades mentales y trasfondo narrativo. Por
+          eso funciona muy bien en campañas de fantasía oscura, aventura épica,
+          misterio, investigación, tragedia, guerra entre facciones o exploración
+          de lugares olvidados.
+        </p>
+
+        <p>
+          Para crear una buena partida, el director de juego debe pensar qué sabe
+          cada personaje, qué oculta, qué desea conseguir y qué precio está
+          dispuesto a pagar por sobrevivir. Así, el grupo no solo avanza por una
+          historia, sino que la historia también evoluciona a partir de ellos.
+        </p>
+      </article>
+
+      <div class="archetypes-grid">
+        @for (archetype of archetypes; track archetype.name) {
+          <article class="archetype-card">
+            <h3>{{ archetype.name }}</h3>
+            <p>{{ archetype.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="character-card download-info-card">
+        <h2>Hojas y material de personajes</h2>
+
+        <p>
+          En el botón de abajo encontrarás el material descargable para preparar
+          personajes de Ánima, consultar hojas y empezar a organizar una partida
+          de forma rápida y sencilla.
+        </p>
+      </article>
+
+      <div class="characters-download-wrapper">
+        <a
+          [href]="animaCharactersPdfUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="characters-download-button"
+        >
+          Descargar personajes de Ánima
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

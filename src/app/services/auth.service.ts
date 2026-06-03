@@ -1,23 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RUTA_API } from '../../environment';
-import { LoginCredentials, Response, RegisterCredentials, DecodedToken, tokenData } from '../interfaces/auth.interface';
-import { Observable, of, throwError  } from 'rxjs';
+import {
+  LoginCredentials,
+  Response,
+  RegisterCredentials,
+  DecodedToken,
+  tokenData,
+} from '../interfaces/auth.interface';
+import { Observable, of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   private apiURL = `${RUTA_API}auth`;
 
-  constructor(
-    private http: HttpClient,
-    private router: Router
-  ) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(credentials: LoginCredentials): Observable<Response> {
     return this.http.post<Response>(`${this.apiURL}/login`, credentials);
@@ -41,7 +42,10 @@ export class AuthService {
   }
 
   resetPass(token: string, password: string): Observable<boolean> {
-    return this.http.put<boolean>(`${this.apiURL}/recover`, { token, password });
+    return this.http.put<boolean>(`${this.apiURL}/recover`, {
+      token,
+      password,
+    });
   }
   getCurrentUser(): DecodedToken | null {
     const token = localStorage.getItem('token');
@@ -72,7 +76,22 @@ export class AuthService {
     return false;
   }
 
+  hasDownloadAccess(): boolean {
+    const user = this.getCurrentUser();
 
+    if (!user) return false;
+
+    // Aceptamos tanto si role es string como si hay roles[] tipo array
+    if ('roles' in user && Array.isArray(user.roles)) {
+      return user.roles.includes('admin') || user.roles.includes('user');
+    }
+
+    if ('role' in user && typeof user.role === 'string') {
+      return user.role === 'admin' || user.role === 'user';
+    }
+
+    return false;
+  }
 
   getTokenData(): Observable<tokenData> {
     const token = localStorage.getItem('token');
@@ -89,5 +108,4 @@ export class AuthService {
       return throwError(() => new Error('Invalid token'));
     }
   }
-
 }

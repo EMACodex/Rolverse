@@ -1,0 +1,132 @@
+<div class="system-bg">
+  <div class="system-container">
+    <h1 class="main-title">Sistema de Juego Cthulhu</h1>
+
+    <div class="tabs-wrapper">
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'resumen'"
+        (click)="setTab('resumen')"
+      >
+        Resumen
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'first'"
+        (click)="setTab('first')"
+      >
+        1ª Edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'secondThird'"
+        (click)="setTab('secondThird')"
+      >
+        2ª / 3ª
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'fourth'"
+        (click)="setTab('fourth')"
+      >
+        4ª Edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'fifth'"
+        (click)="setTab('fifth')"
+      >
+        5ª / Revisiones
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'sixth'"
+        (click)="setTab('sixth')"
+      >
+        6ª Edición
+      </button>
+
+      <button
+        class="tab-button"
+        [class.active]="selectedTab === 'seventh'"
+        (click)="setTab('seventh')"
+      >
+        7ª Edición
+      </button>
+    </div>
+
+    @if (selectedTab === "resumen") {
+      <section class="summary-section">
+        <div class="questions-grid">
+          <article class="question-card question-card-wide">
+            <h3>Qué es La Llamada de Cthulhu</h3>
+            <p>
+              La Llamada de Cthulhu es un juego de rol de investigación y horror
+              cósmico donde los jugadores interpretan investigadores,
+              profesores, periodistas, médicos, detectives, ocultistas o
+              personas corrientes que descubren secretos que la humanidad no
+              debería conocer. El Guardián dirige el misterio, describe las
+              escenas, controla a los personajes secundarios y decide cuándo una
+              acción requiere una tirada.
+            </p>
+          </article>
+
+          <article class="question-card">
+            <h3>Cómo evolucionó el sistema</h3>
+            <p>
+              El juego comenzó en 1981 con una base porcentual sencilla y fue
+              refinándose durante varias ediciones. La mayoría conservaron la
+              misma esencia: investigar pistas, enfrentarse al deterioro mental
+              y descubrir horrores de los Mitos. La séptima edición moderniza la
+              presentación y añade reglas más claras.
+            </p>
+          </article>
+
+          <article class="question-card">
+            <h3>Qué edición se juega más actualmente</h3>
+            <p>
+              Actualmente la referencia principal es la séptima edición. Es la
+              más accesible para empezar, mantiene el espíritu clásico y
+              presenta mejor las reglas de dificultad, cordura, tiradas forzadas
+              e investigación.
+            </p>
+          </article>
+        </div>
+
+        <div class="manual-download-wrapper">
+          <a
+            [href]="cthulhuGameSystemPdfUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="manual-download-button"
+          >
+            Descargar sistema de juego de Cthulhu
+          </a>
+        </div>
+      </section>
+    }
+    @if (selectedTab === "first") {
+      <app-cthulhu-first-edition></app-cthulhu-first-edition>
+    }
+    @if (selectedTab === "secondThird") {
+      <app-cthulhu-second-third-edition></app-cthulhu-second-third-edition>
+    }
+    @if (selectedTab === "fourth") {
+      <app-cthulhu-fourth-edition></app-cthulhu-fourth-edition>
+    }
+    @if (selectedTab === "fifth") {
+      <app-cthulhu-fifth-edition></app-cthulhu-fifth-edition>
+    }
+    @if (selectedTab === "sixth") {
+      <app-cthulhu-sixth-edition></app-cthulhu-sixth-edition>
+    }
+    @if (selectedTab === "seventh") {
+      <app-cthulhu-seventh-edition></app-cthulhu-seventh-edition>
+    }
+  </div>
+</div>

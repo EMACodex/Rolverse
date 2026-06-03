@@ -1,0 +1,80 @@
+<div class="stories-bg">
+  <div class="stories-container">
+    <h1 class="main-title">Historia de Ánima</h1>
+
+    <section class="stories-section">
+      <article class="story-card main-history-card">
+        <h2>La historia y el mundo de Ánima</h2>
+
+        <p>
+          Ánima se desarrolla principalmente en Gaïa, un mundo de fantasía
+          oscura donde la humanidad convive con fuerzas que apenas comprende. A
+          simple vista existen reinos, ciudades, iglesias, ejércitos, nobles,
+          mercaderes y viajeros, pero bajo esa apariencia se ocultan
+          organizaciones secretas, criaturas sobrenaturales, poderes prohibidos
+          y amenazas antiguas que pueden cambiar el destino de continentes
+          enteros.
+        </p>
+
+        <p>
+          Las historias de Ánima suelen mezclar aventura, misterio, drama y
+          combate. Los personajes pueden empezar como mercenarios, nobles,
+          fugitivos, investigadores, guerreros, hechiceros, psíquicos,
+          invocadores o artistas marciales, pero poco a poco descubren que el
+          mundo es mucho más peligroso de lo que parecía. Una misión sencilla
+          puede revelar cultos ocultos, pactos con entidades, experimentos
+          mágicos, reliquias perdidas o conflictos entre poderes invisibles.
+        </p>
+
+        <p>
+          El tono de Ánima permite crear campañas muy distintas. Una partida
+          puede centrarse en proteger una ciudad, investigar desapariciones,
+          explorar ruinas imposibles, perseguir a una organización secreta,
+          enfrentarse a una criatura legendaria o descubrir la verdad sobre el
+          origen de los poderes de un personaje. Lo importante es que la
+          historia mantenga sensación de peligro, secretos y consecuencias.
+        </p>
+
+        <p>
+          Para dirigir una historia de Ánima, el Game Master puede comenzar con
+          una amenaza clara, una localización con misterio y varios personajes
+          secundarios con intereses propios. A partir de ahí, las decisiones del
+          grupo marcarán si la aventura termina en combate, negociación,
+          traición, sacrificio o una revelación que abra la puerta a una campaña
+          mucho más grande.
+        </p>
+      </article>
+
+      <div class="story-elements-grid">
+        @for (element of storyElements; track element.title) {
+          <article class="story-element-card">
+            <h3>{{ element.title }}</h3>
+            <p>{{ element.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="story-card download-info-card">
+        <h2>Historias listas para jugar</h2>
+
+        <p>
+          En el botón de abajo encontrarás historias preparadas para jugar en
+          Ánima. Están pensadas para dar ideas rápidas al Game Master, con una
+          base narrativa, conflictos, amenazas, escenas principales y posibles
+          formas de continuar la aventura.
+        </p>
+      </article>
+
+      <div class="stories-download-wrapper">
+        <a
+          [href]="animaStoriesPdfUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="stories-download-button"
+        >
+          Descargar historias de Ánima
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

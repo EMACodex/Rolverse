@@ -1,0 +1,75 @@
+<div class="stories-bg">
+  <div class="stories-container">
+    <h1 class="main-title">Historia de Star Wars</h1>
+
+    <section class="stories-section">
+      <article class="story-card main-history-card">
+        <h2>Qué representa la historia de Star Wars</h2>
+
+        <p>
+          Star Wars es una saga de aventura, fantasía espacial y conflicto
+          galáctico donde la historia se construye alrededor de héroes,
+          villanos, imperios, rebeldes, planetas lejanos, guerras, linajes,
+          profecías y el misterio de la Fuerza. Su universo permite crear
+          partidas llenas de acción, exploración, dilemas morales y grandes
+          decisiones.
+        </p>
+
+        <p>
+          En una partida de rol, la historia puede seguir a un grupo de pilotos,
+          mercenarios, Jedi, soldados, contrabandistas, diplomáticos,
+          cazarrecompensas o supervivientes que se ven arrastrados a una misión
+          peligrosa. Cada personaje tiene un pasado, una deuda, una lealtad o un
+          secreto que puede cambiar el rumbo de la aventura.
+        </p>
+
+        <p>
+          El Director de Juego puede situar la campaña durante la Antigua
+          República, las Guerras Clon, el dominio del Imperio, la Rebelión, la
+          Nueva República o cualquier época propia. Lo importante es que la
+          galaxia se sienta viva: con facciones, planetas, criminales,
+          gobiernos, órdenes místicas y amenazas que obliguen al grupo a tomar
+          partido.
+        </p>
+
+        <p>
+          Las historias de Star Wars funcionan especialmente bien cuando mezclan
+          escenas de acción, persecuciones, viajes espaciales, conflictos
+          personales, enemigos poderosos y momentos donde los personajes deben
+          decidir qué tipo de héroes quieren ser.
+        </p>
+      </article>
+
+      <div class="stories-grid">
+        @for (story of storyTypes; track story.name) {
+          <article class="story-type-card">
+            <h3>{{ story.name }}</h3>
+            <p>{{ story.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="story-card download-info-card">
+        <h2>Historias listas para descargar</h2>
+
+        <p>
+          En el botón de abajo encontrarás historias preparadas para usar como
+          inspiración, punto de partida o base de partidas de Star Wars. Están
+          pensadas para crear aventuras rápidas con misiones claras,
+          localizaciones importantes, conflictos y posibles finales abiertos.
+        </p>
+      </article>
+
+      <div class="stories-download-wrapper">
+        <a
+          [href]="starwarsStoriesPdfUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="stories-download-button"
+        >
+          Descargar historias de Star Wars
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

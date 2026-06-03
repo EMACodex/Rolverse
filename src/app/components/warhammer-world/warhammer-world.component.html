@@ -1,0 +1,63 @@
+<div class="warhammer-bg">
+  <div class="warhammer-container">
+    <h1 class="main-title">Mapas de Warhammer</h1>
+
+    <section class="maps-section">
+      <article class="map-card main-map-card">
+        <h2>Qué representan los mapas en Warhammer</h2>
+
+        <p>
+          Los mapas en Warhammer sirven para situar la acción dentro de un
+          universo oscuro, violento y enorme. No son solo escenarios decorativos:
+          ayudan a entender dónde se encuentra el grupo, qué facciones dominan
+          la zona, qué peligros existen y qué tipo de misión puede desarrollarse.
+        </p>
+
+        <p>
+          Un mapa puede representar una ciudad colmena, una zona de guerra, una
+          nave abandonada, un mundo forja, una fortaleza imperial, una tumba
+          alienígena o incluso un sector completo del espacio. Cada localización
+          debe transmitir peligro, decadencia, guerra, fanatismo y misterio.
+        </p>
+
+        <p>
+          Para preparar una partida, el director puede usar los mapas como base
+          para crear rutas, zonas bloqueadas, objetivos militares, refugios,
+          emboscadas, ruinas, entradas secretas y lugares donde las decisiones
+          de los personajes cambien el rumbo de la misión.
+        </p>
+      </article>
+
+      <div class="maps-grid">
+        @for (mapType of mapTypes; track mapType.name) {
+          <article class="map-card">
+            <h3>{{ mapType.name }}</h3>
+            <p>{{ mapType.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="map-card download-info-card">
+        <h2>Mapas listos para descargar</h2>
+
+        <p>
+          En el botón de abajo encontrarás mapas preparados para usar como
+          inspiración en partidas de Warhammer, ya sea para campañas militares,
+          exploración espacial, combates tácticos o aventuras en mundos
+          peligrosos del Imperio.
+        </p>
+      </article>
+
+      <div class="maps-download-wrapper">
+        <a
+          [href]="warhammerMapsUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="maps-download-button"
+        >
+          Descargar mapas de Warhammer
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

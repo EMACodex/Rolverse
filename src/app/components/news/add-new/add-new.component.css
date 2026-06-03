@@ -3,7 +3,7 @@
   border: 4px double var(--color-marron-tost);
   border-radius: 12px;
   padding: 2rem;
-  margin: 170px auto 0 auto;  
+  margin: 170px auto 0 auto;
   max-width: 900px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
@@ -26,7 +26,7 @@
   background-attachment: fixed;
   padding: 0 0 4rem;
   box-sizing: border-box;
-    border-top: 1px solid transparent;
+  border-top: 1px solid transparent;
 }
 
 /* Labels */
@@ -131,4 +131,59 @@ textarea {
   font-weight: bold;
   border-radius: 4px;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .page-background {
+    padding: 0 1rem 3rem;
+    background-attachment: scroll;
+  }
+
+  .news-form-container {
+    margin: 120px auto 0 auto;
+    padding: 1.3rem;
+    max-width: 100%;
+  }
+
+  .news-form-container h2 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  input[type="text"],
+  input[type="file"],
+  textarea {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+
+  textarea {
+    min-height: 120px;
+  }
+
+  .rpg-login-button {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.85rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-background {
+    padding: 0 0.75rem 2.5rem;
+  }
+
+  .news-form-container {
+    margin-top: 105px;
+    padding: 1rem;
+  }
+
+  .news-form-container h2 {
+    font-size: 1.25rem;
+  }
 }

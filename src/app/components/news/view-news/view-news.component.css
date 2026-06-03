@@ -152,3 +152,65 @@
 .delete-btn:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  :host {
+    background-attachment: scroll;
+  }
+
+  .container {
+    padding-top: 120px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-height: calc(100vh - 120px);
+  }
+
+  .news-detail {
+    padding: 1.3rem;
+  }
+
+  .news-title {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .news-meta {
+    font-size: 0.85rem;
+  }
+
+  .news-content-full {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .comment-form button {
+    width: 100%;
+    align-self: stretch;
+  }
+
+  .comment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-top: 105px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .news-detail {
+    padding: 1rem;
+  }
+
+  .news-title {
+    font-size: 1.25rem;
+  }
+
+  .news-content-full {
+    font-size: 0.9rem;
+  }
+}

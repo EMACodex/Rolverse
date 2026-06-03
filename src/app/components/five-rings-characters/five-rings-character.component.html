@@ -1,0 +1,71 @@
+<div class="characters-bg">
+  <div class="characters-container">
+    <h1 class="main-title">Personajes de La Leyenda de los 5 Anillos</h1>
+
+    <section class="characters-section">
+      <article class="character-card main-character-card">
+        <h2>Qué es un personaje en La Leyenda de los 5 Anillos</h2>
+
+        <p>
+          Un personaje en La Leyenda de los 5 Anillos representa a una persona
+          marcada por el honor, el deber, el clan, la familia y las tensiones
+          internas del Imperio Esmeralda. No se trata solo de combatir: cada
+          personaje vive entre lo que desea, lo que siente y lo que la sociedad
+          espera de él.
+        </p>
+
+        <p>
+          En este juego, los personajes pueden ser samuráis, cortesanos,
+          sacerdotes, monjes, agentes secretos o ronin. Cada uno tiene una forma
+          distinta de enfrentarse al conflicto: con la espada, la palabra, la
+          tradición, los espíritus, la estrategia o el sacrificio personal.
+        </p>
+
+        <p>
+          Crear un personaje implica elegir un clan, una escuela, un papel
+          dentro de la sociedad y una personalidad. También es importante
+          definir sus lealtades, sus miedos, sus obligaciones y aquello que
+          podría hacerle romper su propio código de honor.
+        </p>
+
+        <p>
+          Un buen personaje no tiene que ser perfecto. Puede ser orgulloso,
+          reservado, ambicioso, compasivo, impulsivo o atormentado por un deber
+          imposible. Lo importante es que sus decisiones tengan peso dentro de
+          la historia y puedan afectar a su clan, su familia o su destino.
+        </p>
+      </article>
+
+      <div class="characters-grid">
+        @for (character of characterTypes; track character.name) {
+          <article class="character-type-card">
+            <h3>{{ character.name }}</h3>
+            <p>{{ character.description }}</p>
+          </article>
+        }
+      </div>
+
+      <article class="character-card download-info-card">
+        <h2>Hojas de personaje listas para descargar</h2>
+
+        <p>
+          En el botón de abajo encontrarás hojas de personaje preparadas para
+          partidas de La Leyenda de los 5 Anillos. Puedes descargarlas,
+          imprimirlas o utilizarlas como base para crear samuráis, cortesanos,
+          shugenja, ronin y otros protagonistas del Imperio Esmeralda.
+        </p>
+      </article>
+
+      <div class="characters-download-wrapper">
+        <a
+          [href]="fiveRingsCharacterSheetUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="characters-download-button"
+        >
+          Descargar hojas de personaje de la leyenda de los 5 anillos
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

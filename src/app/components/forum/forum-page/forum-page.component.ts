@@ -4,21 +4,24 @@ import { AuthService } from '../../../services/auth.service';
 import { MaterialModule } from '../../../material/material.module';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateForumComponent } from '../create-forum/create-forum.component';
-import { ForumInterface, getForumResponse, getForumsResponse } from '../../../interfaces/forum.interface';
+import {
+  ForumInterface,
+  getForumsResponse,
+} from '../../../interfaces/forum.interface';
 import { ForumService } from '../../../services/forum.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-forum-page',
+  standalone: true,
   imports: [MaterialModule],
   templateUrl: './forum-page.component.html',
-  styleUrl: './forum-page.component.css'
+  styleUrl: './forum-page.component.css',
 })
 export class ForumPageComponent {
-
-  userInfo!: tokenData;
+  userInfo: tokenData | null = null;
   allForums: ForumInterface[] = [];
 
   constructor(
@@ -29,14 +32,12 @@ export class ForumPageComponent {
   ) {}
 
   ngOnInit() {
-    this.authService.getTokenData().subscribe({
-      next: (data: tokenData) => {
+    this.authService
+      .getTokenData()
+      .pipe(catchError(() => of(null)))
+      .subscribe((data) => {
         this.userInfo = data;
-      },
-      error: (error) => {
-        console.error('Error fetching user info:', error.message);
-      }
-    });
+      });
 
     this.loadForums();
   }
@@ -48,16 +49,16 @@ export class ForumPageComponent {
       },
       error: (error) => {
         console.error('Error fetching forums:', error.message);
-      }
+      },
     });
   }
 
   openCreateForumDialog() {
     const dialogRef = this.dialog.open(CreateForumComponent, {
       width: '500px',
-      backdropClass: 'transparent-backdrop'
+      backdropClass: 'transparent-backdrop',
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.forumService.getAllForums().subscribe({
           next: (forums: getForumsResponse) => {
@@ -65,7 +66,7 @@ export class ForumPageComponent {
           },
           error: (error) => {
             console.error('Error fetching updated forums:', error.message);
-          }
+          },
         });
       }
     });
@@ -80,7 +81,7 @@ export class ForumPageComponent {
       confirmButtonColor: '#a80000',
       cancelButtonColor: '#4b4b4b',
       confirmButtonText: 'Sí, eliminarlo',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
         this.forumService.deleteForum(forumId).subscribe({
@@ -89,7 +90,7 @@ export class ForumPageComponent {
               title: '¡Eliminado!',
               text: response.message || 'El foro ha sido eliminado.',
               icon: 'success',
-              confirmButtonColor: '#6b0f0f'
+              confirmButtonColor: '#6b0f0f',
             });
             this.loadForums(); // o actualiza tu lista manualmente
           },
@@ -98,17 +99,16 @@ export class ForumPageComponent {
               title: 'Error',
               text: 'No se pudo eliminar el foro.',
               icon: 'error',
-              confirmButtonColor: '#6b0f0f'
+              confirmButtonColor: '#6b0f0f',
             });
             console.error('Error al eliminar el foro:', error);
-          }
+          },
         });
       }
     });
   }
 
-  onForumClick(forum_id:number): void {
+  onForumClick(forum_id: number): void {
     this.router.navigate(['/forum', forum_id]);
   }
-
 }
