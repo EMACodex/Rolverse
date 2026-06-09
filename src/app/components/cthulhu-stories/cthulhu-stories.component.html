@@ -49,18 +49,9 @@
         }
       </div>
 
-      <article class="story-card download-info-card">
-        <h2>Historias listas para jugar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás historias preparadas para partidas de
-          Cthulhu, pensadas para empezar rápido con una investigación clara,
-          escenas de tensión, pistas importantes, amenazas ocultas y finales con
-          consecuencias.
-        </p>
-      </article>
-
-      <div class="stories-download-wrapper">
+        <div class="stories-download-wrapper">
         <a
           [href]="cthulhuStoriesPdfUrl"
           target="_blank"
@@ -70,6 +61,8 @@
           Descargar historias de Cthulhu
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

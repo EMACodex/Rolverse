@@ -45,17 +45,9 @@
         }
       </div>
 
-      <article class="worlds-card download-info-card">
-        <h2>Mundos listos para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás mapas y mundos preparados para usar
-          como inspiración, apoyo visual o base para crear partidas de Star Wars
-          de forma rápida y sencilla.
-        </p>
-      </article>
-
-      <div class="worlds-download-wrapper">
+        <div class="worlds-download-wrapper">
         <a
           [href]="starwarsWorldsPdfUrl"
           target="_blank"
@@ -65,6 +57,8 @@
           Descargar mundos de Star Wars
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

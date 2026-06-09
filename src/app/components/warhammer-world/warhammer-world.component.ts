@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-warhammer-world',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./warhammer-world.component.css'],
 })
 export class WarhammerWorldComponent {
+  readonly authService = inject(AuthService);
   readonly warhammerMapsUrl =
     'https://drive.google.com/uc?export=download&id=1zcNfI8cnPI1ibLiANCjN42V0DOUXhcih';
 

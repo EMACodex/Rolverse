@@ -4,13 +4,15 @@ import {
   FormBuilder,
   FormGroup,
   FormsModule,
+  ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
 import { RUTA_API } from '../../../../environment';
-import { jwtDecode } from 'jwt-decode';
-import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
+import { InternalNews } from '../../../interfaces/new.interface';
 
 @Component({
   selector: 'app-add-new',
@@ -26,6 +28,10 @@ export class AddNewComponent implements OnInit {
   imagePreview: string | null = null;
   selectedImage: File | null = null;
   errorMessage: string | null = null;
+  newsId: number | null = null;
+  isEditMode = false;
+
+  private apiBase = RUTA_API.replace(/\/$/, '');
 
   fechaActual = new Date().toLocaleDateString('es-ES', {
     year: 'numeric',
@@ -36,20 +42,49 @@ export class AddNewComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    const token = localStorage.getItem('token');
-    if (token) {
-      this.currentUser = jwtDecode(token) as { id: number; name: string };
-    }
+    this.currentUser = this.authService.getCurrentUser() as {
+      id: number;
+      name: string;
+    } | null;
 
     this.newsForm = this.fb.group({
       title: ['', Validators.required],
+      summary: [''],
       content: ['', Validators.required],
       image: [null],
     });
+
+    const idParam = this.route.snapshot.paramMap.get('id');
+    this.newsId = idParam ? Number(idParam) : null;
+    this.isEditMode = !!this.newsId;
+
+    if (this.newsId) {
+      this.loadNewsForEdit(this.newsId);
+    }
+  }
+
+  async loadNewsForEdit(newsId: number): Promise<void> {
+    try {
+      const news = await firstValueFrom(
+        this.http.get<InternalNews>(`${RUTA_API}news/${newsId}`)
+      );
+
+      this.newsForm.patchValue({
+        title: news.title,
+        summary: news.summary || '',
+        content: news.content,
+      });
+      this.imagePreview = news.image_path ? this.getUploadUrl(news.image_path) : null;
+    } catch (error) {
+      console.error('Error cargando noticia para editar:', error);
+      this.errorMessage = 'No se pudo cargar la noticia para editar.';
+    }
   }
 
   onImageSelected(event: Event): void {
@@ -66,50 +101,68 @@ export class AddNewComponent implements OnInit {
   }
 
   async onSubmit(): Promise<void> {
-    // 1) Extraemos los valores limpios
     const title = this.newsForm.value.title?.trim();
+    const summary = this.newsForm.value.summary?.trim() || '';
     const content = this.newsForm.value.content?.trim();
 
-    // 2) Si falta alguno, no publicamos
     if (!title || !content) {
       this.errorMessage =
-        'Debe rellenar Título y Descripción antes de publicar.';
+        'Debe rellenar titulo y descripcion antes de guardar.';
       return;
     }
 
     if (this.newsForm.invalid || !this.currentUser) return;
 
-    // 1) Construccion del FormData
     const formData = new FormData();
-    formData.append('title', this.newsForm.value.title);
-    formData.append('content', this.newsForm.value.content);
-    formData.append('author_id', this.currentUser.id.toString());
+    formData.append('title', title);
+    formData.append('summary', summary);
+    formData.append('content', content);
     if (this.selectedImage) {
       formData.append('image', this.selectedImage);
     }
 
-    // 2) Recupera el token de localStorage
     const token = localStorage.getItem('token');
     if (!token) {
-      alert('Tu sesión ha expirado. Por favor, vuelve a iniciar sesión.');
+      alert('Tu sesion ha expirado. Por favor, vuelve a iniciar sesion.');
       return;
     }
 
-    // 3) Crea el header con Bearer <token>
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    // 4) Incluye los headers en la llamada
     try {
-      await this.http
-        .post(`${RUTA_API}news`, formData, { headers })
-        .toPromise();
+      if (this.isEditMode && this.newsId) {
+        await firstValueFrom(
+          this.http.put(`${RUTA_API}news/${this.newsId}`, formData, { headers })
+        );
+      } else {
+        await firstValueFrom(
+          this.http.post(`${RUTA_API}news`, formData, { headers })
+        );
+      }
 
-      alert('Noticia publicada correctamente');
-      this.router.navigate(['/']);
-    } catch (error) {
+      alert(
+        this.isEditMode
+          ? 'Noticia actualizada correctamente'
+          : 'Noticia publicada correctamente'
+      );
+      this.router.navigate(
+        this.isEditMode && this.newsId ? ['/noticias', this.newsId] : ['/noticias']
+      );
+    } catch (error: any) {
       console.error('Error al guardar noticia:', error);
-      alert('Ocurrió un error al publicar la noticia');
+      this.errorMessage =
+        error.error?.message ||
+        error.error?.error ||
+        'Ocurrio un error al guardar la noticia';
     }
+  }
+
+  getUploadUrl(path: string): string {
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      return path;
+    }
+
+    return `${this.apiBase}${path.startsWith('/') ? path : `/${path}`}`;
   }
 
   closeError(): void {

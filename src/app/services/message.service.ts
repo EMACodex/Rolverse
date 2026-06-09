@@ -22,8 +22,15 @@ export class MessageService {
   }
 
   createMessage(data: FormData) {
-    console.log('Creating message with data:', data);
     return this.http.post(`${this.apiURL}/new`, data);
+  }
+
+  updateMessage(messageId: number, data: FormData) {
+    return this.http.put(`${this.apiURL}/${messageId}`, data);
+  }
+
+  deleteMessage(messageId: number) {
+    return this.http.delete(`${this.apiURL}/${messageId}`);
   }
 
 }

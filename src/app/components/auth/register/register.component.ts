@@ -14,6 +14,7 @@ export class RegisterComponent {
   registerForm: FormGroup;
   errorMessage = '';
   successMessage = '';
+  showPassword = false;
 
   constructor(
     private authService: AuthService,

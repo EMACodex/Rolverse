@@ -1,5 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, Validators, ReactiveFormsModule, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+  FormGroup,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ForumService } from '../../../services/forum.service';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -9,12 +14,13 @@ import { MatDialogRef } from '@angular/material/dialog';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './create-forum.component.html',
-  styleUrl: './create-forum.component.css'
+  styleUrl: './create-forum.component.css',
 })
 export class CreateForumComponent {
   forumForm!: FormGroup;
+  errorMessage = '';
 
-  private dialogRef = inject(MatDialogRef<CreateForumComponent>); // ✅ usa inject() en Angular 14+
+  private dialogRef = inject(MatDialogRef<CreateForumComponent>);
 
   constructor(
     private fb: FormBuilder,
@@ -25,21 +31,26 @@ export class CreateForumComponent {
     this.forumForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
+      visibility: ['public', Validators.required],
     });
   }
 
   onSubmit() {
-    if (this.forumForm.valid) {
-      this.forumService.createForum(this.forumForm.value).subscribe({
-        next: (response) => {
-          this.forumForm.reset();
-          this.dialogRef.close(true); // ✅ Cierra el diálogo
-        },
-        error: (error) => {
-          console.error('Error creating forum:', error);
-        }
-      });
+    if (this.forumForm.invalid) {
+      return;
     }
+
+    this.forumService.createForum(this.forumForm.value).subscribe({
+      next: () => {
+        this.forumForm.reset({ visibility: 'public' });
+        this.dialogRef.close(true);
+      },
+      error: (error) => {
+        this.errorMessage =
+          error.error?.message || 'No se pudo crear el foro.';
+        console.error('Error creating forum:', error);
+      },
+    });
   }
 
   get title() {
@@ -48,5 +59,9 @@ export class CreateForumComponent {
 
   get description() {
     return this.forumForm.get('description');
+  }
+
+  get visibility() {
+    return this.forumForm.get('visibility');
   }
 }

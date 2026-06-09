@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-five-rings-world',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./five-rings-world.component.css'],
 })
 export class FiveRingsWorldComponent {
+  readonly authService = inject(AuthService);
   readonly fiveRingsMapsPdfUrl =
     'https://drive.google.com/uc?export=download&id=1BLxvUYPfwqNzl3p5sLcaXCtujv9seW0z';
 

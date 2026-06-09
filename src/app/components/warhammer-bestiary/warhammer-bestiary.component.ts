@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-warhammer-bestiary',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./warhammer-bestiary.component.css'],
 })
 export class WarhammerBestiaryComponent {
+  readonly authService = inject(AuthService);
   readonly warhammerBestiaryPdfUrl =
     'https://drive.google.com/uc?export=download&id=1NIoq4nVQk2oLpVNX3c6d4sPz8iiTzghq';
 

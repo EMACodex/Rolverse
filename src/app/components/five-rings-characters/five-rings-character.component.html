@@ -45,18 +45,9 @@
         }
       </div>
 
-      <article class="character-card download-info-card">
-        <h2>Hojas de personaje listas para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás hojas de personaje preparadas para
-          partidas de La Leyenda de los 5 Anillos. Puedes descargarlas,
-          imprimirlas o utilizarlas como base para crear samuráis, cortesanos,
-          shugenja, ronin y otros protagonistas del Imperio Esmeralda.
-        </p>
-      </article>
-
-      <div class="characters-download-wrapper">
+        <div class="characters-download-wrapper">
         <a
           [href]="fiveRingsCharacterSheetUrl"
           target="_blank"
@@ -66,6 +57,8 @@
           Descargar hojas de personaje de la leyenda de los 5 anillos
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

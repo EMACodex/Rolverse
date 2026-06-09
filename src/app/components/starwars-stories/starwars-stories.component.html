@@ -49,18 +49,9 @@
         }
       </div>
 
-      <article class="story-card download-info-card">
-        <h2>Historias listas para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás historias preparadas para usar como
-          inspiración, punto de partida o base de partidas de Star Wars. Están
-          pensadas para crear aventuras rápidas con misiones claras,
-          localizaciones importantes, conflictos y posibles finales abiertos.
-        </p>
-      </article>
-
-      <div class="stories-download-wrapper">
+        <div class="stories-download-wrapper">
         <a
           [href]="starwarsStoriesPdfUrl"
           target="_blank"
@@ -70,6 +61,8 @@
           Descargar historias de Star Wars
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

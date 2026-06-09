@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-anima-character',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./anima-character.component.css'],
 })
 export class AnimaCharacterComponent {
+  readonly authService = inject(AuthService);
   readonly animaCharactersPdfUrl =
     'https://drive.google.com/uc?export=download&id=1SVyzxfAj_n4yvnz3BYSulmxvNS9kqhvI';
 

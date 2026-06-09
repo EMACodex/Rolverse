@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-cthulhu-stories',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./cthulhu-stories.component.css'],
 })
 export class CthulhuStoriesComponent {
+  readonly authService = inject(AuthService);
   readonly cthulhuStoriesPdfUrl =
     'https://drive.google.com/uc?export=download&id=1w3Mj7QMY_3BuMXu3G8nQ1Q_IzZGXwLF1';
 

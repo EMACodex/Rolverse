@@ -1,164 +1,474 @@
+* {
+  box-sizing: border-box;
+}
+
 .contenedor {
-  padding-top: 134px;
+  padding: 134px 1rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("/assets/img/fondo 2.jpg");
-  background-size: cover;
-  background-position: center;
+  background:
+    linear-gradient(#100d0baa, #21130ee8),
+    url("/assets/img/fondo 2.jpg") center/cover;
   min-height: 100vh;
+  overflow-x: hidden;
+  color: #f3e3bd;
 }
 
 .contenedor h1 {
-  color: #fff;
-  text-shadow: 4px 2px 4px #d4af37;
-  font-family: "Cinzel", serif;
+  max-width: min(1000px, calc(100vw - 2rem));
+  color: #ffe5a0;
+  text-shadow: 0 3px 8px #000b;
+  font-family: "Cinzel Decorative", "Cinzel", serif;
   font-size: 3rem;
+  line-height: 1.1;
   margin-bottom: 1rem;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .personal-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 90%;
-  max-width: 1000px;
-  background-color: rgba(255, 248, 220, 0.2);
-  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  align-items: stretch;
+  width: min(1000px, 100%);
+  background: #1c1512f5;
+  border: 1px solid #d9b66b;
+  border-radius: 8px;
   padding: 30px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-  gap: 40px;
+  box-shadow: 0 24px 58px #0009;
+  gap: 2rem;
 }
 
-.escudo-container {
-  width: 200px;
-  height: 300px;
+.avatar-panel {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 }
 
-.escudo {
-  width: 100%;
-  height: 100%;
-  clip-path: polygon(100% 15%, 100% 85%, 50% 100%, 0% 85%, 0% 15%);
-  background-color: #6a3c15;
-  border: 3px solid #d4af37;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-  overflow: hidden;
-  position: relative;
-}
-
-.escudo img {
-  width: 100%;
-  height: 100%;
+.profile-avatar {
+  width: 180px;
+  height: 180px;
+  border: 4px solid #d4af37;
+  border-radius: 50%;
+  background: #6a3c15;
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.5);
   object-fit: cover;
-  clip-path: inherit;
   display: block;
 }
 
+.change-avatar {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 42px;
+  padding: 0.65rem 1rem;
+  border: 1px solid #e1bb6a9e;
+  border-radius: 8px;
+  background: linear-gradient(#e8c36e, #ad7631);
+  color: #24130b;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.change-avatar input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.profile-error {
+  margin: 0;
+  color: #ffdfd5;
+  font-weight: 700;
+  text-align: center;
+}
+
 .personal-info {
-  flex: 1;
-  background: #f9e6c3;
-  background-image: url("https://www.transparenttextures.com/patterns/old-wall-paper.png");
-  background-size: cover;
-  border-radius: 10px;
+  min-width: 0;
+  background: #120f0d94;
+  border: 1px solid #c6a15b6b;
+  border-radius: 8px;
   padding: 20px;
-  font-family: "Times New Roman", Times, serif;
-  color: #4e3b2a;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  font-family: "Merriweather", Georgia, serif;
+  color: #ead9b7;
+  box-shadow: 0 12px 28px #0005;
 }
 
 .personal-info-rol h2 {
+  color: #f8dfa0;
+  font-family: "Cinzel", serif;
   font-size: 24px;
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 20px;
+  overflow-wrap: anywhere;
 }
 
 .personal-info-rol p {
+  color: #ead9b7;
   font-size: 16px;
   margin: 10px 0;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
-.messages {
-  margin-top: 3rem;
-  width: 80%;
-  max-width: 1000px;
-  background-color: rgba(255, 248, 220, 0.85); /* Fondo pergamino claro */
-  border: 2px solid #c9a769;
-  border-radius: 10px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+.created-content {
+  margin-top: 2rem;
+  width: min(1000px, 100%);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.change-password-section {
+  margin-top: 2rem;
+  width: min(1000px, 100%);
+  background: #1c1512f5;
+  border: 1px solid #d9b66b;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 28px #0005;
   font-family: "Merriweather", serif;
 }
 
-.messages h2 {
-  color: #6b3e1d;
+.created-section,
+.invitations-section,
+.matches-profile-section {
+  background: #1c1512f5;
+  border: 1px solid #d9b66b;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 28px #0005;
+  font-family: "Merriweather", serif;
+}
+
+.created-section h2,
+.invitations-section h2,
+.matches-profile-section h2,
+.change-password-section h2 {
+  color: #f5dfa4;
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+  text-shadow: 0 3px 8px #000b;
+  font-family: "Cinzel", serif;
+}
+
+.matches-profile-section {
+  margin-top: 2rem;
+  width: min(1000px, 100%);
+}
+
+.matches-summary {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.8rem;
   margin-bottom: 1.5rem;
-  text-shadow: 1px 1px #e8dcc4;
 }
 
-.messages-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+.matches-summary div {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid #c9a769;
+  border-radius: 8px;
+  background: #120f0d94;
+  color: #ead9b7;
+  text-align: center;
 }
 
-.message-item {
-  background: #f4e3c1;
+.matches-summary strong {
+  font-size: 1.35rem;
+  color: #f8dfa0;
+}
+
+.matches-summary span {
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+
+.match-profile-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.match-profile-group {
+  min-width: 0;
+}
+
+.match-profile-group h3 {
+  margin: 0 0 0.75rem;
+  color: #f8dfa0;
+  font-family: "Cinzel", serif;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.profile-match-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.profile-match-card {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+  min-width: 0;
+  padding: 0.75rem;
   border-left: 4px solid #a67c52;
-  padding: 1rem;
   border-radius: 6px;
+  background: #120f0d94;
+  color: #ead9b7;
+  text-decoration: none;
   box-shadow: 0 1px 4px rgba(139, 69, 19, 0.2);
 }
 
-.message-content {
-  color: #4b3621;
-  font-size: 1rem;
-  line-height: 1.4;
-  margin-bottom: 0.5rem;
-  white-space: pre-line;
+.profile-match-card img {
+  width: 74px;
+  height: 54px;
+  border-radius: 6px;
+  object-fit: cover;
 }
 
-.message-date {
-  font-size: 0.85rem;
+.profile-match-card div {
+  min-width: 0;
+}
+
+.profile-match-card strong,
+.profile-match-card span {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.profile-match-card span {
+  margin-top: 0.25rem;
   color: #7a5e3c;
+  color: #cdbb99;
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.change-password-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem 1rem;
+  align-items: stretch;
+}
+
+.change-password-form label {
+  color: #d8c8a8;
+  font-weight: 700;
+}
+
+.change-password-form input {
+  width: 100%;
+  min-height: 42px;
+  padding: 0.65rem 4.4rem 0.65rem 0.8rem;
+  border: 1px solid #d7b26a9e;
+  border-radius: 8px;
+  background: #0d0b0ac2;
+  color: #f3e3bd;
+  font: 1rem "Merriweather", serif;
+}
+
+.password-field {
+  position: relative;
+  width: 100%;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.45rem;
+  transform: translateY(-50%);
+  min-height: 34px;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #d7b26a9e;
+  border-radius: 8px;
+  background: #14120f80;
+  color: #f2d99b;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.change-password-form button {
+  grid-column: 1 / -1;
+  justify-self: end;
+  min-height: 42px;
+  padding: 0.65rem 1rem;
+  border: 0;
+  border-radius: 6px;
+  background: linear-gradient(#e8c36e, #ad7631);
+  color: #24130b;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.change-password-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.password-message {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.error-message {
+  color: #8c1f22;
+  color: #ffb1a8;
+}
+
+.success-message {
+  color: #246b3a;
+  color: #c7f2b4;
+}
+
+.created-list,
+.invitation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.created-item,
+.invitation-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  background: #f4e3c1;
+  background: #120f0d94;
+  border-left: 4px solid #d9b66b;
+  padding: 0.85rem;
+  border-radius: 6px;
+  color: #ead9b7;
+  text-decoration: none;
+  box-shadow: 0 1px 4px rgba(139, 69, 19, 0.2);
+}
+
+.created-item span {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.created-item small {
+  color: #cdbb99;
   text-align: right;
+}
+
+.invitations-section {
+  margin-top: 2rem;
+  width: min(1000px, 100%);
+}
+
+.invitation-card {
+  align-items: flex-start;
+}
+
+.invitation-card div {
+  min-width: 0;
+}
+
+.invitation-card h3 {
+  margin: 0 0 0.35rem;
+  color: #5e3216;
+  color: #f8dfa0;
+  overflow-wrap: anywhere;
+}
+
+.invitation-card p {
+  margin: 0 0 0.4rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.invitation-card small {
+  color: #cdbb99;
+}
+
+.invitation-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.6rem;
+}
+
+.invitation-actions button {
+  min-height: 38px;
+  padding: 0.5rem 0.85rem;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.invitation-actions .accept {
+  background: #246b3a;
+}
+
+.invitation-actions .reject {
+  background: #8c1f22;
+}
+
+.empty-state,
+.loading-state {
+  color: #ead9b7;
+  text-align: center;
   font-style: italic;
+}
+
+.loading-state {
+  background: #1c1512f5;
+  border: 1px solid #d9b66b;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  font-family: "Merriweather", serif;
 }
 
 @media (max-width: 768px) {
   .contenedor {
     padding-top: 115px;
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 
   .contenedor h1 {
     font-size: 2rem;
-    text-align: center;
     line-height: 1.2;
   }
 
   .personal-content {
-    width: 100%;
+    grid-template-columns: 1fr;
     padding: 1.2rem;
     gap: 1.5rem;
   }
 
-  .escudo-container {
+  .avatar-panel {
+    order: 0;
+  }
+
+  .profile-avatar {
     width: 150px;
-    height: 220px;
+    height: 150px;
+  }
+
+  .change-avatar {
+    width: min(100%, 220px);
   }
 
   .personal-info {
     width: 100%;
-    flex: 0 0 100%;
     padding: 1rem;
   }
 
@@ -170,40 +480,94 @@
     font-size: 0.95rem;
   }
 
-  .messages {
-    width: 100%;
-    padding: 1.2rem;
+  .created-content {
+    grid-template-columns: 1fr;
   }
 
-  .messages h2 {
-    font-size: 1.4rem;
+  .created-section h2,
+  .invitations-section h2,
+  .matches-profile-section h2,
+  .change-password-section h2 {
+    font-size: 1.35rem;
+  }
+
+  .change-password-form {
+    grid-template-columns: 1fr;
+  }
+
+  .change-password-form button {
+    justify-self: stretch;
+  }
+
+  .password-toggle {
+    min-width: 64px;
+  }
+
+  .created-item,
+  .invitation-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .matches-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .match-profile-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .created-item small {
+    text-align: left;
+  }
+
+  .invitation-actions {
+    width: 100%;
+  }
+
+  .invitation-actions button {
+    flex: 1;
   }
 }
 
 @media (max-width: 480px) {
+  .contenedor {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
   .contenedor h1 {
     font-size: 1.6rem;
   }
 
-  .escudo-container {
-    width: 120px;
-    height: 180px;
+  .profile-avatar {
+    width: 128px;
+    height: 128px;
   }
 
-  .personal-content {
+  .personal-content,
+  .created-section,
+  .invitations-section,
+  .matches-profile-section,
+  .change-password-section {
     padding: 1rem;
-    gap: 1rem;
   }
 
-  .messages {
-    padding: 1rem;
+  .matches-summary {
+    grid-template-columns: 1fr;
   }
 
-  .message-content {
-    font-size: 0.9rem;
+  .profile-match-card {
+    grid-template-columns: 1fr;
   }
 
-  .message-date {
-    text-align: left;
+  .profile-match-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .invitation-actions {
+    flex-direction: column;
   }
 }

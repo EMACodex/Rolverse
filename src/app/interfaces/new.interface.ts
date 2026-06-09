@@ -5,6 +5,7 @@ export interface InternalNews {
   content: string;
   image_path: string | null;
   author_id: number;
-  author: string;        
+  author: string;
+  author_name?: string;
   created_at: string;
 }

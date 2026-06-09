@@ -41,17 +41,9 @@
         }
       </div>
 
-      <article class="bestiary-card download-info-card">
-        <h2>Bestiario listo para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás un bestiario preparado para consultar
-          criaturas, crear encuentros y montar historias de La Leyenda de los 5
-          Anillos de forma rápida y sencilla.
-        </p>
-      </article>
-
-      <div class="bestiary-download-wrapper">
+        <div class="bestiary-download-wrapper">
         <a
           [href]="fiveRingsBestiaryPdfUrl"
           target="_blank"
@@ -61,6 +53,8 @@
           Descargar bestiario de la leyenda de los 5 anillos
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

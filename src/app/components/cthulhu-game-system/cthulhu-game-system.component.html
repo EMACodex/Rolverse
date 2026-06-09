@@ -98,7 +98,9 @@
           </article>
         </div>
 
-        <div class="manual-download-wrapper">
+        @if (authService.canDownload()) {
+
+          <div class="manual-download-wrapper">
           <a
             [href]="cthulhuGameSystemPdfUrl"
             target="_blank"
@@ -108,6 +110,8 @@
             Descargar sistema de juego de Cthulhu
           </a>
         </div>
+
+        }
       </section>
     }
     @if (selectedTab === "first") {

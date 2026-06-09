@@ -1,0 +1,265 @@
+:host {
+  --gold: #d9b66b;
+  --paper: #f3e3bd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.match-play-shell {
+  min-height: 100vh;
+  padding: 142px 1rem 4rem;
+  background: linear-gradient(#100d0baa, #21130ee8), url("/assets/img/partidas/fondo.png") center/cover;
+  color: var(--paper);
+  font-family: "Merriweather", Georgia, serif;
+  overflow-x: hidden;
+}
+
+.match-play-card {
+  width: min(1080px, 100%);
+  margin: auto;
+  padding: 1.5rem;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  background: #1c1512f5;
+  box-shadow: 0 24px 58px #0009;
+}
+
+.state {
+  text-align: center;
+}
+
+.error {
+  color: #ffb1a8;
+}
+
+.back-link,
+.primary-button,
+.secondary-button,
+.badge,
+h1,
+h2,
+.match-kicker,
+dt {
+  font-family: "Cinzel", serif;
+}
+
+.back-link,
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.back-link,
+.secondary-button {
+  border: 1px solid #d7b26a9e;
+  background: #14120f80;
+  color: #f2d99b;
+}
+
+.primary-button {
+  border: 1px solid #e1bb6a9e;
+  background: linear-gradient(#e8c36e, #ad7631);
+  color: #24130b;
+}
+
+.match-hero {
+  display: grid;
+  grid-template-columns: minmax(260px, 42%) minmax(0, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.match-hero img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  border: 1px solid #d7b26a9e;
+  border-radius: 8px;
+}
+
+.match-summary {
+  min-width: 0;
+}
+
+.match-kicker {
+  margin: 0 0 0.4rem;
+  color: #ddc596;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+h1 {
+  margin: 0;
+  color: #ffe5a0;
+  font-size: 2.4rem;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.match-badges,
+.match-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.badge {
+  min-height: 30px;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid #88b88a;
+  border-radius: 999px;
+  background: #172d21cc;
+  color: #d6f0c8;
+}
+
+.badge.private {
+  border-color: #d58d8d;
+  background: #4a171bcc;
+  color: #ffd3c5;
+}
+
+.match-summary p,
+.more-info p,
+.match-access-settings p {
+  color: #ead9b7;
+  line-height: 1.65;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0 0;
+}
+
+dt {
+  color: #ddc596;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+dd {
+  margin: 0.25rem 0 0;
+  color: #fff3d2;
+  overflow-wrap: anywhere;
+}
+
+.join-message {
+  margin: 0.75rem 0 0;
+  color: #c7f2b4;
+  font-weight: 700;
+}
+
+.match-access-settings {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border: 1px solid #c6a15b6b;
+  border-radius: 8px;
+  background: #16120fb8;
+}
+
+.match-access-settings h2,
+.match-access-settings p {
+  margin: 0;
+}
+
+.match-access-settings h2 {
+  color: #f5dfa4;
+  font-size: 1.35rem;
+}
+
+.match-access-settings label {
+  color: #d8c8a8;
+  font-weight: 700;
+}
+
+.match-access-settings select {
+  width: min(320px, 100%);
+  min-height: 42px;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #d7b26a9e;
+  border-radius: 8px;
+  background: #0d0b0ac2;
+  color: var(--paper);
+  font: 1rem/1.5 "Merriweather", Georgia, serif;
+}
+
+.access-message {
+  color: #c7f2b4;
+  font-weight: 700;
+}
+
+.access-error {
+  color: #ffb1a8;
+  font-weight: 700;
+}
+
+.more-info {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d7b36a3d;
+}
+
+.more-info h2 {
+  margin: 1rem 0 0.5rem;
+  color: #f5dfa4;
+}
+
+@media (max-width: 820px) {
+  .match-play-shell {
+    padding-top: 120px;
+  }
+
+  .match-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .match-hero img {
+    min-height: 240px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .match-play-shell {
+    padding: 112px 0.75rem 4rem;
+  }
+
+  .match-play-card {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  dl {
+    grid-template-columns: 1fr;
+  }
+
+  .back-link,
+  .primary-button,
+  .secondary-button,
+  .match-access-settings select {
+    width: 100%;
+  }
+}

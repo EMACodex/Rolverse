@@ -39,17 +39,9 @@
         }
       </div>
 
-      <article class="character-card download-info-card">
-        <h2>Hojas de personaje listas para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás las hojas de personaje preparadas
-          para crear investigadores y empezar una partida de Cthulhu de forma
-          rápida y sencilla.
-        </p>
-      </article>
-
-      <div class="character-download-wrapper">
+        <div class="character-download-wrapper">
         <a
           [href]="cthulhuCharactersPdfUrl"
           target="_blank"
@@ -59,6 +51,8 @@
           Descargar personajes de Cthulhu
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

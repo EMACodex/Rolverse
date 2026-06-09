@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-cthulhu-bestiary',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./cthulhu-bestiary.component.css'],
 })
 export class CthulhuBestiaryComponent {
+  readonly authService = inject(AuthService);
   readonly cthulhuBestiaryPdfUrl =
     'https://drive.google.com/uc?export=download&id=17wHyVBmMEYylIDZOF4m1NMdsuNdrwA7N';
 

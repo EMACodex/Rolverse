@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-anima-stories',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./anima-stories.component.css'],
 })
 export class AnimaStoriesComponent {
+  readonly authService = inject(AuthService);
   readonly animaStoriesPdfUrl =
     'https://drive.google.com/uc?export=download&id=1GdH7NAwgaIYXIuzI5TkeSZwM4pN8cEvB';
 

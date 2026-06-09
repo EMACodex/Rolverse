@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 import { FirstEditionComponent } from './first-edition/first-edition.component';
 import { SecondEditionComponent } from './second-edition/second-edition.component';
 import { ThirdEditionComponent } from './third-edition/third-edition.component';
@@ -27,6 +28,7 @@ type FiveRingsSystemTab =
   styleUrls: ['./five-rings-game-system.component.css'],
 })
 export class FiveRingsGameSystemComponent {
+  readonly authService = inject(AuthService);
   selectedTab: FiveRingsSystemTab = 'resumen';
 
   readonly fiveRingsGameSystemPdfUrl =

@@ -1,67 +1,169 @@
-<div class="container">
-  @if (loading) {
-  <p>Cargando noticia…</p>
-  } @else if (error) {
-  <p class="error">{{ error }}</p>
-  } @else if (news) {
-  <div class="news-detail card">
-    <h2 class="news-title">{{ news.title }}</h2>
-    <div class="news-meta">
-      {{ news.author }} – {{ news.created_at | date : "longDate" }}
-    </div>
+<main class="news-detail-bg">
+  <section class="container">
+    @if (loading) {
+      <p>Cargando noticia...</p>
+    } @else if (error) {
+      <p class="error">{{ error }}</p>
+    } @else if (news) {
+      <div class="news-detail card">
+        <a routerLink="/noticias" class="back-news-button">Volver a Noticias</a>
 
-    @if (news.image_path) {
-    <img
-      [src]="'http://localhost:3000' + news.image_path"
-      alt="{{ news.title }}"
-      class="news-image-detail"
-    />
-    }
+        <h2 class="news-title">{{ news.title }}</h2>
+        <div class="news-meta">
+          {{ news.author_name || news.author }} - {{ news.created_at | date: "longDate" }}
+        </div>
 
-    <!-- Asume que content es HTML -->
-    <div class="news-content-full" [innerHTML]="news.content"></div>
+        @if (canEditNews) {
+          <div class="news-detail-actions">
+            <a [routerLink]="['/noticias/editar', news.id]" class="edit-news-link">
+              Editar noticia
+            </a>
+          </div>
+        }
 
-    <!-- Campo para añadir un comentario -->
-    <div class="news-comments-section">
-      <h3>Reseñas</h3>
+        @if (news.image_path) {
+          <img
+            [src]="getUploadUrl(news.image_path)"
+            alt="{{ news.title }}"
+            class="news-image-detail"
+          />
+        }
 
-      @if (isAuthenticated) {
-      <form
-        (ngSubmit)="submitComment()"
-        #commentForm="ngForm"
-        class="comment-form"
-      >
-        <textarea
-          name="comment"
-          [(ngModel)]="newComment"
-          placeholder="Escribe tu reseña aquí..."
-          required
-        ></textarea>
-        <button type="submit" [disabled]="!newComment">
-          Publicar comentario
-        </button>
-      </form>
-      } @else {
-      <p>Inicia sesión para dejar tu reseña.</p>
-      }
+        <div class="news-content-full" [innerHTML]="news.content"></div>
 
-      <!-- Lista de comentarios -->
-      @for (c of comments; track $index) {
-      <div class="comment">
-        <div class="comment-header">
-          <strong>{{ c.author }}</strong> –
-          {{ c.created_at | date : "mediumDate" }}
+        <div class="news-comments-section">
+          <h3>Resenas</h3>
 
-          @if (isAdmin) {
-          <button (click)="deleteComment(c.id)" class="delete-btn">
-            Eliminar
-          </button>
+          @if (authService.isLoggedIn()) {
+            <form
+              (ngSubmit)="submitComment()"
+              #commentForm="ngForm"
+              class="comment-form"
+            >
+              <textarea
+                name="comment"
+                [(ngModel)]="newComment"
+                placeholder="Escribe tu resena aqui..."
+              ></textarea>
+
+              <div class="comment-form-actions">
+                <label class="comment-file">
+                  Adjuntar imagen
+                  <input
+                    #commentFileInput
+                    type="file"
+                    accept="image/*"
+                    (change)="onCommentImageSelected($event)"
+                  />
+                </label>
+                <button type="submit" [disabled]="!canSubmitComment">
+                  Publicar comentario
+                </button>
+              </div>
+
+              @if (commentPreviewImage) {
+                <figure class="comment-preview">
+                  <figcaption>Imagen seleccionada</figcaption>
+                  <img
+                    [src]="commentPreviewImage"
+                    alt="Vista previa de la imagen del comentario"
+                  />
+                </figure>
+              }
+            </form>
+          } @else {
+            <p>Inicia sesion para comentar esta noticia.</p>
+          }
+
+          @for (comment of comments; track comment.id) {
+            <div class="comment">
+              <div class="comment-header">
+                <strong>{{ comment.user_name || comment.author }}</strong>
+                <span>{{ comment.created_at | date: "mediumDate" }}</span>
+
+                @if (canDeleteComment(comment)) {
+                  <div class="comment-actions">
+                    @if (canEditComment(comment)) {
+                      <button
+                        type="button"
+                        (click)="startEditComment(comment)"
+                        class="edit-btn"
+                      >
+                        Editar
+                      </button>
+                    }
+                    <button (click)="deleteComment(comment.id)" class="delete-btn">
+                      Eliminar
+                    </button>
+                  </div>
+                }
+              </div>
+
+              @if (editingComment?.id === comment.id) {
+                <form class="comment-edit-form" (ngSubmit)="saveEditComment(comment)">
+                  <textarea
+                    name="editComment"
+                    [(ngModel)]="editCommentText"
+                    placeholder="Edita tu resena..."
+                  ></textarea>
+
+                  @if (comment.image_path && !editCommentPreviewImage) {
+                    <img
+                      class="comment-image"
+                      [src]="getUploadUrl(comment.image_path)"
+                      alt="Imagen actual del comentario"
+                    />
+                  }
+
+                  @if (editCommentPreviewImage) {
+                    <img
+                      class="comment-image"
+                      [src]="editCommentPreviewImage"
+                      alt="Vista previa de la nueva imagen del comentario"
+                    />
+                  }
+
+                  <div class="comment-form-actions">
+                    <label class="comment-file">
+                      Cambiar imagen
+                      <input
+                        type="file"
+                        accept="image/*"
+                        (change)="onEditCommentImageSelected($event)"
+                      />
+                    </label>
+                    <button
+                      type="submit"
+                      [disabled]="!canSubmitEditComment(comment)"
+                    >
+                      Guardar
+                    </button>
+                    <button
+                      type="button"
+                      class="cancel-comment-edit"
+                      (click)="cancelEditComment()"
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                </form>
+              } @else {
+                @if (comment.comment) {
+                  <p>{{ comment.comment }}</p>
+                }
+
+                @if (comment.image_path) {
+                  <img
+                    class="comment-image"
+                    [src]="getUploadUrl(comment.image_path)"
+                    alt="Imagen adjunta al comentario"
+                  />
+                }
+              }
+            </div>
           }
         </div>
-        <p>{{ c.comment }}</p>
       </div>
-      }
-    </div>
-  </div>
-  }
-</div>
+    }
+  </section>
+</main>

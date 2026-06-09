@@ -1,0 +1,307 @@
+<main class="scene-shell">
+  @if (loading) {
+    <section class="scene-board state">Cargando partida...</section>
+  } @else if (error) {
+    <section class="scene-board state error">{{ error }}</section>
+  } @else if (match) {
+    <section class="scene-board">
+      <header class="scene-header">
+        <img [src]="assetUrl(match.cover_image_path, fallbackCover)" [alt]="match.title" />
+        <div>
+          <a class="back-link" routerLink="/partidas">Volver a Partidas</a>
+          <p class="scene-kicker">Escena de partida</p>
+          <h1>{{ match.title }}</h1>
+          <div class="scene-badges">
+            <span class="badge">{{ match.status === "finished" ? "Finalizada" : "En juego" }}</span>
+            <span class="badge" [class.private]="match.access_type === 'private'">
+              {{ match.access_type === "private" ? "Privada" : "Publica" }}
+            </span>
+            <span class="badge">{{ match.system_name }}</span>
+          </div>
+          @if (match.status === "finished") {
+            <p class="finished-notice">Partida finalizada.</p>
+          }
+        </div>
+      </header>
+
+      @if (sceneMessage) {
+        <p class="scene-message">{{ sceneMessage }}</p>
+      }
+
+      @if (canManage) {
+        <section class="manage-panel">
+          <div class="manage-actions">
+            <button type="button" class="secondary-button" (click)="editMode = !editMode">
+              {{ editMode ? "Cerrar edicion" : "Editar partida" }}
+            </button>
+            @if (match.status === "active") {
+              <button type="button" class="secondary-button" (click)="finishMatch()">
+                Finalizar partida
+              </button>
+            }
+            <button type="button" class="danger-button" (click)="deleteMatch()">
+              Eliminar partida
+            </button>
+          </div>
+
+          @if (editMode) {
+            <form class="scene-form" (ngSubmit)="saveEdit()">
+              <label>Titulo</label>
+              <input name="editTitle" [(ngModel)]="editForm.title" />
+
+              <label>Descripcion corta</label>
+              <textarea
+                name="editShort"
+                maxlength="500"
+                [(ngModel)]="editForm.short_description"
+              ></textarea>
+
+              <label>Sistema</label>
+              <input name="editSystem" [(ngModel)]="editForm.system_name" />
+
+              <label>Tipo de acceso</label>
+              <select name="editAccess" [(ngModel)]="editForm.access_type">
+                <option value="public">Publica</option>
+                <option value="private">Privada</option>
+              </select>
+
+              <label>Historia</label>
+              <textarea name="editFull" [(ngModel)]="editForm.full_description"></textarea>
+
+              <label>Reglas</label>
+              <textarea name="editRules" [(ngModel)]="editForm.rules"></textarea>
+
+              <label class="file-button">
+                Cambiar portada
+                <input #coverInput type="file" accept="image/*" (change)="onFileSelected($event, 'cover')" />
+              </label>
+
+              @if (editError) {
+                <p class="form-error">{{ editError }}</p>
+              }
+
+              <button type="submit" class="primary-button">Guardar cambios</button>
+            </form>
+          }
+        </section>
+      }
+
+      @if (canManage && match.access_type === "private") {
+        <section class="invite-panel">
+          <h2>Invitar usuarios</h2>
+          <div class="invite-form">
+            <div class="invite-search">
+              <input
+                type="email"
+                name="inviteEmail"
+                [(ngModel)]="inviteEmail"
+                (input)="searchInviteUsers()"
+                placeholder="Buscar usuario por email"
+              />
+              @if (inviteResults.length > 0) {
+                <div class="invite-results">
+                  @for (user of inviteResults; track user.id) {
+                    <button type="button" class="invite-result" (click)="selectInviteUser(user)">
+                      <strong>{{ user.name }}</strong>
+                      <span>{{ user.email }}</span>
+                    </button>
+                  }
+                </div>
+              }
+            </div>
+            <button
+              type="button"
+              class="primary-button"
+              [disabled]="!selectedInviteUser"
+              (click)="inviteSelectedUser()"
+            >
+              Invitar
+            </button>
+          </div>
+          @if (inviteMessage) {
+            <p class="scene-message">{{ inviteMessage }}</p>
+          }
+        </section>
+      }
+
+      <mat-tab-group class="scene-tabs">
+        <mat-tab label="Personajes">
+          <section class="tab-panel">
+            @if (canInteract) {
+              <form class="scene-form compact" (ngSubmit)="saveCharacter()">
+                <h2>Crear o editar mi personaje</h2>
+                <input name="characterName" [(ngModel)]="characterForm.name" placeholder="Nombre" />
+                <textarea
+                  name="characterDescription"
+                  [(ngModel)]="characterForm.description"
+                  placeholder="Descripcion"
+                ></textarea>
+                <label class="file-button">
+                  Imagen del personaje
+                  <input #characterImageInput type="file" accept="image/*" (change)="onFileSelected($event, 'character')" />
+                </label>
+                <button type="submit" class="primary-button">Guardar personaje</button>
+              </form>
+            }
+
+            <div class="character-grid">
+              @for (character of characters; track character.id) {
+                <article class="character-card">
+                  <img [src]="assetUrl(character.image_path, fallbackCharacter)" [alt]="character.name" />
+                  <h3>{{ character.name }}</h3>
+                  <small>{{ character.user_name }}</small>
+                  <p>{{ character.description }}</p>
+                </article>
+              }
+            </div>
+          </section>
+        </mat-tab>
+
+        <mat-tab label="Anexos">
+          <section class="tab-panel">
+            @if (canManage) {
+              <form class="scene-form compact" (ngSubmit)="uploadModule()">
+                <h2>Subir modulo o manual</h2>
+                <input name="moduleTitle" [(ngModel)]="moduleForm.title" placeholder="Titulo" />
+                <textarea name="moduleDescription" [(ngModel)]="moduleForm.description" placeholder="Descripcion"></textarea>
+                <label class="file-button">
+                  Archivo
+                  <input #moduleFileInput type="file" (change)="onFileSelected($event, 'module')" />
+                </label>
+                <button type="submit" class="primary-button">Subir modulo</button>
+              </form>
+            }
+
+            <div class="resource-list">
+              @for (module of modules; track module.id) {
+                <article class="resource-card">
+                  <div>
+                    <h3>{{ module.title }}</h3>
+                    <p>{{ module.description }}</p>
+                  </div>
+                  <a class="primary-button" [href]="assetUrl(module.file_path, '')" target="_blank">Descargar</a>
+                  @if (canManage) {
+                    <button type="button" class="danger-button" (click)="deleteModule(module.id)">Eliminar</button>
+                  }
+                </article>
+              }
+            </div>
+          </section>
+        </mat-tab>
+
+        <mat-tab label="Tableros">
+          <section class="tab-panel">
+            @if (canManage) {
+              <form class="scene-form compact" (ngSubmit)="uploadBoard()">
+                <h2>Subir tablero o mapa</h2>
+                <input name="boardTitle" [(ngModel)]="boardForm.title" placeholder="Titulo" />
+                <label class="file-button">
+                  Imagen
+                  <input #boardImageInput type="file" accept="image/*" (change)="onFileSelected($event, 'board')" />
+                </label>
+                <button type="submit" class="primary-button">Subir tablero</button>
+              </form>
+            }
+
+            <div class="board-grid">
+              @for (board of boards; track board.id) {
+                <article class="board-card">
+                  <a [href]="assetUrl(board.image_path, '')" target="_blank">
+                    <img [src]="assetUrl(board.image_path, fallbackCover)" [alt]="board.title" />
+                  </a>
+                  <h3>{{ board.title }}</h3>
+                  @if (canManage) {
+                    <button type="button" class="danger-button" (click)="deleteBoard(board.id)">Eliminar</button>
+                  }
+                </article>
+              }
+            </div>
+          </section>
+        </mat-tab>
+
+        <mat-tab label="Combates">
+          <section class="tab-panel combat-grid">
+            <div class="chat-column">
+              <h2>Chat de partida</h2>
+              <div class="message-list">
+                @for (message of messages; track message.id) {
+                  <article class="message-card">
+                    <strong>{{ message.user_name || "Usuario" }}</strong>
+                    @if (message.message_type === "dice") {
+                      <p>
+                        Ha tirado: Dado 1 = {{ message.dice_one }},
+                        Dado 2 = {{ message.dice_two }},
+                        Total = {{ message.dice_total }}
+                      </p>
+                    } @else {
+                      <p>{{ message.text }}</p>
+                      @if (message.image_path) {
+                        <img [src]="assetUrl(message.image_path, '')" alt="Imagen del mensaje" />
+                      }
+                    }
+                    <small>{{ message.created_at | date : "short" }}</small>
+                  </article>
+                }
+              </div>
+
+              @if (canInteract) {
+                <form class="scene-form compact" (ngSubmit)="sendMessage()">
+                  <textarea name="messageText" [(ngModel)]="messageForm.text" placeholder="Escribe en la escena"></textarea>
+                  <label class="file-button">
+                    Adjuntar imagen
+                    <input #messageImageInput type="file" accept="image/*" (change)="onFileSelected($event, 'message')" />
+                  </label>
+                  <div class="button-row">
+                    <button type="submit" class="primary-button">Enviar</button>
+                    <button type="button" class="secondary-button" (click)="rollDice()">Tirar dados</button>
+                  </div>
+                </form>
+              }
+            </div>
+
+            <aside class="actions-column">
+              <h2>Acciones</h2>
+              @if (canInteract) {
+                <form class="scene-form compact" (ngSubmit)="sendAction()">
+                  <textarea name="actionText" [(ngModel)]="actionText" placeholder="Describe tu accion"></textarea>
+                  <label class="check-line">
+                    <input type="checkbox" name="actionRollDice" [(ngModel)]="actionRollDice" />
+                    Tirar dados con la accion
+                  </label>
+                  <button type="submit" class="primary-button">Enviar accion</button>
+                </form>
+              }
+
+              <div class="action-list">
+                @for (action of actions; track action.id) {
+                  <article class="action-card">
+                    <strong>{{ action.user_name || "Usuario" }}</strong>
+                    <p>{{ action.action_text }}</p>
+                    @if (action.dice_total) {
+                      <small>Dados: {{ action.dice_one }} + {{ action.dice_two }} = {{ action.dice_total }}</small>
+                    }
+                    <span class="badge">{{ action.status }}</span>
+                    @if (action.master_response) {
+                      <p>{{ action.master_response }}</p>
+                    }
+                    @if (canManage && action.status === "pending") {
+                      <textarea
+                        name="review-{{ action.id }}"
+                        [(ngModel)]="reviewResponses[action.id]"
+                        placeholder="Respuesta del master"
+                      ></textarea>
+                      <div class="button-row">
+                        <button type="button" class="primary-button" (click)="reviewAction(action, 'approved')">Aprobar</button>
+                        <button type="button" class="danger-button" (click)="reviewAction(action, 'rejected')">Rechazar</button>
+                      </div>
+                    }
+                  </article>
+                }
+              </div>
+            </aside>
+          </section>
+        </mat-tab>
+      </mat-tab-group>
+    </section>
+  }
+</main>

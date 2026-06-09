@@ -45,17 +45,9 @@
         }
       </div>
 
-      <article class="maps-card download-info-card">
-        <h2>Mapas listos para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás una selección de mapas preparados
-          para usar como inspiración, apoyo visual o base para crear partidas de
-          Dungeons & Dragons de forma rápida y sencilla.
-        </p>
-      </article>
-
-      <div class="maps-download-wrapper">
+        <div class="maps-download-wrapper">
         <a
           [href]="dndMapsPdfUrl"
           target="_blank"
@@ -65,6 +57,8 @@
           Descargar mapas de D&D
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

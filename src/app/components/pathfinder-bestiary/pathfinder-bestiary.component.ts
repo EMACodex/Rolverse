@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-pathfinder-bestiary',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./pathfinder-bestiary.component.css'],
 })
 export class PathfinderBestiaryComponent {
+  readonly authService = inject(AuthService);
   readonly pathfinderBestiaryPdfUrl =
     'https://drive.google.com/uc?export=download&id=10_-IjDMh5Hx10TwKvQNyePsUsn_3JuOm';
 

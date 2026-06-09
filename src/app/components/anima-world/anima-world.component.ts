@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-anima-world',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./anima-world.component.css'],
 })
 export class AnimaWorldComponent {
+  readonly authService = inject(AuthService);
   readonly animaMapsPdfUrl =
     'https://drive.google.com/uc?export=download&id=15MdwCbdd938Kigvc-0HYyHK_thln_2ky';
 

@@ -2,9 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url('/assets/img/fondo 3.jpg');
   background-size: cover;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .send-mail-container {
@@ -17,6 +20,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   color: #e0e0e0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
 }
 
 .send-mail-title {
@@ -103,11 +107,38 @@
   background-color: #d18f00;
 }
 
+.send-mail-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
 .send-mail-error {
   color: #ff6b6b;
   font-weight: 600;
   margin-top: 0.25rem;
   font-size: 0.9rem;
+}
+
+.send-mail-feedback {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+.send-mail-feedback.success {
+  background: rgba(47, 125, 65, 0.18);
+  color: #9af0aa;
+  border: 1px solid rgba(154, 240, 170, 0.4);
+}
+
+.send-mail-feedback.error {
+  background: rgba(160, 42, 42, 0.18);
+  color: #ff9d9d;
+  border: 1px solid rgba(255, 157, 157, 0.4);
 }
 
 .send-mail-input-wrapper {
@@ -141,5 +172,22 @@
   right: 10px; /* Coloca el icono en el lado derecho */
   font-size: 16px;
   color: #666;
+}
+
+@media (max-width: 480px) {
+  .send-mail-container {
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+    margin: 1rem auto;
+  }
+
+  .send-mail-title {
+    font-size: 1.6rem;
+  }
+
+  .send-mail-button {
+    min-height: 44px;
+    font-size: 1rem;
+  }
 }
 

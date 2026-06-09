@@ -42,19 +42,9 @@
         </p>
       </article>
 
-      <article class="story-card download-info-card">
-        <h2>Historias listas para jugar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás varias historias preparadas para
-          jugar partidas de Dungeons & Dragons. Están pensadas para que un grupo
-          pueda empezar rápido, con una misión clara, escenas principales,
-          enemigos, decisiones importantes y un final abierto para continuar la
-          aventura.
-        </p>
-      </article>
-
-      <div class="stories-download-wrapper">
+        <div class="stories-download-wrapper">
         <a
           [href]="dndStoriesPdfUrl"
           target="_blank"
@@ -64,6 +54,8 @@
           Descargar historias de D&D
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

@@ -1,0 +1,262 @@
+<main class="matches-shell">
+  <section class="matches-board" aria-labelledby="matches-title">
+    <header class="matches-header">
+      <div>
+        <p class="matches-kicker">Mesa de aventuras</p>
+        <h1 id="matches-title">Partidas de Rolverse</h1>
+        <p class="matches-subtitle">
+          Campañas activas y crónicas finalizadas para explorar o jugar.
+        </p>
+      </div>
+
+      @if (authService.isLoggedIn()) {
+        <button
+          type="button"
+          class="primary-button create-match-button"
+          (click)="openCreateModal()"
+          aria-label="Crear partida"
+        >
+          Crear partida
+        </button>
+      }
+    </header>
+
+    <div class="matches-toolbar">
+      <input
+        type="search"
+        name="matchSearch"
+        [(ngModel)]="search"
+        (keyup.enter)="loadMatches()"
+        placeholder="Buscar por titulo"
+      />
+      <button type="button" class="secondary-button" (click)="loadMatches()">
+        Buscar
+      </button>
+    </div>
+
+    @if (loading) {
+      <div class="matches-state">Cargando partidas...</div>
+    } @else if (error) {
+      <div class="matches-state error">{{ error }}</div>
+    } @else if (matches.length === 0) {
+      <div class="matches-state">Todavia no hay partidas disponibles.</div>
+    } @else {
+      <div class="matches-grid">
+        @for (match of paginatedMatches; track match.id) {
+          <article class="match-card">
+            <img [src]="coverUrl(match)" [alt]="match.title" />
+            <div class="match-card-body">
+              <h2>{{ match.title }}</h2>
+              <div class="match-badges">
+                <span
+                  class="badge"
+                  [class.finished]="match.status === 'finished'"
+                >
+                  {{ match.status === "finished" ? "Finalizada" : "En juego" }}
+                </span>
+                <span
+                  class="badge"
+                  [class.private]="match.access_type === 'private'"
+                >
+                  {{ match.access_type === "private" ? "Privada" : "Publica" }}
+                </span>
+              </div>
+              <div class="match-card-actions">
+                <a
+                  class="primary-link"
+                  [routerLink]="['/partidas/jugar', match.id]"
+                >
+                  Ver partida
+                </a>
+
+                @if (canEditMatch(match)) {
+                  <button
+                    type="button"
+                    class="secondary-button"
+                    (click)="openEditMatch(match)"
+                  >
+                    Editar partida
+                  </button>
+                }
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+
+      @if (totalPages > 1) {
+        <div class="pagination-controls">
+          <button
+            type="button"
+            (click)="previousPage()"
+            [disabled]="currentPage === 1"
+          >
+            Anterior
+          </button>
+          <span>Pagina {{ currentPage }} de {{ totalPages }}</span>
+          <button
+            type="button"
+            (click)="nextPage()"
+            [disabled]="currentPage === totalPages"
+          >
+            Siguiente
+          </button>
+        </div>
+      }
+    }
+  </section>
+
+  @if (showCreateModal) {
+    <div class="match-modal-overlay">
+      <section class="match-modal">
+        <h2>Crear partida</h2>
+
+        <form class="match-form" (ngSubmit)="createMatch()">
+          <label for="match-title">Titulo</label>
+          <input id="match-title" name="title" [(ngModel)]="form.title" />
+
+          <label for="short-description">Descripcion corta</label>
+          <textarea
+            id="short-description"
+            name="shortDescription"
+            maxlength="500"
+            [(ngModel)]="form.short_description"
+          ></textarea>
+          <small>{{ form.short_description.length }}/500</small>
+
+          <label for="system-name">Sistema de juego</label>
+          <input
+            id="system-name"
+            name="systemName"
+            [(ngModel)]="form.system_name"
+          />
+
+          <label for="access-type">Tipo de acceso</label>
+          <select
+            id="access-type"
+            name="accessType"
+            [(ngModel)]="form.access_type"
+          >
+            <option value="public">Partida publica</option>
+            <option value="private">Partida privada</option>
+          </select>
+
+          <label for="full-description">Historia / descripcion completa</label>
+          <textarea
+            id="full-description"
+            name="fullDescription"
+            [(ngModel)]="form.full_description"
+          ></textarea>
+
+          <label for="rules">Reglas</label>
+          <textarea id="rules" name="rules" [(ngModel)]="form.rules"></textarea>
+
+          <label class="file-button">
+            Portada
+            <input
+              type="file"
+              accept="image/*"
+              (change)="onCoverSelected($event)"
+            />
+          </label>
+
+          @if (createError) {
+            <p class="form-error">{{ createError }}</p>
+          }
+
+          <div class="modal-actions">
+            <button type="submit" class="primary-button" [disabled]="creating">
+              {{ creating ? "Creando..." : "Crear partida" }}
+            </button>
+            <button
+              type="button"
+              class="secondary-button"
+              (click)="closeCreateModal()"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+  }
+
+  @if (showEditModal && editingMatch) {
+    <div class="match-modal-overlay">
+      <section class="match-modal">
+        <h2>Editar partida</h2>
+
+        <form class="match-form" (ngSubmit)="saveEditedMatch()">
+          <label for="edit-match-title">Titulo</label>
+          <input id="edit-match-title" name="editTitle" [(ngModel)]="editForm.title" />
+
+          <label for="edit-short-description">Descripcion corta</label>
+          <textarea
+            id="edit-short-description"
+            name="editShortDescription"
+            maxlength="500"
+            [(ngModel)]="editForm.short_description"
+          ></textarea>
+          <small>{{ editForm.short_description.length }}/500</small>
+
+          <label for="edit-system-name">Sistema de juego</label>
+          <input
+            id="edit-system-name"
+            name="editSystemName"
+            [(ngModel)]="editForm.system_name"
+          />
+
+          <label for="edit-access-type">Tipo de acceso</label>
+          <select
+            id="edit-access-type"
+            name="editAccessType"
+            [(ngModel)]="editForm.access_type"
+          >
+            <option value="public">Partida publica</option>
+            <option value="private">Partida privada</option>
+          </select>
+
+          <label for="edit-full-description">Historia / descripcion completa</label>
+          <textarea
+            id="edit-full-description"
+            name="editFullDescription"
+            [(ngModel)]="editForm.full_description"
+          ></textarea>
+
+          <label for="edit-rules">Reglas</label>
+          <textarea
+            id="edit-rules"
+            name="editRules"
+            [(ngModel)]="editForm.rules"
+          ></textarea>
+
+          <label class="file-button">
+            Cambiar portada
+            <input
+              type="file"
+              accept="image/*"
+              (change)="onEditCoverSelected($event)"
+            />
+          </label>
+
+          @if (editError) {
+            <p class="form-error">{{ editError }}</p>
+          }
+
+          <div class="modal-actions">
+            <button type="submit" class="primary-button" [disabled]="editing">
+              {{ editing ? "Guardando..." : "Guardar cambios" }}
+            </button>
+            <button
+              type="button"
+              class="secondary-button"
+              (click)="closeEditModal()"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+  }
+</main>

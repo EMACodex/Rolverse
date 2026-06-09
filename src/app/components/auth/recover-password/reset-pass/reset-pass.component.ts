@@ -35,7 +35,6 @@ export class ResetPassComponent {
   }
   resetPass() {
     const token = this.route.snapshot.paramMap.get('token');
-    console.log(this.formGroup.get('password')?.value);
     this.authService.resetPass(token!, this.formGroup.get('password')?.value).subscribe((res) => {
       if (res) {
         this.snackBar.open('Contraseña cambiada correctamente', 'Cerrar', {

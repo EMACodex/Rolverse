@@ -22,6 +22,7 @@ export interface RegisterCredentials {
 
 export interface DecodedToken {
   id: number;
-  roles: string[];
+  role?: string;
+  roles?: string[];
   exp: number;
 }

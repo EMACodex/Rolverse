@@ -49,11 +49,16 @@ export class HeaderComponent implements OnInit {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 
+  closeAllMenus(): void {
+    this.mobileMenuOpen = false;
+  }
+
   isLoggedIn(): boolean {
     return this.AuthService.isAuth();
   }
 
   logout(): void {
+    this.closeAllMenus();
     this.AuthService.logout();
     this.router.navigate(['/']);
   }

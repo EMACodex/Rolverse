@@ -1,0 +1,370 @@
+:host {
+  --gold: #d9b66b;
+  --paper: #f3e3bd;
+  --dark: #1c1512;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.matches-shell {
+  min-height: 100vh;
+  padding: 142px 1rem 4rem;
+  background: linear-gradient(#100d0baa, #21130ee8), url("/assets/img/partidas/fondo.png") center/cover;
+  color: var(--paper);
+  font-family: "Merriweather", Georgia, serif;
+  overflow-x: hidden;
+}
+
+.matches-board {
+  width: min(1160px, 100%);
+  margin: auto;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  background: #1c1512f5;
+  box-shadow: 0 24px 58px #0009;
+  overflow: hidden;
+}
+
+.matches-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-bottom: 1px solid #d9b66b99;
+  background: linear-gradient(90deg, #641f22e6, #263d30d9);
+}
+
+.matches-kicker,
+.primary-button,
+.secondary-button,
+.primary-link,
+.badge,
+.match-card h2,
+.match-modal h2 {
+  font-family: "Cinzel", serif;
+}
+
+.matches-kicker {
+  margin: 0 0 0.35rem;
+  color: #ddc596;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: #ffe5a0;
+  font: 2.6rem/1.08 "Cinzel Decorative", "Cinzel", serif;
+  text-shadow: 0 3px 8px #000b;
+}
+
+.matches-subtitle {
+  max-width: 680px;
+  margin: 0.75rem 0 0;
+  color: #ead9b7;
+  line-height: 1.55;
+}
+
+.matches-toolbar {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border-bottom: 1px solid #d7b36a3d;
+}
+
+.matches-toolbar input,
+.match-form input,
+.match-form textarea,
+.match-form select {
+  width: 100%;
+  border: 1px solid #d7b26a9e;
+  border-radius: 8px;
+  background: #0d0b0ac2;
+  color: var(--paper);
+  font: 1rem/1.5 "Merriweather", Georgia, serif;
+}
+
+.matches-toolbar input,
+.match-form input,
+.match-form select {
+  min-height: 42px;
+  padding: 0.65rem 0.85rem;
+}
+
+.match-form textarea {
+  min-height: 120px;
+  padding: 0.85rem;
+  resize: vertical;
+}
+
+.primary-button,
+.secondary-button,
+.primary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-button,
+.primary-link {
+  border: 1px solid #e1bb6a9e;
+  background: linear-gradient(#e8c36e, #ad7631);
+  color: #24130b;
+}
+
+.secondary-button {
+  border: 1px solid #d7b26a9e;
+  background: #14120f80;
+  color: #f2d99b;
+}
+
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+  padding: 1.25rem;
+}
+
+.match-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #c6a15b6b;
+  border-radius: 8px;
+  background: #120f0d94;
+  box-shadow: 0 12px 28px #0005;
+}
+
+.match-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.match-card-body {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+}
+
+.match-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.match-card-actions .primary-link,
+.match-card-actions .secondary-button {
+  flex: 1 1 140px;
+}
+
+.match-card h2 {
+  margin: 0;
+  color: #f8dfa0;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.match-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge {
+  min-height: 30px;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid #88b88a;
+  border-radius: 999px;
+  background: #172d21cc;
+  color: #d6f0c8;
+  font-size: 0.8rem;
+}
+
+.badge.private,
+.badge.finished {
+  border-color: #d58d8d;
+  background: #4a171bcc;
+  color: #ffd3c5;
+}
+
+.matches-state {
+  padding: 2rem;
+  text-align: center;
+  color: #ead9b7;
+}
+
+.matches-state.error,
+.form-error {
+  color: #ffb1a8;
+  font-weight: 700;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-top: 1px solid #d7b36a3d;
+}
+
+.pagination-controls button {
+  min-height: 40px;
+  padding: 0.55rem 0.9rem;
+}
+
+.match-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.68);
+}
+
+.match-modal {
+  width: min(720px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  background: #1e1e2f;
+  color: #ead9b7;
+}
+
+.match-modal h2 {
+  margin: 0 0 1rem;
+  color: #f5dfa4;
+  text-align: center;
+}
+
+.match-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.match-form label {
+  color: #d8c8a8;
+  font-weight: 700;
+}
+
+.file-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.65rem 1rem;
+  border: 1px solid #d7b26a9e;
+  border-radius: 8px;
+  background: #14120f80;
+  color: #f2d99b;
+  cursor: pointer;
+}
+
+.file-button input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+@media (max-width: 860px) {
+  .matches-shell {
+    padding-top: 120px;
+  }
+
+  .matches-header,
+  .matches-toolbar {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .matches-shell {
+    padding: 112px 0.75rem 4rem;
+  }
+
+  .matches-header,
+  .matches-toolbar,
+  .matches-grid {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.65rem;
+  }
+
+  .matches-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .primary-button,
+  .secondary-button,
+  .primary-link,
+  .file-button {
+    width: 100%;
+  }
+
+  .create-match-button {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 900;
+    width: 58px;
+    height: 58px;
+    min-height: 58px;
+    border-radius: 50%;
+    padding: 0;
+    font-size: 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  }
+
+  .create-match-button::before {
+    content: "+";
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .pagination-controls,
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .pagination-controls button,
+  .modal-actions button {
+    width: 100%;
+  }
+
+  .match-card-actions {
+    flex-direction: column;
+  }
+
+  .match-card-actions .primary-link,
+  .match-card-actions .secondary-button {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}

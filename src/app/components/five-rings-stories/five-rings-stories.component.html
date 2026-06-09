@@ -49,18 +49,9 @@
         }
       </div>
 
-      <article class="story-card download-info-card">
-        <h2>Historias listas para jugar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás historias preparadas para usar como
-          base de partidas de La Leyenda de los 5 Anillos. Puedes utilizarlas
-          como aventuras rápidas, inspiración para campañas o punto de partida
-          para crear conflictos propios dentro de Rokugan.
-        </p>
-      </article>
-
-      <div class="stories-download-wrapper">
+        <div class="stories-download-wrapper">
         <a
           [href]="fiveRingsStoriesPdfUrl"
           target="_blank"
@@ -70,6 +61,8 @@
           Descargar historias de La Leyenda de los 5 Anillos
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

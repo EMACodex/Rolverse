@@ -47,17 +47,9 @@
         }
       </div>
 
-      <article class="maps-card download-info-card">
-        <h2>Mapas listos para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás mapas preparados para usar como
-          apoyo visual, inspiración o base para crear investigaciones de Cthulhu
-          de forma rápida y sencilla.
-        </p>
-      </article>
-
-      <div class="maps-download-wrapper">
+        <div class="maps-download-wrapper">
         <a
           [href]="cthulhuMapsPdfUrl"
           target="_blank"
@@ -67,6 +59,8 @@
           Descargar mapas de Cthulhu
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

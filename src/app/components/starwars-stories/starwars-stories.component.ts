@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-starwars-stories',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./starwars-stories.component.css'],
 })
 export class StarwarsStoriesComponent {
+  readonly authService = inject(AuthService);
   readonly starwarsStoriesPdfUrl =
     'https://drive.google.com/uc?export=download&id=11GT-q047IKDfE140yZiRXS5IVavoRTXt';
 

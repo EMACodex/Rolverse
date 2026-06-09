@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 import { AnimaBeyondFantasyComponent } from './anima-beyond-fantasy/anima-beyond-fantasy.component';
 import { AnimaCoreExxetComponent } from './anima-core-exxet/anima-core-exxet.component';
 import { AnimaShadowOmegaComponent } from './anima-shadow-omega/anima-shadow-omega.component';
@@ -27,6 +28,7 @@ type AnimaSystemTab =
   styleUrls: ['./anima-game-system.component.css'],
 })
 export class AnimaGameSystemComponent {
+  readonly authService = inject(AuthService);
   selectedTab: AnimaSystemTab = 'resumen';
 
   readonly animaGameSystemPdfUrl =

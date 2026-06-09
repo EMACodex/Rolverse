@@ -47,18 +47,9 @@
         }
       </div>
 
-      <article class="character-card download-info-card">
-        <h2>Hojas de personaje listas para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás hojas de personaje preparadas para
-          usarlas en partidas de Star Wars. Puedes descargarlas, imprimirlas o
-          utilizarlas como base para crear héroes, villanos, pilotos, soldados,
-          droides o usuarios de la Fuerza de forma rápida y sencilla.
-        </p>
-      </article>
-
-      <div class="characters-download-wrapper">
+        <div class="characters-download-wrapper">
         <a
           [href]="starwarsCharacterPdfUrl"
           target="_blank"
@@ -68,6 +59,8 @@
           Descargar hojas de personaje de Star Wars
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 import { WarhammerRogueTraderComponent } from './rogue-trader/warhammer-rogue-trader.component';
 import { WarhammerSecondEditionComponent } from './second-edition/warhammer-second-edition.component';
 import { WarhammerThirdEditionComponent } from './third-edition/warhammer-third-edition.component';
@@ -42,6 +43,7 @@ type WarhammerSystemTab =
   styleUrls: ['./warhammer-game-system.component.css'],
 })
 export class WarhammerGameSystemComponent {
+  readonly authService = inject(AuthService);
   selectedTab: WarhammerSystemTab = 'resumen';
 
   readonly warhammerGameSystemPdfUrl =

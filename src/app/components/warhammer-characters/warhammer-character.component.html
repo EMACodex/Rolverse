@@ -40,17 +40,9 @@
         }
       </div>
 
-      <article class="character-card download-info-card">
-        <h2>Hojas y material de personajes</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás el material descargable de personajes
-          de Warhammer para usarlo como base en tus partidas, crear arquetipos y
-          preparar personajes de forma rápida y sencilla.
-        </p>
-      </article>
-
-      <div class="characters-download-wrapper">
+        <div class="characters-download-wrapper">
         <a
           [href]="warhammerCharactersUrl"
           target="_blank"
@@ -60,6 +52,8 @@
           Descargar personajes de Warhammer
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

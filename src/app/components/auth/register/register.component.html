@@ -31,9 +31,21 @@
 
       <div class="form-group">
         <label for="password" class="label">Contraseña</label>
-        <div class="input-icon-container">
-          <input id="password" formControlName="password" type="password" class="input-field" />
-          <i class="fas fa-lock input-icon"></i> <!-- Icono de candado a la derecha -->
+        <div class="input-icon-container password-field">
+          <input
+            id="password"
+            formControlName="password"
+            [type]="showPassword ? 'text' : 'password'"
+            class="input-field"
+          />
+          <button
+            type="button"
+            class="password-toggle"
+            (click)="showPassword = !showPassword"
+            [attr.aria-label]="showPassword ? 'Ocultar contrasena' : 'Mostrar contrasena'"
+          >
+            {{ showPassword ? "Ocultar" : "Ver" }}
+          </button>
         </div>
         @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
           <div class="error">

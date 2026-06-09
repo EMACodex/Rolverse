@@ -1,0 +1,91 @@
+<main class="match-play-shell">
+  @if (loading) {
+    <section class="match-play-card state">Cargando partida...</section>
+  } @else if (error) {
+    <section class="match-play-card state error">{{ error }}</section>
+  } @else if (match) {
+    <section class="match-play-card">
+      <a class="back-link" routerLink="/partidas">Volver a Partidas</a>
+
+      <div class="match-hero">
+        <img [src]="coverUrl()" [alt]="match.title" />
+        <div class="match-summary">
+          <p class="match-kicker">Partida de rol</p>
+          <h1>{{ match.title }}</h1>
+          <div class="match-badges">
+            <span class="badge">{{ match.status === "finished" ? "Finalizada" : "En juego" }}</span>
+            <span class="badge" [class.private]="match.access_type === 'private'">
+              {{ match.access_type === "private" ? "Privada" : "Publica" }}
+            </span>
+          </div>
+          <p>{{ shortDescription }}</p>
+          <dl>
+            <div>
+              <dt>Sistema</dt>
+              <dd>{{ match.system_name }}</dd>
+            </div>
+            <div>
+              <dt>Director</dt>
+              <dd>{{ match.creator_name || "Rolverse" }}</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      @if (canManageMatch()) {
+        <section class="match-access-settings">
+          <div>
+            <h2>Tipo de partida</h2>
+            <p>Gestiona si esta partida es visible para todos o solo para jugadores invitados.</p>
+          </div>
+
+          <label for="match-access-type">Tipo de partida</label>
+          <select
+            id="match-access-type"
+            [ngModel]="match.access_type"
+            [disabled]="accessUpdating"
+            (ngModelChange)="changeMatchAccessType($event)"
+          >
+            <option value="public">Publica</option>
+            <option value="private">Privada</option>
+          </select>
+
+          @if (accessMessage) {
+            <p class="access-message">{{ accessMessage }}</p>
+          }
+          @if (accessError) {
+            <p class="access-error">{{ accessError }}</p>
+          }
+        </section>
+      }
+
+      <div class="match-actions">
+        <button type="button" class="secondary-button" (click)="showMore = !showMore">
+          {{ showMore ? "Ocultar detalles" : "Saber mas" }}
+        </button>
+        <a class="primary-button" [routerLink]="['/partidas/escena', match.id]">
+          Entrar a la partida
+        </a>
+        @if (canJoin()) {
+          <button type="button" class="primary-button" [disabled]="joining" (click)="joinMatch()">
+            {{ joining ? "Uniendo..." : "Unirse a la partida" }}
+          </button>
+        }
+      </div>
+
+      @if (joinMessage) {
+        <p class="join-message">{{ joinMessage }}</p>
+      }
+
+      @if (showMore) {
+        <section class="more-info">
+          <h2>Historia</h2>
+          <p>{{ match.full_description || match.description || "Sin historia detallada." }}</p>
+
+          <h2>Reglas</h2>
+          <p>{{ match.rules || "Sin reglas adicionales." }}</p>
+        </section>
+      }
+    </section>
+  }
+</main>

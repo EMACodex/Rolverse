@@ -9,6 +9,7 @@ import { ResetPassComponent } from './components/auth/recover-password/reset-pas
 import { PersonalComponent } from './components/profile/personal/personal.component';
 import { ForumPageComponent } from './components/forum/forum-page/forum-page.component';
 import { ForumDetailComponent } from './components/forum/forum-detail/forum-detail.component';
+import { NewsComponent } from './components/news/news.component';
 
 export const routes: Routes = [
   {
@@ -41,7 +42,19 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
+    path: 'noticias',
+    component: NewsComponent,
+  },
+  {
     path: 'noticias/agregar',
+    loadComponent: () =>
+      import('./components/news/add-new/add-new.component').then(
+        (m) => m.AddNewComponent,
+      ),
+    canActivate: [authGuard],
+  },
+  {
+    path: 'noticias/editar/:id',
     loadComponent: () =>
       import('./components/news/add-new/add-new.component').then(
         (m) => m.AddNewComponent,
@@ -53,6 +66,27 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./components/news/view-news/view-news.component').then(
         (m) => m.ViewNewsComponent,
+      ),
+  },
+  {
+    path: 'partidas',
+    loadComponent: () =>
+      import('./components/matches/matches-list/matches-list.component').then(
+        (m) => m.MatchesListComponent,
+      ),
+  },
+  {
+    path: 'partidas/jugar/:id',
+    loadComponent: () =>
+      import('./components/matches/match-play/match-play.component').then(
+        (m) => m.MatchPlayComponent,
+      ),
+  },
+  {
+    path: 'partidas/escena/:id',
+    loadComponent: () =>
+      import('./components/matches/match-scene/match-scene.component').then(
+        (m) => m.MatchSceneComponent,
       ),
   },
   {

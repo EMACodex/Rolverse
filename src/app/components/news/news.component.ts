@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { InternalNews } from '../../interfaces/new.interface';
 import { RUTA_API } from '../../../environment';
 import { firstValueFrom } from 'rxjs';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-news',
@@ -14,34 +16,31 @@ import { Router, RouterModule } from '@angular/router';
   styleUrls: ['./news.component.css'],
 })
 export class NewsComponent implements OnInit {
+  @Input() embedded = false;
+
   posts: InternalNews[] = [];
   loading = true;
   currentPage: number = 1;
-  itemsPerPage: number = 5;
-  isAdmin = false;
+  itemsPerPage: number = 10;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    public authService: AuthService,
+    private route: ActivatedRoute,
+  ) {}
 
   private stripTags(html: string): string {
     return html.replace(/<[^>]*>/g, '').trim();
   }
 
   ngOnInit(): void {
-    this.isAdmin = this.checkIfAdmin();
+    this.route.queryParamMap.subscribe((params) => {
+      const page = Number(params.get('page'));
+      if (page > 0) {
+        this.currentPage = page;
+      }
+    });
     this.fetchAllNews();
-  }
-
-  private checkIfAdmin(): boolean {
-    const token = localStorage.getItem('token');
-    if (!token) return false;
-    try {
-      // decodifica el payload del JWT
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      // adapta esto al claim que use tu token: 'role', 'roles', 'isAdmin', etc.
-      return payload.role === 'admin';
-    } catch {
-      return false;
-    }
   }
 
   isInternalNews(post: InternalNews): post is InternalNews {
@@ -54,62 +53,76 @@ export class NewsComponent implements OnInit {
   }
 
   get totalPages(): number {
-    return Math.ceil(this.posts.length / this.itemsPerPage);
+    return Math.max(1, Math.ceil(this.posts.length / this.itemsPerPage));
   }
 
   async fetchAllNews(): Promise<void> {
     try {
       const internalPosts = await firstValueFrom(
-        this.http.get<InternalNews[]>(`${RUTA_API}news`)
+        this.http.get<InternalNews[]>(`${RUTA_API}news`),
       );
 
-      // — Aquí asignamos summary dinámico —
       internalPosts.forEach((post) => {
-        // 1) Limpiamos HTML de content
         const text = this.stripTags(post.content);
-        // 2) Cortamos a 100 chars y añadimos puntos suspensivos si toca
-        post.summary = text.length > 100 ? text.slice(0, 100) + '…' : text;
+        post.summary = text.length > 100 ? text.slice(0, 100) + '...' : text;
       });
 
       this.posts = [...internalPosts].sort(
         (a: any, b: any) =>
           new Date(b.created_at || b.date).getTime() -
-          new Date(a.created_at || a.date).getTime()
+          new Date(a.created_at || a.date).getTime(),
       );
     } catch (error) {
       console.error('Error cargando noticias:', error);
       this.posts = [];
     } finally {
+      if (this.currentPage > this.totalPages) {
+        this.currentPage = this.totalPages;
+      }
       this.loading = false;
     }
   }
 
-  /** Elimina la noticia con confirmación y actualiza la lista */
-  async onDeletePost(id: number) {
-    if (!window.confirm('¿Seguro que quieres eliminar esta noticia?')) return;
+  previousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  canDeletePost(post: InternalNews): boolean {
+    return this.canEditPost(post);
+  }
+
+  canEditPost(post: InternalNews): boolean {
+    const currentUser = this.authService.getCurrentUser();
+
+    if (!currentUser) {
+      return false;
+    }
+
+    return (
+      this.authService.isAdmin() ||
+      Number(post.author_id) === Number(currentUser.id)
+    );
+  }
+
+  async onDeletePost(id: number, event?: Event): Promise<void> {
+    event?.preventDefault();
+    event?.stopPropagation();
+
+    if (!window.confirm('Seguro que quieres eliminar esta noticia?')) return;
 
     try {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        throw new Error('No hay token de autenticación');
-      }
+      await firstValueFrom(this.http.delete<{ message: string }>(`${RUTA_API}news/${id}`));
 
-      // Construye las cabeceras
-      const headers = new HttpHeaders({
-        Authorization: `Bearer ${token}`,
-      });
-
-      // Llama al DELETE pasando headers
-      await firstValueFrom(
-        this.http.delete<{ message: string }>(`${RUTA_API}news/${id}`, {
-          headers,
-        })
-      );
-      this.router.navigate(['/']);
-
-      // Quita la noticia del front y reajusta paginación
       this.posts = this.posts.filter(
-        (p) => !(this.isInternalNews(p) && p.id === id)
+        (p) => !(this.isInternalNews(p) && p.id === id),
       );
       if (this.currentPage > this.totalPages) {
         this.currentPage = this.totalPages || 1;
@@ -118,8 +131,8 @@ export class NewsComponent implements OnInit {
       console.error('Error al eliminar noticia:', err);
       alert(
         err.status === 401
-          ? 'No estás autorizado. Inicia sesión como admin.'
-          : 'No se pudo eliminar la noticia. Inténtalo de nuevo.'
+          ? 'No estas autorizado. Inicia sesion.'
+          : 'No se pudo eliminar la noticia. Intentalo de nuevo.',
       );
     }
   }

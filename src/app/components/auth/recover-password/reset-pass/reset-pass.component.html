@@ -8,9 +8,14 @@
         <div class="reset-pass-input-wrapper">
           <input id="password" [type]="!visible ? 'password' : 'text'" formControlName="password" class="reset-pass-input" />
           <i class="fas fa-lock input-icon"></i> <!-- Icono de candado a la derecha -->
-          <mat-icon class="reset-pass-icon" (click)="visible = !visible">
-            {{ visible ? 'visibility' : 'visibility_off' }}
-          </mat-icon>
+          <button
+            type="button"
+            class="reset-pass-icon"
+            (click)="visible = !visible"
+            [attr.aria-label]="visible ? 'Ocultar contrasena' : 'Mostrar contrasena'"
+          >
+            {{ visible ? "Ocultar" : "Ver" }}
+          </button>
         </div>
         @if (formGroup.get('password')?.hasError('passwordMismatch') && !formGroup.get('password')?.hasError('required')) {
           <div class="reset-pass-error">La contraseña no cumple los requisitos.</div>
@@ -23,9 +28,14 @@
         <div class="reset-pass-input-wrapper">
           <input id="passwordRep" [type]="!visibleRep ? 'password' : 'text'" formControlName="passwordRep" class="reset-pass-input" />
           <i class="fas fa-lock input-icon"></i> <!-- Icono de candado a la derecha -->
-          <mat-icon class="reset-pass-icon" (click)="visibleRep = !visibleRep">
-            {{ visibleRep ? 'visibility' : 'visibility_off' }}
-          </mat-icon>
+          <button
+            type="button"
+            class="reset-pass-icon"
+            (click)="visibleRep = !visibleRep"
+            [attr.aria-label]="visibleRep ? 'Ocultar contrasena repetida' : 'Mostrar contrasena repetida'"
+          >
+            {{ visibleRep ? "Ocultar" : "Ver" }}
+          </button>
         </div>
         @if (formGroup.get('passwordRep')?.hasError('passwordMismatch') && !formGroup.get('passwordRep')?.hasError('required')) {
           <div class="reset-pass-error">La contraseña no cumple los requisitos.</div>

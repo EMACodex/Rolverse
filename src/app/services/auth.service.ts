@@ -29,7 +29,15 @@ export class AuthService {
   }
 
   isAuth(): boolean {
-    return !!localStorage.getItem('token');
+    return this.isLoggedIn();
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.getCurrentUser();
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 
   logout(): void {
@@ -37,8 +45,8 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
-  sendMailRecoversPass(email: string): Observable<boolean> {
-    return this.http.post<boolean>(`${this.apiURL}/sendrecover`, { email });
+  sendMailRecoversPass(email: string): Observable<Response> {
+    return this.http.post<Response>(`${this.apiURL}/sendrecover`, { email });
   }
 
   resetPass(token: string, password: string): Observable<boolean> {
@@ -48,49 +56,51 @@ export class AuthService {
     });
   }
   getCurrentUser(): DecodedToken | null {
-    const token = localStorage.getItem('token');
+    const token = this.getToken();
     if (!token) return null;
 
     try {
-      return jwtDecode(token) as DecodedToken;
+      const user = jwtDecode(token) as DecodedToken;
+      const expiresAt = user.exp ? user.exp * 1000 : null;
+
+      if (expiresAt && expiresAt < Date.now()) {
+        localStorage.removeItem('token');
+        return null;
+      }
+
+      return user;
     } catch (e) {
       console.error('Error decodificando el token', e);
       return null;
     }
   }
 
-  isAdmin(): boolean {
+  getUserRole(): string | null {
     const user = this.getCurrentUser();
 
-    // Soporta ambos formatos: 'role' string o 'roles' array
-    if (!user) return false;
+    if (!user) return null;
 
-    if ('roles' in user && Array.isArray(user.roles)) {
-      return user.roles.includes('admin');
+    if (typeof user.role === 'string') {
+      return user.role;
     }
 
-    if ('role' in user && typeof user.role === 'string') {
-      return user.role === 'admin';
+    if (Array.isArray(user.roles) && user.roles.length > 0) {
+      return user.roles.includes('admin') ? 'admin' : user.roles[0];
     }
 
-    return false;
+    return null;
+  }
+
+  isAdmin(): boolean {
+    return this.getUserRole() === 'admin';
   }
 
   hasDownloadAccess(): boolean {
-    const user = this.getCurrentUser();
+    return this.canDownload();
+  }
 
-    if (!user) return false;
-
-    // Aceptamos tanto si role es string como si hay roles[] tipo array
-    if ('roles' in user && Array.isArray(user.roles)) {
-      return user.roles.includes('admin') || user.roles.includes('user');
-    }
-
-    if ('role' in user && typeof user.role === 'string') {
-      return user.role === 'admin' || user.role === 'user';
-    }
-
-    return false;
+  canDownload(): boolean {
+    return this.isLoggedIn();
   }
 
   getTokenData(): Observable<tokenData> {

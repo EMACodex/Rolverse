@@ -1,4 +1,5 @@
 .news-form-container {
+  width: min(900px, calc(100% - 2rem));
   background: rgba(255, 248, 220, 0.94);
   border: 4px double var(--color-marron-tost);
   border-radius: 12px;
@@ -6,6 +7,13 @@
   margin: 170px auto 0 auto;
   max-width: 900px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+.news-form {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .news-form-container h2 {
@@ -43,12 +51,14 @@ input[type="text"],
 input[type="file"],
 textarea {
   width: 100%;
+  max-width: 100%;
   padding: 10px;
   font-family: "Lato", sans-serif;
   font-size: 1rem;
   background-color: var(--color-pergamino);
   border: 1px solid var(--color-marron-tost);
   border-radius: 8px;
+  box-sizing: border-box;
 }
 
 /* Textarea alto y resize */
@@ -64,6 +74,13 @@ textarea {
   max-width: 100%;
   border: 2px solid var(--color-marron-tost);
   border-radius: 8px;
+}
+
+.image-preview img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
 }
 
 /* Error */
@@ -87,8 +104,10 @@ textarea {
   transition: transform 0.1s ease-in-out;
   margin-top: 2rem;
   display: block;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
 .rpg-login-button:hover {
@@ -135,14 +154,15 @@ textarea {
 
 @media (max-width: 768px) {
   .page-background {
-    padding: 0 1rem 3rem;
+    padding: 0 0.75rem 3rem;
     background-attachment: scroll;
   }
 
   .news-form-container {
+    width: 100%;
+    max-width: 100%;
     margin: 120px auto 0 auto;
     padding: 1.3rem;
-    max-width: 100%;
   }
 
   .news-form-container h2 {
@@ -158,16 +178,23 @@ textarea {
   input[type="text"],
   input[type="file"],
   textarea {
+    width: 100%;
+    max-width: 100%;
     font-size: 0.95rem;
     padding: 0.75rem;
   }
 
+  input[type="file"] {
+    overflow: hidden;
+  }
+
   textarea {
-    min-height: 120px;
+    min-height: 180px;
   }
 
   .rpg-login-button {
     width: 100%;
+    min-height: 44px;
     font-size: 0.95rem;
     padding: 0.85rem 1rem;
   }
@@ -175,7 +202,7 @@ textarea {
 
 @media (max-width: 480px) {
   .page-background {
-    padding: 0 0.75rem 2.5rem;
+    padding: 0 0.5rem 2.5rem;
   }
 
   .news-form-container {

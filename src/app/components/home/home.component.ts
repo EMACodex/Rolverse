@@ -1,13 +1,25 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
+import { RouterModule } from '@angular/router';
 import { NewsComponent } from '../news/news.component';
 import { TheCreatorComponent } from '../thecreator/thecreator.component';
+import { ForumInterface } from '../../interfaces/forum.interface';
+import { ForumService } from '../../services/forum.service';
+import { Match } from '../../interfaces/match.interface';
+import { MatchService } from '../../services/match.service';
+import { RUTA_API } from '../../../environment';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MatTabsModule, NewsComponent, TheCreatorComponent],
+  imports: [
+    CommonModule,
+    MatTabsModule,
+    RouterModule,
+    NewsComponent,
+    TheCreatorComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
@@ -17,6 +29,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   private currentX: number = 0;
   private moved = false;
   private autoRotateInterval!: ReturnType<typeof setInterval>;
+  forums: ForumInterface[] = [];
+  forumsLoading = false;
+  forumsError = '';
+  matches: Match[] = [];
+  matchesLoading = false;
+  matchesError = '';
+  private apiBase = RUTA_API.replace(/\/$/, '');
+  readonly fallbackMatchCover = 'assets/img/partidas/partidas.png';
+
+  constructor(
+    private forumService: ForumService,
+    private matchService: MatchService,
+  ) {}
 
   // Lista de los cuatro banners. Ajusta las rutas a las tuyas dentro de src/assets/img/
   slides: { id: number; img: string }[] = [
@@ -29,6 +54,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   // Índice en slides[] del banner que está “al frente” (center)
   currentCenterIndex = 0;
   ngOnInit(): void {
+    this.loadForums();
+    this.loadMatches();
+
     // Inicia la rotación automática cada 5 segundos
     this.autoRotateInterval = setInterval(() => {
       this.next();
@@ -103,5 +131,53 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (Math.abs(diffX) > 50) {
       diffX > 0 ? this.next() : this.prev();
     }
+  }
+
+  private loadForums(): void {
+    this.forumsLoading = true;
+    this.forumsError = '';
+
+    this.forumService.getAllForums().subscribe({
+      next: (response) => {
+        this.forums = response.data || [];
+        this.forumsLoading = false;
+      },
+      error: () => {
+        this.forums = [];
+        this.forumsError = 'No se han podido cargar los foros.';
+        this.forumsLoading = false;
+      },
+    });
+  }
+
+  private loadMatches(): void {
+    this.matchesLoading = true;
+    this.matchesError = '';
+
+    this.matchService.getMatches().subscribe({
+      next: (response) => {
+        this.matches = (response.data || []).slice(0, 6);
+        this.matchesLoading = false;
+      },
+      error: () => {
+        this.matches = [];
+        this.matchesError = 'No se han podido cargar las partidas.';
+        this.matchesLoading = false;
+      },
+    });
+  }
+
+  matchCoverUrl(match: Match): string {
+    const cover = match.cover_image_path;
+
+    if (!cover) {
+      return this.fallbackMatchCover;
+    }
+
+    if (cover.startsWith('http://') || cover.startsWith('https://')) {
+      return cover;
+    }
+
+    return `${this.apiBase}${cover.startsWith('/') ? cover : `/${cover}`}`;
   }
 }

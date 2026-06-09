@@ -37,18 +37,9 @@
         }
       </div>
 
-      <article class="map-card download-info-card">
-        <h2>Mapas listos para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás mapas preparados para usar como
-          inspiración en partidas de Warhammer, ya sea para campañas militares,
-          exploración espacial, combates tácticos o aventuras en mundos
-          peligrosos del Imperio.
-        </p>
-      </article>
-
-      <div class="maps-download-wrapper">
+        <div class="maps-download-wrapper">
         <a
           [href]="warhammerMapsUrl"
           target="_blank"
@@ -58,6 +49,8 @@
           Descargar mapas de Warhammer
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

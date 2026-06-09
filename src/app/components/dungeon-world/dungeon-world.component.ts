@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-dungeon-world',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./dungeon-world.component.css'],
 })
 export class DungeonWorldComponent {
+  readonly authService = inject(AuthService);
   readonly dndMapsPdfUrl =
     'https://drive.google.com/uc?export=download&id=1tcfeFVSdAgfJbwex3DUudsKqJ-Gtu6k9';
 

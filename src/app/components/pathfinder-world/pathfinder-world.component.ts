@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-pathfinder-world',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./pathfinder-world.component.css'],
 })
 export class PathfinderWorldComponent {
+  readonly authService = inject(AuthService);
   readonly pathfinderMapsPdfUrl =
     'https://drive.google.com/uc?export=download&id=11S0iELFg65mwbo4_i4WeGyIkFTZmHnH4';
 

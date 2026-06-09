@@ -1,20 +1,49 @@
 <div class="send-mail-wrapper">
   <div class="send-mail-container">
-    <h2 class="send-mail-title">Recuperar Contraseña</h2>
+    <h2 class="send-mail-title">Recuperar contrasena</h2>
 
     <form [formGroup]="formGroup" class="send-mail-form">
       <div class="send-mail-group">
         <label for="email" class="send-mail-label">Email</label>
+
         <div class="send-mail-input-wrapper">
-          <input id="email" type="email" formControlName="email" class="send-mail-input" />
-          <i class="fas fa-envelope input-icon"></i> <!-- Icono de correo, ahora a la derecha -->
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            class="send-mail-input"
+          />
+          <i class="fas fa-envelope input-icon"></i>
         </div>
 
         @if (formGroup.get('email')?.invalid && formGroup.get('email')?.touched) {
-          <div class="send-mail-error">El email es obligatorio y debe ser válido.</div>
+          <div class="send-mail-error">
+            El email es obligatorio y debe ser valido.
+          </div>
         }
 
-        <button type="button" class="send-mail-button" (click)="enviarRecuperacion()">Enviar recuperación</button>
+        @if (feedbackMessage) {
+          <div
+            class="send-mail-feedback"
+            [class.success]="isSuccess"
+            [class.error]="!isSuccess"
+          >
+            {{ feedbackMessage }}
+          </div>
+        }
+
+        <button
+          type="button"
+          class="send-mail-button"
+          [disabled]="isSubmitting"
+          (click)="enviarRecuperacion()"
+        >
+          @if (isSubmitting) {
+            Enviando...
+          } @else {
+            Enviar nueva contrasena
+          }
+        </button>
       </div>
     </form>
   </div>

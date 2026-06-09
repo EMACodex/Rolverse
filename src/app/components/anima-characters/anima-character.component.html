@@ -47,17 +47,9 @@
         }
       </div>
 
-      <article class="character-card download-info-card">
-        <h2>Hojas y material de personajes</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás el material descargable para preparar
-          personajes de Ánima, consultar hojas y empezar a organizar una partida
-          de forma rápida y sencilla.
-        </p>
-      </article>
-
-      <div class="characters-download-wrapper">
+        <div class="characters-download-wrapper">
         <a
           [href]="animaCharactersPdfUrl"
           target="_blank"
@@ -67,6 +59,8 @@
           Descargar personajes de Ánima
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

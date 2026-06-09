@@ -55,6 +55,8 @@
   height: 60px;
   display: inline-block;
   cursor: pointer;
+  color: inherit;
+  text-decoration: none;
   transition: transform 0.2s ease-in-out;
   border: 2px solid transparent;
   border-radius: 6px;
@@ -81,6 +83,12 @@
   height: 100% !important;
   padding: 0 !important;
   object-fit: contain;
+}
+
+.logo-wrapper .partidas-header-icon {
+  width: 52px !important;
+  height: 52px !important;
+  margin: 4px;
 }
 
 .logo-wrapper:hover {
@@ -357,6 +365,12 @@
     padding: 0 !important;
   }
 
+  .center-wrapper.open .logo-wrapper > .partidas-header-icon {
+    width: 44px !important;
+    height: 44px !important;
+    margin: 2px;
+  }
+
   .center-wrapper.open .tooltip-text {
     position: static;
     transform: none;
@@ -429,6 +443,11 @@
   .center-wrapper.open .logo-wrapper > a .game-logo {
     width: 44px !important;
     height: 44px !important;
+  }
+
+  .center-wrapper.open .logo-wrapper > .partidas-header-icon {
+    width: 40px !important;
+    height: 40px !important;
   }
 
   .center-wrapper.open .tooltip-text {

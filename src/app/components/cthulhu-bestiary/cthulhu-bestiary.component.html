@@ -45,17 +45,9 @@
         }
       </div>
 
-      <article class="bestiary-card download-info-card">
-        <h2>Bestiario listo para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás un bestiario preparado para consultar
-          criaturas, entidades, amenazas y horrores que puedes usar como base
-          para crear investigaciones, misterios y partidas de Cthulhu.
-        </p>
-      </article>
-
-      <div class="bestiary-download-wrapper">
+        <div class="bestiary-download-wrapper">
         <a
           [href]="cthulhuBestiaryPdfUrl"
           target="_blank"
@@ -65,6 +57,8 @@
           Descargar bestiario de Cthulhu
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

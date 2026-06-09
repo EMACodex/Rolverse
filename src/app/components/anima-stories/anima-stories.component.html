@@ -54,18 +54,9 @@
         }
       </div>
 
-      <article class="story-card download-info-card">
-        <h2>Historias listas para jugar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás historias preparadas para jugar en
-          Ánima. Están pensadas para dar ideas rápidas al Game Master, con una
-          base narrativa, conflictos, amenazas, escenas principales y posibles
-          formas de continuar la aventura.
-        </p>
-      </article>
-
-      <div class="stories-download-wrapper">
+        <div class="stories-download-wrapper">
         <a
           [href]="animaStoriesPdfUrl"
           target="_blank"
@@ -75,6 +66,8 @@
           Descargar historias de Ánima
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

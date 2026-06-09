@@ -40,17 +40,9 @@
         }
       </div>
 
-      <article class="bestiary-card download-info-card">
-        <h2>Bestiario listo para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás el bestiario preparado para consultar
-          criaturas, amenazas y enemigos de Warhammer 40,000, pensado para
-          inspirar partidas, crear encuentros y montar campañas de forma rápida.
-        </p>
-      </article>
-
-      <div class="bestiary-download-wrapper">
+        <div class="bestiary-download-wrapper">
         <a
           [href]="warhammerBestiaryPdfUrl"
           target="_blank"
@@ -60,6 +52,8 @@
           Descargar bestiario de Warhammer
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

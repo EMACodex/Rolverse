@@ -92,7 +92,9 @@
           </article>
         </div>
 
-        <div class="manual-download-wrapper">
+        @if (authService.canDownload()) {
+
+          <div class="manual-download-wrapper">
           <a
             [href]="animaGameSystemPdfUrl"
             target="_blank"
@@ -102,6 +104,8 @@
             Descargar sistema de juego de Ánima
           </a>
         </div>
+
+        }
       </section>
     }
 

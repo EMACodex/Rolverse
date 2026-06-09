@@ -118,6 +118,38 @@ label {
   text-shadow: 1px 1px 2px #1f4d1f;
 }
 
+.password-field .input-field,
+.input-icon-container:has(.password-toggle) .input-field {
+  padding-right: 4.6rem;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.45rem;
+  transform: translateY(-50%);
+  min-height: 32px;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid #8b6a36;
+  border-radius: 6px;
+  background: rgba(20, 18, 15, 0.85);
+  color: #f0a500;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 520px) {
+  .contenedor {
+    padding: 1rem;
+  }
+
+  .register-container {
+    width: 100%;
+    min-width: 0;
+    padding: 1.5rem;
+  }
+}
+
 .links {
   margin-top: 1.5rem;
   text-align: center;

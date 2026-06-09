@@ -1,68 +1,338 @@
-<div class="contenedor">
-
+<main class="thread-shell">
   @if (forum) {
-    <div class="forum-detail-container">
-      <div class="forum-header">
-        <h1>{{ forum.title }}</h1>
-        <p class="forum-description">{{ forum.description }}</p>
-        <a routerLink="/forum" class="back-button">Volver al tablón</a>
-      </div>
-
-      <div class="messages-section">
-        <h2>Mensajes del Concilio</h2>
-
-        @if (messages.length > 0) {
-          <div >
-          @for (message of messages; track $index) {
-            <div class="message-card">
-              <div class="message-meta">
-                  <span class="author">{{ message.user_name }}</span>
-                  <span class="timestamp">{{ message.creation_date| date:'dd/MM/yyyy HH:mm' }}</span>
-                </div>
-                <div class="message-content">
-                  {{ message.text }}
-                </div>
-              </div>
+    <article class="thread-board" aria-labelledby="thread-title">
+      <header class="thread-header">
+        <div>
+          <p class="thread-kicker">Sala del concilio</p>
+          <h1 id="thread-title">{{ forum.title }}</h1>
+          <div class="thread-title-row">
+            @if (forum.visibility === 'private') {
+              <span class="forum-badge private">Sala privada</span>
+            } @else {
+              <span class="forum-badge public">Sala publica</span>
             }
           </div>
-        }
-        @else {
-          <ng-container *ngTemplateOutlet="noMessages"></ng-container>
-        }
-
-
-        <ng-template #noMessages>
-          <p class="no-messages">Ningún aventurero ha hablado aún...</p>
-        </ng-template>
-      </div>
-      <div class="create-message-container">
-        <h3>✍️ Deja tu mensaje en el concilio</h3>
-        <form  [formGroup]="messageForm" (ngSubmit)="createMessage()">
-          <textarea
-            formControlName="text"
-            placeholder="Escribe tu mensaje como un aventurero..."
-          ></textarea>
-
-          <button type="submit" [disabled]="messageForm.invalid" class="send-message">
-            📜 Enviar mensaje
-          </button>
-        </form>
-        <div *ngIf="previewImage" class="image-preview">
-          <p>Imagen seleccionada:</p>
-          <img [src]="previewImage" alt="preview">
+          <p class="forum-description">{{ forum.description }}</p>
         </div>
-      </div>
-    </div>
-  }
-  @else {
-    <ng-template #noForum>
-      <div class="forum-not-found">
-        <h2>🧙‍♂️ El foro ha desaparecido entre las brumas...</h2>
-        <p>Puede que el concilio haya sido disuelto.</p>
-        <a routerLink="/forum" class="back-button">Volver al tablón</a>
-      </div>
-    </ng-template>
-    <ng-container *ngTemplateOutlet="noForum"></ng-container>
-  }
-</div>
 
+        <div class="thread-header-actions">
+          @if (canEditForum()) {
+            <button
+              type="button"
+              class="edit-forum-button"
+              (click)="openEditForum()"
+            >
+              Editar foro
+            </button>
+          }
+          <a routerLink="/forum" class="back-button">Volver al tablon</a>
+        </div>
+      </header>
+
+      @if (editingForum) {
+        <div class="forum-edit-overlay" (click)="closeEditForum()">
+          <section class="forum-edit-dialog" (click)="$event.stopPropagation()">
+            <h2>Editar foro</h2>
+
+            <form [formGroup]="editForumForm" (ngSubmit)="saveEditForum()">
+              <label for="edit-forum-title">Titulo</label>
+              <input id="edit-forum-title" type="text" formControlName="title" />
+
+              <label for="edit-forum-description">Descripcion</label>
+              <textarea
+                id="edit-forum-description"
+                formControlName="description"
+              ></textarea>
+
+              @if (editForumError) {
+                <p class="invite-error">{{ editForumError }}</p>
+              }
+
+              <div class="edit-forum-actions">
+                <button
+                  type="submit"
+                  class="send-message"
+                  [disabled]="editForumSaving"
+                >
+                  {{ editForumSaving ? "Guardando..." : "Guardar cambios" }}
+                </button>
+                <button
+                  type="button"
+                  class="cancel-edit"
+                  (click)="closeEditForum()"
+                >
+                  Cancelar
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      }
+
+      @if (canManageForumPrivacy()) {
+        <section class="invite-panel privacy-panel" aria-labelledby="privacy-title">
+          <div>
+            <h2 id="privacy-title">Tipo de sala</h2>
+            <p>Gestiona si este foro es visible para todos o solo para miembros invitados.</p>
+          </div>
+
+          <div class="privacy-control">
+            <label for="forum-visibility">Tipo de sala</label>
+            <select
+              id="forum-visibility"
+              [value]="forum.visibility || 'public'"
+              [disabled]="privacyUpdating"
+              (change)="changeForumVisibility($any($event.target).value)"
+            >
+              <option value="public">Sala publica</option>
+              <option value="private">Sala privada</option>
+            </select>
+          </div>
+
+          @if (privacyMessage) {
+            <div class="invite-success">{{ privacyMessage }}</div>
+          }
+          @if (privacyError) {
+            <div class="invite-error">{{ privacyError }}</div>
+          }
+        </section>
+      }
+
+      @if (canInviteUsers) {
+        <section class="invite-panel" aria-labelledby="private-invite-title">
+          <div>
+            <h2 id="private-invite-title">Invitar a sala privada</h2>
+            <p>Busca usuarios registrados por email y envia una invitacion.</p>
+          </div>
+
+          @if (inviteMessage) {
+            <div class="invite-success">{{ inviteMessage }}</div>
+          }
+          @if (inviteError) {
+            <div class="invite-error">{{ inviteError }}</div>
+          }
+
+          <form class="invite-form" (ngSubmit)="searchUsers()">
+            <div class="invite-search">
+              <input
+                #inviteInput
+                type="email"
+                placeholder="Buscar usuario por email"
+                [value]="inviteEmail"
+                (input)="onInviteEmailInput(inviteInput.value)"
+              />
+
+              @if (foundUsers.length > 0) {
+                <div class="invite-results">
+                  @for (user of foundUsers; track user.id) {
+                    <button
+                      type="button"
+                      class="invite-result"
+                      (click)="selectUserToInvite(user)"
+                    >
+                      <strong>{{ user.name }}</strong>
+                      <span>{{ user.email }}</span>
+                    </button>
+                  }
+                </div>
+              }
+            </div>
+
+            <button type="submit" [disabled]="searchLoading || !inviteEmail.trim()">
+              Buscar
+            </button>
+            <button
+              type="button"
+              [disabled]="inviteLoading || !selectedUserToInvite"
+              (click)="inviteSelectedUser()"
+            >
+              Invitar
+            </button>
+          </form>
+
+          @if (inviteSearchMessage) {
+            <p class="invite-search-message">{{ inviteSearchMessage }}</p>
+          }
+        </section>
+      }
+
+      <section class="messages-section" aria-labelledby="messages-title">
+        <div class="section-heading">
+          <h2 id="messages-title">Mensajes del Concilio</h2>
+          <span>{{ messages.length }} mensajes</span>
+        </div>
+
+        @if (messages.length > 0) {
+          <div class="message-list">
+            @for (message of messages; track message.id) {
+              <article class="message-card">
+                <aside class="message-author">
+                  <div class="author-seal" aria-hidden="true">
+                    {{ message.user_name.charAt(0) }}
+                  </div>
+                  <strong>{{ message.user_name }}</strong>
+                  <span>Miembro del foro</span>
+                </aside>
+
+                <div class="message-main">
+                  <header class="message-meta">
+                    <span>Publicado</span>
+                    <time>{{ message.creation_date | date: 'dd/MM/yyyy HH:mm' }}</time>
+                  </header>
+
+                  @if (editingMessage?.id === message.id) {
+                    <form
+                      class="edit-message-form"
+                      [formGroup]="editMessageForm"
+                      (ngSubmit)="saveEditMessage()"
+                    >
+                      <label for="edit-message-text-{{ message.id }}">Mensaje</label>
+                      <textarea
+                        id="edit-message-text-{{ message.id }}"
+                        formControlName="text"
+                      ></textarea>
+
+                      @if (message.image_path && !editPreviewImage) {
+                        <figure class="message-image">
+                          <figcaption>Imagen actual</figcaption>
+                          <img
+                            [src]="getUploadUrl(message.image_path)"
+                            alt="Imagen actual del mensaje"
+                          />
+                        </figure>
+                      }
+
+                      @if (editPreviewImage) {
+                        <figure class="message-image">
+                          <figcaption>Nueva imagen</figcaption>
+                          <img
+                            [src]="editPreviewImage"
+                            alt="Vista previa de la nueva imagen del mensaje"
+                          />
+                        </figure>
+                      }
+
+                      <div class="form-footer edit-footer">
+                        <label class="file-input">
+                          Cambiar imagen
+                          <input
+                            type="file"
+                            accept="image/*"
+                            (change)="onEditImageSelected($event)"
+                          />
+                        </label>
+                        <button
+                          type="submit"
+                          class="send-message"
+                          [disabled]="!canSubmitEditMessage"
+                        >
+                          Guardar
+                        </button>
+                        <button
+                          type="button"
+                          class="cancel-edit"
+                          (click)="cancelEditMessage()"
+                        >
+                          Cancelar
+                        </button>
+                      </div>
+                    </form>
+                  } @else {
+                    @if (message.text) {
+                      <p class="message-content">{{ message.text }}</p>
+                    }
+
+                    @if (message.image_path) {
+                      <figure class="message-image">
+                        <img
+                          [src]="getUploadUrl(message.image_path)"
+                          alt="Imagen adjunta al mensaje"
+                        />
+                      </figure>
+                    }
+
+                    @if (canEditMessage(message) || canDeleteMessage(message)) {
+                      <footer class="message-actions">
+                        @if (canEditMessage(message)) {
+                          <button
+                            type="button"
+                            class="edit-message"
+                            (click)="startEditMessage(message)"
+                          >
+                            Editar
+                          </button>
+                        }
+                        @if (canDeleteMessage(message)) {
+                          <button
+                            type="button"
+                            class="delete-message"
+                            (click)="deleteMessage(message.id)"
+                          >
+                            Eliminar
+                          </button>
+                        }
+                      </footer>
+                    }
+                  }
+                </div>
+              </article>
+            }
+          </div>
+        } @else {
+          <div class="no-messages">
+            <h3>Ningun aventurero ha hablado aun</h3>
+            <p>Abre la conversacion con el primer mensaje de la sala.</p>
+          </div>
+        }
+      </section>
+
+      @if (userInfo) {
+        <section class="create-message-container" aria-labelledby="reply-title">
+          <h2 id="reply-title">Responder al concilio</h2>
+
+          <form [formGroup]="messageForm" (ngSubmit)="createMessage()">
+            <label for="message-text">Mensaje</label>
+            <textarea
+              id="message-text"
+              formControlName="text"
+              placeholder="Escribe tu mensaje como un aventurero..."
+            ></textarea>
+
+            <div class="form-footer">
+              <label class="file-input">
+                Adjuntar imagen
+                <input
+                  #messageFileInput
+                  type="file"
+                  accept="image/*"
+                  (change)="onImageSelected($event)"
+                />
+              </label>
+
+              <button type="submit" [disabled]="!canSubmitMessage" class="send-message">
+                Enviar mensaje
+              </button>
+            </div>
+          </form>
+
+          @if (previewImage) {
+            <figure class="image-preview">
+              <figcaption>Imagen seleccionada</figcaption>
+              <img [src]="previewImage" alt="Vista previa de la imagen seleccionada" />
+            </figure>
+          }
+        </section>
+      } @else {
+        <section class="create-message-container" aria-labelledby="reply-login-title">
+          <h2 id="reply-login-title">Inicia sesion para comentar en el foro.</h2>
+        </section>
+      }
+    </article>
+  } @else {
+    <section class="forum-not-found">
+      <h1>El foro ha desaparecido entre las brumas</h1>
+      <p>Puede que el concilio haya sido disuelto.</p>
+      <a routerLink="/forum" class="back-button">Volver al tablon</a>
+    </section>
+  }
+</main>

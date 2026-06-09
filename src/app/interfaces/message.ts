@@ -1,9 +1,10 @@
 export interface MessageInterface {
   id: number;
+  user_id: number;
   user_name: string;
   forum_id: number;
-  text: string;
-  image_path?: string;
+  text: string | null;
+  image_path?: string | null;
   creation_date: Date;
 }
 

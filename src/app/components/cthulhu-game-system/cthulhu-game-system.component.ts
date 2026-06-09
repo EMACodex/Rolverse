@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 import { CthulhuFirstEditionComponent } from './first-edition/first-edition.component';
 import { CthulhuSecondThirdEditionComponent } from './second-third-edition/second-third-edition.component';
 import { CthulhuFourthEditionComponent } from './fourth-edition/fourth-edition.component';
@@ -30,6 +31,7 @@ type CthulhuGameSystemTab =
   styleUrls: ['./cthulhu-game-system.component.css'],
 })
 export class CthulhuGameSystemComponent {
+  readonly authService = inject(AuthService);
   selectedTab: CthulhuGameSystemTab = 'resumen';
 
   readonly cthulhuGameSystemPdfUrl =

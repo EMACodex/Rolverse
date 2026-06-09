@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
   errorMessage: string = '';
+  showPassword = false;
 
   constructor(
     private authService: AuthService,

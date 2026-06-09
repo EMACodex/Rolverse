@@ -47,17 +47,9 @@
         }
       </div>
 
-      <article class="bestiary-card download-info-card">
-        <h2>Bestiario listo para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás un bestiario preparado para consultar
-          criaturas, inspirarte al crear encuentros y montar partidas de
-          Pathfinder de forma rápida, clara y sencilla.
-        </p>
-      </article>
-
-      <div class="bestiary-download-wrapper">
+        <div class="bestiary-download-wrapper">
         <a
           [href]="pathfinderBestiaryPdfUrl"
           target="_blank"
@@ -67,6 +59,8 @@
           Descargar bestiario de Pathfinder
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

@@ -48,7 +48,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Cardo", serif;
-  background: no-repeat center center fixed;
+  background: #100d0b no-repeat center center fixed;
   background-size: cover;
   color: #3b1f0f;
 }
@@ -282,9 +282,6 @@ body {
 ::ng-deep .cdk-overlay-pane {
   z-index: 2000 !important; /* asegúrate de que va por encima */
   pointer-events: auto !important;
-  .transparent-backdrop {
-    background: transparent !important;
-  }
 }
 
 /* ===== Layout app completo para “push footer” ===== */
@@ -292,9 +289,82 @@ app-root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: #100d0b;
 }
 
 /* El outlet ocupa todo el espacio salvo header y footer */
 router-outlet {
   flex: 1;
+}
+
+router-outlet + * {
+  flex: 1 0 auto;
+}
+
+@media (max-width: 768px) {
+  .main-title,
+  .section-title {
+    font-size: clamp(1.45rem, 7vw, 1.9rem) !important;
+    line-height: 1.2 !important;
+    max-width: 100% !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .manual-download-button,
+  .characters-download-button,
+  .world-download-button,
+  .stories-download-button,
+  .bestiary-download-button,
+  .character-download-button,
+  .maps-download-button,
+  .download-button {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    box-sizing: border-box !important;
+  }
+
+  .question-card,
+  .character-card,
+  .character-type-card,
+  .world-card,
+  .world-type-card,
+  .story-card,
+  .bestiary-card,
+  .creature-card,
+  .edition-card {
+    overflow-wrap: anywhere !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title,
+  .section-title {
+    font-size: clamp(1.25rem, 8vw, 1.6rem) !important;
+  }
+}
+
+.transparent-backdrop {
+  background: rgba(0, 0, 0, 0.65) !important;
+}
+
+.forum-dialog-panel {
+  width: min(500px, calc(100vw - 2rem)) !important;
+  max-width: calc(100vw - 2rem) !important;
+}
+
+.forum-dialog-panel .mat-mdc-dialog-container,
+.forum-dialog-panel .mdc-dialog__container,
+.forum-dialog-panel .mat-mdc-dialog-surface,
+.forum-dialog-panel .mdc-dialog__surface {
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.forum-dialog-panel .mat-mdc-dialog-surface {
+  border-radius: 8px !important;
 }

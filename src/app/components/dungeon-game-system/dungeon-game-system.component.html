@@ -93,7 +93,9 @@
           </article>
         </div>
 
-        <div class="manual-download-wrapper">
+        @if (authService.canDownload()) {
+
+          <div class="manual-download-wrapper">
           <a
             [href]="dndGameSystemPdfUrl"
             target="_blank"
@@ -103,6 +105,8 @@
             Descargar sistema de juego de D&D
           </a>
         </div>
+
+        }
       </section>
     }
     @if (selectedTab === "original") {

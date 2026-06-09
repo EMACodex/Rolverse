@@ -16,9 +16,22 @@
         }
 
         <label for="password" class="label">Password</label>
-        <div class="input-icon-container">
-          <input id="password" type="password" formControlName="password" required class="input-field" />
-          <i class="fas fa-lock input-icon"></i> <!-- Icono de candado a la derecha -->
+        <div class="input-icon-container password-field">
+          <input
+            id="password"
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="password"
+            required
+            class="input-field"
+          />
+          <button
+            type="button"
+            class="password-toggle"
+            (click)="showPassword = !showPassword"
+            [attr.aria-label]="showPassword ? 'Ocultar contrasena' : 'Mostrar contrasena'"
+          >
+            {{ showPassword ? "Ocultar" : "Ver" }}
+          </button>
         </div>
         @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
           <div class="error">
@@ -28,9 +41,11 @@
 
         <button type="submit" [disabled]="loginForm.invalid" class="btn-submit">Login</button>
 
-        <div class="error-message" *ngIf="errorMessage">
-          <p>{{ errorMessage }}</p>
-        </div>
+        @if (errorMessage) {
+          <div class="error-message">
+            <p>{{ errorMessage }}</p>
+          </div>
+        }
 
         <div class="links">
           <a routerLink="/session/register" class="link">¿No tienes cuenta? Regístrate</a>

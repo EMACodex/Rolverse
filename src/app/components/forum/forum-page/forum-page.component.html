@@ -1,34 +1,174 @@
-<div class="contenedor">
-  <div class="title">
-    <h1>Concilio de Rol y Estrategia</h1>
-    <h2>Foro</h2>
-  </div>
+<main class="forum-shell">
+  <section class="forum-board" aria-labelledby="forum-title">
+    <header class="board-header">
+      <div>
+        <p class="board-kicker">Tablon de Rolverse</p>
+        <h1 id="forum-title">Concilio de Rol y Estrategia</h1>
+        <p class="board-subtitle">
+          Salas de debate, crónicas de partida y consejos de aventureros.
+        </p>
+      </div>
 
-  @for (forum of allForums; track $index) {
-  <div class="forum-card" (click)="onForumClick(forum.id!)">
-    <h3>{{ forum.title }}</h3>
-    <p>{{ forum.description }}</p>
+      @if (userInfo) {
+        <button
+          type="button"
+          class="create-forum create-forum--header"
+          (click)="openCreateForumDialog()"
+        >
+          Crear foro
+        </button>
+      }
+    </header>
 
-    @if (userInfo?.role === 'admin') {
-    <div class="forum-actions">
+    <div class="board-table" role="list">
+      <div class="board-table-header" aria-hidden="true">
+        <span>Foro</span>
+        <span>Tipo</span>
+        <span>Acceso</span>
+      </div>
+
+      @if (allForums.length > 0) {
+        @for (forum of paginatedForums; track forum.id ?? $index) {
+          <article
+            class="forum-row"
+            role="listitem"
+            tabindex="0"
+            (click)="onForumClick(forum.id!)"
+            (auxclick)="openForumInNewTab($event, forum.id!)"
+            (keydown.enter)="onForumClick(forum.id!)"
+            (keydown.space)="$event.preventDefault(); onForumClick(forum.id!)"
+          >
+            <div class="forum-emblem" aria-hidden="true">
+              <span>{{ forum.title.charAt(0) }}</span>
+            </div>
+
+            <div class="forum-summary">
+              <h2>{{ forum.title }}</h2>
+              <p>{{ forum.description }}</p>
+            </div>
+
+            <div class="forum-type">
+              @if (forum.visibility === "private") {
+                <span class="forum-badge private">Sala privada</span>
+              } @else {
+                <span class="forum-badge public">Sala publica</span>
+              }
+            </div>
+
+            <div class="forum-entry">
+              <span class="entry-link">Entrar</span>
+
+              @if (canEditForum(forum)) {
+                <button
+                  type="button"
+                  class="edit-forum"
+                  (click)="openEditForum(forum, $event)"
+                >
+                  Editar
+                </button>
+              }
+
+              @if (canDeleteForum(forum)) {
+                <button
+                  type="button"
+                  class="delete-forum"
+                  (click)="onDeleteForum(forum.id!); $event.stopPropagation()"
+                >
+                  Eliminar
+                </button>
+              }
+            </div>
+          </article>
+        }
+        @if (totalPages > 1) {
+          <div class="pagination-controls">
+            <button
+              type="button"
+              (click)="previousPage()"
+              [disabled]="currentPage === 1"
+            >
+              Anterior
+            </button>
+            <span>Pagina {{ currentPage }} de {{ totalPages }}</span>
+            <button
+              type="button"
+              (click)="nextPage()"
+              [disabled]="currentPage === totalPages"
+            >
+              Siguiente
+            </button>
+          </div>
+        }
+      } @else {
+        <div class="empty-board">
+          <h2>No hay salas abiertas</h2>
+          <p>El tablon esta preparado para la primera convocatoria.</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  @if (userInfo) {
+    <div class="admin-actions">
       <button
-        class="delete-forum"
-        (click)="onDeleteForum(forum.id!); $event.stopPropagation()"
+        type="button"
+        class="create-forum create-forum--floating"
+        (click)="openCreateForumDialog()"
+        title="Crear nuevo foro"
+        aria-label="Crear nuevo foro"
       >
-        ✖ Eliminar
+        +
       </button>
     </div>
-    }
-  </div>
-  } @if (userInfo?.role === 'admin') {
-  <div class="admin-actions">
-    <button
-      class="create-forum"
-      (click)="openCreateForumDialog()"
-      title="Crear nuevo foro"
-    >
-      ✨
-    </button>
-  </div>
   }
-</div>
+
+  @if (editingForum) {
+    <div class="forum-modal-overlay" (click)="closeEditForum()">
+      <section
+        class="forum-edit-modal"
+        aria-labelledby="edit-forum-title"
+        (click)="$event.stopPropagation()"
+      >
+        <h2 id="edit-forum-title">Editar foro</h2>
+
+        <label for="edit-forum-title-input">Titulo</label>
+        <input
+          id="edit-forum-title-input"
+          name="editForumTitle"
+          type="text"
+          [(ngModel)]="editForumData.title"
+        />
+
+        <label for="edit-forum-description">Descripcion</label>
+        <textarea
+          id="edit-forum-description"
+          name="editForumDescription"
+          [(ngModel)]="editForumData.description"
+        ></textarea>
+
+        <label for="edit-forum-visibility">Tipo de sala</label>
+        <select
+          id="edit-forum-visibility"
+          name="editForumVisibility"
+          [(ngModel)]="editForumData.visibility"
+        >
+          <option value="public">Sala publica</option>
+          <option value="private">Sala privada</option>
+        </select>
+
+        @if (editForumError) {
+          <p class="modal-error">{{ editForumError }}</p>
+        }
+
+        <div class="modal-actions">
+          <button type="button" class="save-forum" (click)="saveEditForum()">
+            Guardar
+          </button>
+          <button type="button" class="cancel-forum" (click)="closeEditForum()">
+            Cancelar
+          </button>
+        </div>
+      </section>
+    </div>
+  }
+</main>

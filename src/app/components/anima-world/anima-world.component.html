@@ -47,17 +47,9 @@
         }
       </div>
 
-      <article class="world-card download-info-card">
-        <h2>Mapas listos para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás mapas preparados para inspirarte,
-          montar escenarios, organizar viajes y crear partidas de Ánima de forma
-          rápida y sencilla.
-        </p>
-      </article>
-
-      <div class="world-download-wrapper">
+        <div class="world-download-wrapper">
         <a
           [href]="animaMapsPdfUrl"
           target="_blank"
@@ -67,6 +59,8 @@
           Descargar mapas de Ánima
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

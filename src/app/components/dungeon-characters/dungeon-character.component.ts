@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-dungeon-character',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./dungeon-character.component.css'],
 })
 export class DungeonCharacterComponent {
+  readonly authService = inject(AuthService);
   readonly dndCharacterSheetUrl =
     'https://drive.google.com/uc?export=download&id=1k75RMc9RZtwstJMiYp1_DQxvycLBicwz';
 

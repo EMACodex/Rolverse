@@ -59,7 +59,7 @@
           />
           Noticias
         </ng-template>
-        <app-news></app-news>
+        <app-news [embedded]="true"></app-news>
       </mat-tab>
 
       <!-- Partidas: -->
@@ -73,9 +73,89 @@
           />
           Partidas
         </ng-template>
-        <div class="tab-placeholder">
-          <p>Próximamente podrás explorar y unirte a partidas de rol.</p>
-        </div>
+        <section class="home-matches-section">
+          @if (matchesLoading) {
+            <div class="home-forum-state">Cargando partidas...</div>
+          } @else if (matchesError) {
+            <div class="home-forum-state error">{{ matchesError }}</div>
+          } @else if (matches.length === 0) {
+            <div class="home-forum-state">Todavia no hay partidas disponibles.</div>
+          } @else {
+            <div class="home-match-grid">
+              @for (match of matches; track match.id) {
+                <article class="home-match-card">
+                  <img [src]="matchCoverUrl(match)" [alt]="match.title" />
+                  <div class="home-match-body">
+                    <h3>{{ match.title }}</h3>
+                    <div class="home-match-badges">
+                      <span
+                        class="home-forum-badge"
+                        [class.private]="match.access_type === 'private'"
+                        [class.public]="match.access_type === 'public'"
+                      >
+                        {{ match.access_type === "private" ? "Privada" : "Publica" }}
+                      </span>
+                      <span
+                        class="home-forum-badge"
+                        [class.private]="match.status === 'finished'"
+                        [class.public]="match.status === 'active'"
+                      >
+                        {{ match.status === "finished" ? "Finalizada" : "En juego" }}
+                      </span>
+                    </div>
+                    <a class="home-forum-link" [routerLink]="['/partidas/jugar', match.id]">
+                      Ver partida
+                    </a>
+                  </div>
+                </article>
+              }
+            </div>
+          }
+          <a class="home-section-link" routerLink="/partidas">Ir a Partidas</a>
+        </section>
+      </mat-tab>
+
+      <!-- Foro: -->
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <img src="assets/img/forum.png" alt="Foro" class="tab-icon" />
+          Foro
+        </ng-template>
+
+        <section class="home-forum-section">
+          @if (forumsLoading) {
+            <div class="home-forum-state">Cargando foros...</div>
+          } @else if (forumsError) {
+            <div class="home-forum-state error">{{ forumsError }}</div>
+          } @else if (forums.length === 0) {
+            <div class="home-forum-state">Todavia no hay foros disponibles.</div>
+          } @else {
+            <div class="home-forum-grid">
+              @for (forum of forums; track forum.id) {
+                <article class="home-forum-card">
+                  <div class="home-forum-card-header">
+                    <h3>{{ forum.title }}</h3>
+
+                    @if (forum.visibility === 'private') {
+                      <span class="home-forum-badge private">Sala privada</span>
+                    } @else {
+                      <span class="home-forum-badge public">Sala publica</span>
+                    }
+                  </div>
+
+                  <p class="home-forum-description">{{ forum.description }}</p>
+
+                  <a
+                    class="home-forum-link"
+                    [routerLink]="forum.id ? ['/forum', forum.id] : ['/forum']"
+                  >
+                    Entrar
+                  </a>
+                </article>
+              }
+            </div>
+          }
+        </section>
       </mat-tab>
 
       <!-- Creador de personajes: -->

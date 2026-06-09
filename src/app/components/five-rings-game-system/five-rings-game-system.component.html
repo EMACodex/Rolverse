@@ -91,7 +91,9 @@
           </article>
         </div>
 
-        <div class="manual-download-wrapper">
+        @if (authService.canDownload()) {
+
+          <div class="manual-download-wrapper">
           <a
             [href]="fiveRingsGameSystemPdfUrl"
             target="_blank"
@@ -101,6 +103,8 @@
             Descargar sistema de juego de la leyenda de los 5 anillos
           </a>
         </div>
+
+        }
       </section>
     }
 

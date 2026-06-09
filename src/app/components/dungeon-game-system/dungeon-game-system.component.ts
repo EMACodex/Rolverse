@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 import { OriginalDndComponent } from './original-dnd/original-dnd.component';
 import { AdndEditionComponent } from './adnd-edition/adnd-edition.component';
 import { ThirdEditionComponent } from './third-edition/third-edition.component';
@@ -30,6 +31,7 @@ type GameSystemTab =
   styleUrls: ['./dungeon-game-system.component.css'],
 })
 export class DungeonGameSystemComponent {
+  readonly authService = inject(AuthService);
   selectedTab: GameSystemTab = 'resumen';
   readonly dndGameSystemPdfUrl =
     'https://drive.google.com/uc?export=download&id=19aF93eUQFjvkQjC0BSUmoGd9RbZVNKhv';

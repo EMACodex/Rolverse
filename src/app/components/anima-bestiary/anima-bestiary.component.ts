@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-anima-bestiary',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./anima-bestiary.component.css'],
 })
 export class AnimaBestiaryComponent {
+  readonly authService = inject(AuthService);
   readonly animaBestiaryPdfUrl =
     'https://drive.google.com/uc?export=download&id=19eF5Aypqqr_Z7ZyyZt-cgZmx7CQd6A9z';
 

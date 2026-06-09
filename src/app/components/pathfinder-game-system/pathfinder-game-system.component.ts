@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 import { PathfinderFirstEditionComponent } from './pathfinder-first-edition/pathfinder-first-edition.component';
 import { PathfinderSecondEditionComponent } from './pathfinder-second-edition/pathfinder-second-edition.component';
 import { PathfinderRemasterComponent } from './pathfinder-remaster/pathfinder-remaster.component';
@@ -17,6 +18,7 @@ type PathfinderSystemTab = 'resumen' | 'first' | 'second' | 'remaster';
   styleUrls: ['./pathfinder-game-system.component.css'],
 })
 export class PathfinderGameSystemComponent {
+  readonly authService = inject(AuthService);
   selectedTab: PathfinderSystemTab = 'resumen';
 
   readonly pathfinderManualPdf =

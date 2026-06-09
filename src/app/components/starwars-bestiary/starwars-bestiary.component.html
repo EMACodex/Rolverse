@@ -45,17 +45,9 @@
         }
       </div>
 
-      <article class="bestiary-card download-info-card">
-        <h2>Bestiario listo para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás un bestiario preparado para consultar
-          criaturas, inspirarte al crear encuentros y montar partidas de Star
-          Wars de forma rápida y sencilla.
-        </p>
-      </article>
-
-      <div class="bestiary-download-wrapper">
+        <div class="bestiary-download-wrapper">
         <a
           [href]="starwarsBestiaryPdfUrl"
           target="_blank"
@@ -65,6 +57,8 @@
           Descargar bestiario de Star Wars
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

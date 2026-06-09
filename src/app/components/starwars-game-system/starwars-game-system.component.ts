@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 import { WestEndFirstComponent } from './west-end-first/west-end-first.component';
 import { WestEndSecondComponent } from './west-end-second/west-end-second.component';
 import { D20OriginalComponent } from './d20-original/d20-original.component';
@@ -30,6 +31,7 @@ type StarwarsSystemTab =
   styleUrls: ['./starwars-game-system.component.css'],
 })
 export class StarwarsGameSystemComponent {
+  readonly authService = inject(AuthService);
   selectedTab: StarwarsSystemTab = 'resumen';
 
   readonly starwarsGameSystemPdfUrl =

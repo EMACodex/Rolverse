@@ -48,17 +48,9 @@
         }
       </div>
 
-      <article class="character-card download-info-card">
-        <h2>Hojas de personaje listas para descargar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás hojas de personaje preparadas para
-          partidas de Pathfinder. Puedes descargarlas, imprimirlas o usarlas
-          como base para crear aventureros nuevos de forma rápida y sencilla.
-        </p>
-      </article>
-
-      <div class="characters-download-wrapper">
+        <div class="characters-download-wrapper">
         <a
           [href]="pathfinderCharacterSheetUrl"
           target="_blank"
@@ -68,6 +60,8 @@
           Descargar hojas de personaje de Pathfinder
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

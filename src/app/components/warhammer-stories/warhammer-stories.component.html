@@ -46,18 +46,9 @@
         }
       </div>
 
-      <article class="story-card download-info-card">
-        <h2>Historias listas para jugar</h2>
+@if (authService.canDownload()) {
 
-        <p>
-          En el botón de abajo encontrarás historias preparadas para usar como
-          base de partidas de Warhammer. Puedes utilizarlas para crear misiones,
-          campañas, investigaciones, combates, conflictos entre facciones y
-          aventuras ambientadas en mundos oscuros y peligrosos.
-        </p>
-      </article>
-
-      <div class="stories-download-wrapper">
+        <div class="stories-download-wrapper">
         <a
           [href]="warhammerStoriesPdfUrl"
           target="_blank"
@@ -67,6 +58,8 @@
           Descargar historias de Warhammer
         </a>
       </div>
+
+      }
     </section>
   </div>
 </div>

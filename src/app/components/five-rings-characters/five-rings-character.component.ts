@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-five-rings-character',
   standalone: true,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./five-rings-character.component.css'],
 })
 export class FiveRingsCharacterComponent {
+  readonly authService = inject(AuthService);
   readonly fiveRingsCharacterSheetUrl =
     'https://drive.google.com/uc?export=download&id=1_b170PFIyC-xLEaaUcJ4a7J-WhrtyUC3';
 
