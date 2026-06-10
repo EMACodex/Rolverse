@@ -1,12 +1,12 @@
 <main class="news-detail-bg">
   <section class="container">
     @if (loading) {
-      <p>Cargando noticia...</p>
+      <p>{{ "NEWS.LOADING_DETAIL" | translate }}</p>
     } @else if (error) {
       <p class="error">{{ error }}</p>
     } @else if (news) {
       <div class="news-detail card">
-        <a routerLink="/noticias" class="back-news-button">Volver a Noticias</a>
+        <a routerLink="/noticias" class="back-news-button">{{ "NEWS.BACK_TO_NEWS" | translate }}</a>
 
         <h2 class="news-title">{{ news.title }}</h2>
         <div class="news-meta">
@@ -16,7 +16,7 @@
         @if (canEditNews) {
           <div class="news-detail-actions">
             <a [routerLink]="['/noticias/editar', news.id]" class="edit-news-link">
-              Editar noticia
+              {{ "NEWS.EDIT" | translate }}
             </a>
           </div>
         }
@@ -32,7 +32,7 @@
         <div class="news-content-full" [innerHTML]="news.content"></div>
 
         <div class="news-comments-section">
-          <h3>Resenas</h3>
+          <h3>{{ "NEWS.REVIEWS" | translate }}</h3>
 
           @if (authService.isLoggedIn()) {
             <form
@@ -43,12 +43,12 @@
               <textarea
                 name="comment"
                 [(ngModel)]="newComment"
-                placeholder="Escribe tu resena aqui..."
+                [placeholder]="'NEWS.REVIEW_PLACEHOLDER' | translate"
               ></textarea>
 
               <div class="comment-form-actions">
                 <label class="comment-file">
-                  Adjuntar imagen
+                  {{ "NEWS.ATTACH_IMAGE" | translate }}
                   <input
                     #commentFileInput
                     type="file"
@@ -57,13 +57,13 @@
                   />
                 </label>
                 <button type="submit" [disabled]="!canSubmitComment">
-                  Publicar comentario
+                  {{ "NEWS.PUBLISH_COMMENT" | translate }}
                 </button>
               </div>
 
               @if (commentPreviewImage) {
                 <figure class="comment-preview">
-                  <figcaption>Imagen seleccionada</figcaption>
+                  <figcaption>{{ "NEWS.SELECTED_IMAGE" | translate }}</figcaption>
                   <img
                     [src]="commentPreviewImage"
                     alt="Vista previa de la imagen del comentario"
@@ -72,7 +72,7 @@
               }
             </form>
           } @else {
-            <p>Inicia sesion para comentar esta noticia.</p>
+            <p>{{ "NEWS.LOGIN_TO_COMMENT" | translate }}</p>
           }
 
           @for (comment of comments; track comment.id) {
@@ -89,11 +89,11 @@
                         (click)="startEditComment(comment)"
                         class="edit-btn"
                       >
-                        Editar
+                        {{ "COMMON.EDIT" | translate }}
                       </button>
                     }
                     <button (click)="deleteComment(comment.id)" class="delete-btn">
-                      Eliminar
+                      {{ "COMMON.DELETE" | translate }}
                     </button>
                   </div>
                 }
@@ -104,7 +104,7 @@
                   <textarea
                     name="editComment"
                     [(ngModel)]="editCommentText"
-                    placeholder="Edita tu resena..."
+                    [placeholder]="'NEWS.EDIT_REVIEW_PLACEHOLDER' | translate"
                   ></textarea>
 
                   @if (comment.image_path && !editCommentPreviewImage) {
@@ -125,7 +125,7 @@
 
                   <div class="comment-form-actions">
                     <label class="comment-file">
-                      Cambiar imagen
+                      {{ "NEWS.CHANGE_IMAGE" | translate }}
                       <input
                         type="file"
                         accept="image/*"
@@ -136,14 +136,14 @@
                       type="submit"
                       [disabled]="!canSubmitEditComment(comment)"
                     >
-                      Guardar
+                      {{ "COMMON.SAVE" | translate }}
                     </button>
                     <button
                       type="button"
                       class="cancel-comment-edit"
                       (click)="cancelEditComment()"
                     >
-                      Cancelar
+                      {{ "COMMON.CANCEL" | translate }}
                     </button>
                   </div>
                 </form>

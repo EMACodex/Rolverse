@@ -2,10 +2,10 @@
   <section class="matches-board" aria-labelledby="matches-title">
     <header class="matches-header">
       <div>
-        <p class="matches-kicker">Mesa de aventuras</p>
-        <h1 id="matches-title">Partidas de Rolverse</h1>
+        <p class="matches-kicker">{{ "MATCHES.KICKER" | translate }}</p>
+        <h1 id="matches-title">{{ "MATCHES.TITLE" | translate }}</h1>
         <p class="matches-subtitle">
-          Campañas activas y crónicas finalizadas para explorar o jugar.
+          {{ "MATCHES.SUBTITLE" | translate }}
         </p>
       </div>
 
@@ -14,9 +14,9 @@
           type="button"
           class="primary-button create-match-button"
           (click)="openCreateModal()"
-          aria-label="Crear partida"
+          [attr.aria-label]="'MATCHES.CREATE' | translate"
         >
-          Crear partida
+          {{ "MATCHES.CREATE" | translate }}
         </button>
       }
     </header>
@@ -27,19 +27,19 @@
         name="matchSearch"
         [(ngModel)]="search"
         (keyup.enter)="loadMatches()"
-        placeholder="Buscar por titulo"
+        [placeholder]="'MATCHES.SEARCH_PLACEHOLDER' | translate"
       />
       <button type="button" class="secondary-button" (click)="loadMatches()">
-        Buscar
+        {{ "COMMON.SEARCH" | translate }}
       </button>
     </div>
 
     @if (loading) {
-      <div class="matches-state">Cargando partidas...</div>
+      <div class="matches-state">{{ "MATCHES.LOADING" | translate }}</div>
     } @else if (error) {
       <div class="matches-state error">{{ error }}</div>
     } @else if (matches.length === 0) {
-      <div class="matches-state">Todavia no hay partidas disponibles.</div>
+      <div class="matches-state">{{ "MATCHES.EMPTY" | translate }}</div>
     } @else {
       <div class="matches-grid">
         @for (match of paginatedMatches; track match.id) {
@@ -52,13 +52,21 @@
                   class="badge"
                   [class.finished]="match.status === 'finished'"
                 >
-                  {{ match.status === "finished" ? "Finalizada" : "En juego" }}
+                  {{
+                    match.status === "finished"
+                      ? ("MATCHES.FINISHED" | translate)
+                      : ("MATCHES.ACTIVE" | translate)
+                  }}
                 </span>
                 <span
                   class="badge"
                   [class.private]="match.access_type === 'private'"
                 >
-                  {{ match.access_type === "private" ? "Privada" : "Publica" }}
+                  {{
+                    match.access_type === "private"
+                      ? ("MATCHES.PRIVATE" | translate)
+                      : ("MATCHES.PUBLIC" | translate)
+                  }}
                 </span>
               </div>
               <div class="match-card-actions">
@@ -66,7 +74,7 @@
                   class="primary-link"
                   [routerLink]="['/partidas/jugar', match.id]"
                 >
-                  Ver partida
+                  {{ "MATCHES.VIEW" | translate }}
                 </a>
 
                 @if (canEditMatch(match)) {
@@ -75,7 +83,7 @@
                     class="secondary-button"
                     (click)="openEditMatch(match)"
                   >
-                    Editar partida
+                    {{ "MATCHES.EDIT" | translate }}
                   </button>
                 }
               </div>
@@ -91,15 +99,18 @@
             (click)="previousPage()"
             [disabled]="currentPage === 1"
           >
-            Anterior
+            {{ "COMMON.PREVIOUS" | translate }}
           </button>
-          <span>Pagina {{ currentPage }} de {{ totalPages }}</span>
+          <span>
+            {{ "COMMON.PAGE" | translate }} {{ currentPage }}
+            {{ "COMMON.OF" | translate }} {{ totalPages }}
+          </span>
           <button
             type="button"
             (click)="nextPage()"
             [disabled]="currentPage === totalPages"
           >
-            Siguiente
+            {{ "COMMON.NEXT" | translate }}
           </button>
         </div>
       }
@@ -109,13 +120,15 @@
   @if (showCreateModal) {
     <div class="match-modal-overlay">
       <section class="match-modal">
-        <h2>Crear partida</h2>
+        <h2>{{ "MATCHES.CREATE" | translate }}</h2>
 
         <form class="match-form" (ngSubmit)="createMatch()">
-          <label for="match-title">Titulo</label>
+          <label for="match-title">{{ "MATCHES.TITLE_FIELD" | translate }}</label>
           <input id="match-title" name="title" [(ngModel)]="form.title" />
 
-          <label for="short-description">Descripcion corta</label>
+          <label for="short-description">
+            {{ "MATCHES.SHORT_DESCRIPTION" | translate }}
+          </label>
           <textarea
             id="short-description"
             name="shortDescription"
@@ -124,35 +137,37 @@
           ></textarea>
           <small>{{ form.short_description.length }}/500</small>
 
-          <label for="system-name">Sistema de juego</label>
+          <label for="system-name">{{ "MATCHES.SYSTEM_NAME" | translate }}</label>
           <input
             id="system-name"
             name="systemName"
             [(ngModel)]="form.system_name"
           />
 
-          <label for="access-type">Tipo de acceso</label>
+          <label for="access-type">{{ "MATCHES.ACCESS_TYPE" | translate }}</label>
           <select
             id="access-type"
             name="accessType"
             [(ngModel)]="form.access_type"
           >
-            <option value="public">Partida publica</option>
-            <option value="private">Partida privada</option>
+            <option value="public">{{ "MATCHES.PUBLIC_MATCH" | translate }}</option>
+            <option value="private">{{ "MATCHES.PRIVATE_MATCH" | translate }}</option>
           </select>
 
-          <label for="full-description">Historia / descripcion completa</label>
+          <label for="full-description">
+            {{ "MATCHES.FULL_DESCRIPTION" | translate }}
+          </label>
           <textarea
             id="full-description"
             name="fullDescription"
             [(ngModel)]="form.full_description"
           ></textarea>
 
-          <label for="rules">Reglas</label>
+          <label for="rules">{{ "MATCHES.RULES" | translate }}</label>
           <textarea id="rules" name="rules" [(ngModel)]="form.rules"></textarea>
 
           <label class="file-button">
-            Portada
+            {{ "MATCHES.COVER" | translate }}
             <input
               type="file"
               accept="image/*"
@@ -166,14 +181,18 @@
 
           <div class="modal-actions">
             <button type="submit" class="primary-button" [disabled]="creating">
-              {{ creating ? "Creando..." : "Crear partida" }}
+              {{
+                creating
+                  ? ("MATCHES.CREATING" | translate)
+                  : ("MATCHES.CREATE" | translate)
+              }}
             </button>
             <button
               type="button"
               class="secondary-button"
               (click)="closeCreateModal()"
             >
-              Cancelar
+              {{ "COMMON.CANCEL" | translate }}
             </button>
           </div>
         </form>
@@ -184,13 +203,15 @@
   @if (showEditModal && editingMatch) {
     <div class="match-modal-overlay">
       <section class="match-modal">
-        <h2>Editar partida</h2>
+        <h2>{{ "MATCHES.EDIT" | translate }}</h2>
 
         <form class="match-form" (ngSubmit)="saveEditedMatch()">
-          <label for="edit-match-title">Titulo</label>
+          <label for="edit-match-title">{{ "MATCHES.TITLE_FIELD" | translate }}</label>
           <input id="edit-match-title" name="editTitle" [(ngModel)]="editForm.title" />
 
-          <label for="edit-short-description">Descripcion corta</label>
+          <label for="edit-short-description">
+            {{ "MATCHES.SHORT_DESCRIPTION" | translate }}
+          </label>
           <textarea
             id="edit-short-description"
             name="editShortDescription"
@@ -199,31 +220,33 @@
           ></textarea>
           <small>{{ editForm.short_description.length }}/500</small>
 
-          <label for="edit-system-name">Sistema de juego</label>
+          <label for="edit-system-name">{{ "MATCHES.SYSTEM_NAME" | translate }}</label>
           <input
             id="edit-system-name"
             name="editSystemName"
             [(ngModel)]="editForm.system_name"
           />
 
-          <label for="edit-access-type">Tipo de acceso</label>
+          <label for="edit-access-type">{{ "MATCHES.ACCESS_TYPE" | translate }}</label>
           <select
             id="edit-access-type"
             name="editAccessType"
             [(ngModel)]="editForm.access_type"
           >
-            <option value="public">Partida publica</option>
-            <option value="private">Partida privada</option>
+            <option value="public">{{ "MATCHES.PUBLIC_MATCH" | translate }}</option>
+            <option value="private">{{ "MATCHES.PRIVATE_MATCH" | translate }}</option>
           </select>
 
-          <label for="edit-full-description">Historia / descripcion completa</label>
+          <label for="edit-full-description">
+            {{ "MATCHES.FULL_DESCRIPTION" | translate }}
+          </label>
           <textarea
             id="edit-full-description"
             name="editFullDescription"
             [(ngModel)]="editForm.full_description"
           ></textarea>
 
-          <label for="edit-rules">Reglas</label>
+          <label for="edit-rules">{{ "MATCHES.RULES" | translate }}</label>
           <textarea
             id="edit-rules"
             name="editRules"
@@ -231,7 +254,7 @@
           ></textarea>
 
           <label class="file-button">
-            Cambiar portada
+            {{ "MATCHES.CHANGE_COVER" | translate }}
             <input
               type="file"
               accept="image/*"
@@ -245,14 +268,18 @@
 
           <div class="modal-actions">
             <button type="submit" class="primary-button" [disabled]="editing">
-              {{ editing ? "Guardando..." : "Guardar cambios" }}
+              {{
+                editing
+                  ? ("COMMON.SAVING" | translate)
+                  : ("MATCHES.SAVE_CHANGES" | translate)
+              }}
             </button>
             <button
               type="button"
               class="secondary-button"
               (click)="closeEditModal()"
             >
-              Cancelar
+              {{ "COMMON.CANCEL" | translate }}
             </button>
           </div>
         </form>

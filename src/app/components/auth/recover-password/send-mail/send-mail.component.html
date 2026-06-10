@@ -1,10 +1,10 @@
 <div class="send-mail-wrapper">
   <div class="send-mail-container">
-    <h2 class="send-mail-title">Recuperar contrasena</h2>
+    <h2 class="send-mail-title">{{ "AUTH.RECOVER_TITLE" | translate }}</h2>
 
     <form [formGroup]="formGroup" class="send-mail-form">
       <div class="send-mail-group">
-        <label for="email" class="send-mail-label">Email</label>
+        <label for="email" class="send-mail-label">{{ "AUTH.EMAIL" | translate }}</label>
 
         <div class="send-mail-input-wrapper">
           <input
@@ -18,7 +18,7 @@
 
         @if (formGroup.get('email')?.invalid && formGroup.get('email')?.touched) {
           <div class="send-mail-error">
-            El email es obligatorio y debe ser valido.
+            El email es obligatorio y debe ser válido.
           </div>
         }
 
@@ -39,14 +39,14 @@
           (click)="enviarRecuperacion()"
         >
           @if (isSubmitting) {
-            Enviando...
+            {{ "AUTH.SENDING" | translate }}
           } @else {
-            Enviar nueva contrasena
+            {{ "AUTH.SEND_NEW_PASSWORD" | translate }}
           }
         </button>
 
         <a class="back-home-button" [routerLink]="['/']">
-          Volver a la homepage
+          {{ "AUTH.BACK_HOME" | translate }}
         </a>
       </div>
     </form>

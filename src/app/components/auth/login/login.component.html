@@ -1,13 +1,13 @@
 <div class="contenedor">
   <div class="login-container">
-    <h2 class="title">Iniciar Sesión</h2>
+    <h2 class="title">{{ "AUTH.LOGIN_TITLE" | translate }}</h2>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="register-form">
       <div class="form-group">
-        <label for="email" class="label">Email</label>
+        <label for="email" class="label">{{ "AUTH.EMAIL" | translate }}</label>
         <div class="input-icon-container">
           <input id="email" type="email" formControlName="email" required class="input-field" />
-          <i class="fas fa-envelope input-icon"></i> <!-- Icono de correo electrónico a la derecha -->
+          <i class="fas fa-envelope input-icon"></i>
         </div>
         @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
           <div class="error">
@@ -15,7 +15,7 @@
           </div>
         }
 
-        <label for="password" class="label">Password</label>
+        <label for="password" class="label">{{ "AUTH.PASSWORD" | translate }}</label>
         <div class="input-icon-container password-field">
           <input
             id="password"
@@ -30,7 +30,7 @@
             (click)="showPassword = !showPassword"
             [attr.aria-label]="showPassword ? 'Ocultar contrasena' : 'Mostrar contrasena'"
           >
-            {{ showPassword ? "Ocultar" : "Ver" }}
+            {{ showPassword ? ("AUTH.HIDE_PASSWORD" | translate) : ("AUTH.SHOW_PASSWORD" | translate) }}
           </button>
         </div>
         @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
@@ -39,7 +39,9 @@
           </div>
         }
 
-        <button type="submit" [disabled]="loginForm.invalid" class="btn-submit">Login</button>
+        <button type="submit" [disabled]="loginForm.invalid" class="btn-submit">
+          {{ "AUTH.LOGIN_BUTTON" | translate }}
+        </button>
 
         @if (errorMessage) {
           <div class="error-message">
@@ -48,12 +50,12 @@
         }
 
         <div class="links">
-          <a routerLink="/session/register" class="link">¿No tienes cuenta? Regístrate</a>
-          <a routerLink="/session/sendRecover" class="link">¿Olvidaste tu contraseña?</a>
+          <a routerLink="/session/register" class="link">{{ "AUTH.NO_ACCOUNT" | translate }}</a>
+          <a routerLink="/session/sendRecover" class="link">{{ "AUTH.FORGOT_PASSWORD" | translate }}</a>
         </div>
 
         <a class="back-home-button" [routerLink]="['/']">
-          Volver a la homepage
+          {{ "AUTH.BACK_HOME" | translate }}
         </a>
       </div>
     </form>

@@ -6,11 +6,12 @@ import { RUTA_API } from '../../../../environment';
 import { Match } from '../../../interfaces/match.interface';
 import { AuthService } from '../../../services/auth.service';
 import { MatchService } from '../../../services/match.service';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-matches-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, TranslatePipe],
   templateUrl: './matches-list.component.html',
   styleUrl: './matches-list.component.css',
 })

@@ -9,6 +9,7 @@ import { ForumService } from '../../services/forum.service';
 import { Match } from '../../interfaces/match.interface';
 import { MatchService } from '../../services/match.service';
 import { RUTA_API } from '../../../environment';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,7 @@ import { RUTA_API } from '../../../environment';
     RouterModule,
     NewsComponent,
     TheCreatorComponent,
+    TranslatePipe,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],

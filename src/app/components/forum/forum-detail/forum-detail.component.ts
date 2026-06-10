@@ -12,6 +12,7 @@ import { MessageInterface } from 'app/interfaces/message';
 import { CommonModule, DatePipe } from '@angular/common';
 import { jwtDecode } from 'jwt-decode';
 import { RUTA_API } from '../../../../environment';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 interface ForumUserInfo {
   id: number;
@@ -22,7 +23,7 @@ interface ForumUserInfo {
 @Component({
   selector: 'app-forum-detail',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, DatePipe, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, DatePipe, RouterLink, TranslatePipe],
   templateUrl: './forum-detail.component.html',
   styleUrl: './forum-detail.component.css',
 })

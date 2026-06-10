@@ -3,13 +3,13 @@
     <article class="thread-board" aria-labelledby="thread-title">
       <header class="thread-header">
         <div>
-          <p class="thread-kicker">Sala del concilio</p>
+          <p class="thread-kicker">{{ "FORUM.COUNCIL_ROOM" | translate }}</p>
           <h1 id="thread-title">{{ forum.title }}</h1>
           <div class="thread-title-row">
-            @if (forum.visibility === 'private') {
-              <span class="forum-badge private">Sala privada</span>
+            @if (forum.visibility === "private") {
+              <span class="forum-badge private">{{ "FORUM.PRIVATE_ROOM" | translate }}</span>
             } @else {
-              <span class="forum-badge public">Sala publica</span>
+              <span class="forum-badge public">{{ "FORUM.PUBLIC_ROOM" | translate }}</span>
             }
           </div>
           <p class="forum-description">{{ forum.description }}</p>
@@ -22,23 +22,23 @@
               class="edit-forum-button"
               (click)="openEditForum()"
             >
-              Editar foro
+              {{ "FORUM.EDIT" | translate }}
             </button>
           }
-          <a routerLink="/forum" class="back-button">Volver al tablon</a>
+          <a routerLink="/forum" class="back-button">{{ "FORUM.BACK_TO_BOARD" | translate }}</a>
         </div>
       </header>
 
       @if (editingForum) {
         <div class="forum-edit-overlay" (click)="closeEditForum()">
           <section class="forum-edit-dialog" (click)="$event.stopPropagation()">
-            <h2>Editar foro</h2>
+            <h2>{{ "FORUM.EDIT" | translate }}</h2>
 
             <form [formGroup]="editForumForm" (ngSubmit)="saveEditForum()">
-              <label for="edit-forum-title">Titulo</label>
+              <label for="edit-forum-title">{{ "MATCHES.TITLE_FIELD" | translate }}</label>
               <input id="edit-forum-title" type="text" formControlName="title" />
 
-              <label for="edit-forum-description">Descripcion</label>
+              <label for="edit-forum-description">{{ "FORUM.DESCRIPTION" | translate }}</label>
               <textarea
                 id="edit-forum-description"
                 formControlName="description"
@@ -54,14 +54,14 @@
                   class="send-message"
                   [disabled]="editForumSaving"
                 >
-                  {{ editForumSaving ? "Guardando..." : "Guardar cambios" }}
+                  {{ editForumSaving ? ("COMMON.SAVING" | translate) : ("MATCHES.SAVE_CHANGES" | translate) }}
                 </button>
                 <button
                   type="button"
                   class="cancel-edit"
                   (click)="closeEditForum()"
                 >
-                  Cancelar
+                  {{ "COMMON.CANCEL" | translate }}
                 </button>
               </div>
             </form>
@@ -72,20 +72,20 @@
       @if (canManageForumPrivacy()) {
         <section class="invite-panel privacy-panel" aria-labelledby="privacy-title">
           <div>
-            <h2 id="privacy-title">Tipo de sala</h2>
-            <p>Gestiona si este foro es visible para todos o solo para miembros invitados.</p>
+            <h2 id="privacy-title">{{ "FORUM.ROOM_TYPE" | translate }}</h2>
+            <p>{{ "FORUM.PRIVACY_TEXT" | translate }}</p>
           </div>
 
           <div class="privacy-control">
-            <label for="forum-visibility">Tipo de sala</label>
+            <label for="forum-visibility">{{ "FORUM.ROOM_TYPE" | translate }}</label>
             <select
               id="forum-visibility"
               [value]="forum.visibility || 'public'"
               [disabled]="privacyUpdating"
               (change)="changeForumVisibility($any($event.target).value)"
             >
-              <option value="public">Sala publica</option>
-              <option value="private">Sala privada</option>
+              <option value="public">{{ "FORUM.PUBLIC_ROOM" | translate }}</option>
+              <option value="private">{{ "FORUM.PRIVATE_ROOM" | translate }}</option>
             </select>
           </div>
 
@@ -101,8 +101,8 @@
       @if (canInviteUsers) {
         <section class="invite-panel" aria-labelledby="private-invite-title">
           <div>
-            <h2 id="private-invite-title">Invitar a sala privada</h2>
-            <p>Busca usuarios registrados por email y envia una invitacion.</p>
+            <h2 id="private-invite-title">{{ "FORUM.INVITE_PRIVATE_ROOM" | translate }}</h2>
+            <p>{{ "FORUM.INVITE_HELP" | translate }}</p>
           </div>
 
           @if (inviteMessage) {
@@ -117,7 +117,7 @@
               <input
                 #inviteInput
                 type="email"
-                placeholder="Buscar usuario por email"
+                [placeholder]="'FORUM.SEARCH_USER_EMAIL' | translate"
                 [value]="inviteEmail"
                 (input)="onInviteEmailInput(inviteInput.value)"
               />
@@ -139,14 +139,14 @@
             </div>
 
             <button type="submit" [disabled]="searchLoading || !inviteEmail.trim()">
-              Buscar
+              {{ "COMMON.SEARCH" | translate }}
             </button>
             <button
               type="button"
               [disabled]="inviteLoading || !selectedUserToInvite"
               (click)="inviteSelectedUser()"
             >
-              Invitar
+              {{ "FORUM.INVITE" | translate }}
             </button>
           </form>
 
@@ -158,8 +158,8 @@
 
       <section class="messages-section" aria-labelledby="messages-title">
         <div class="section-heading">
-          <h2 id="messages-title">Mensajes del Concilio</h2>
-          <span>{{ messages.length }} mensajes</span>
+          <h2 id="messages-title">{{ "FORUM.MESSAGES_TITLE" | translate }}</h2>
+          <span>{{ messages.length }} {{ "FORUM.MESSAGES" | translate }}</span>
         </div>
 
         @if (messages.length > 0) {
@@ -171,12 +171,12 @@
                     {{ message.user_name.charAt(0) }}
                   </div>
                   <strong>{{ message.user_name }}</strong>
-                  <span>Miembro del foro</span>
+                  <span>{{ "FORUM.FORUM_MEMBER" | translate }}</span>
                 </aside>
 
                 <div class="message-main">
                   <header class="message-meta">
-                    <span>Publicado</span>
+                    <span>{{ "FORUM.PUBLISHED" | translate }}</span>
                     <time>{{ message.creation_date | date: 'dd/MM/yyyy HH:mm' }}</time>
                   </header>
 
@@ -186,7 +186,7 @@
                       [formGroup]="editMessageForm"
                       (ngSubmit)="saveEditMessage()"
                     >
-                      <label for="edit-message-text-{{ message.id }}">Mensaje</label>
+                      <label for="edit-message-text-{{ message.id }}">{{ "FORUM.MESSAGE" | translate }}</label>
                       <textarea
                         id="edit-message-text-{{ message.id }}"
                         formControlName="text"
@@ -194,7 +194,7 @@
 
                       @if (message.image_path && !editPreviewImage) {
                         <figure class="message-image">
-                          <figcaption>Imagen actual</figcaption>
+                          <figcaption>{{ "FORUM.CURRENT_IMAGE" | translate }}</figcaption>
                           <img
                             [src]="getUploadUrl(message.image_path)"
                             alt="Imagen actual del mensaje"
@@ -204,7 +204,7 @@
 
                       @if (editPreviewImage) {
                         <figure class="message-image">
-                          <figcaption>Nueva imagen</figcaption>
+                          <figcaption>{{ "FORUM.NEW_IMAGE" | translate }}</figcaption>
                           <img
                             [src]="editPreviewImage"
                             alt="Vista previa de la nueva imagen del mensaje"
@@ -214,7 +214,7 @@
 
                       <div class="form-footer edit-footer">
                         <label class="file-input">
-                          Cambiar imagen
+                          {{ "FORUM.CHANGE_IMAGE" | translate }}
                           <input
                             type="file"
                             accept="image/*"
@@ -226,14 +226,14 @@
                           class="send-message"
                           [disabled]="!canSubmitEditMessage"
                         >
-                          Guardar
+                          {{ "COMMON.SAVE" | translate }}
                         </button>
                         <button
                           type="button"
                           class="cancel-edit"
                           (click)="cancelEditMessage()"
                         >
-                          Cancelar
+                          {{ "COMMON.CANCEL" | translate }}
                         </button>
                       </div>
                     </form>
@@ -259,7 +259,7 @@
                             class="edit-message"
                             (click)="startEditMessage(message)"
                           >
-                            Editar
+                            {{ "COMMON.EDIT" | translate }}
                           </button>
                         }
                         @if (canDeleteMessage(message)) {
@@ -268,7 +268,7 @@
                             class="delete-message"
                             (click)="deleteMessage(message.id)"
                           >
-                            Eliminar
+                            {{ "COMMON.DELETE" | translate }}
                           </button>
                         }
                       </footer>
@@ -280,27 +280,27 @@
           </div>
         } @else {
           <div class="no-messages">
-            <h3>Ningun aventurero ha hablado aun</h3>
-            <p>Abre la conversacion con el primer mensaje de la sala.</p>
+            <h3>{{ "FORUM.NO_MESSAGES_TITLE" | translate }}</h3>
+            <p>{{ "FORUM.NO_MESSAGES_TEXT" | translate }}</p>
           </div>
         }
       </section>
 
       @if (userInfo) {
         <section class="create-message-container" aria-labelledby="reply-title">
-          <h2 id="reply-title">Responder al concilio</h2>
+          <h2 id="reply-title">{{ "FORUM.REPLY_TITLE" | translate }}</h2>
 
           <form [formGroup]="messageForm" (ngSubmit)="createMessage()">
-            <label for="message-text">Mensaje</label>
+            <label for="message-text">{{ "FORUM.MESSAGE" | translate }}</label>
             <textarea
               id="message-text"
               formControlName="text"
-              placeholder="Escribe tu mensaje como un aventurero..."
+              [placeholder]="'FORUM.MESSAGE_PLACEHOLDER' | translate"
             ></textarea>
 
             <div class="form-footer">
               <label class="file-input">
-                Adjuntar imagen
+                {{ "FORUM.ATTACH_IMAGE" | translate }}
                 <input
                   #messageFileInput
                   type="file"
@@ -310,29 +310,29 @@
               </label>
 
               <button type="submit" [disabled]="!canSubmitMessage" class="send-message">
-                Enviar mensaje
+                {{ "FORUM.SEND_MESSAGE" | translate }}
               </button>
             </div>
           </form>
 
           @if (previewImage) {
             <figure class="image-preview">
-              <figcaption>Imagen seleccionada</figcaption>
+              <figcaption>{{ "FORUM.SELECTED_IMAGE" | translate }}</figcaption>
               <img [src]="previewImage" alt="Vista previa de la imagen seleccionada" />
             </figure>
           }
         </section>
       } @else {
         <section class="create-message-container" aria-labelledby="reply-login-title">
-          <h2 id="reply-login-title">Inicia sesion para comentar en el foro.</h2>
+          <h2 id="reply-login-title">{{ "FORUM.LOGIN_TO_COMMENT" | translate }}</h2>
         </section>
       }
     </article>
   } @else {
     <section class="forum-not-found">
-      <h1>El foro ha desaparecido entre las brumas</h1>
-      <p>Puede que el concilio haya sido disuelto.</p>
-      <a routerLink="/forum" class="back-button">Volver al tablon</a>
+      <h1>{{ "FORUM.NOT_FOUND_TITLE" | translate }}</h1>
+      <p>{{ "FORUM.NOT_FOUND_TEXT" | translate }}</p>
+      <a routerLink="/forum" class="back-button">{{ "FORUM.BACK_TO_BOARD" | translate }}</a>
     </section>
   }
 </main>

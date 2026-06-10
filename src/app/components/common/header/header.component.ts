@@ -5,6 +5,8 @@ import { AuthService } from '../../../services/auth.service';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
+import { RolverseLang, TranslateService } from '../../../services/translate.service';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    TranslatePipe,
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
@@ -29,6 +32,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private AuthService: AuthService,
     private router: Router,
+    public translateService: TranslateService,
   ) {}
 
   ngOnInit(): void {
@@ -67,7 +71,11 @@ export class HeaderComponent implements OnInit {
 
   get accountLabel(): string {
     const currentUser = this.AuthService.getCurrentUser() as any;
-    return currentUser?.name || 'Mi perfil';
+    return currentUser?.name || this.translateService.translate('HEADER.PROFILE');
+  }
+
+  setLanguage(lang: RolverseLang): void {
+    this.translateService.setLanguage(lang);
   }
 
   goHome(): void {

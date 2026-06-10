@@ -1,11 +1,11 @@
 <main [class.news-page-bg]="!embedded" [class.home-news-section]="embedded">
   <section class="container">
     <div class="news-header">
-      <h2 class="section-title">Ultimas noticias del Mundo de Rol</h2>
+      <h2 class="section-title">{{ "NEWS.LATEST" | translate }}</h2>
 
       @if (!embedded && authService.isLoggedIn()) {
         <a routerLink="/noticias/agregar" class="add-news-button">
-          <span class="add-news-button__text">Agregar noticia</span>
+          <span class="add-news-button__text">{{ "NEWS.ADD" | translate }}</span>
           <span class="add-news-button__icon" aria-hidden="true">+</span>
         </a>
       }
@@ -43,7 +43,7 @@
 
             <div class="news-card-footer">
               <a [routerLink]="['/noticias', post.id]" class="read-news-button">
-                Ver noticia
+                {{ "NEWS.VIEW" | translate }}
               </a>
 
               @if (isInternalNews(post) && canDeletePost(post)) {
@@ -53,18 +53,18 @@
                       class="edit-button"
                       [routerLink]="['/noticias/editar', post.id]"
                       (click)="$event.stopPropagation()"
-                      title="Editar noticia"
+                      [title]="'NEWS.EDIT' | translate"
                     >
-                      Editar noticia
+                      {{ "NEWS.EDIT" | translate }}
                     </a>
                   }
                   <button
                     type="button"
                     class="delete-button"
                     (click)="onDeletePost(post.id, $event)"
-                    title="Eliminar noticia"
+                    [title]="'NEWS.DELETE' | translate"
                   >
-                    Eliminar noticia
+                    {{ "NEWS.DELETE" | translate }}
                   </button>
                 </div>
               }
@@ -78,18 +78,18 @@
           (click)="previousPage()"
           [disabled]="currentPage === 1"
         >
-          Anterior
+          {{ "COMMON.PREVIOUS" | translate }}
         </button>
-        <span>Pagina {{ currentPage }} de {{ totalPages }}</span>
+        <span>{{ "COMMON.PAGE" | translate }} {{ currentPage }} {{ "COMMON.OF" | translate }} {{ totalPages }}</span>
         <button
           (click)="nextPage()"
           [disabled]="currentPage === totalPages"
         >
-          Siguiente
+          {{ "COMMON.NEXT" | translate }}
         </button>
       </div>
     } @else {
-      <p>Cargando noticias...</p>
+      <p>{{ "NEWS.LOADING" | translate }}</p>
     }
   </section>
 </main>

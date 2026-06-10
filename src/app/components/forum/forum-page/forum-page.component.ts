@@ -13,11 +13,12 @@ import { ForumService } from '../../../services/forum.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { catchError, of } from 'rxjs';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-forum-page',
   standalone: true,
-  imports: [MaterialModule, FormsModule],
+  imports: [MaterialModule, FormsModule, TranslatePipe],
   templateUrl: './forum-page.component.html',
   styleUrl: './forum-page.component.css',
 })

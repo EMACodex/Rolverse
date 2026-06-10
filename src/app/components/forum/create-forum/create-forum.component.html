@@ -1,43 +1,43 @@
 <div class="create-container">
-  <h2 class="title">Crear nuevo foro</h2>
+  <h2 class="title">{{ "FORUM.CREATE_TITLE" | translate }}</h2>
 
   <form [formGroup]="forumForm" (ngSubmit)="onSubmit()" class="register-form">
     <div class="form-group">
-      <label for="title" class="label">Titulo</label>
+      <label for="title" class="label">{{ "MATCHES.TITLE_FIELD" | translate }}</label>
       <div class="input-icon-container">
         <input
           id="title"
           formControlName="title"
           class="input-field"
-          placeholder="Titulo del foro"
+          [placeholder]="'FORUM.TITLE_PLACEHOLDER' | translate"
         />
         <i class="fas fa-heading input-icon"></i>
       </div>
       @if (title?.invalid && title?.touched) {
-        <div class="error">El titulo es obligatorio</div>
+        <div class="error">{{ "FORUM.TITLE_REQUIRED" | translate }}</div>
       }
 
-      <label for="description" class="label">Descripcion</label>
+      <label for="description" class="label">{{ "FORUM.DESCRIPTION" | translate }}</label>
       <div class="input-icon-container">
         <textarea
           id="description"
           formControlName="description"
           class="input-field"
-          placeholder="Descripcion del foro"
+          [placeholder]="'FORUM.DESCRIPTION_PLACEHOLDER' | translate"
         ></textarea>
         <i class="fas fa-align-left input-icon"></i>
       </div>
       @if (description?.invalid && description?.touched) {
-        <div class="error">La descripcion es obligatoria</div>
+        <div class="error">{{ "FORUM.DESCRIPTION_REQUIRED" | translate }}</div>
       }
 
-      <label for="visibility" class="label">Tipo de sala</label>
+      <label for="visibility" class="label">{{ "FORUM.ROOM_TYPE" | translate }}</label>
       <select id="visibility" formControlName="visibility" class="input-field select-field">
-        <option value="public">Sala publica</option>
-        <option value="private">Sala privada</option>
+        <option value="public">{{ "FORUM.PUBLIC_ROOM" | translate }}</option>
+        <option value="private">{{ "FORUM.PRIVATE_ROOM" | translate }}</option>
       </select>
       @if (visibility?.invalid && visibility?.touched) {
-        <div class="error">Selecciona el tipo de sala</div>
+        <div class="error">{{ "FORUM.SELECT_ROOM_TYPE" | translate }}</div>
       }
 
       @if (errorMessage) {
@@ -45,7 +45,7 @@
       }
 
       <button type="submit" [disabled]="forumForm.invalid" class="btn-submit">
-        Crear foro
+        {{ "FORUM.CREATE" | translate }}
       </button>
     </div>
   </form>

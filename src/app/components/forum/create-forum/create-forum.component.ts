@@ -8,11 +8,12 @@ import {
 import { CommonModule } from '@angular/common';
 import { ForumService } from '../../../services/forum.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-create-forum',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslatePipe],
   templateUrl: './create-forum.component.html',
   styleUrl: './create-forum.component.css',
 })

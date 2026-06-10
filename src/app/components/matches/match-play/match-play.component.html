@@ -1,31 +1,43 @@
 <main class="match-play-shell">
   @if (loading) {
-    <section class="match-play-card state">Cargando partida...</section>
+    <section class="match-play-card state">{{ "MATCHES.LOADING" | translate }}</section>
   } @else if (error) {
     <section class="match-play-card state error">{{ error }}</section>
   } @else if (match) {
     <section class="match-play-card">
-      <a class="back-link" routerLink="/partidas">Volver a Partidas</a>
+      <a class="back-link" routerLink="/partidas">
+        {{ "MATCHES.BACK_TO_MATCHES" | translate }}
+      </a>
 
       <div class="match-hero">
         <img [src]="coverUrl()" [alt]="match.title" />
         <div class="match-summary">
-          <p class="match-kicker">Partida de rol</p>
+          <p class="match-kicker">{{ "MATCHES.ROLEPLAY_MATCH" | translate }}</p>
           <h1>{{ match.title }}</h1>
           <div class="match-badges">
-            <span class="badge">{{ match.status === "finished" ? "Finalizada" : "En juego" }}</span>
+            <span class="badge">
+              {{
+                match.status === "finished"
+                  ? ("MATCHES.FINISHED" | translate)
+                  : ("MATCHES.ACTIVE" | translate)
+              }}
+            </span>
             <span class="badge" [class.private]="match.access_type === 'private'">
-              {{ match.access_type === "private" ? "Privada" : "Publica" }}
+              {{
+                match.access_type === "private"
+                  ? ("MATCHES.PRIVATE" | translate)
+                  : ("MATCHES.PUBLIC" | translate)
+              }}
             </span>
           </div>
           <p>{{ shortDescription }}</p>
           <dl>
             <div>
-              <dt>Sistema</dt>
+              <dt>{{ "MATCHES.SYSTEM" | translate }}</dt>
               <dd>{{ match.system_name }}</dd>
             </div>
             <div>
-              <dt>Director</dt>
+              <dt>{{ "MATCHES.DIRECTOR" | translate }}</dt>
               <dd>{{ match.creator_name || "Rolverse" }}</dd>
             </div>
           </dl>
@@ -35,19 +47,19 @@
       @if (canManageMatch()) {
         <section class="match-access-settings">
           <div>
-            <h2>Tipo de partida</h2>
-            <p>Gestiona si esta partida es visible para todos o solo para jugadores invitados.</p>
+            <h2>{{ "MATCHES.ACCESS_SETTINGS_TITLE" | translate }}</h2>
+            <p>{{ "MATCHES.ACCESS_SETTINGS_TEXT" | translate }}</p>
           </div>
 
-          <label for="match-access-type">Tipo de partida</label>
+          <label for="match-access-type">{{ "MATCHES.ACCESS_SETTINGS_TITLE" | translate }}</label>
           <select
             id="match-access-type"
             [ngModel]="match.access_type"
             [disabled]="accessUpdating"
             (ngModelChange)="changeMatchAccessType($event)"
           >
-            <option value="public">Publica</option>
-            <option value="private">Privada</option>
+            <option value="public">{{ "MATCHES.PUBLIC" | translate }}</option>
+            <option value="private">{{ "MATCHES.PRIVATE" | translate }}</option>
           </select>
 
           @if (accessMessage) {
@@ -61,14 +73,14 @@
 
       <div class="match-actions">
         <button type="button" class="secondary-button" (click)="showMore = !showMore">
-          {{ showMore ? "Ocultar detalles" : "Saber mas" }}
+          {{ showMore ? ("MATCHES.HIDE_DETAILS" | translate) : ("MATCHES.SHOW_DETAILS" | translate) }}
         </button>
         <a class="primary-button" [routerLink]="['/partidas/escena', match.id]">
-          Entrar a la partida
+          {{ "MATCHES.ENTER_MATCH" | translate }}
         </a>
         @if (canJoin()) {
           <button type="button" class="primary-button" [disabled]="joining" (click)="joinMatch()">
-            {{ joining ? "Uniendo..." : "Unirse a la partida" }}
+            {{ joining ? ("MATCHES.JOINING" | translate) : ("MATCHES.JOIN_MATCH" | translate) }}
           </button>
         }
       </div>
@@ -79,11 +91,11 @@
 
       @if (showMore) {
         <section class="more-info">
-          <h2>Historia</h2>
-          <p>{{ match.full_description || match.description || "Sin historia detallada." }}</p>
+          <h2>{{ "MATCHES.STORY" | translate }}</h2>
+          <p>{{ match.full_description || match.description || ("MATCHES.NO_STORY" | translate) }}</p>
 
-          <h2>Reglas</h2>
-          <p>{{ match.rules || "Sin reglas adicionales." }}</p>
+          <h2>{{ "MATCHES.RULES" | translate }}</h2>
+          <p>{{ match.rules || ("MATCHES.NO_RULES" | translate) }}</p>
         </section>
       }
     </section>

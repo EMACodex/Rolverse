@@ -8,11 +8,12 @@ import {
 import { filter } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { ContactoComponent } from '../../contact/contact.component';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterLink],
+  imports: [CommonModule, RouterModule, RouterLink, TranslatePipe],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css'],
 })

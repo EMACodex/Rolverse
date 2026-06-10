@@ -15,11 +15,12 @@ import {
 } from '../../../interfaces/match.interface';
 import { AuthService } from '../../../services/auth.service';
 import { MatchService } from '../../../services/match.service';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-match-scene',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, MatTabsModule],
+  imports: [CommonModule, FormsModule, RouterModule, MatTabsModule, TranslatePipe],
   templateUrl: './match-scene.component.html',
   styleUrl: './match-scene.component.css',
 })

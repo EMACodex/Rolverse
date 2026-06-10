@@ -13,11 +13,12 @@ import { firstValueFrom } from 'rxjs';
 import { RUTA_API } from '../../../../environment';
 import { AuthService } from '../../../services/auth.service';
 import { InternalNews } from '../../../interfaces/new.interface';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-add-new',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslatePipe],
   templateUrl: './add-new.component.html',
   styleUrls: ['./add-new.component.css'],
 })

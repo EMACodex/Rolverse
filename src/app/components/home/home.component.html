@@ -2,11 +2,12 @@
   <!-- TEXTO ENCIMA DEL BANNER -->
   <div class="blur-box">
     <div class="banner-text-top">
-      <p>Desde las mazmorras más oscuras hasta las galaxias más lejanas...</p>
-      <p>D&D, Pathfinder, Anima, Star Wars, Cthulhu y más...</p>
-      <p>¡Descubre mundos, crea héroes, vive el rol!</p>
+      <p>{{ "HOME.TOP_1" | translate }}</p>
+      <p>{{ "HOME.TOP_2" | translate }}</p>
+      <p>{{ "HOME.TOP_3" | translate }}</p>
     </div>
   </div>
+
   <!-- CARRUSEL -->
   <div
     class="carousel-container"
@@ -14,7 +15,6 @@
     (mousemove)="onMouseMove($event)"
     (mouseup)="onMouseUp($event)"
   >
-    <!-- Flecha izquierda -->
     <button class="nav-arrow left-arrow" (click)="prev()">
       <img
         class="arrow-img"
@@ -23,14 +23,12 @@
       />
     </button>
 
-    <!-- Banner -->
-    @for(slide of slides; track $index){
-    <div class="carousel-item" [ngClass]="getPositionClass(slide.id)">
-      <img [src]="slide.img" alt="Banner {{ slide.id }}" draggable="false" />
-    </div>
+    @for (slide of slides; track $index) {
+      <div class="carousel-item" [ngClass]="getPositionClass(slide.id)">
+        <img [src]="slide.img" alt="Banner {{ slide.id }}" draggable="false" />
+      </div>
     }
 
-    <!-- Flecha derecha -->
     <button class="nav-arrow right-arrow" (click)="next()">
       <img
         class="arrow-img"
@@ -43,11 +41,11 @@
   <!-- TEXTO DEBAJO DEL BANNER -->
   <div class="blur-box">
     <div class="banner-text-bottom">
-      <p>Explora. Imagina. Juega.</p>
-      <p>Rolverse: el hogar de los aventureros modernos.</p>
+      <p>{{ "HOME.BOTTOM_1" | translate }}</p>
+      <p>{{ "HOME.BOTTOM_2" | translate }}</p>
     </div>
   </div>
-  <!-- Noticias: -->
+
   <div class="tabs-container">
     <mat-tab-group mat-stretch-tabs>
       <mat-tab>
@@ -57,12 +55,10 @@
             alt="Noticias"
             class="tab-icon"
           />
-          Noticias
+          {{ "HEADER.NEWS" | translate }}
         </ng-template>
         <app-news [embedded]="true"></app-news>
       </mat-tab>
-
-      <!-- Partidas: -->
 
       <mat-tab>
         <ng-template mat-tab-label>
@@ -71,15 +67,19 @@
             alt="Partidas"
             class="tab-icon"
           />
-          Partidas
+          {{ "HEADER.MATCHES" | translate }}
         </ng-template>
         <section class="home-matches-section">
           @if (matchesLoading) {
-            <div class="home-forum-state">Cargando partidas...</div>
+            <div class="home-forum-state">
+              {{ "HOME.LOADING_MATCHES" | translate }}
+            </div>
           } @else if (matchesError) {
             <div class="home-forum-state error">{{ matchesError }}</div>
           } @else if (matches.length === 0) {
-            <div class="home-forum-state">Todavia no hay partidas disponibles.</div>
+            <div class="home-forum-state">
+              {{ "HOME.NO_MATCHES" | translate }}
+            </div>
           } @else {
             <div class="home-match-grid">
               @for (match of paginatedMatches; track match.id) {
@@ -93,23 +93,32 @@
                         [class.private]="match.access_type === 'private'"
                         [class.public]="match.access_type === 'public'"
                       >
-                        {{ match.access_type === "private" ? "Privada" : "Publica" }}
+                        {{
+                          match.access_type === "private"
+                            ? ("MATCHES.PRIVATE" | translate)
+                            : ("MATCHES.PUBLIC" | translate)
+                        }}
                       </span>
                       <span
                         class="home-forum-badge"
                         [class.private]="match.status === 'finished'"
                         [class.public]="match.status === 'active'"
                       >
-                        {{ match.status === "finished" ? "Finalizada" : "En juego" }}
+                        {{
+                          match.status === "finished"
+                            ? ("MATCHES.FINISHED" | translate)
+                            : ("MATCHES.ACTIVE" | translate)
+                        }}
                       </span>
                     </div>
                     <a class="home-forum-link" [routerLink]="['/partidas/jugar', match.id]">
-                      Ver partida
+                      {{ "MATCHES.VIEW" | translate }}
                     </a>
                   </div>
                 </article>
               }
             </div>
+
             @if (matchesTotalPages > 1) {
               <div class="home-pagination-controls">
                 <button
@@ -117,37 +126,45 @@
                   (click)="previousMatchesPage()"
                   [disabled]="matchesCurrentPage === 1"
                 >
-                  Anterior
+                  {{ "COMMON.PREVIOUS" | translate }}
                 </button>
-                <span>Pagina {{ matchesCurrentPage }} de {{ matchesTotalPages }}</span>
+                <span>
+                  {{ "COMMON.PAGE" | translate }} {{ matchesCurrentPage }}
+                  {{ "COMMON.OF" | translate }} {{ matchesTotalPages }}
+                </span>
                 <button
                   type="button"
                   (click)="nextMatchesPage()"
                   [disabled]="matchesCurrentPage === matchesTotalPages"
                 >
-                  Siguiente
+                  {{ "COMMON.NEXT" | translate }}
                 </button>
               </div>
             }
           }
-          <a class="home-section-link" routerLink="/partidas">Ir a Partidas</a>
+          <a class="home-section-link" routerLink="/partidas">
+            {{ "HOME.GO_TO_MATCHES" | translate }}
+          </a>
         </section>
       </mat-tab>
 
-      <!-- Foro: -->
       <mat-tab>
         <ng-template mat-tab-label>
           <img src="assets/img/forum.png" alt="Foro" class="tab-icon" />
-          Foro
+          {{ "HEADER.FORUM" | translate }}
         </ng-template>
 
         <section class="home-forum-section">
           @if (forumsLoading) {
-            <div class="home-forum-state">Cargando foros...</div>
+            <div class="home-forum-state">
+              {{ "HOME.LOADING_FORUMS" | translate }}
+            </div>
           } @else if (forumsError) {
             <div class="home-forum-state error">{{ forumsError }}</div>
           } @else if (forums.length === 0) {
-            <div class="home-forum-state">Todavia no hay foros disponibles.</div>
+            <div class="home-forum-state">
+              {{ "HOME.NO_FORUMS" | translate }}
+            </div>
           } @else {
             <div class="home-forum-grid">
               @for (forum of paginatedForums; track forum.id) {
@@ -155,10 +172,14 @@
                   <div class="home-forum-card-header">
                     <h3>{{ forum.title }}</h3>
 
-                    @if (forum.visibility === 'private') {
-                      <span class="home-forum-badge private">Sala privada</span>
+                    @if (forum.visibility === "private") {
+                      <span class="home-forum-badge private">
+                        {{ "FORUM.PRIVATE_ROOM" | translate }}
+                      </span>
                     } @else {
-                      <span class="home-forum-badge public">Sala publica</span>
+                      <span class="home-forum-badge public">
+                        {{ "FORUM.PUBLIC_ROOM" | translate }}
+                      </span>
                     }
                   </div>
 
@@ -168,11 +189,12 @@
                     class="home-forum-link"
                     [routerLink]="forum.id ? ['/forum', forum.id] : ['/forum']"
                   >
-                    Entrar
+                    {{ "COMMON.ENTER" | translate }}
                   </a>
                 </article>
               }
             </div>
+
             @if (forumsTotalPages > 1) {
               <div class="home-pagination-controls">
                 <button
@@ -180,15 +202,18 @@
                   (click)="previousForumsPage()"
                   [disabled]="forumsCurrentPage === 1"
                 >
-                  Anterior
+                  {{ "COMMON.PREVIOUS" | translate }}
                 </button>
-                <span>Pagina {{ forumsCurrentPage }} de {{ forumsTotalPages }}</span>
+                <span>
+                  {{ "COMMON.PAGE" | translate }} {{ forumsCurrentPage }}
+                  {{ "COMMON.OF" | translate }} {{ forumsTotalPages }}
+                </span>
                 <button
                   type="button"
                   (click)="nextForumsPage()"
                   [disabled]="forumsCurrentPage === forumsTotalPages"
                 >
-                  Siguiente
+                  {{ "COMMON.NEXT" | translate }}
                 </button>
               </div>
             }
@@ -196,7 +221,6 @@
         </section>
       </mat-tab>
 
-      <!-- Creador de personajes: -->
       <mat-tab>
         <ng-template mat-tab-label>
           <img
@@ -204,7 +228,7 @@
             alt="Creador de personajes"
             class="tab-icon"
           />
-          Creador de personajes
+          {{ "HOME.CHARACTER_CREATOR" | translate }}
         </ng-template>
         <app-thecreator></app-thecreator>
       </mat-tab>

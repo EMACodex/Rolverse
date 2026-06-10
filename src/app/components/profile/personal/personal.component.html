@@ -1,10 +1,10 @@
 <div class="contenedor">
   <div class="personal-container">
-    <h1>{{ profileTitle }}</h1>
+    <h1>{{ user?.name || ("HEADER.PROFILE" | translate) }}</h1>
   </div>
 
   @if (loading) {
-    <p class="loading-state">Cargando perfil...</p>
+    <p class="loading-state">{{ "PROFILE.LOADING" | translate }}</p>
   } @else if (errorMessage) {
     <p class="loading-state error-message">{{ errorMessage }}</p>
   } @else if (user) {
@@ -16,7 +16,7 @@
           alt="Foto de perfil"
         />
         <label class="change-avatar">
-          {{ profileUploading ? "Subiendo..." : "Cambiar foto" }}
+          {{ profileUploading ? ("PROFILE.UPLOADING" | translate) : ("PROFILE.CHANGE_PHOTO" | translate) }}
           <input
             #profileImageInput
             type="file"
@@ -34,26 +34,29 @@
         <div class="personal-info-rol">
           <h2>{{ user.name }}</h2>
           <hr />
-          <p>Email: {{ user.email }}</p>
-          <p>Rol: {{ userRole || "user" }}</p>
-          <p>Mensajes enviados: {{ user.message_count }}</p>
-          <p>Carisma: {{ user.carisma || 0 }}</p>
-          <p>Frikipuntos: {{ user.frikipuntos || 0 }}</p>
-          <p>Director de juego: {{ user.is_game_master ? "Si" : "No" }}</p>
+          <p>{{ "PROFILE.EMAIL" | translate }}: {{ user.email }}</p>
+          <p>{{ "PROFILE.ROLE" | translate }}: {{ userRole || "user" }}</p>
+          <p>{{ "PROFILE.MESSAGE_COUNT" | translate }}: {{ user.message_count }}</p>
+          <p>{{ "PROFILE.CHARISMA" | translate }}: {{ user.carisma || 0 }}</p>
+          <p>{{ "PROFILE.FRIKIPOINTS" | translate }}: {{ user.frikipuntos || 0 }}</p>
           <p>
-            Ultimo acceso:
-            {{ user.last_login ? (user.last_login | date : "dd/MM/yyyy, HH:mm") : "Nunca" }}
+            {{ "PROFILE.GAME_MASTER" | translate }}:
+            {{ user.is_game_master ? ("PROFILE.YES" | translate) : ("PROFILE.NO" | translate) }}
           </p>
-          <p>Fecha de registro: {{ user.creation_date | date : "dd/MM/yyyy" }}</p>
+          <p>
+            {{ "PROFILE.LAST_LOGIN" | translate }}:
+            {{ user.last_login ? (user.last_login | date : "dd/MM/yyyy, HH:mm") : ("PROFILE.NEVER" | translate) }}
+          </p>
+          <p>{{ "PROFILE.CREATED_AT" | translate }}: {{ user.creation_date | date : "dd/MM/yyyy" }}</p>
         </div>
       </div>
     </div>
 
     <section class="change-password-section">
-      <h2>Cambiar contrasena</h2>
+      <h2>{{ "PROFILE.CHANGE_PASSWORD" | translate }}</h2>
 
       <form class="change-password-form" (ngSubmit)="changePassword()">
-        <label for="current-password">Contrasena actual</label>
+        <label for="current-password">{{ "PROFILE.CURRENT_PASSWORD" | translate }}</label>
         <div class="password-field">
           <input
             id="current-password"
@@ -66,13 +69,13 @@
             type="button"
             class="password-toggle"
             (click)="showCurrentPassword = !showCurrentPassword"
-            [attr.aria-label]="showCurrentPassword ? 'Ocultar contrasena actual' : 'Mostrar contrasena actual'"
+            [attr.aria-label]="showCurrentPassword ? ('AUTH.HIDE_PASSWORD' | translate) : ('AUTH.SHOW_PASSWORD' | translate)"
           >
-            {{ showCurrentPassword ? "Ocultar" : "Ver" }}
+            {{ showCurrentPassword ? ("AUTH.HIDE_PASSWORD" | translate) : ("AUTH.SHOW_PASSWORD" | translate) }}
           </button>
         </div>
 
-        <label for="new-password">Nueva contrasena</label>
+        <label for="new-password">{{ "PROFILE.NEW_PASSWORD" | translate }}</label>
         <div class="password-field">
           <input
             id="new-password"
@@ -85,13 +88,13 @@
             type="button"
             class="password-toggle"
             (click)="showNewPassword = !showNewPassword"
-            [attr.aria-label]="showNewPassword ? 'Ocultar nueva contrasena' : 'Mostrar nueva contrasena'"
+            [attr.aria-label]="showNewPassword ? ('AUTH.HIDE_PASSWORD' | translate) : ('AUTH.SHOW_PASSWORD' | translate)"
           >
-            {{ showNewPassword ? "Ocultar" : "Ver" }}
+            {{ showNewPassword ? ("AUTH.HIDE_PASSWORD" | translate) : ("AUTH.SHOW_PASSWORD" | translate) }}
           </button>
         </div>
 
-        <label for="confirm-password">Confirmar nueva contrasena</label>
+        <label for="confirm-password">{{ "PROFILE.CONFIRM_PASSWORD" | translate }}</label>
         <div class="password-field">
           <input
             id="confirm-password"
@@ -104,9 +107,9 @@
             type="button"
             class="password-toggle"
             (click)="showConfirmPassword = !showConfirmPassword"
-            [attr.aria-label]="showConfirmPassword ? 'Ocultar confirmacion' : 'Mostrar confirmacion'"
+            [attr.aria-label]="showConfirmPassword ? ('AUTH.HIDE_PASSWORD' | translate) : ('AUTH.SHOW_PASSWORD' | translate)"
           >
-            {{ showConfirmPassword ? "Ocultar" : "Ver" }}
+            {{ showConfirmPassword ? ("AUTH.HIDE_PASSWORD" | translate) : ("AUTH.SHOW_PASSWORD" | translate) }}
           </button>
         </div>
 
@@ -119,7 +122,7 @@
         }
 
         <button type="submit" [disabled]="passwordSaving">
-          {{ passwordSaving ? "Guardando..." : "Guardar nueva contrasena" }}
+          {{ passwordSaving ? ("COMMON.SAVING" | translate) : ("PROFILE.SAVE_PASSWORD" | translate) }}
         </button>
       </form>
     </section>
@@ -127,225 +130,225 @@
     @if (!isAdmin) {
       <div class="created-content">
         <section class="created-section">
-        <h2>Mis Foros</h2>
-        @if (ownForums.length > 0) {
-          <div class="created-list">
-            @for (forum of ownForums; track forum.id) {
-              <a class="created-item" [routerLink]="['/forum', forum.id]">
-                <span>{{ forum.title }}</span>
-                <small>
-                  {{ forum.visibility === "private" ? "Privada" : "Publica" }}
-                  @if (forum.creation_date) {
-                    - {{ forum.creation_date | date : "dd/MM/yyyy" }}
-                  }
-                </small>
-              </a>
-            }
-          </div>
-        } @else {
-          <p class="empty-state">Todavia no has creado foros.</p>
-        }
+          <h2>{{ "PROFILE.MY_FORUMS" | translate }}</h2>
+          @if (ownForums.length > 0) {
+            <div class="created-list">
+              @for (forum of ownForums; track forum.id) {
+                <a class="created-item" [routerLink]="['/forum', forum.id]">
+                  <span>{{ forum.title }}</span>
+                  <small>
+                    {{ forum.visibility === "private" ? ("MATCHES.PRIVATE" | translate) : ("MATCHES.PUBLIC" | translate) }}
+                    @if (forum.creation_date) {
+                      - {{ forum.creation_date | date : "dd/MM/yyyy" }}
+                    }
+                  </small>
+                </a>
+              }
+            </div>
+          } @else {
+            <p class="empty-state">{{ "PROFILE.NO_FORUMS" | translate }}</p>
+          }
         </section>
 
         <section class="created-section">
-        <h2>Mis Noticias</h2>
-        @if (ownNews.length > 0) {
-          <div class="created-list">
-            @for (post of ownNews; track post.id) {
-              <a class="created-item" [routerLink]="['/noticias', post.id]">
-                <span>{{ post.title }}</span>
-                <small>{{ post.created_at | date : "dd/MM/yyyy" }}</small>
-              </a>
-            }
-          </div>
-        } @else {
-          <p class="empty-state">Todavia no has creado noticias.</p>
-        }
+          <h2>{{ "PROFILE.MY_NEWS" | translate }}</h2>
+          @if (ownNews.length > 0) {
+            <div class="created-list">
+              @for (post of ownNews; track post.id) {
+                <a class="created-item" [routerLink]="['/noticias', post.id]">
+                  <span>{{ post.title }}</span>
+                  <small>{{ post.created_at | date : "dd/MM/yyyy" }}</small>
+                </a>
+              }
+            </div>
+          } @else {
+            <p class="empty-state">{{ "PROFILE.NO_NEWS" | translate }}</p>
+          }
         </section>
       </div>
 
       <section class="matches-profile-section">
-      <h2>Mis Partidas</h2>
+        <h2>{{ "PROFILE.MY_MATCHES" | translate }}</h2>
 
-      <div class="matches-summary">
-        <div>
-          <strong>{{ directorActiveMatches.length }}</strong>
-          <span>Director en juego</span>
+        <div class="matches-summary">
+          <div>
+            <strong>{{ directorActiveMatches.length }}</strong>
+            <span>{{ "PROFILE.DIRECTOR_ACTIVE" | translate }}</span>
+          </div>
+          <div>
+            <strong>{{ playerActiveMatches.length }}</strong>
+            <span>{{ "PROFILE.PLAYER_ACTIVE" | translate }}</span>
+          </div>
+          <div>
+            <strong>{{ directorFinishedMatches.length }}</strong>
+            <span>{{ "PROFILE.DIRECTOR_FINISHED" | translate }}</span>
+          </div>
+          <div>
+            <strong>{{ playerFinishedMatches.length }}</strong>
+            <span>{{ "PROFILE.PLAYER_FINISHED" | translate }}</span>
+          </div>
+          <div>
+            <strong>{{ ownMatches.length }}</strong>
+            <span>{{ "PROFILE.TOTAL_MATCHES" | translate }}</span>
+          </div>
         </div>
-        <div>
-          <strong>{{ playerActiveMatches.length }}</strong>
-          <span>Jugador en juego</span>
-        </div>
-        <div>
-          <strong>{{ directorFinishedMatches.length }}</strong>
-          <span>Director finalizadas</span>
-        </div>
-        <div>
-          <strong>{{ playerFinishedMatches.length }}</strong>
-          <span>Jugador finalizadas</span>
-        </div>
-        <div>
-          <strong>{{ ownMatches.length }}</strong>
-          <span>Total partidas</span>
-        </div>
-      </div>
 
-      <div class="match-profile-groups">
-        <section class="match-profile-group">
-          <h3>Partidas como director en juego</h3>
-          @if (directorActiveMatches.length > 0) {
-            <div class="profile-match-list">
-              @for (match of directorActiveMatches; track match.id) {
-                <a class="profile-match-card" [routerLink]="['/partidas/jugar', match.id]">
-                  <img [src]="matchCoverUrl(match)" [alt]="match.title" />
-                  <div>
-                    <strong>{{ match.title }}</strong>
-                    <span>{{ match.short_description }}</span>
-                  </div>
-                </a>
-              }
-            </div>
-          } @else {
-            <p class="empty-state">No tienes partidas activas como director.</p>
-          }
-        </section>
+        <div class="match-profile-groups">
+          <section class="match-profile-group">
+            <h3>{{ "PROFILE.DIRECTOR_ACTIVE_MATCHES" | translate }}</h3>
+            @if (directorActiveMatches.length > 0) {
+              <div class="profile-match-list">
+                @for (match of directorActiveMatches; track match.id) {
+                  <a class="profile-match-card" [routerLink]="['/partidas/jugar', match.id]">
+                    <img [src]="matchCoverUrl(match)" [alt]="match.title" />
+                    <div>
+                      <strong>{{ match.title }}</strong>
+                      <span>{{ match.short_description }}</span>
+                    </div>
+                  </a>
+                }
+              </div>
+            } @else {
+              <p class="empty-state">{{ "PROFILE.NO_DIRECTOR_ACTIVE" | translate }}</p>
+            }
+          </section>
 
-        <section class="match-profile-group">
-          <h3>Partidas como jugador en juego</h3>
-          @if (playerActiveMatches.length > 0) {
-            <div class="profile-match-list">
-              @for (match of playerActiveMatches; track match.id) {
-                <a class="profile-match-card" [routerLink]="['/partidas/jugar', match.id]">
-                  <img [src]="matchCoverUrl(match)" [alt]="match.title" />
-                  <div>
-                    <strong>{{ match.title }}</strong>
-                    <span>{{ match.short_description }}</span>
-                  </div>
-                </a>
-              }
-            </div>
-          } @else {
-            <p class="empty-state">No tienes partidas activas como jugador.</p>
-          }
-        </section>
+          <section class="match-profile-group">
+            <h3>{{ "PROFILE.PLAYER_ACTIVE_MATCHES" | translate }}</h3>
+            @if (playerActiveMatches.length > 0) {
+              <div class="profile-match-list">
+                @for (match of playerActiveMatches; track match.id) {
+                  <a class="profile-match-card" [routerLink]="['/partidas/jugar', match.id]">
+                    <img [src]="matchCoverUrl(match)" [alt]="match.title" />
+                    <div>
+                      <strong>{{ match.title }}</strong>
+                      <span>{{ match.short_description }}</span>
+                    </div>
+                  </a>
+                }
+              </div>
+            } @else {
+              <p class="empty-state">{{ "PROFILE.NO_PLAYER_ACTIVE" | translate }}</p>
+            }
+          </section>
 
-        <section class="match-profile-group">
-          <h3>Partidas como director finalizadas</h3>
-          @if (directorFinishedMatches.length > 0) {
-            <div class="profile-match-list">
-              @for (match of directorFinishedMatches; track match.id) {
-                <a class="profile-match-card" [routerLink]="['/partidas/jugar', match.id]">
-                  <img [src]="matchCoverUrl(match)" [alt]="match.title" />
-                  <div>
-                    <strong>{{ match.title }}</strong>
-                    <span>{{ match.short_description }}</span>
-                  </div>
-                </a>
-              }
-            </div>
-          } @else {
-            <p class="empty-state">No tienes partidas finalizadas como director.</p>
-          }
-        </section>
+          <section class="match-profile-group">
+            <h3>{{ "PROFILE.DIRECTOR_FINISHED_MATCHES" | translate }}</h3>
+            @if (directorFinishedMatches.length > 0) {
+              <div class="profile-match-list">
+                @for (match of directorFinishedMatches; track match.id) {
+                  <a class="profile-match-card" [routerLink]="['/partidas/jugar', match.id]">
+                    <img [src]="matchCoverUrl(match)" [alt]="match.title" />
+                    <div>
+                      <strong>{{ match.title }}</strong>
+                      <span>{{ match.short_description }}</span>
+                    </div>
+                  </a>
+                }
+              </div>
+            } @else {
+              <p class="empty-state">{{ "PROFILE.NO_DIRECTOR_FINISHED" | translate }}</p>
+            }
+          </section>
 
-        <section class="match-profile-group">
-          <h3>Partidas como jugador finalizadas</h3>
-          @if (playerFinishedMatches.length > 0) {
-            <div class="profile-match-list">
-              @for (match of playerFinishedMatches; track match.id) {
-                <a class="profile-match-card" [routerLink]="['/partidas/jugar', match.id]">
-                  <img [src]="matchCoverUrl(match)" [alt]="match.title" />
-                  <div>
-                    <strong>{{ match.title }}</strong>
-                    <span>{{ match.short_description }}</span>
-                  </div>
-                </a>
-              }
-            </div>
-          } @else {
-            <p class="empty-state">No tienes partidas finalizadas como jugador.</p>
-          }
-        </section>
-      </div>
+          <section class="match-profile-group">
+            <h3>{{ "PROFILE.PLAYER_FINISHED_MATCHES" | translate }}</h3>
+            @if (playerFinishedMatches.length > 0) {
+              <div class="profile-match-list">
+                @for (match of playerFinishedMatches; track match.id) {
+                  <a class="profile-match-card" [routerLink]="['/partidas/jugar', match.id]">
+                    <img [src]="matchCoverUrl(match)" [alt]="match.title" />
+                    <div>
+                      <strong>{{ match.title }}</strong>
+                      <span>{{ match.short_description }}</span>
+                    </div>
+                  </a>
+                }
+              </div>
+            } @else {
+              <p class="empty-state">{{ "PROFILE.NO_PLAYER_FINISHED" | translate }}</p>
+            }
+          </section>
+        </div>
       </section>
 
       <section class="invitations-section">
-      <h2>Invitaciones a foros privados</h2>
-      @if (pendingInvitations.length > 0) {
-        <div class="invitation-list">
-          @for (invitation of pendingInvitations; track invitation.id) {
-            <article class="invitation-card">
-              <div>
-                <h3>{{ invitation.title }}</h3>
-                <p>{{ invitation.description }}</p>
-                <small>
-                  Invitacion de
-                  {{ invitation.inviter_name || invitation.inviter_email || "Rolverse" }}
-                </small>
-              </div>
-              <div class="invitation-actions">
-                <button
-                  type="button"
-                  class="accept"
-                  (click)="respondInvitation(invitation.id, 'accepted')"
-                >
-                  Aceptar
-                </button>
-                <button
-                  type="button"
-                  class="reject"
-                  (click)="respondInvitation(invitation.id, 'rejected')"
-                >
-                  Rechazar
-                </button>
-              </div>
-            </article>
-          }
-        </div>
-      } @else {
-        <p class="empty-state">No tienes invitaciones pendientes.</p>
-      }
+        <h2>{{ "PROFILE.FORUM_INVITATIONS" | translate }}</h2>
+        @if (pendingInvitations.length > 0) {
+          <div class="invitation-list">
+            @for (invitation of pendingInvitations; track invitation.id) {
+              <article class="invitation-card">
+                <div>
+                  <h3>{{ invitation.title }}</h3>
+                  <p>{{ invitation.description }}</p>
+                  <small>
+                    {{ "PROFILE.INVITATION_FROM" | translate }}
+                    {{ invitation.inviter_name || invitation.inviter_email || "Rolverse" }}
+                  </small>
+                </div>
+                <div class="invitation-actions">
+                  <button
+                    type="button"
+                    class="accept"
+                    (click)="respondInvitation(invitation.id, 'accepted')"
+                  >
+                    {{ "PROFILE.ACCEPT" | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="reject"
+                    (click)="respondInvitation(invitation.id, 'rejected')"
+                  >
+                    {{ "PROFILE.REJECT" | translate }}
+                  </button>
+                </div>
+              </article>
+            }
+          </div>
+        } @else {
+          <p class="empty-state">{{ "PROFILE.NO_INVITATIONS" | translate }}</p>
+        }
       </section>
 
       <section class="invitations-section">
-      <h2>Invitaciones a partidas</h2>
-      @if (pendingMatchInvitations.length > 0) {
-        <div class="invitation-list">
-          @for (invitation of pendingMatchInvitations; track invitation.id) {
-            <article class="invitation-card">
-              <div>
-                <h3>{{ invitation.title }}</h3>
-                <p>{{ invitation.short_description || invitation.description }}</p>
-                <small>
-                  Invitacion de
-                  {{ invitation.inviter_name || invitation.inviter_email || "Rolverse" }}
-                </small>
-              </div>
-              <div class="invitation-actions">
-                <button
-                  type="button"
-                  class="accept"
-                  (click)="respondMatchInvitation(invitation.id, 'accepted')"
-                >
-                  Aceptar
-                </button>
-                <button
-                  type="button"
-                  class="reject"
-                  (click)="respondMatchInvitation(invitation.id, 'rejected')"
-                >
-                  Rechazar
-                </button>
-              </div>
-            </article>
-          }
-        </div>
-      } @else {
-        <p class="empty-state">No tienes invitaciones de partidas pendientes.</p>
-      }
+        <h2>{{ "PROFILE.MATCH_INVITATIONS" | translate }}</h2>
+        @if (pendingMatchInvitations.length > 0) {
+          <div class="invitation-list">
+            @for (invitation of pendingMatchInvitations; track invitation.id) {
+              <article class="invitation-card">
+                <div>
+                  <h3>{{ invitation.title }}</h3>
+                  <p>{{ invitation.short_description || invitation.description }}</p>
+                  <small>
+                    {{ "PROFILE.INVITATION_FROM" | translate }}
+                    {{ invitation.inviter_name || invitation.inviter_email || "Rolverse" }}
+                  </small>
+                </div>
+                <div class="invitation-actions">
+                  <button
+                    type="button"
+                    class="accept"
+                    (click)="respondMatchInvitation(invitation.id, 'accepted')"
+                  >
+                    {{ "PROFILE.ACCEPT" | translate }}
+                  </button>
+                  <button
+                    type="button"
+                    class="reject"
+                    (click)="respondMatchInvitation(invitation.id, 'rejected')"
+                  >
+                    {{ "PROFILE.REJECT" | translate }}
+                  </button>
+                </div>
+              </article>
+            }
+          </div>
+        } @else {
+          <p class="empty-state">{{ "PROFILE.NO_MATCH_INVITATIONS" | translate }}</p>
+        }
       </section>
     }
   } @else {
-    <p class="loading-state">Cargando perfil...</p>
+    <p class="loading-state">{{ "PROFILE.LOADING" | translate }}</p>
   }
 </div>

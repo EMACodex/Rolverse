@@ -148,6 +148,38 @@
   flex-shrink: 0;
 }
 
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+.language-button {
+  width: 38px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border: 1px solid #8b5a24;
+  border-radius: 8px;
+  background: rgba(255, 239, 190, 0.75);
+  cursor: pointer;
+}
+
+.language-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.language-button.active {
+  outline: 2px solid #d9a441;
+  box-shadow: 0 0 8px rgba(217, 164, 65, 0.8);
+}
+
 .rpg-login-button {
   font-family: "Cinzel", serif;
   background: linear-gradient(#b08c4f, #7c5e2b);
@@ -321,6 +353,17 @@
   .login-button-wrapper {
     margin-left: 4px;
     z-index: 1003;
+  }
+
+  .language-switcher {
+    gap: 0.35rem;
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+  }
+
+  .language-button {
+    width: 34px;
+    height: 30px;
   }
 
   .rpg-login-button {

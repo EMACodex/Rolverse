@@ -8,6 +8,7 @@ import { firstValueFrom } from 'rxjs';
 import { InternalNews } from '../../../interfaces/new.interface';
 import { RUTA_API } from '../../../../environment';
 import { AuthService } from '../../../services/auth.service';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 interface NewsComment {
   id: number;
@@ -23,7 +24,7 @@ interface NewsComment {
 @Component({
   selector: 'app-view-news',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, TranslatePipe],
   templateUrl: './view-news.component.html',
   styleUrls: ['./view-news.component.css'],
 })

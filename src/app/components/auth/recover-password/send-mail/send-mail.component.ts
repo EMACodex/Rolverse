@@ -4,10 +4,11 @@ import { MaterialModule } from '../../../../material/material.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../../../services/auth.service';
 import { RouterModule } from '@angular/router';
+import { TranslatePipe } from '../../../../pipes/translate.pipe';
 @Component({
   selector: 'app-send-mail',
   standalone: true,
-  imports: [MaterialModule, ReactiveFormsModule, RouterModule],
+  imports: [MaterialModule, ReactiveFormsModule, RouterModule, TranslatePipe],
   templateUrl: './send-mail.component.html',
   styleUrl: './send-mail.component.css'
 })

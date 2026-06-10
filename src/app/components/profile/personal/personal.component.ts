@@ -13,6 +13,7 @@ import { ForumService } from '../../../services/forum.service';
 import { RUTA_API } from '../../../../environment';
 import { Match, MatchInvitation } from '../../../interfaces/match.interface';
 import { MatchService } from '../../../services/match.service';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 interface OwnForum {
   id: number;
@@ -39,6 +40,7 @@ interface OwnNews {
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
+    TranslatePipe,
   ],
   templateUrl: './personal.component.html',
   styleUrl: './personal.component.css',

@@ -1,6 +1,6 @@
 <main class="scene-shell">
   @if (loading) {
-    <section class="scene-board state">Cargando partida...</section>
+    <section class="scene-board state">{{ "MATCHES.LOADING" | translate }}</section>
   } @else if (error) {
     <section class="scene-board state error">{{ error }}</section>
   } @else if (match) {
@@ -8,18 +8,30 @@
       <header class="scene-header">
         <img [src]="assetUrl(match.cover_image_path, fallbackCover)" [alt]="match.title" />
         <div>
-          <a class="back-link" routerLink="/partidas">Volver a Partidas</a>
-          <p class="scene-kicker">Escena de partida</p>
+          <a class="back-link" routerLink="/partidas">
+            {{ "MATCHES.BACK_TO_MATCHES" | translate }}
+          </a>
+          <p class="scene-kicker">{{ "MATCHES.SCENE" | translate }}</p>
           <h1>{{ match.title }}</h1>
           <div class="scene-badges">
-            <span class="badge">{{ match.status === "finished" ? "Finalizada" : "En juego" }}</span>
+            <span class="badge">
+              {{
+                match.status === "finished"
+                  ? ("MATCHES.FINISHED" | translate)
+                  : ("MATCHES.ACTIVE" | translate)
+              }}
+            </span>
             <span class="badge" [class.private]="match.access_type === 'private'">
-              {{ match.access_type === "private" ? "Privada" : "Publica" }}
+              {{
+                match.access_type === "private"
+                  ? ("MATCHES.PRIVATE" | translate)
+                  : ("MATCHES.PUBLIC" | translate)
+              }}
             </span>
             <span class="badge">{{ match.system_name }}</span>
           </div>
           @if (match.status === "finished") {
-            <p class="finished-notice">Partida finalizada.</p>
+            <p class="finished-notice">{{ "MATCHES.FINISHED_NOTICE" | translate }}</p>
           }
         </div>
       </header>
@@ -32,47 +44,47 @@
         <section class="manage-panel">
           <div class="manage-actions">
             <button type="button" class="secondary-button" (click)="editMode = !editMode">
-              {{ editMode ? "Cerrar edicion" : "Editar partida" }}
+              {{ editMode ? ("MATCHES.CLOSE_EDIT" | translate) : ("MATCHES.EDIT" | translate) }}
             </button>
             @if (match.status === "active") {
               <button type="button" class="secondary-button" (click)="finishMatch()">
-                Finalizar partida
+                {{ "MATCHES.FINISH" | translate }}
               </button>
             }
             <button type="button" class="danger-button" (click)="deleteMatch()">
-              Eliminar partida
+              {{ "MATCHES.DELETE" | translate }}
             </button>
           </div>
 
           @if (editMode) {
             <form class="scene-form" (ngSubmit)="saveEdit()">
-              <label>Titulo</label>
+              <label>{{ "MATCHES.TITLE_FIELD" | translate }}</label>
               <input name="editTitle" [(ngModel)]="editForm.title" />
 
-              <label>Descripcion corta</label>
+              <label>{{ "MATCHES.SHORT_DESCRIPTION" | translate }}</label>
               <textarea
                 name="editShort"
                 maxlength="500"
                 [(ngModel)]="editForm.short_description"
               ></textarea>
 
-              <label>Sistema</label>
+              <label>{{ "MATCHES.SYSTEM" | translate }}</label>
               <input name="editSystem" [(ngModel)]="editForm.system_name" />
 
-              <label>Tipo de acceso</label>
+              <label>{{ "MATCHES.ACCESS_TYPE" | translate }}</label>
               <select name="editAccess" [(ngModel)]="editForm.access_type">
-                <option value="public">Publica</option>
-                <option value="private">Privada</option>
+                <option value="public">{{ "MATCHES.PUBLIC" | translate }}</option>
+                <option value="private">{{ "MATCHES.PRIVATE" | translate }}</option>
               </select>
 
-              <label>Historia</label>
+              <label>{{ "MATCHES.STORY" | translate }}</label>
               <textarea name="editFull" [(ngModel)]="editForm.full_description"></textarea>
 
-              <label>Reglas</label>
+              <label>{{ "MATCHES.RULES" | translate }}</label>
               <textarea name="editRules" [(ngModel)]="editForm.rules"></textarea>
 
               <label class="file-button">
-                Cambiar portada
+                {{ "MATCHES.CHANGE_COVER" | translate }}
                 <input #coverInput type="file" accept="image/*" (change)="onFileSelected($event, 'cover')" />
               </label>
 
@@ -80,7 +92,9 @@
                 <p class="form-error">{{ editError }}</p>
               }
 
-              <button type="submit" class="primary-button">Guardar cambios</button>
+              <button type="submit" class="primary-button">
+                {{ "MATCHES.SAVE_CHANGES" | translate }}
+              </button>
             </form>
           }
         </section>
@@ -88,7 +102,7 @@
 
       @if (canManage && match.access_type === "private") {
         <section class="invite-panel">
-          <h2>Invitar usuarios</h2>
+          <h2>{{ "MATCHES.INVITE_USERS" | translate }}</h2>
           <div class="invite-form">
             <div class="invite-search">
               <input
@@ -96,7 +110,7 @@
                 name="inviteEmail"
                 [(ngModel)]="inviteEmail"
                 (input)="searchInviteUsers()"
-                placeholder="Buscar usuario por email"
+                [placeholder]="'MATCHES.INVITE_PLACEHOLDER' | translate"
               />
               @if (inviteResults.length > 0) {
                 <div class="invite-results">
@@ -115,7 +129,7 @@
               [disabled]="!selectedInviteUser"
               (click)="inviteSelectedUser()"
             >
-              Invitar
+              {{ "MATCHES.INVITE" | translate }}
             </button>
           </div>
           @if (inviteMessage) {
@@ -125,22 +139,24 @@
       }
 
       <mat-tab-group class="scene-tabs">
-        <mat-tab label="Personajes">
+        <mat-tab [label]="'MATCHES.CHARACTERS' | translate">
           <section class="tab-panel">
             @if (canInteract) {
               <form class="scene-form compact" (ngSubmit)="saveCharacter()">
-                <h2>Crear o editar mi personaje</h2>
-                <input name="characterName" [(ngModel)]="characterForm.name" placeholder="Nombre" />
+                <h2>{{ "MATCHES.CREATE_CHARACTER" | translate }}</h2>
+                <input name="characterName" [(ngModel)]="characterForm.name" [placeholder]="'AUTH.NAME' | translate" />
                 <textarea
                   name="characterDescription"
                   [(ngModel)]="characterForm.description"
-                  placeholder="Descripcion"
+                  [placeholder]="'MATCHES.DESCRIPTION' | translate"
                 ></textarea>
                 <label class="file-button">
-                  Imagen del personaje
+                  {{ "MATCHES.CHARACTER_IMAGE" | translate }}
                   <input #characterImageInput type="file" accept="image/*" (change)="onFileSelected($event, 'character')" />
                 </label>
-                <button type="submit" class="primary-button">Guardar personaje</button>
+                <button type="submit" class="primary-button">
+                  {{ "MATCHES.SAVE_CHARACTER" | translate }}
+                </button>
               </form>
             }
 
@@ -157,18 +173,20 @@
           </section>
         </mat-tab>
 
-        <mat-tab label="Anexos">
+        <mat-tab [label]="'MATCHES.MODULES' | translate">
           <section class="tab-panel">
             @if (canManage) {
               <form class="scene-form compact" (ngSubmit)="uploadModule()">
-                <h2>Subir modulo o manual</h2>
-                <input name="moduleTitle" [(ngModel)]="moduleForm.title" placeholder="Titulo" />
-                <textarea name="moduleDescription" [(ngModel)]="moduleForm.description" placeholder="Descripcion"></textarea>
+                <h2>{{ "MATCHES.UPLOAD_MODULE" | translate }}</h2>
+                <input name="moduleTitle" [(ngModel)]="moduleForm.title" [placeholder]="'MATCHES.TITLE_FIELD' | translate" />
+                <textarea name="moduleDescription" [(ngModel)]="moduleForm.description" [placeholder]="'MATCHES.DESCRIPTION' | translate"></textarea>
                 <label class="file-button">
-                  Archivo
+                  {{ "MATCHES.FILE" | translate }}
                   <input #moduleFileInput type="file" (change)="onFileSelected($event, 'module')" />
                 </label>
-                <button type="submit" class="primary-button">Subir modulo</button>
+                <button type="submit" class="primary-button">
+                  {{ "MATCHES.UPLOAD_MODULE" | translate }}
+                </button>
               </form>
             }
 
@@ -179,9 +197,13 @@
                     <h3>{{ module.title }}</h3>
                     <p>{{ module.description }}</p>
                   </div>
-                  <a class="primary-button" [href]="assetUrl(module.file_path, '')" target="_blank">Descargar</a>
+                  <a class="primary-button" [href]="assetUrl(module.file_path, '')" target="_blank">
+                    {{ "MATCHES.DOWNLOAD" | translate }}
+                  </a>
                   @if (canManage) {
-                    <button type="button" class="danger-button" (click)="deleteModule(module.id)">Eliminar</button>
+                    <button type="button" class="danger-button" (click)="deleteModule(module.id)">
+                      {{ "COMMON.DELETE" | translate }}
+                    </button>
                   }
                 </article>
               }
@@ -189,17 +211,19 @@
           </section>
         </mat-tab>
 
-        <mat-tab label="Tableros">
+        <mat-tab [label]="'MATCHES.BOARDS' | translate">
           <section class="tab-panel">
             @if (canManage) {
               <form class="scene-form compact" (ngSubmit)="uploadBoard()">
-                <h2>Subir tablero o mapa</h2>
-                <input name="boardTitle" [(ngModel)]="boardForm.title" placeholder="Titulo" />
+                <h2>{{ "MATCHES.UPLOAD_BOARD" | translate }}</h2>
+                <input name="boardTitle" [(ngModel)]="boardForm.title" [placeholder]="'MATCHES.TITLE_FIELD' | translate" />
                 <label class="file-button">
-                  Imagen
+                  {{ "MATCHES.IMAGE" | translate }}
                   <input #boardImageInput type="file" accept="image/*" (change)="onFileSelected($event, 'board')" />
                 </label>
-                <button type="submit" class="primary-button">Subir tablero</button>
+                <button type="submit" class="primary-button">
+                  {{ "MATCHES.UPLOAD_BOARD" | translate }}
+                </button>
               </form>
             }
 
@@ -211,7 +235,9 @@
                   </a>
                   <h3>{{ board.title }}</h3>
                   @if (canManage) {
-                    <button type="button" class="danger-button" (click)="deleteBoard(board.id)">Eliminar</button>
+                    <button type="button" class="danger-button" (click)="deleteBoard(board.id)">
+                      {{ "COMMON.DELETE" | translate }}
+                    </button>
                   }
                 </article>
               }
@@ -219,19 +245,21 @@
           </section>
         </mat-tab>
 
-        <mat-tab label="Combates">
+        <mat-tab [label]="'MATCHES.COMBAT' | translate">
           <section class="tab-panel combat-grid">
             <div class="chat-column">
-              <h2>Chat de partida</h2>
+              <h2>{{ "MATCHES.CHAT" | translate }}</h2>
               <div class="message-list">
                 @for (message of messages; track message.id) {
                   <article class="message-card">
-                    <strong>{{ message.user_name || "Usuario" }}</strong>
+                    <strong>{{ message.user_name || ("MATCHES.USER" | translate) }}</strong>
                     @if (message.message_type === "dice") {
                       <p>
-                        Ha tirado: Dado 1 = {{ message.dice_one }},
-                        Dado 2 = {{ message.dice_two }},
-                        Total = {{ message.dice_total }}
+                        {{ message.user_name || ("MATCHES.USER" | translate) }}
+                        {{ "MATCHES.ROLL_DICE" | translate }}:
+                        {{ "MATCHES.DICE" | translate }} 1 = {{ message.dice_one }},
+                        {{ "MATCHES.DICE" | translate }} 2 = {{ message.dice_two }},
+                        {{ "MATCHES.TOTAL" | translate }} = {{ message.dice_total }}
                       </p>
                     } @else {
                       <p>{{ message.text }}</p>
@@ -246,60 +274,60 @@
 
               @if (canInteract) {
                 <form class="scene-form compact" (ngSubmit)="sendMessage()">
-                  <textarea name="messageText" [(ngModel)]="messageForm.text" placeholder="Escribe en la escena"></textarea>
+                  <textarea name="messageText" [(ngModel)]="messageForm.text" [placeholder]="'MATCHES.MESSAGE_PLACEHOLDER' | translate"></textarea>
                   <label class="file-button">
-                    Adjuntar imagen
+                    {{ "MATCHES.ATTACH_IMAGE" | translate }}
                     <input #messageImageInput type="file" accept="image/*" (change)="onFileSelected($event, 'message')" />
                   </label>
                   <div class="button-row">
-                    <button type="submit" class="primary-button">Enviar</button>
-                    <button type="button" class="secondary-button" (click)="rollDice()">Tirar dados</button>
+                    <button type="submit" class="primary-button">{{ "MATCHES.SEND" | translate }}</button>
+                    <button type="button" class="secondary-button" (click)="rollDice()">{{ "MATCHES.ROLL_DICE" | translate }}</button>
                   </div>
                 </form>
               }
             </div>
 
             <aside class="actions-column">
-              <h2>Acciones</h2>
+              <h2>{{ "MATCHES.ACTIONS" | translate }}</h2>
               @if (canInteract) {
                 <form class="scene-form compact" (ngSubmit)="sendAction()">
-                  <textarea name="actionText" [(ngModel)]="actionText" placeholder="Describe tu accion"></textarea>
+                  <textarea name="actionText" [(ngModel)]="actionText" [placeholder]="'MATCHES.ACTION_PLACEHOLDER' | translate"></textarea>
                   <label class="check-line">
                     <input type="checkbox" name="actionRollDice" [(ngModel)]="actionRollDice" />
-                    Tirar dados con la accion
+                    {{ "MATCHES.ROLL_WITH_ACTION" | translate }}
                   </label>
-                  <button type="submit" class="primary-button">Enviar accion</button>
+                  <button type="submit" class="primary-button">{{ "MATCHES.SEND_ACTION" | translate }}</button>
                 </form>
               }
 
-                <div class="action-list">
-                  @for (action of actions; track action.id) {
-                    @if (canSeeAction(action)) {
-                      <article class="action-card">
-                        <strong>{{ action.user_name || "Usuario" }}</strong>
-                        <p>{{ action.action_text }}</p>
-                        @if (action.dice_total) {
-                          <small>Dados: {{ action.dice_one }} + {{ action.dice_two }} = {{ action.dice_total }}</small>
-                        }
-                        <span class="badge action-status">{{ action.status }}</span>
-                        @if (action.master_response) {
-                          <p>{{ action.master_response }}</p>
-                        }
-                        @if (canManage && action.status === "pending") {
-                          <textarea
-                            name="review-{{ action.id }}"
-                            [(ngModel)]="reviewResponses[action.id]"
-                            placeholder="Respuesta del master"
-                          ></textarea>
-                          <div class="button-row">
-                            <button type="button" class="primary-button" (click)="reviewAction(action, 'approved')">Aprobar</button>
-                            <button type="button" class="danger-button" (click)="reviewAction(action, 'rejected')">Rechazar</button>
-                          </div>
-                        }
-                      </article>
-                    }
+              <div class="action-list">
+                @for (action of actions; track action.id) {
+                  @if (canSeeAction(action)) {
+                    <article class="action-card">
+                      <strong>{{ action.user_name || ("MATCHES.USER" | translate) }}</strong>
+                      <p>{{ action.action_text }}</p>
+                      @if (action.dice_total) {
+                        <small>{{ "MATCHES.DICE" | translate }}: {{ action.dice_one }} + {{ action.dice_two }} = {{ action.dice_total }}</small>
+                      }
+                      <span class="badge action-status">{{ action.status }}</span>
+                      @if (action.master_response) {
+                        <p>{{ action.master_response }}</p>
+                      }
+                      @if (canManage && action.status === "pending") {
+                        <textarea
+                          name="review-{{ action.id }}"
+                          [(ngModel)]="reviewResponses[action.id]"
+                          [placeholder]="'MATCHES.MASTER_RESPONSE' | translate"
+                        ></textarea>
+                        <div class="button-row">
+                          <button type="button" class="primary-button" (click)="reviewAction(action, 'approved')">{{ "MATCHES.APPROVE" | translate }}</button>
+                          <button type="button" class="danger-button" (click)="reviewAction(action, 'rejected')">{{ "MATCHES.REJECT" | translate }}</button>
+                        </div>
+                      }
+                    </article>
                   }
-                </div>
+                }
+              </div>
             </aside>
           </section>
         </mat-tab>

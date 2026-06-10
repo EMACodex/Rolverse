@@ -2,10 +2,10 @@
   <section class="forum-board" aria-labelledby="forum-title">
     <header class="board-header">
       <div>
-        <p class="board-kicker">Tablon de Rolverse</p>
-        <h1 id="forum-title">Concilio de Rol y Estrategia</h1>
+        <p class="board-kicker">{{ "FORUM.KICKER" | translate }}</p>
+        <h1 id="forum-title">{{ "FORUM.TITLE" | translate }}</h1>
         <p class="board-subtitle">
-          Salas de debate, crónicas de partida y consejos de aventureros.
+          {{ "FORUM.SUBTITLE" | translate }}
         </p>
       </div>
 
@@ -15,16 +15,16 @@
           class="create-forum create-forum--header"
           (click)="openCreateForumDialog()"
         >
-          Crear foro
+          {{ "FORUM.CREATE" | translate }}
         </button>
       }
     </header>
 
     <div class="board-table" role="list">
       <div class="board-table-header" aria-hidden="true">
-        <span>Foro</span>
-        <span>Tipo</span>
-        <span>Acceso</span>
+        <span>{{ "HEADER.FORUM" | translate }}</span>
+        <span>{{ "FORUM.TYPE" | translate }}</span>
+        <span>{{ "FORUM.ACCESS" | translate }}</span>
       </div>
 
       @if (allForums.length > 0) {
@@ -49,14 +49,18 @@
 
             <div class="forum-type">
               @if (forum.visibility === "private") {
-                <span class="forum-badge private">Sala privada</span>
+                <span class="forum-badge private">
+                  {{ "FORUM.PRIVATE_ROOM" | translate }}
+                </span>
               } @else {
-                <span class="forum-badge public">Sala publica</span>
+                <span class="forum-badge public">
+                  {{ "FORUM.PUBLIC_ROOM" | translate }}
+                </span>
               }
             </div>
 
             <div class="forum-entry">
-              <span class="entry-link">Entrar</span>
+              <span class="entry-link">{{ "COMMON.ENTER" | translate }}</span>
 
               @if (canEditForum(forum)) {
                 <button
@@ -64,7 +68,7 @@
                   class="edit-forum"
                   (click)="openEditForum(forum, $event)"
                 >
-                  Editar
+                  {{ "COMMON.EDIT" | translate }}
                 </button>
               }
 
@@ -74,12 +78,13 @@
                   class="delete-forum"
                   (click)="onDeleteForum(forum.id!); $event.stopPropagation()"
                 >
-                  Eliminar
+                  {{ "COMMON.DELETE" | translate }}
                 </button>
               }
             </div>
           </article>
         }
+
         @if (totalPages > 1) {
           <div class="pagination-controls">
             <button
@@ -87,22 +92,25 @@
               (click)="previousPage()"
               [disabled]="currentPage === 1"
             >
-              Anterior
+              {{ "COMMON.PREVIOUS" | translate }}
             </button>
-            <span>Pagina {{ currentPage }} de {{ totalPages }}</span>
+            <span>
+              {{ "COMMON.PAGE" | translate }} {{ currentPage }}
+              {{ "COMMON.OF" | translate }} {{ totalPages }}
+            </span>
             <button
               type="button"
               (click)="nextPage()"
               [disabled]="currentPage === totalPages"
             >
-              Siguiente
+              {{ "COMMON.NEXT" | translate }}
             </button>
           </div>
         }
       } @else {
         <div class="empty-board">
-          <h2>No hay salas abiertas</h2>
-          <p>El tablon esta preparado para la primera convocatoria.</p>
+          <h2>{{ "FORUM.EMPTY_TITLE" | translate }}</h2>
+          <p>{{ "FORUM.EMPTY_TEXT" | translate }}</p>
         </div>
       }
     </div>
@@ -114,8 +122,8 @@
         type="button"
         class="create-forum create-forum--floating"
         (click)="openCreateForumDialog()"
-        title="Crear nuevo foro"
-        aria-label="Crear nuevo foro"
+        [title]="'FORUM.CREATE' | translate"
+        [attr.aria-label]="'FORUM.CREATE' | translate"
       >
         +
       </button>
@@ -129,9 +137,11 @@
         aria-labelledby="edit-forum-title"
         (click)="$event.stopPropagation()"
       >
-        <h2 id="edit-forum-title">Editar foro</h2>
+        <h2 id="edit-forum-title">{{ "FORUM.EDIT" | translate }}</h2>
 
-        <label for="edit-forum-title-input">Titulo</label>
+        <label for="edit-forum-title-input">
+          {{ "MATCHES.TITLE_FIELD" | translate }}
+        </label>
         <input
           id="edit-forum-title-input"
           name="editForumTitle"
@@ -139,21 +149,25 @@
           [(ngModel)]="editForumData.title"
         />
 
-        <label for="edit-forum-description">Descripcion</label>
+        <label for="edit-forum-description">
+          {{ "FORUM.DESCRIPTION" | translate }}
+        </label>
         <textarea
           id="edit-forum-description"
           name="editForumDescription"
           [(ngModel)]="editForumData.description"
         ></textarea>
 
-        <label for="edit-forum-visibility">Tipo de sala</label>
+        <label for="edit-forum-visibility">
+          {{ "FORUM.ROOM_TYPE" | translate }}
+        </label>
         <select
           id="edit-forum-visibility"
           name="editForumVisibility"
           [(ngModel)]="editForumData.visibility"
         >
-          <option value="public">Sala publica</option>
-          <option value="private">Sala privada</option>
+          <option value="public">{{ "FORUM.PUBLIC_ROOM" | translate }}</option>
+          <option value="private">{{ "FORUM.PRIVATE_ROOM" | translate }}</option>
         </select>
 
         @if (editForumError) {
@@ -162,10 +176,10 @@
 
         <div class="modal-actions">
           <button type="button" class="save-forum" (click)="saveEditForum()">
-            Guardar
+            {{ "COMMON.SAVE" | translate }}
           </button>
           <button type="button" class="cancel-forum" (click)="closeEditForum()">
-            Cancelar
+            {{ "COMMON.CANCEL" | translate }}
           </button>
         </div>
       </section>

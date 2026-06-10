@@ -7,11 +7,12 @@ import { firstValueFrom } from 'rxjs';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-news',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslatePipe],
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.css'],
 })
