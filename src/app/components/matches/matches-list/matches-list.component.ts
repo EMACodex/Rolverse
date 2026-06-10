@@ -20,7 +20,7 @@ export class MatchesListComponent implements OnInit {
   loading = false;
   error = '';
   currentPage = 1;
-  itemsPerPage = 10;
+  itemsPerPage = 8;
   showCreateModal = false;
   createError = '';
   creating = false;

@@ -272,32 +272,34 @@
                 </form>
               }
 
-              <div class="action-list">
-                @for (action of actions; track action.id) {
-                  <article class="action-card">
-                    <strong>{{ action.user_name || "Usuario" }}</strong>
-                    <p>{{ action.action_text }}</p>
-                    @if (action.dice_total) {
-                      <small>Dados: {{ action.dice_one }} + {{ action.dice_two }} = {{ action.dice_total }}</small>
+                <div class="action-list">
+                  @for (action of actions; track action.id) {
+                    @if (canSeeAction(action)) {
+                      <article class="action-card">
+                        <strong>{{ action.user_name || "Usuario" }}</strong>
+                        <p>{{ action.action_text }}</p>
+                        @if (action.dice_total) {
+                          <small>Dados: {{ action.dice_one }} + {{ action.dice_two }} = {{ action.dice_total }}</small>
+                        }
+                        <span class="badge action-status">{{ action.status }}</span>
+                        @if (action.master_response) {
+                          <p>{{ action.master_response }}</p>
+                        }
+                        @if (canManage && action.status === "pending") {
+                          <textarea
+                            name="review-{{ action.id }}"
+                            [(ngModel)]="reviewResponses[action.id]"
+                            placeholder="Respuesta del master"
+                          ></textarea>
+                          <div class="button-row">
+                            <button type="button" class="primary-button" (click)="reviewAction(action, 'approved')">Aprobar</button>
+                            <button type="button" class="danger-button" (click)="reviewAction(action, 'rejected')">Rechazar</button>
+                          </div>
+                        }
+                      </article>
                     }
-                    <span class="badge">{{ action.status }}</span>
-                    @if (action.master_response) {
-                      <p>{{ action.master_response }}</p>
-                    }
-                    @if (canManage && action.status === "pending") {
-                      <textarea
-                        name="review-{{ action.id }}"
-                        [(ngModel)]="reviewResponses[action.id]"
-                        placeholder="Respuesta del master"
-                      ></textarea>
-                      <div class="button-row">
-                        <button type="button" class="primary-button" (click)="reviewAction(action, 'approved')">Aprobar</button>
-                        <button type="button" class="danger-button" (click)="reviewAction(action, 'rejected')">Rechazar</button>
-                      </div>
-                    }
-                  </article>
-                }
-              </div>
+                  }
+                </div>
             </aside>
           </section>
         </mat-tab>

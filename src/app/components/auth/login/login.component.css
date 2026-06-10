@@ -109,6 +109,29 @@
   text-decoration: underline;
 }
 
+.back-home-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid #d9a441;
+  border-radius: 10px;
+  background: rgba(30, 20, 10, 0.75);
+  color: #f7d77a;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.back-home-button:hover {
+  background: rgba(217, 164, 65, 0.95);
+  color: #1d1005;
+}
+
 .input-icon-container {
   position: relative;
   display: flex;

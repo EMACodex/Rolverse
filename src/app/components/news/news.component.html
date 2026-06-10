@@ -15,29 +15,6 @@
       <div class="news-grid">
         @for (post of paginatedPosts; track post.id) {
           <article class="news-card card">
-            @if (isInternalNews(post) && canDeletePost(post)) {
-              <div class="news-card-actions">
-                @if (canEditPost(post)) {
-                  <a
-                    class="edit-button"
-                    [routerLink]="['/noticias/editar', post.id]"
-                    (click)="$event.stopPropagation()"
-                    title="Editar noticia"
-                  >
-                    Editar noticia
-                  </a>
-                }
-                <button
-                  type="button"
-                  class="delete-button"
-                  (click)="onDeletePost(post.id, $event)"
-                  title="Eliminar noticia"
-                >
-                  Eliminar noticia
-                </button>
-              </div>
-            }
-
             <h3 class="news-title">{{ post.title }}</h3>
 
             <div class="news-meta">
@@ -68,6 +45,29 @@
               <a [routerLink]="['/noticias', post.id]" class="read-news-button">
                 Ver noticia
               </a>
+
+              @if (isInternalNews(post) && canDeletePost(post)) {
+                <div class="news-card-actions">
+                  @if (canEditPost(post)) {
+                    <a
+                      class="edit-button"
+                      [routerLink]="['/noticias/editar', post.id]"
+                      (click)="$event.stopPropagation()"
+                      title="Editar noticia"
+                    >
+                      Editar noticia
+                    </a>
+                  }
+                  <button
+                    type="button"
+                    class="delete-button"
+                    (click)="onDeletePost(post.id, $event)"
+                    title="Eliminar noticia"
+                  >
+                    Eliminar noticia
+                  </button>
+                </div>
+              }
             </div>
           </article>
         }

@@ -3,10 +3,11 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { MaterialModule } from '../../../../material/material.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../../../services/auth.service';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-send-mail',
   standalone: true,
-  imports: [MaterialModule, ReactiveFormsModule],
+  imports: [MaterialModule, ReactiveFormsModule, RouterModule],
   templateUrl: './send-mail.component.html',
   styleUrl: './send-mail.component.css'
 })

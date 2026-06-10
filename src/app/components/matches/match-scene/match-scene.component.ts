@@ -159,6 +159,14 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  canSeeAction(action: MatchAction): boolean {
+    if (action.status === 'approved') {
+      return true;
+    }
+
+    return this.canManage;
+  }
+
   syncEditForm(): void {
     if (!this.match) return;
     this.editForm = {

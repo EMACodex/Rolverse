@@ -28,6 +28,16 @@
   padding: 4px;
 }
 
+.logo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
 /* NAV CENTRADO VISUALMENTE */
 .center-wrapper {
   position: absolute;
@@ -231,6 +241,36 @@
 ::ng-deep .pergamino-menu .mat-menu-item:hover {
   background-color: var(--color-marron-tost);
   color: var(--color-pergamino);
+}
+
+::ng-deep .pergamino-menu .account-menu-item,
+::ng-deep .pergamino-menu a[mat-menu-item],
+::ng-deep .pergamino-menu .mat-mdc-menu-item.account-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  max-width: 260px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+}
+
+::ng-deep .pergamino-menu .account-menu-item {
+  gap: 0.6rem;
+}
+
+::ng-deep .pergamino-menu .account-menu-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+::ng-deep .pergamino-menu .account-menu-text {
+  display: inline-block;
 }
 
 ::ng-deep .transparent-backdrop {

@@ -8,7 +8,7 @@
   background-size: cover;
   position: relative;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: visible;
   padding-top: 134px;
 }
 
@@ -164,6 +164,15 @@
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
   padding: 2rem;
   box-sizing: border-box;
+  overflow: visible;
+}
+
+::ng-deep .tabs-container .mat-mdc-tab-body-wrapper,
+::ng-deep .tabs-container .mat-mdc-tab-body,
+::ng-deep .tabs-container .mat-mdc-tab-body-content {
+  height: auto;
+  max-height: none;
+  overflow: visible !important;
 }
 
 ::ng-deep .mat-tab-label {
@@ -194,24 +203,25 @@
   width: 100%;
   padding: 1.5rem 0 0;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: visible;
 }
 
 .home-matches-section {
   width: 100%;
   padding: 1.5rem 0 0;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: visible;
 }
 
 .home-match-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
   width: 100%;
 }
 
 .home-match-card {
+  width: 100%;
   min-width: 0;
   overflow: hidden;
   border: 1px solid rgba(90, 45, 12, 0.25);
@@ -281,6 +291,32 @@
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
   box-sizing: border-box;
+}
+
+.home-pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  color: var(--color-marron-tost);
+  font-family: "Cinzel", serif;
+}
+
+.home-pagination-controls button {
+  min-height: 40px;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid rgba(90, 45, 12, 0.45);
+  border-radius: 6px;
+  background: var(--color-marron-tost);
+  color: #fff8dc;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.home-pagination-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .home-forum-card-header {
@@ -390,6 +426,10 @@
   .tabs-container {
     width: 92%;
     padding: 1.5rem;
+  }
+
+  .home-match-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .blur-box {
@@ -516,6 +556,15 @@
   .home-forum-grid,
   .home-match-grid {
     grid-template-columns: 1fr;
+  }
+
+  .home-pagination-controls {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .home-pagination-controls button {
+    width: 100%;
   }
 
   .home-forum-card-header {

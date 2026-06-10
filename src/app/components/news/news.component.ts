@@ -21,7 +21,7 @@ export class NewsComponent implements OnInit {
   posts: InternalNews[] = [];
   loading = true;
   currentPage: number = 1;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 8;
 
   constructor(
     private http: HttpClient,

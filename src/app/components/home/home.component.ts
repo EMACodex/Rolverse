@@ -32,9 +32,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   forums: ForumInterface[] = [];
   forumsLoading = false;
   forumsError = '';
+  forumsCurrentPage = 1;
   matches: Match[] = [];
   matchesLoading = false;
   matchesError = '';
+  matchesCurrentPage = 1;
+  readonly itemsPerPage = 8;
   private apiBase = RUTA_API.replace(/\/$/, '');
   readonly fallbackMatchCover = 'assets/img/partidas/partidas.png';
 
@@ -140,6 +143,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.forumService.getAllForums().subscribe({
       next: (response) => {
         this.forums = response.data || [];
+        this.forumsCurrentPage = Math.min(this.forumsCurrentPage, this.forumsTotalPages);
         this.forumsLoading = false;
       },
       error: () => {
@@ -156,7 +160,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.matchService.getMatches().subscribe({
       next: (response) => {
-        this.matches = (response.data || []).slice(0, 6);
+        this.matches = response.data || [];
+        this.matchesCurrentPage = Math.min(this.matchesCurrentPage, this.matchesTotalPages);
         this.matchesLoading = false;
       },
       error: () => {
@@ -179,5 +184,47 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     return `${this.apiBase}${cover.startsWith('/') ? cover : `/${cover}`}`;
+  }
+
+  get paginatedForums(): ForumInterface[] {
+    const start = (this.forumsCurrentPage - 1) * this.itemsPerPage;
+    return this.forums.slice(start, start + this.itemsPerPage);
+  }
+
+  get forumsTotalPages(): number {
+    return Math.max(1, Math.ceil(this.forums.length / this.itemsPerPage));
+  }
+
+  previousForumsPage(): void {
+    if (this.forumsCurrentPage > 1) {
+      this.forumsCurrentPage--;
+    }
+  }
+
+  nextForumsPage(): void {
+    if (this.forumsCurrentPage < this.forumsTotalPages) {
+      this.forumsCurrentPage++;
+    }
+  }
+
+  get paginatedMatches(): Match[] {
+    const start = (this.matchesCurrentPage - 1) * this.itemsPerPage;
+    return this.matches.slice(start, start + this.itemsPerPage);
+  }
+
+  get matchesTotalPages(): number {
+    return Math.max(1, Math.ceil(this.matches.length / this.itemsPerPage));
+  }
+
+  previousMatchesPage(): void {
+    if (this.matchesCurrentPage > 1) {
+      this.matchesCurrentPage--;
+    }
+  }
+
+  nextMatchesPage(): void {
+    if (this.matchesCurrentPage < this.matchesTotalPages) {
+      this.matchesCurrentPage++;
+    }
   }
 }

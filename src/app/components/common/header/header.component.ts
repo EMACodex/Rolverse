@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -20,8 +20,11 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  @ViewChildren(MatMenuTrigger) menuTriggers?: QueryList<MatMenuTrigger>;
+
   isAdmin = false;
   mobileMenuOpen = false;
+  accountMenuOpen = false;
 
   constructor(
     private AuthService: AuthService,
@@ -51,6 +54,51 @@ export class HeaderComponent implements OnInit {
 
   closeAllMenus(): void {
     this.mobileMenuOpen = false;
+    this.accountMenuOpen = false;
+  }
+
+  onAccountMenuOpened(): void {
+    this.accountMenuOpen = true;
+  }
+
+  onAccountMenuClosed(): void {
+    this.accountMenuOpen = false;
+  }
+
+  get accountLabel(): string {
+    const currentUser = this.AuthService.getCurrentUser() as any;
+    return currentUser?.name || 'Mi perfil';
+  }
+
+  goHome(): void {
+    const isHome =
+      this.router.url === '/' ||
+      this.router.url.startsWith('/home');
+
+    this.closeAllMenus();
+
+    if (isHome) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    this.router.navigate(['/']).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    this.closeDropdownsOnly();
+  }
+
+  closeDropdownsOnly(): void {
+    this.accountMenuOpen = false;
+    this.menuTriggers?.forEach((trigger) => {
+      if (trigger.menuOpen) {
+        trigger.closeMenu();
+      }
+    });
   }
 
   isLoggedIn(): boolean {

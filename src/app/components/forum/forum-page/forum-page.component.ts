@@ -25,7 +25,7 @@ export class ForumPageComponent {
   userInfo: tokenData | null = null;
   allForums: ForumInterface[] = [];
   currentPage = 1;
-  itemsPerPage = 10;
+  itemsPerPage = 8;
   editingForum: ForumInterface | null = null;
   editForumData = {
     title: '',

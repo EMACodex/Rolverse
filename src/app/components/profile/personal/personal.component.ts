@@ -130,6 +130,10 @@ export class PersonalComponent {
     return this.user?.name || 'Mi perfil';
   }
 
+  get isAdmin(): boolean {
+    return this.userRole === 'admin';
+  }
+
   onProfileImageSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];

@@ -82,7 +82,7 @@
             <div class="home-forum-state">Todavia no hay partidas disponibles.</div>
           } @else {
             <div class="home-match-grid">
-              @for (match of matches; track match.id) {
+              @for (match of paginatedMatches; track match.id) {
                 <article class="home-match-card">
                   <img [src]="matchCoverUrl(match)" [alt]="match.title" />
                   <div class="home-match-body">
@@ -110,6 +110,25 @@
                 </article>
               }
             </div>
+            @if (matchesTotalPages > 1) {
+              <div class="home-pagination-controls">
+                <button
+                  type="button"
+                  (click)="previousMatchesPage()"
+                  [disabled]="matchesCurrentPage === 1"
+                >
+                  Anterior
+                </button>
+                <span>Pagina {{ matchesCurrentPage }} de {{ matchesTotalPages }}</span>
+                <button
+                  type="button"
+                  (click)="nextMatchesPage()"
+                  [disabled]="matchesCurrentPage === matchesTotalPages"
+                >
+                  Siguiente
+                </button>
+              </div>
+            }
           }
           <a class="home-section-link" routerLink="/partidas">Ir a Partidas</a>
         </section>
@@ -131,7 +150,7 @@
             <div class="home-forum-state">Todavia no hay foros disponibles.</div>
           } @else {
             <div class="home-forum-grid">
-              @for (forum of forums; track forum.id) {
+              @for (forum of paginatedForums; track forum.id) {
                 <article class="home-forum-card">
                   <div class="home-forum-card-header">
                     <h3>{{ forum.title }}</h3>
@@ -154,6 +173,25 @@
                 </article>
               }
             </div>
+            @if (forumsTotalPages > 1) {
+              <div class="home-pagination-controls">
+                <button
+                  type="button"
+                  (click)="previousForumsPage()"
+                  [disabled]="forumsCurrentPage === 1"
+                >
+                  Anterior
+                </button>
+                <span>Pagina {{ forumsCurrentPage }} de {{ forumsTotalPages }}</span>
+                <button
+                  type="button"
+                  (click)="nextForumsPage()"
+                  [disabled]="forumsCurrentPage === forumsTotalPages"
+                >
+                  Siguiente
+                </button>
+              </div>
+            }
           }
         </section>
       </mat-tab>

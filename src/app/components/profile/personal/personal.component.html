@@ -124,8 +124,9 @@
       </form>
     </section>
 
-    <div class="created-content">
-      <section class="created-section">
+    @if (!isAdmin) {
+      <div class="created-content">
+        <section class="created-section">
         <h2>Mis Foros</h2>
         @if (ownForums.length > 0) {
           <div class="created-list">
@@ -144,9 +145,9 @@
         } @else {
           <p class="empty-state">Todavia no has creado foros.</p>
         }
-      </section>
+        </section>
 
-      <section class="created-section">
+        <section class="created-section">
         <h2>Mis Noticias</h2>
         @if (ownNews.length > 0) {
           <div class="created-list">
@@ -160,10 +161,10 @@
         } @else {
           <p class="empty-state">Todavia no has creado noticias.</p>
         }
-      </section>
-    </div>
+        </section>
+      </div>
 
-    <section class="matches-profile-section">
+      <section class="matches-profile-section">
       <h2>Mis Partidas</h2>
 
       <div class="matches-summary">
@@ -266,9 +267,9 @@
           }
         </section>
       </div>
-    </section>
+      </section>
 
-    <section class="invitations-section">
+      <section class="invitations-section">
       <h2>Invitaciones a foros privados</h2>
       @if (pendingInvitations.length > 0) {
         <div class="invitation-list">
@@ -304,9 +305,9 @@
       } @else {
         <p class="empty-state">No tienes invitaciones pendientes.</p>
       }
-    </section>
+      </section>
 
-    <section class="invitations-section">
+      <section class="invitations-section">
       <h2>Invitaciones a partidas</h2>
       @if (pendingMatchInvitations.length > 0) {
         <div class="invitation-list">
@@ -342,7 +343,8 @@
       } @else {
         <p class="empty-state">No tienes invitaciones de partidas pendientes.</p>
       }
-    </section>
+      </section>
+    }
   } @else {
     <p class="loading-state">Cargando perfil...</p>
   }

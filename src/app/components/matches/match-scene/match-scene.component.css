@@ -152,6 +152,20 @@ h3 {
   color: #ffd3c5;
 }
 
+.action-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: max-content;
+  min-height: 0;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .finished-notice,
 .scene-message {
   color: #ffdfb0;
@@ -450,5 +464,10 @@ h3 {
 
   ::ng-deep .scene-tabs .mat-mdc-tab {
     min-width: 128px;
+  }
+
+  .action-status {
+    padding: 0.22rem 0.55rem;
+    font-size: 0.68rem;
   }
 }

@@ -1,9 +1,9 @@
 @if (!isSessionRoute()) {
   <header class="header-container">
     <div class="main-logo-wrapper">
-      <a routerLink="/" (click)="closeAllMenus()">
+      <button type="button" class="logo-button" (click)="goHome()">
         <img src="assets/img/logo.png" alt="Rolverse Logo" class="main-logo" />
-      </a>
+      </button>
     </div>
 
     <!-- Botón para móvil -->
@@ -27,46 +27,46 @@
             class="pergamino-menu"
             backdropClass="transparent-backdrop"
           >
-            <button mat-menu-item routerLink="/personajes" (click)="closeAllMenus()">
+            <a mat-menu-item routerLink="/personajes" (click)="closeAllMenus()">
               <img
                 src="assets/img/personajes dungeon/personajes.png"
                 alt=""
                 class="menu-icon"
               />
               Personajes
-            </button>
-            <button mat-menu-item routerLink="/mapas" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/mapas" (click)="closeAllMenus()">
               <img
                 src="assets/img/mundos dungeon/mapas.png"
                 alt=""
                 class="menu-icon"
               />
               Mapas
-            </button>
-            <button mat-menu-item routerLink="/sistema-de-juego" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/sistema-de-juego" (click)="closeAllMenus()">
               <img
                 src="assets/img/sistema juego dungeon/libro.png"
                 alt=""
                 class="menu-icon"
               />
               Sistema de Juego
-            </button>
-            <button mat-menu-item routerLink="/historias-dungeon" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/historias-dungeon" (click)="closeAllMenus()">
               <img
                 src="assets/img/historia dungeon/historia.png"
                 alt=""
                 class="menu-icon"
               />
               Historia
-            </button>
-            <button mat-menu-item routerLink="/bestiario-dungeon" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/bestiario-dungeon" (click)="closeAllMenus()">
               <img
                 src="assets/img/bestiario dungeon/bestia.png"
                 alt=""
                 class="menu-icon"
               />
               Bestiario
-            </button>
+            </a>
           </mat-menu>
         </div>
 
@@ -90,49 +90,49 @@
             class="pergamino-menu"
             backdropClass="transparent-backdrop"
           >
-            <button mat-menu-item routerLink="/pathfinder-personajes" (click)="closeAllMenus()">
+            <a mat-menu-item routerLink="/pathfinder-personajes" (click)="closeAllMenus()">
               <img
                 src="assets/img/personajes pathfinder/mago.png"
                 alt=""
                 class="menu-icon"
               />
               Personajes
-            </button>
+            </a>
 
-            <button mat-menu-item routerLink="/pathfinder-mapas" (click)="closeAllMenus()">
+            <a mat-menu-item routerLink="/pathfinder-mapas" (click)="closeAllMenus()">
               <img
                 src="assets/img/mundos pathfinder/mapas.png"
                 alt=""
                 class="menu-icon"
               />
               Mapas
-            </button>
+            </a>
 
-            <button mat-menu-item routerLink="/pathfinder-sistema-de-juego" (click)="closeAllMenus()">
+            <a mat-menu-item routerLink="/pathfinder-sistema-de-juego" (click)="closeAllMenus()">
               <img
                 src="assets/img/sistema juego pathfinder/pathfinder.png"
                 alt=""
                 class="menu-icon"
               />
               Sistema de Juego
-            </button>
+            </a>
 
-            <button mat-menu-item routerLink="/pathfinder-historias" (click)="closeAllMenus()">
+            <a mat-menu-item routerLink="/pathfinder-historias" (click)="closeAllMenus()">
               <img
                 src="assets/img/historia pathfinder/historia.png"
                 alt=""
                 class="menu-icon"
               />
               Historia
-            </button>
-            <button mat-menu-item routerLink="/pathfinder-bestiario" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/pathfinder-bestiario" (click)="closeAllMenus()">
               <img
                 src="assets/img/bestiario pathfinder/bestiario.png"
                 alt=""
                 class="menu-icon"
               />
               Bestiario
-            </button>
+            </a>
           </mat-menu>
         </div>
 
@@ -156,46 +156,46 @@
             class="pergamino-menu"
             backdropClass="transparent-backdrop"
           >
-            <button mat-menu-item routerLink="/anima-personajes" (click)="closeAllMenus()">
+            <a mat-menu-item routerLink="/anima-personajes" (click)="closeAllMenus()">
               <img
                 src="assets/img/personajes anima/personajes.png"
                 alt=""
                 class="menu-icon"
               />
               Personajes
-            </button>
-            <button mat-menu-item routerLink="/anima-mapas" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/anima-mapas" (click)="closeAllMenus()">
               <img
                 src="assets/img/mundos anima/mapa.png"
                 alt=""
                 class="menu-icon"
               />
               Mapas
-            </button>
-            <button mat-menu-item routerLink="/anima-sistema-de-juego" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/anima-sistema-de-juego" (click)="closeAllMenus()">
               <img
                 src="assets/img/sistema juego anima/sistema de juego.png"
                 alt=""
                 class="menu-icon"
               />
               Sistema de Juego
-            </button>
-            <button mat-menu-item routerLink="/anima-historias" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/anima-historias" (click)="closeAllMenus()">
               <img
                 src="assets/img/historia anima/historia.png"
                 alt=""
                 class="menu-icon"
               />
               Historia
-            </button>
-            <button mat-menu-item routerLink="/anima-bestiario" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/anima-bestiario" (click)="closeAllMenus()">
               <img
                 src="assets/img/bestiario anima/bestiario.png"
                 alt=""
                 class="menu-icon"
               />
               Bestiario
-            </button>
+            </a>
           </mat-menu>
         </div>
 
@@ -224,46 +224,46 @@
             class="pergamino-menu"
             backdropClass="transparent-backdrop"
           >
-            <button mat-menu-item routerLink="/warhammer-personajes" (click)="closeAllMenus()">
+            <a mat-menu-item routerLink="/warhammer-personajes" (click)="closeAllMenus()">
               <img
                 src="assets/img/personajes warhammer/personaje.png"
                 alt=""
                 class="menu-icon"
               />
               Personajes
-            </button>
-            <button mat-menu-item routerLink="/warhammer-mapas" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/warhammer-mapas" (click)="closeAllMenus()">
               <img
                 src="assets/img/mapas warhammer/mapas.png"
                 alt=""
                 class="menu-icon"
               />
               Mapas
-            </button>
-            <button mat-menu-item routerLink="/warhammer-sistema-de-juego" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/warhammer-sistema-de-juego" (click)="closeAllMenus()">
               <img
                 src="assets/img/sistema juego warhammer/sistema juego.png"
                 alt=""
                 class="menu-icon"
               />
               Sistema de Juego
-            </button>
-            <button mat-menu-item routerLink="/warhammer-historias" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/warhammer-historias" (click)="closeAllMenus()">
               <img
                 src="assets/img/historia warhammer/historia.png"
                 alt=""
                 class="menu-icon"
               />
               Historia
-            </button>
-            <button mat-menu-item routerLink="/warhammer-bestiario" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/warhammer-bestiario" (click)="closeAllMenus()">
               <img
                 src="assets/img/bestiario warhammer/bestiario.png"
                 alt=""
                 class="menu-icon"
               />
               Bestiario
-            </button>
+            </a>
           </mat-menu>
         </div>
 
@@ -289,46 +289,46 @@
             class="pergamino-menu"
             backdropClass="transparent-backdrop"
           >
-            <button mat-menu-item routerLink="/cthulhu-personajes" (click)="closeAllMenus()">
+            <a mat-menu-item routerLink="/cthulhu-personajes" (click)="closeAllMenus()">
               <img
                 src="assets/img/cthulhu personajes/personajes.png"
                 alt=""
                 class="menu-icon"
               />
               Personajes
-            </button>
-            <button mat-menu-item routerLink="/cthulhu-mapas" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/cthulhu-mapas" (click)="closeAllMenus()">
               <img
                 src="assets/img/cthulhu mapas/mapa.png"
                 alt=""
                 class="menu-icon"
               />
               Mapas
-            </button>
-            <button mat-menu-item routerLink="/cthulhu-sistema-de-juego" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/cthulhu-sistema-de-juego" (click)="closeAllMenus()">
               <img
                 src="assets/img/cthulhu sistema de juego/sistema de juego.png"
                 alt=""
                 class="menu-icon"
               />
               Sistema de Juego
-            </button>
-            <button mat-menu-item routerLink="/cthulhu-historias" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/cthulhu-historias" (click)="closeAllMenus()">
               <img
                 src="assets/img/cthulhu historia/historia.png"
                 alt=""
                 class="menu-icon"
               />
               Historia
-            </button>
-            <button mat-menu-item routerLink="/cthulhu-bestiario" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/cthulhu-bestiario" (click)="closeAllMenus()">
               <img
                 src="assets/img/cthulhu bestiario/bestiario.png"
                 alt=""
                 class="menu-icon"
               />
               Bestiario
-            </button>
+            </a>
           </mat-menu>
         </div>
 
@@ -359,22 +359,22 @@
             class="pergamino-menu"
             backdropClass="transparent-backdrop"
           >
-            <button mat-menu-item routerLink="/leyenda-5-anillos-personajes" (click)="closeAllMenus()">
+            <a mat-menu-item routerLink="/leyenda-5-anillos-personajes" (click)="closeAllMenus()">
               <img
                 src="assets/img/leyenda 5 anillos personajes/personajes.png"
                 alt=""
                 class="menu-icon"
               />
               Personajes
-            </button>
-            <button mat-menu-item routerLink="/leyenda-5-anillos-mapas" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/leyenda-5-anillos-mapas" (click)="closeAllMenus()">
               <img
                 src="assets/img/leyenda 5 anillos mapa/mapa.png"
                 alt=""
                 class="menu-icon"
               />
               Mapas
-            </button>
+            </a>
             <button
               mat-menu-item
               routerLink="/leyenda-5-anillos-sistema-de-juego"
@@ -386,22 +386,22 @@
               />
               Sistema de Juego
             </button>
-            <button mat-menu-item routerLink="/leyenda-5-anillos-historias" (click)="closeAllMenus()">
+            <a mat-menu-item routerLink="/leyenda-5-anillos-historias" (click)="closeAllMenus()">
               <img
                 src="assets/img/leyenda 5 anillos historia/historia.png"
                 alt=""
                 class="menu-icon"
               />
               Historia
-            </button>
-            <button mat-menu-item routerLink="/leyenda-5-anillos-bestiario" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/leyenda-5-anillos-bestiario" (click)="closeAllMenus()">
               <img
                 src="assets/img/leyenda 5 anillos bestiario/bestiario.png"
                 alt=""
                 class="menu-icon"
               />
               Bestiario
-            </button>
+            </a>
           </mat-menu>
         </div>
 
@@ -425,46 +425,46 @@
             class="pergamino-menu"
             backdropClass="transparent-backdrop"
           >
-            <button mat-menu-item routerLink="/starwars/personajes" (click)="closeAllMenus()">
+            <a mat-menu-item routerLink="/starwars/personajes" (click)="closeAllMenus()">
               <img
                 src="assets/img/personajes star wars/jedi.png"
                 alt=""
                 class="menu-icon"
               />
               Personajes
-            </button>
-            <button mat-menu-item routerLink="/starwars/planetas" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/starwars/planetas" (click)="closeAllMenus()">
               <img
                 src="assets/img/mundos star wars/mundos.png"
                 alt=""
                 class="menu-icon"
               />
               Planetas
-            </button>
-            <button mat-menu-item routerLink="/starwars/sistema-de-juego" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/starwars/sistema-de-juego" (click)="closeAllMenus()">
               <img
                 src="assets/img/star wars sistema de juego/sistema de juego.png"
                 alt=""
                 class="menu-icon"
               />
               Sistema de Juego
-            </button>
-            <button mat-menu-item routerLink="/starwars/historias" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/starwars/historias" (click)="closeAllMenus()">
               <img
                 src="assets/img/star wars historia/historia.png"
                 alt=""
                 class="menu-icon"
               />
               Historias
-            </button>
-            <button mat-menu-item routerLink="/starwars/bestiario" (click)="closeAllMenus()">
+            </a>
+            <a mat-menu-item routerLink="/starwars/bestiario" (click)="closeAllMenus()">
               <img
                 src="assets/img/star wars bestiario/bestiario.png"
                 alt=""
                 class="menu-icon"
               />
               Bestiario
-            </button>
+            </a>
           </mat-menu>
         </div>
 
@@ -514,13 +514,34 @@
     <div class="login-button-wrapper">
       @if (isLoggedIn()) {
         <div class="auth-buttons">
-          <button class="rpg-login-button" [matMenuTriggerFor]="userMenu">
+          <button
+            class="rpg-login-button"
+            [matMenuTriggerFor]="userMenu"
+            (menuOpened)="onAccountMenuOpened()"
+            (menuClosed)="onAccountMenuClosed()"
+          >
             Mi cuenta ▼
           </button>
 
           <mat-menu #userMenu="matMenu" class="pergamino-menu">
-            <button mat-menu-item (click)="logout()">⚔️ Cerrar Sesión</button>
-            <a mat-menu-item [routerLink]="['/profile']" (click)="closeAllMenus()">Perfil</a>
+            <button
+              mat-menu-item
+              type="button"
+              class="account-menu-item"
+              (click)="logout()"
+            >
+              <span class="account-menu-icon" aria-hidden="true">⚔️</span>
+              <span class="account-menu-text">Cerrar Sesión</span>
+            </button>
+            <a
+              mat-menu-item
+              class="account-menu-item"
+              [routerLink]="['/profile']"
+              (click)="closeAllMenus()"
+            >
+              <span class="account-menu-icon" aria-hidden="true">👤</span>
+              <span class="account-menu-text">{{ accountLabel }}</span>
+            </a>
           </mat-menu>
         </div>
       } @else {
