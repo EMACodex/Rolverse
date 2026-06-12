@@ -1,58 +1,60 @@
 <!-- Vista footer de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 ﻿@if (!isSessionRoute) {
-  <footer class="footer-container">
-    <div class="footer-links">
-      <a routerLink="/about">{{ "FOOTER.ABOUT" | translate }}</a> |
-      <a routerLink="/contact">{{ "FOOTER.CONTACT" | translate }}</a>
-    </div>
+<footer class="footer-container">
+  <div class="footer-links">
+    <a routerLink="/about">{{ "FOOTER.ABOUT" | translate }}</a> |
+    <a routerLink="/contact">{{ "FOOTER.CONTACT" | translate }}</a>
+  </div>
 
-    <div class="footer-socials">
-      <!-- Red social publica de Rolverse. -->
-      <a
-        class="footer-social-link"
-        href="https://www.instagram.com/rolverseoficial/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram de Rolverse"
-      >
-        <img
-          src="assets/img/instagram.png"
-          alt="Instagram Rolverse"
-          class="footer-social-icon"
-        />
-      </a>
+  <div class="footer-socials">
+    <!-- Red social publica de Rolverse. -->
+    <a
+      class="footer-social-link"
+      href="https://www.instagram.com/rolverseoficial/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram de Rolverse"
+    >
+      <img
+        src="assets/img/instagram.png"
+        alt="Instagram Rolverse"
+        class="footer-social-icon"
+      />
+    </a>
 
-      <!-- Descarga de la app de escritorio generada con Electron. -->
-      <a
-        class="footer-app-button"
-        href="assets/downloads/rolverse-desktop.exe"
-        download="Rolverse-Desktop.exe"
-        [attr.aria-label]="'APP_DOWNLOAD.DESKTOP_TITLE' | translate"
-      >
-        <img
-          src="assets/img/app.png"
-          alt="App escritorio Rolverse"
-          class="footer-app-icon"
-        />
-        <span>{{ "APP_DOWNLOAD.DESKTOP" | translate }}</span>
-      </a>
+    <!-- Descarga de la app de escritorio generada con Electron. -->
+    <a
+      class="footer-app-button"
+      href="https://github.com/EMACodex/Rolverse/releases/latest/download/rolverse-desktop.exe"
+      target="_blank"
+      rel="noopener noreferrer"
+      [attr.aria-label]="'APP_DOWNLOAD.DESKTOP_TITLE' | translate"
+    >
+      <img
+        src="assets/img/app.png"
+        alt="App escritorio Rolverse"
+        class="footer-app-icon"
+      />
+      <span>{{ "APP_DOWNLOAD.DESKTOP" | translate }}</span>
+    </a>
 
-      <!-- Descarga de la app movil generada con Capacitor/Android. -->
-      <a
-        class="footer-app-button"
-        href="assets/downloads/rolverse-mobile.apk"
-        download="Rolverse-Mobile.apk"
-        [attr.aria-label]="'APP_DOWNLOAD.MOBILE_TITLE' | translate"
-      >
-        <img
-          src="assets/img/appmovil.png"
-          alt="App móvil Rolverse"
-          class="footer-app-icon"
-        />
-        <span>{{ "APP_DOWNLOAD.MOBILE" | translate }}</span>
-      </a>
-    </div>
+    <!-- Descarga de la app movil generada con Capacitor/Android. -->
+    <a
+      class="footer-app-button"
+      href="https://github.com/EMACodex/Rolverse/releases/latest/download/rolverse-mobile.apk"
+      target="_blank"
+      rel="noopener noreferrer"
+      [attr.aria-label]="'APP_DOWNLOAD.MOBILE_TITLE' | translate"
+    >
+      <img
+        src="assets/img/appmovil.png"
+        alt="App móvil Rolverse"
+        class="footer-app-icon"
+      />
+      <span>{{ "APP_DOWNLOAD.MOBILE" | translate }}</span>
+    </a>
+  </div>
 
-    <p>{{ "FOOTER.RIGHTS" | translate }}</p>
-  </footer>
+  <p>{{ "FOOTER.RIGHTS" | translate }}</p>
+</footer>
 }
