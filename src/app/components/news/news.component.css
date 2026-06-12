@@ -1,3 +1,4 @@
+/* Estilos de la vista news de Rolverse. Mantienen responsive y aspecto existente. */
 .news-page-bg,
 .home-news-section,
 :host {
@@ -11,7 +12,7 @@
   box-sizing: border-box;
   background:
     linear-gradient(#100d0baa, #21130ee8),
-    url("/assets/img/noticias/fondo.png");
+    url("../../../assets/img/noticias/fondo.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

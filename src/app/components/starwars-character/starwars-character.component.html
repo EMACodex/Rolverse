@@ -1,48 +1,26 @@
+<!-- Vista starwars character de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="characters-bg">
   <div class="characters-container">
-    <h1 class="main-title">Personajes de Star Wars</h1>
+    <h1 class="main-title">{{ 'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.HTML_H1_198' | translate }}</h1>
 
     <section class="characters-section">
       <article class="character-card main-character-card">
-        <h2>Qué es un personaje en Star Wars</h2>
+        <h2>{{ 'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.HTML_H2_199' | translate }}</h2>
 
-        <p>
-          Un personaje de Star Wars es mucho más que una ficha de juego. Es una
-          persona, droide, guerrero, piloto, usuario de la Fuerza, explorador o
-          superviviente que vive aventuras dentro de una galaxia marcada por la
-          guerra, la esperanza, la corrupción, los grandes imperios y las
-          pequeñas decisiones personales.
-        </p>
+        <p>{{ 'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.HTML_P_200' | translate }}</p>
 
-        <p>
-          En una partida, los personajes pueden formar parte de una tripulación,
-          una célula rebelde, una orden de usuarios de la Fuerza, una banda de
-          contrabandistas o un grupo de fugitivos perseguidos por una amenaza
-          superior. Cada uno aporta habilidades, conflictos, objetivos y una
-          forma distinta de enfrentarse al peligro.
-        </p>
+        <p>{{ 'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.HTML_P_201' | translate }}</p>
 
-        <p>
-          Para crear un personaje, normalmente se define su origen, su papel en
-          el grupo, sus habilidades principales, su relación con la Fuerza si la
-          tiene, su equipo y su motivación. Lo importante no es que sea
-          perfecto, sino que tenga algo que perder, algo que proteger y una
-          razón para lanzarse a la aventura.
-        </p>
+        <p>{{ 'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.HTML_P_202' | translate }}</p>
 
-        <p>
-          Las mejores historias de Star Wars nacen del contraste entre grandes
-          conflictos galácticos y decisiones personales: salvar a un amigo,
-          resistir la tentación del poder, proteger un planeta, escapar de un
-          enemigo imposible o elegir entre obedecer órdenes o hacer lo correcto.
-        </p>
+        <p>{{ 'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.HTML_P_203' | translate }}</p>
       </article>
 
       <div class="characters-grid">
         @for (character of characterTypes; track character.name) {
           <article class="character-type-card">
-            <h3>{{ character.name }}</h3>
-            <p>{{ character.description }}</p>
+            <h3>{{ character.name | translate }}</h3>
+            <p>{{ character.description | translate }}</p>
           </article>
         }
       </div>
@@ -55,9 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="characters-download-button"
-        >
-          Descargar hojas de personaje de Star Wars
-        </a>
+        >{{ 'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.HTML_A_204' | translate }}</a>
       </div>
 
       }

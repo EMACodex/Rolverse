@@ -1,23 +1,20 @@
+<!-- Vista cthulhu game system de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="system-bg">
   <div class="system-container">
-    <h1 class="main-title">Sistema de Juego Cthulhu</h1>
+    <h1 class="main-title">{{ 'CTHULHU.CTHULHU_GAME_SYSTEM.CTHULHU_GAME_SYSTEM.HTML_H1_52' | translate }}</h1>
 
     <div class="tabs-wrapper">
       <button
         class="tab-button"
         [class.active]="selectedTab === 'resumen'"
         (click)="setTab('resumen')"
-      >
-        Resumen
-      </button>
+      >{{ 'CTHULHU.CTHULHU_GAME_SYSTEM.CTHULHU_GAME_SYSTEM.HTML_BUTTON_59' | translate }}</button>
 
       <button
         class="tab-button"
         [class.active]="selectedTab === 'first'"
         (click)="setTab('first')"
-      >
-        1ª Edición
-      </button>
+      >{{ 'CTHULHU.CTHULHU_GAME_SYSTEM.CTHULHU_GAME_SYSTEM.HTML_BUTTON_60' | translate }}</button>
 
       <button
         class="tab-button"
@@ -31,9 +28,7 @@
         class="tab-button"
         [class.active]="selectedTab === 'fourth'"
         (click)="setTab('fourth')"
-      >
-        4ª Edición
-      </button>
+      >{{ 'CTHULHU.CTHULHU_GAME_SYSTEM.CTHULHU_GAME_SYSTEM.HTML_BUTTON_61' | translate }}</button>
 
       <button
         class="tab-button"
@@ -47,54 +42,31 @@
         class="tab-button"
         [class.active]="selectedTab === 'sixth'"
         (click)="setTab('sixth')"
-      >
-        6ª Edición
-      </button>
+      >{{ 'CTHULHU.CTHULHU_GAME_SYSTEM.CTHULHU_GAME_SYSTEM.HTML_BUTTON_62' | translate }}</button>
 
       <button
         class="tab-button"
         [class.active]="selectedTab === 'seventh'"
         (click)="setTab('seventh')"
-      >
-        7ª Edición
-      </button>
+      >{{ 'CTHULHU.CTHULHU_GAME_SYSTEM.CTHULHU_GAME_SYSTEM.HTML_BUTTON_63' | translate }}</button>
     </div>
 
     @if (selectedTab === "resumen") {
       <section class="summary-section">
         <div class="questions-grid">
           <article class="question-card question-card-wide">
-            <h3>Qué es La Llamada de Cthulhu</h3>
-            <p>
-              La Llamada de Cthulhu es un juego de rol de investigación y horror
-              cósmico donde los jugadores interpretan investigadores,
-              profesores, periodistas, médicos, detectives, ocultistas o
-              personas corrientes que descubren secretos que la humanidad no
-              debería conocer. El Guardián dirige el misterio, describe las
-              escenas, controla a los personajes secundarios y decide cuándo una
-              acción requiere una tirada.
-            </p>
+            <h3>{{ 'CTHULHU.CTHULHU_GAME_SYSTEM.CTHULHU_GAME_SYSTEM.HTML_H3_53' | translate }}</h3>
+            <p>{{ 'CTHULHU.CTHULHU_GAME_SYSTEM.CTHULHU_GAME_SYSTEM.HTML_P_56' | translate }}</p>
           </article>
 
           <article class="question-card">
-            <h3>Cómo evolucionó el sistema</h3>
-            <p>
-              El juego comenzó en 1981 con una base porcentual sencilla y fue
-              refinándose durante varias ediciones. La mayoría conservaron la
-              misma esencia: investigar pistas, enfrentarse al deterioro mental
-              y descubrir horrores de los Mitos. La séptima edición moderniza la
-              presentación y añade reglas más claras.
-            </p>
+            <h3>{{ 'CTHULHU.CTHULHU_GAME_SYSTEM.CTHULHU_GAME_SYSTEM.HTML_H3_54' | translate }}</h3>
+            <p>{{ 'CTHULHU.CTHULHU_GAME_SYSTEM.CTHULHU_GAME_SYSTEM.HTML_P_57' | translate }}</p>
           </article>
 
           <article class="question-card">
-            <h3>Qué edición se juega más actualmente</h3>
-            <p>
-              Actualmente la referencia principal es la séptima edición. Es la
-              más accesible para empezar, mantiene el espíritu clásico y
-              presenta mejor las reglas de dificultad, cordura, tiradas forzadas
-              e investigación.
-            </p>
+            <h3>{{ 'CTHULHU.CTHULHU_GAME_SYSTEM.CTHULHU_GAME_SYSTEM.HTML_H3_55' | translate }}</h3>
+            <p>{{ 'CTHULHU.CTHULHU_GAME_SYSTEM.CTHULHU_GAME_SYSTEM.HTML_P_58' | translate }}</p>
           </article>
         </div>
 
@@ -106,9 +78,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="manual-download-button"
-          >
-            Descargar sistema de juego de Cthulhu
-          </a>
+          >{{ 'CTHULHU.CTHULHU_GAME_SYSTEM.CTHULHU_GAME_SYSTEM.HTML_A_64' | translate }}</a>
         </div>
 
         }

@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-warhammer-ninth-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './warhammer-ninth-edition.component.html',
   styleUrls: ['./warhammer-ninth-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para warhammer ninth edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class WarhammerNinthEditionComponent {
-  title = 'Warhammer 40,000 9ª edición';
+  title = 'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_1';
   period = '2020';
   intro =
-    'La novena edición refinó la base de la octava, poniendo más peso en objetivos primarios, secundarios, control de mesa y misiones equilibradas.';
+    'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_3',
       items: [
-        'Continúa el sistema iniciado en 8ª edición.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_4',
         'Aumenta la importancia del juego competitivo estructurado.',
         'Las misiones y objetivos secundarios se vuelven decisivos.',
         'El control de mesa pasa a ser una parte central de la victoria.',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_5',
       items: [
         'Objetivos primarios y secundarios para puntuar durante la partida.',
-        'Escenografía y cobertura con reglas más concretas.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_6',
         'Estratagemas, rasgos, reliquias y subfacciones siguen teniendo mucho peso.',
-        'Las partidas se diseñan alrededor de puntuar, no solo eliminar unidades.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_7',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_8',
       items: [
-        'El ejército debe ocupar zonas, completar objetivos y sobrevivir.',
-        'La planificación por turnos es muy importante.',
-        'La movilidad y la resistencia de unidades puntúan tanto como el daño.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_9',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_10',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_11',
         'El sistema favorece partidas con misiones bien definidas.',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_12',
       items: [
-        'Antes de empezar, elige objetivos secundarios coherentes con tu ejército.',
-        'No avances sin plan: cada unidad debe tener una función.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_13',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_14',
         'Controla el centro y niega puntos al rival.',
-        'Ideal para grupos que quieren partidas tácticas, equilibradas y centradas en misión.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.NINTH_EDITION.WARHAMMER_NINTH_EDITION.TEXT_15',
       ],
     },
   ];

@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { ForumInvitation } from '../../../interfaces/forum.interface';
 import { ForumService } from '../../../services/forum.service';
-import { RUTA_API } from '../../../../environment';
+import { environment } from '../../../../environments/environment';
 import { Match, MatchInvitation } from '../../../interfaces/match.interface';
 import { MatchService } from '../../../services/match.service';
 import { TranslatePipe } from '../../../pipes/translate.pipe';
@@ -45,6 +45,10 @@ interface OwnNews {
   templateUrl: './personal.component.html',
   styleUrl: './personal.component.css',
 })
+/**
+ * Area personal del usuario.
+ * Agrupa perfil, foto, cambio de contrasena, contenido creado e invitaciones.
+ */
 export class PersonalComponent {
   @ViewChild('profileImageInput')
   profileImageInput?: ElementRef<HTMLInputElement>;
@@ -72,7 +76,7 @@ export class PersonalComponent {
   showNewPassword = false;
   showConfirmPassword = false;
 
-  private apiBase = RUTA_API.replace(/\/$/, '');
+  private apiBase = environment.apiUrl;
   private defaultAvatar = 'assets/img/perfil.png';
 
   constructor(
@@ -82,6 +86,7 @@ export class PersonalComponent {
     private matchService: MatchService,
   ) {}
 
+  /** Gestiona la accion ngOnInit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   ngOnInit() {
     const currentUser = this.authService.getCurrentUser();
 
@@ -136,6 +141,7 @@ export class PersonalComponent {
     return this.userRole === 'admin';
   }
 
+  /** Gestiona la accion onProfileImageSelected dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onProfileImageSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
@@ -170,6 +176,7 @@ export class PersonalComponent {
     });
   }
 
+  /** Gestiona la accion obtenerContenidoPropio dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   obtenerContenidoPropio() {
     this.userService.getOwnContent().subscribe({
       next: (res: any) => {
@@ -183,6 +190,7 @@ export class PersonalComponent {
     });
   }
 
+  /** Gestiona la accion obtenerInvitacionesPartidas dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   obtenerInvitacionesPartidas() {
     this.matchService.getMyMatchInvitations().subscribe({
       next: (res) => {
@@ -194,6 +202,7 @@ export class PersonalComponent {
     });
   }
 
+  /** Gestiona la accion obtenerInvitaciones dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   obtenerInvitaciones() {
     this.forumService.getMyInvitations().subscribe({
       next: (res) => {
@@ -267,6 +276,7 @@ export class PersonalComponent {
     );
   }
 
+  /** Gestiona la accion isDirectorMatch dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   isDirectorMatch(match: Match): boolean {
     const currentUser = this.authService.getCurrentUser();
     return (
@@ -275,10 +285,12 @@ export class PersonalComponent {
     );
   }
 
+  /** Gestiona la accion isPlayerMatch dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   isPlayerMatch(match: Match): boolean {
     return !this.isDirectorMatch(match) && match.role === 'player';
   }
 
+  /** Gestiona la accion matchCoverUrl dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   matchCoverUrl(match: Match): string {
     const cover = match.cover_image_path;
     if (!cover) {
@@ -290,6 +302,7 @@ export class PersonalComponent {
     return `${this.apiBase}${cover.startsWith('/') ? cover : `/${cover}`}`;
   }
 
+  /** Gestiona la accion changePassword dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   changePassword(): void {
     this.passwordError = '';
     this.passwordSuccess = '';

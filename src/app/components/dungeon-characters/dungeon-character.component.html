@@ -1,46 +1,26 @@
+<!-- Vista dungeon character de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="characters-bg">
   <div class="characters-container">
-    <h1 class="main-title">Personajes de Dungeons & Dragons</h1>
+    <h1 class="main-title">{{ 'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.HTML_H1_86' | translate }}</h1>
 
     <section class="characters-section">
       <article class="character-card main-character-card">
-        <h2>Qué es un personaje en Dungeons & Dragons</h2>
+        <h2>{{ 'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.HTML_H2_87' | translate }}</h2>
 
-        <p>
-          Un personaje es el héroe, aventurero o protagonista que interpreta
-          cada jugador dentro de la historia. No es solo una ficha con números:
-          es una identidad dentro del mundo, con una clase, una raza o especie,
-          un pasado, una motivación y una forma concreta de resolver problemas.
-        </p>
+        <p>{{ 'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.HTML_P_88' | translate }}</p>
 
-        <p>
-          En una partida, los personajes exploran mazmorras, hablan con aliados,
-          negocian con enemigos, investigan misterios, combaten criaturas y
-          toman decisiones que pueden cambiar el destino de una aldea, una
-          ciudad o un reino entero.
-        </p>
+        <p>{{ 'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.HTML_P_89' | translate }}</p>
 
-        <p>
-          Para crear un personaje de Dungeons & Dragons, normalmente se elige
-          una clase, una especie, un trasfondo, unos atributos principales,
-          equipo y habilidades. Después, el jugador le da personalidad: qué
-          quiere, qué teme, qué protege y por qué se une al grupo de
-          aventureros.
-        </p>
+        <p>{{ 'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.HTML_P_90' | translate }}</p>
 
-        <p>
-          Un buen personaje no tiene que ser perfecto. Puede ser valiente,
-          cobarde, ambicioso, noble, torpe, arrogante o misterioso. Lo
-          importante es que tenga una razón para vivir aventuras y que pueda
-          crecer a medida que avanza la campaña.
-        </p>
+        <p>{{ 'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.HTML_P_91' | translate }}</p>
       </article>
 
       <div class="characters-grid">
         @for (character of characterTypes; track character.name) {
           <article class="character-type-card">
-            <h3>{{ character.name }}</h3>
-            <p>{{ character.description }}</p>
+            <h3>{{ character.name | translate }}</h3>
+            <p>{{ character.description | translate }}</p>
           </article>
         }
       </div>
@@ -53,9 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="characters-download-button"
-        >
-          Descargar hojas de personaje de D&D
-        </a>
+        >{{ 'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.HTML_A_92' | translate }}</a>
       </div>
 
       }

@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-fourth-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './fourth-edition.component.html',
   styleUrls: ['./fourth-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para fourth edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class FourthEditionComponent {
   title = 'D&D 4e';
   period = '2008';
   intro =
-    'Una edición muy distinta, centrada en el combate táctico, el equilibrio entre clases y una estructura más parecida a videojuegos tácticos o MMO.';
+    'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_1';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_2',
       items: [
-        'Fue una edición muy polémica porque cambió mucho la sensación clásica de D&D.',
-        'Buscó equilibrar mejor a todos los personajes dentro del combate.',
-        'Muchos jugadores la criticaron por sentirse demasiado táctica o similar a un videojuego.',
-        'Aun así, es una edición muy sólida para combates estratégicos.',
+        'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_3',
+        'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_4',
+        'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_5',
+        'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_6',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_7',
       items: [
         'Los personajes tienen poderes organizados por frecuencia de uso.',
         'Poderes a voluntad, por encuentro y diarios.',
-        'Roles claros dentro del grupo: defensor, líder, controlador y golpeador.',
-        'Uso muy importante del mapa, la cuadrícula y el posicionamiento.',
+        'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_8',
+        'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_9',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_10',
       items: [
-        'Combate muy táctico y balanceado.',
-        'Cada clase tiene opciones útiles en combate desde los primeros niveles.',
-        'Sistema pensado para encuentros bien diseñados.',
+        'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_11',
+        'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_12',
+        'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_13',
         'Los monstruos tienen roles y funciones claras dentro de la batalla.',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_14',
       items: [
-        'Funciona muy bien para grupos que disfrutan combates largos y estratégicos.',
-        'Menos centrada en improvisación narrativa que 5e.',
+        'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_15',
+        'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_16',
         'Ideal para tableros, miniaturas y mapas detallados.',
-        'Puede no gustar a quienes buscan una experiencia más libre y narrativa.',
+        'DND.DUNGEON_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_17',
       ],
     },
   ];

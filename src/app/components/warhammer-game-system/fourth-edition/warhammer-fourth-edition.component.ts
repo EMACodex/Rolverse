@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-warhammer-fourth-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './warhammer-fourth-edition.component.html',
   styleUrls: ['./warhammer-fourth-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para warhammer fourth edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class WarhammerFourthEditionComponent {
-  title = 'Warhammer 40,000 4ª edición';
+  title = 'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_1';
   period = '2004';
   intro =
-    'La cuarta edición refinó la base de la tercera, manteniendo el mismo espíritu pero ajustando reglas, vehículos, cobertura y misiones para crear partidas más sólidas.';
+    'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_3',
       items: [
-        'No rompe completamente con 3ª edición, sino que la mejora y corrige.',
-        'Mantiene el juego de ejércitos por puntos y codex de facción.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_4',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_5',
         'Refuerza la importancia de misiones y objetivos.',
-        'Es una edición de transición hacia un sistema más pulido.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_6',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_7',
       items: [
-        'Mejor organización de disparo, asalto, moral y cobertura.',
-        'Los vehículos y escenografía tienen reglas más claras.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_8',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_9',
         'El control de objetivos gana importancia.',
-        'Se mantiene la estructura clásica de fases.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_10',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_11',
       items: [
-        'Cada turno avanza por fases y cada ejército intenta cumplir la misión.',
-        'La colocación de unidades y el uso del terreno son muy importantes.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_12',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_13',
         'El jugador debe equilibrar potencia de fuego, movilidad y resistencia.',
         'Funciona bien para batallas medianas con objetivos narrativos o competitivos.',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_14',
       items: [
-        'Construye una lista equilibrada con tropas, élites, apoyo y personajes.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_15',
         'No juegues solo a destruir: prepara objetivos en el tablero.',
         'Usa coberturas para proteger unidades clave.',
-        'Buena edición para campañas militares sencillas y partidas de control territorial.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FOURTH_EDITION.WARHAMMER_FOURTH_EDITION.TEXT_16',
       ],
     },
   ];

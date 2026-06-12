@@ -1,93 +1,62 @@
+<!-- Vista five rings game system de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="system-bg">
   <div class="system-container">
-    <h1 class="main-title">Sistema de Juego La Leyenda de los 5 Anillos</h1>
+    <h1 class="main-title">{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_H1_128' | translate }}</h1>
 
     <div class="tabs-wrapper">
       <button
         class="tab-button"
         [class.active]="selectedTab === 'resumen'"
         (click)="setTab('resumen')"
-      >
-        Resumen
-      </button>
+      >{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_BUTTON_135' | translate }}</button>
 
       <button
         class="tab-button"
         [class.active]="selectedTab === 'first'"
         (click)="setTab('first')"
-      >
-        1ª Edición
-      </button>
+      >{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_BUTTON_136' | translate }}</button>
 
       <button
         class="tab-button"
         [class.active]="selectedTab === 'second'"
         (click)="setTab('second')"
-      >
-        2ª Edición
-      </button>
+      >{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_BUTTON_137' | translate }}</button>
 
       <button
         class="tab-button"
         [class.active]="selectedTab === 'third'"
         (click)="setTab('third')"
-      >
-        3ª Edición
-      </button>
+      >{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_BUTTON_138' | translate }}</button>
 
       <button
         class="tab-button"
         [class.active]="selectedTab === 'fourth'"
         (click)="setTab('fourth')"
-      >
-        4ª Edición
-      </button>
+      >{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_BUTTON_139' | translate }}</button>
 
       <button
         class="tab-button"
         [class.active]="selectedTab === 'fifth'"
         (click)="setTab('fifth')"
-      >
-        5ª Edición
-      </button>
+      >{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_BUTTON_140' | translate }}</button>
     </div>
 
     @if (selectedTab === "resumen") {
       <section class="summary-section">
         <div class="questions-grid">
           <article class="question-card question-card-wide">
-            <h3>Qué es La Leyenda de los 5 Anillos</h3>
-            <p>
-              La Leyenda de los 5 Anillos es un juego de rol ambientado en
-              Rokugán, un imperio inspirado en la fantasía samurái, los clanes,
-              la política cortesana, los duelos de honor, la guerra, los kami y
-              las amenazas espirituales. Los jugadores interpretan samuráis,
-              cortesanos, shugenja, monjes, exploradores o guerreros al servicio
-              de su clan, atrapados entre el deber, el honor, los sentimientos y
-              las órdenes de sus superiores.
-            </p>
+            <h3>{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_H3_129' | translate }}</h3>
+            <p>{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_P_132' | translate }}</p>
           </article>
 
           <article class="question-card">
-            <h3>Cómo evolucionó el sistema</h3>
-            <p>
-              Las primeras cuatro ediciones usaban el sistema clásico Roll &
-              Keep con dados de diez caras. La quinta edición cambió hacia un
-              sistema más narrativo con dados especiales, estrés emocional,
-              oportunidades y decisiones centradas en el conflicto interno del
-              personaje.
-            </p>
+            <h3>{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_H3_130' | translate }}</h3>
+            <p>{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_P_133' | translate }}</p>
           </article>
 
           <article class="question-card">
-            <h3>Qué edición se juega más actualmente</h3>
-            <p>
-              Actualmente se suelen encontrar dos líneas fuertes: la cuarta
-              edición, muy querida por quienes prefieren el sistema clásico, y
-              la quinta edición, más moderna y narrativa. La elección depende de
-              si el grupo quiere reglas tradicionales o una experiencia más
-              dramática y emocional.
-            </p>
+            <h3>{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_H3_131' | translate }}</h3>
+            <p>{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_P_134' | translate }}</p>
           </article>
         </div>
 
@@ -99,9 +68,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="manual-download-button"
-          >
-            Descargar sistema de juego de la leyenda de los 5 anillos
-          </a>
+          >{{ 'L5R.FIVE_RINGS_GAME_SYSTEM.FIVE_RINGS_GAME_SYSTEM.HTML_A_141' | translate }}</a>
         </div>
 
         }

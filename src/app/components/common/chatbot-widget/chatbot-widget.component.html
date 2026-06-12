@@ -1,0 +1,145 @@
+<!-- Vista chatbot widget de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
+<button
+  type="button"
+  class="chatbot-floating-button"
+  (click)="openChat()"
+  [attr.aria-label]="'CHATBOT.OPEN' | translate"
+>
+  <img src="assets/img/chatbot.png" alt="Gandalf" />
+</button>
+
+@if (isOpen) {
+  <section class="chatbot-window" aria-live="polite">
+    <header class="chatbot-header">
+      <div class="chatbot-title">
+        <img src="assets/img/chatbot.png" alt="" />
+        <span>{{ 'CHATBOT.TITLE' | translate }}</span>
+      </div>
+
+      <button
+        type="button"
+        class="chatbot-close-button"
+        (click)="closeChat()"
+        [attr.aria-label]="'CHATBOT.CLOSE' | translate"
+      >
+        <span class="close-icon">X</span>
+      </button>
+    </header>
+
+    <div #messagesPanel class="chatbot-messages">
+      @for (message of messages; track $index) {
+        <article
+          class="chatbot-message"
+          [class.user]="message.sender === 'user'"
+          [class.bot]="message.sender === 'bot'"
+          [class.error]="message.error"
+        >
+          @if (message.content) {
+            <div class="chatbot-bubble">{{ message.content }}</div>
+          }
+
+          @if (message.imageUrl) {
+            <img
+              class="chatbot-message-image"
+              [src]="message.imageUrl"
+              alt="Imagen del chat"
+            />
+          }
+
+          @if (message.downloadable && message.imageUrl) {
+            <a
+              class="chatbot-download-button"
+              [href]="message.imageUrl"
+              download="rolverse-imagen.png"
+            >
+              {{ 'CHATBOT.DOWNLOAD_IMAGE' | translate }}
+            </a>
+          }
+        </article>
+      }
+
+      @if (isLoading) {
+        <div class="chatbot-message bot">
+          <div class="chatbot-bubble">{{ 'CHATBOT.THINKING' | translate }}</div>
+        </div>
+      }
+    </div>
+
+    <div class="chatbot-input-area">
+      <div class="chatbot-mode-row">
+        <span>{{ 'CHATBOT.RESPONSE_TYPE' | translate }}</span>
+        <div class="chatbot-mode-options">
+          <button
+            type="button"
+            [class.active]="responseMode === 'text'"
+            (click)="setResponseMode('text')"
+          >
+            {{ 'CHATBOT.TEXT_MODE' | translate }}
+          </button>
+          <button
+            type="button"
+            [class.active]="responseMode === 'image'"
+            (click)="setResponseMode('image')"
+          >
+            {{ 'CHATBOT.IMAGE_MODE' | translate }}
+          </button>
+        </div>
+      </div>
+
+      @if (selectedImagePreview) {
+        <div class="chatbot-preview">
+          <img [src]="selectedImagePreview" alt="Imagen adjunta" />
+          <button type="button" (click)="removeImage()">
+            {{ 'CHATBOT.REMOVE_IMAGE' | translate }}
+          </button>
+        </div>
+      }
+
+      <textarea
+        [(ngModel)]="userInput"
+        (ngModelChange)="onInputChange()"
+        [maxlength]="maxCharacters"
+        [placeholder]="'CHATBOT.PLACEHOLDER' | translate"
+        [disabled]="limitReached || isLoading"
+      ></textarea>
+
+      <div class="chatbot-counters">
+        <span>{{ 'CHATBOT.CHARS_LEFT' | translate }}: {{ charactersLeft }}</span>
+        <span>{{ 'CHATBOT.MESSAGES_LEFT' | translate }}: {{ messagesLeft }}</span>
+      </div>
+
+      @if (validationMessage) {
+        <div class="chatbot-validation">{{ validationMessage }}</div>
+      }
+
+      @if (limitReached) {
+        <div class="chatbot-validation">{{ 'CHATBOT.LIMIT_REACHED' | translate }}</div>
+      }
+
+      <div class="chatbot-actions">
+        <label class="chatbot-attach-button">
+          {{ 'CHATBOT.ATTACH_IMAGE' | translate }}
+          <input
+            type="file"
+            accept="image/png,image/jpeg,image/webp"
+            (change)="onImageSelected($event)"
+            [disabled]="limitReached || isLoading"
+          />
+        </label>
+
+        <button type="button" class="chatbot-clear-button" (click)="resetChat()">
+          {{ 'CHATBOT.CLEAR' | translate }}
+        </button>
+
+        <button
+          type="button"
+          class="chatbot-send-button"
+          (click)="sendMessage()"
+          [disabled]="limitReached || isLoading"
+        >
+          {{ 'CHATBOT.SEND' | translate }}
+        </button>
+      </div>
+    </div>
+  </section>
+}

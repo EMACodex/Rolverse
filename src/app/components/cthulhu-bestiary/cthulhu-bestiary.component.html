@@ -1,46 +1,26 @@
+<!-- Vista cthulhu bestiary de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="bestiary-bg">
   <div class="bestiary-container">
-    <h1 class="main-title">Bestiario de Cthulhu</h1>
+    <h1 class="main-title">{{ 'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.HTML_H1_39' | translate }}</h1>
 
     <section class="bestiary-section">
       <article class="bestiary-card main-bestiary-card">
-        <h2>Qué es un bestiario en Cthulhu</h2>
+        <h2>{{ 'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.HTML_H2_40' | translate }}</h2>
 
-        <p>
-          Un bestiario en Cthulhu no funciona como una simple lista de monstruos
-          para combatir. En este tipo de juego, las criaturas representan el
-          miedo a lo desconocido, la fragilidad humana y la existencia de fuerzas
-          antiguas que no pueden comprenderse por completo.
-        </p>
+        <p>{{ 'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.HTML_P_41' | translate }}</p>
 
-        <p>
-          Muchas amenazas no deben aparecer de golpe. Primero se muestran sus
-          consecuencias: una desaparición, un símbolo repetido, un cadáver
-          imposible, una grabación extraña, un sueño compartido o un pueblo que
-          oculta demasiado. La criatura suele ser el final de una investigación,
-          no el comienzo.
-        </p>
+        <p>{{ 'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.HTML_P_42' | translate }}</p>
 
-        <p>
-          El Guardián puede usar el bestiario para crear tensión, pistas y
-          escenas de horror. Algunas criaturas pueden ser enfrentadas, otras
-          deben evitarse, sellarse o entenderse lo suficiente como para impedir
-          que su influencia siga creciendo.
-        </p>
+        <p>{{ 'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.HTML_P_43' | translate }}</p>
 
-        <p>
-          En una partida de Cthulhu, el verdadero peligro no siempre es morir.
-          También puede ser perder la cordura, descubrir una verdad insoportable
-          o comprender que el mundo humano es solo una pequeña capa sobre algo
-          mucho más antiguo y oscuro.
-        </p>
+        <p>{{ 'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.HTML_P_44' | translate }}</p>
       </article>
 
       <div class="creatures-grid">
         @for (creature of creatures; track creature.name) {
           <article class="creature-card">
-            <h3>{{ creature.name }}</h3>
-            <p>{{ creature.description }}</p>
+            <h3>{{ creature.name | translate }}</h3>
+            <p>{{ creature.description | translate }}</p>
           </article>
         }
       </div>
@@ -53,9 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="bestiary-download-button"
-        >
-          Descargar bestiario de Cthulhu
-        </a>
+        >{{ 'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.HTML_A_45' | translate }}</a>
       </div>
 
       }

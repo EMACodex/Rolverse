@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-warhammer-stories',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './warhammer-stories.component.html',
   styleUrls: ['./warhammer-stories.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para warhammer stories.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class WarhammerStoriesComponent {
   readonly authService = inject(AuthService);
   readonly warhammerStoriesPdfUrl =
@@ -15,22 +21,22 @@ export class WarhammerStoriesComponent {
     {
       title: 'El Imperio de la Humanidad',
       description:
-        'La humanidad sobrevive en un imperio inmenso, decadente y brutal. Millones de mundos sirven al Emperador, mientras inquisidores, soldados, nobles, sacerdotes y burócratas intentan mantener unido un sistema que se desmorona lentamente.',
+        'WARHAMMER.WARHAMMER_STORIES.WARHAMMER_STORIES.TEXT_1',
     },
     {
-      title: 'Herejía, fe y corrupción',
+      title: 'WARHAMMER.WARHAMMER_STORIES.WARHAMMER_STORIES.TEXT_2',
       description:
-        'La historia de Warhammer está marcada por la sospecha, la religión y el miedo a la corrupción. Cultos secretos, pactos prohibidos, posesiones demoníacas y traiciones internas pueden convertir una simple investigación en una campaña oscura.',
+        'WARHAMMER.WARHAMMER_STORIES.WARHAMMER_STORIES.TEXT_3',
     },
     {
       title: 'Guerras eternas',
       description:
-        'Cada planeta puede convertirse en un campo de batalla. Marines Espaciales, Guardia Imperial, Orkos, Tiránidos, Necrones, Eldars, fuerzas del Caos y otras facciones luchan por territorio, supervivencia, recursos, venganza o fe.',
+        'WARHAMMER.WARHAMMER_STORIES.WARHAMMER_STORIES.TEXT_4',
     },
     {
       title: 'Ruinas, reliquias y mundos perdidos',
       description:
-        'Las aventuras pueden girar alrededor de tecnologías antiguas, fortalezas olvidadas, naves espaciales abandonadas, templos contaminados, ciudades colmena o planetas sepultados por guerras de hace miles de años.',
+        'WARHAMMER.WARHAMMER_STORIES.WARHAMMER_STORIES.TEXT_5',
     },
   ];
 }

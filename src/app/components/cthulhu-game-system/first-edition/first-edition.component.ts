@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-cthulhu-first-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './first-edition.component.html',
   styleUrls: ['./first-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para first edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class CthulhuFirstEditionComponent {
-  title = 'La Llamada de Cthulhu 1ª Edición';
+  title = 'CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_1';
   period = '1981';
   intro =
-    'La primera edición de La Llamada de Cthulhu presentó una forma distinta de jugar rol: personajes normales investigando horrores imposibles, con el miedo y la cordura como centro de la experiencia.';
+    'CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_2';
 
   cards = [
     {
-        "title": "Historia",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_3",
         "items": [
-            "Publicada por Chaosium en 1981 como juego de investigación y horror inspirado en los Mitos de Lovecraft.",
-            "Usa como base Basic Role-Playing, alejándose del avance heroico típico de la fantasía medieval.",
-            "Introdujo una estructura de juego donde descubrir la verdad puede ser más importante que ganar un combate.",
-            "La figura del Guardián sustituye al director heroico tradicional y controla pistas, cultos, criaturas y consecuencias."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_4",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_5",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_6",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_7"
         ]
     },
     {
-        "title": "Reglas principales",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_8",
         "items": [
             "Los personajes son investigadores con profesiones, habilidades porcentuales y recursos humanos limitados.",
-            "La mayoría de acciones se resuelven tirando dados percentiles contra el valor de una habilidad.",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_9",
             "La Cordura mide la estabilidad mental del investigador ante sucesos imposibles.",
-            "El combate es peligroso y no está pensado para resolver todos los problemas a golpes."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_10"
         ]
     },
     {
-        "title": "Sistema de juego",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_11",
         "items": [
-            "El centro de la partida es investigar pistas, entrevistar testigos, consultar archivos y unir información.",
-            "El Guardián prepara un misterio con una verdad oculta y varias formas de llegar a ella.",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_12",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_13",
             "Los investigadores pueden morir, enloquecer o quedar marcados por lo que descubren.",
             "El horror funciona mejor cuando la amenaza se muestra poco a poco."
         ]
     },
     {
-        "title": "Forma de jugar",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_14",
         "items": [
-            "Crea una investigación sencilla: desaparición, asesinato extraño, objeto maldito o culto local.",
-            "Entrega pistas aunque fallen tiradas importantes, pero añade coste, retraso o peligro.",
-            "Evita convertir la partida en una sucesión de combates.",
-            "Termina con una revelación inquietante, una decisión moral o una huida desesperada."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_15",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_16",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_17",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FIRST_EDITION.FIRST_EDITION.TEXT_18"
         ]
     }
 ];

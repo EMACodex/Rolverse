@@ -1,15 +1,14 @@
+<!-- Vista pathfinder game system de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="system-bg">
   <div class="system-container">
-    <h1 class="main-title">Sistema de Juego Pathfinder</h1>
+    <h1 class="main-title">{{ 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_GAME_SYSTEM.HTML_H1_169' | translate }}</h1>
 
     <div class="tabs-wrapper">
       <button
         class="tab-button"
         [class.active]="selectedTab === 'resumen'"
         (click)="setTab('resumen')"
-      >
-        Resumen
-      </button>
+      >{{ 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_GAME_SYSTEM.HTML_BUTTON_176' | translate }}</button>
 
       <button
         class="tab-button"
@@ -40,35 +39,18 @@
       <section class="summary-section">
         <div class="questions-grid">
           <article class="question-card question-card-wide">
-            <h3>Qué es Pathfinder</h3>
-            <p>
-              Pathfinder es un juego de rol de fantasía donde los jugadores
-              interpretan héroes, exploradores, guerreros, lanzadores de
-              conjuros, pícaros, campeones o aventureros dentro de un mundo
-              lleno de ruinas antiguas, monstruos, magia, dioses, imperios y
-              amenazas sobrenaturales. Las partidas son dirigidas por un Game
-              Master, que presenta la historia, describe los escenarios,
-              controla a los enemigos y decide cuándo las acciones necesitan una
-              tirada de dados.
-            </p>
+            <h3>{{ 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_GAME_SYSTEM.HTML_H3_170' | translate }}</h3>
+            <p>{{ 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_GAME_SYSTEM.HTML_P_173' | translate }}</p>
           </article>
 
           <article class="question-card">
-            <h3>Cómo evolucionó el sistema</h3>
-            <p>
-              Pathfinder empezó como una evolución del estilo d20 y D&D 3.5.
-              Después pasó a una segunda edición más ordenada, equilibrada y
-              táctica, con reglas propias más claras.
-            </p>
+            <h3>{{ 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_GAME_SYSTEM.HTML_H3_171' | translate }}</h3>
+            <p>{{ 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_GAME_SYSTEM.HTML_P_174' | translate }}</p>
           </article>
 
           <article class="question-card">
-            <h3>Qué versión se juega más actualmente</h3>
-            <p>
-              Actualmente la base moderna más recomendable es Pathfinder 2e
-              junto con su Remaster, porque está más organizada, tiene mejor
-              equilibrio y resulta más clara para campañas nuevas.
-            </p>
+            <h3>{{ 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_GAME_SYSTEM.HTML_H3_172' | translate }}</h3>
+            <p>{{ 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_GAME_SYSTEM.HTML_P_175' | translate }}</p>
           </article>
         </div>
 
@@ -80,9 +62,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="manual-download-button"
-          >
-            Descargar manual completo de Pathfinder
-          </a>
+          >{{ 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_GAME_SYSTEM.HTML_A_177' | translate }}</a>
         </div>
 
         }

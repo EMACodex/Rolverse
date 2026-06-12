@@ -1,51 +1,57 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-cthulhu-second-third-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './second-third-edition.component.html',
   styleUrls: ['./second-third-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para second third edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class CthulhuSecondThirdEditionComponent {
-  title = 'La Llamada de Cthulhu 2ª y 3ª Edición';
+  title = 'CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_1';
   period = '1983 - 1986';
   intro =
-    'Estas ediciones reorganizaron y ampliaron la base inicial, manteniendo la esencia de investigación, horror cósmico y personajes vulnerables frente a secretos demasiado grandes para comprenderlos.';
+    'CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_2';
 
   cards = [
     {
-        "title": "Historia",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_3",
         "items": [
-            "La segunda edición refinó reglas y presentación respecto a la primera caja.",
-            "La tercera edición separó mejor material de jugador y Guardián, facilitando dirigir investigaciones.",
-            "Durante esta etapa se consolidó la identidad clásica del juego: años veinte, bibliotecas, mansiones, cultos y criaturas de los Mitos.",
-            "Muchas aventuras antiguas siguen siendo fáciles de adaptar a versiones modernas."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_4",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_5",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_6",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_7"
         ]
     },
     {
-        "title": "Reglas principales",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_8",
         "items": [
-            "El núcleo sigue siendo porcentual: si la tirada es igual o inferior a la habilidad, la acción funciona.",
-            "Las habilidades reflejan profesiones como detective, profesor, médico, periodista o anticuario.",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_9",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_10",
             "La Cordura baja al enfrentarse a horrores, textos prohibidos o verdades imposibles.",
             "Las armas de fuego son peligrosas, pero rara vez bastan contra entidades mayores."
         ]
     },
     {
-        "title": "Sistema de juego",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_11",
         "items": [
-            "Las partidas se construyen como investigaciones con capas de información.",
-            "El Guardián controla ritmo, pistas, tensión y consecuencias.",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_12",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_13",
             "El grupo avanza preguntando, investigando lugares, revisando documentos y tomando decisiones arriesgadas.",
             "El fracaso suele transformar la historia en tragedia, no bloquearla por completo."
         ]
     },
     {
-        "title": "Forma de jugar",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_14",
         "items": [
-            "Empieza con un caso cercano: un amigo desaparecido, una herencia extraña o un crimen sin explicación.",
-            "Prepara tres tipos de pistas: físicas, sociales y documentales.",
-            "Haz que cada pista señale al menos dos caminos posibles.",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_15",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_16",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SECOND_THIRD_EDITION.SECOND_THIRD_EDITION.TEXT_17",
             "La escena final debe revelar que el problema humano era solo la superficie de algo mayor."
         ]
     }

@@ -1,46 +1,26 @@
+<!-- Vista starwars bestiary de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="bestiary-bg">
   <div class="bestiary-container">
-    <h1 class="main-title">Bestiario de Star Wars</h1>
+    <h1 class="main-title">{{ 'STAR_WARS.STARWARS_BESTIARY.STARWARS_BESTIARY.HTML_H1_191' | translate }}</h1>
 
     <section class="bestiary-section">
       <article class="bestiary-card main-bestiary-card">
-        <h2>Qué es un bestiario en Star Wars</h2>
+        <h2>{{ 'STAR_WARS.STARWARS_BESTIARY.STARWARS_BESTIARY.HTML_H2_192' | translate }}</h2>
 
-        <p>
-          Un bestiario de Star Wars reúne criaturas, monstruos, droides hostiles
-          y amenazas alienígenas que pueden aparecer durante una partida. No se
-          limita a enemigos para combatir: también sirve para crear tensión,
-          exploración, persecuciones, escenas de supervivencia y momentos de
-          peligro en planetas desconocidos.
-        </p>
+        <p>{{ 'STAR_WARS.STARWARS_BESTIARY.STARWARS_BESTIARY.HTML_P_193' | translate }}</p>
 
-        <p>
-          En una aventura de Star Wars, una criatura puede proteger una ruina
-          antigua, habitar una cueva de hielo, ser usada como castigo por un
-          sindicato criminal, atacar una caravana en el desierto o convertirse en
-          el obstáculo principal de una misión de rescate.
-        </p>
+        <p>{{ 'STAR_WARS.STARWARS_BESTIARY.STARWARS_BESTIARY.HTML_P_194' | translate }}</p>
 
-        <p>
-          El bestiario ayuda al director de juego a dar personalidad a cada
-          planeta. Un mundo helado no se siente igual que una luna selvática, un
-          planeta desértico, una estación abandonada o una zona contaminada por
-          tecnología imperial. Las criaturas hacen que cada escenario tenga sus
-          propios riesgos.
-        </p>
+        <p>{{ 'STAR_WARS.STARWARS_BESTIARY.STARWARS_BESTIARY.HTML_P_195' | translate }}</p>
 
-        <p>
-          Para usar bien una bestia en Star Wars, piensa dónde vive, por qué es
-          peligrosa, qué la ha atraído hasta los personajes y cómo pueden
-          resolver la escena sin que todo tenga que acabar siempre en combate.
-        </p>
+        <p>{{ 'STAR_WARS.STARWARS_BESTIARY.STARWARS_BESTIARY.HTML_P_196' | translate }}</p>
       </article>
 
       <div class="creatures-grid">
         @for (creature of creatures; track creature.name) {
           <article class="creature-card">
-            <h3>{{ creature.name }}</h3>
-            <p>{{ creature.description }}</p>
+            <h3>{{ creature.name | translate }}</h3>
+            <p>{{ creature.description | translate }}</p>
           </article>
         }
       </div>
@@ -53,9 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="bestiary-download-button"
-        >
-          Descargar bestiario de Star Wars
-        </a>
+        >{{ 'STAR_WARS.STARWARS_BESTIARY.STARWARS_BESTIARY.HTML_A_197' | translate }}</a>
       </div>
 
       }

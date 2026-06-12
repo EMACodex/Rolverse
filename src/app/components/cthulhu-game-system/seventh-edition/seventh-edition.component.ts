@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-cthulhu-seventh-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './seventh-edition.component.html',
   styleUrls: ['./seventh-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para seventh edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class CthulhuSeventhEditionComponent {
-  title = 'La Llamada de Cthulhu 7ª Edición';
+  title = 'CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_1';
   period = '2014 - actual';
   intro =
-    'La séptima edición es la versión moderna más usada. Reorganiza reglas, mejora claridad, introduce grados de éxito y mantiene el corazón del juego: investigación, horror y cordura.';
+    'CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_2';
 
   cards = [
     {
-        "title": "Historia",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_3",
         "items": [
-            "La séptima edición fue una revisión importante del sistema clásico.",
-            "Separó y reorganizó mejor el material para jugadores e investigadores y para el Guardián.",
-            "Es la edición recomendada para comenzar actualmente.",
-            "Mantiene compatibilidad de tono con el material clásico, pero con reglas más limpias."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_4",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_5",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_6",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_7"
         ]
     },
     {
-        "title": "Reglas principales",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_8",
         "items": [
             "Las habilidades se expresan en porcentajes y se tiran dados percentiles.",
-            "Introduce grados de dificultad como normal, difícil y extremo usando fracciones del valor de habilidad.",
-            "Las tiradas forzadas permiten repetir una acción, pero si fallan generan una consecuencia peor.",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_9",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_10",
             "La Cordura sigue midiendo el impacto mental de horrores, tomos prohibidos y criaturas de los Mitos."
         ]
     },
     {
-        "title": "Sistema de juego",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_11",
         "items": [
-            "El Guardián estructura el caso con pistas esenciales, pistas secundarias y escenas de peligro.",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_12",
             "Los investigadores avanzan entrevistando, buscando pruebas, investigando documentos y conectando hechos.",
-            "Las tiradas no deben bloquear la historia: si una pista es necesaria, se entrega con coste o complicación.",
-            "El horror se apoya en la incertidumbre, la pérdida de control y la revelación gradual."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_13",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_14"
         ]
     },
     {
-        "title": "Forma de jugar",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_15",
         "items": [
-            "Crea investigadores con profesión clara, vínculos personales y una razón para meterse en el caso.",
-            "Usa tiradas cuando exista riesgo real, presión de tiempo o consecuencias dramáticas.",
-            "Combina escenas tranquilas de investigación con momentos de pánico o descubrimiento.",
-            "El final puede ser resolver el caso, retrasar un ritual, salvar a una víctima o sobrevivir con la mente rota."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_16",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_17",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_18",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SEVENTH_EDITION.SEVENTH_EDITION.TEXT_19"
         ]
     }
 ];

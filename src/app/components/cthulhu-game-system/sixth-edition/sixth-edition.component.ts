@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-cthulhu-sixth-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './sixth-edition.component.html',
   styleUrls: ['./sixth-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para sixth edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class CthulhuSixthEditionComponent {
-  title = 'La Llamada de Cthulhu 6ª Edición';
+  title = 'CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_1';
   period = '2004';
   intro =
-    'La sexta edición mantuvo la continuidad del sistema clásico y sirvió durante años como una de las formas más extendidas de jugar La Llamada de Cthulhu antes de la llegada de la séptima.';
+    'CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_2';
 
   cards = [
     {
-        "title": "Historia",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_3",
         "items": [
-            "La sexta edición continuó la línea clásica con pocos cambios drásticos.",
-            "Fue una edición muy usada para campañas, módulos y material de horror lovecraftiano.",
-            "Conservó la compatibilidad con décadas de aventuras anteriores.",
-            "Para muchos jugadores representa la etapa final del Cthulhu clásico antes de la revisión moderna."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_4",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_5",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_6",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_7"
         ]
     },
     {
-        "title": "Reglas principales",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_8",
         "items": [
-            "Mantiene el sistema percentil y las habilidades como eje de resolución.",
-            "La Cordura, los Mitos de Cthulhu y el deterioro psicológico siguen siendo fundamentales.",
-            "Los personajes son investigadores vulnerables, no héroes de acción.",
-            "La investigación, la documentación y las decisiones prudentes pesan más que el combate."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_9",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_10",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_11",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_12"
         ]
     },
     {
-        "title": "Sistema de juego",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_13",
         "items": [
-            "Muy apropiada para campañas tradicionales de los años veinte o investigaciones históricas.",
-            "El Guardián prepara pistas, amenazas y escenas de tensión gradual.",
-            "La partida puede alternar investigación urbana, viajes, ruinas, archivos y rituales.",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_14",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_15",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_16",
             "El sistema permite adaptar aventuras antiguas con muy poco trabajo."
         ]
     },
     {
-        "title": "Forma de jugar",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_17",
         "items": [
-            "Presenta una situación cotidiana con una grieta extraña: desapariciones, sueños, cadáveres o símbolos.",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_18",
             "Haz que cada descubrimiento aumente el peligro o el coste personal.",
-            "Usa el combate como último recurso y deja claro que huir puede ser inteligente.",
-            "El final debe tener consecuencias: reputación perdida, cordura dañada o amenaza sellada solo temporalmente."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_19",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.SIXTH_EDITION.SIXTH_EDITION.TEXT_20"
         ]
     }
 ];

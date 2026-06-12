@@ -11,6 +11,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './reset-pass.component.html',
   styleUrl: './reset-pass.component.css'
 })
+/**
+ * Componente Angular de Rolverse para reset pass.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class ResetPassComponent {
 
   formGroup: FormGroup;
@@ -33,6 +37,7 @@ export class ResetPassComponent {
       ]),
     }, { validators: passwordMatchValidator });
   }
+  /** Gestiona la accion resetPass dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   resetPass() {
     const token = this.route.snapshot.paramMap.get('token');
     this.authService.resetPass(token!, this.formGroup.get('password')?.value).subscribe((res) => {

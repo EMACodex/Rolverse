@@ -1,3 +1,4 @@
+<!-- Vista news de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <main [class.news-page-bg]="!embedded" [class.home-news-section]="embedded">
   <section class="container">
     <div class="news-header">
@@ -24,7 +25,7 @@
             <div class="news-content">
               @if (isInternalNews(post) && post.image_path) {
                 <img
-                  [src]="'http://localhost:3000' + post.image_path"
+                  [src]="apiBase + post.image_path"
                   alt="{{ post.title }}"
                   class="news-image"
                 />

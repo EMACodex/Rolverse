@@ -1,9 +1,12 @@
+<!-- Vista header de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 @if (!isSessionRoute()) {
   <header class="header-container">
     <div class="main-logo-wrapper">
       <button type="button" class="logo-button" (click)="goHome()">
         <img src="assets/img/logo.png" alt="Rolverse Logo" class="main-logo" />
       </button>
+
+      <app-audio-control></app-audio-control>
     </div>
 
     <!-- Botón para móvil -->
@@ -43,7 +46,11 @@
               />
               {{ "HEADER.MAPS" | translate }}
             </a>
-            <a mat-menu-item routerLink="/sistema-de-juego" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/sistema-de-juego"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/sistema juego dungeon/libro.png"
                 alt=""
@@ -51,7 +58,11 @@
               />
               {{ "HEADER.GAME_SYSTEM" | translate }}
             </a>
-            <a mat-menu-item routerLink="/historias-dungeon" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/historias-dungeon"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/historia dungeon/historia.png"
                 alt=""
@@ -59,7 +70,11 @@
               />
               {{ "HEADER.HISTORY" | translate }}
             </a>
-            <a mat-menu-item routerLink="/bestiario-dungeon" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/bestiario-dungeon"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/bestiario dungeon/bestia.png"
                 alt=""
@@ -90,7 +105,11 @@
             class="pergamino-menu"
             backdropClass="transparent-backdrop"
           >
-            <a mat-menu-item routerLink="/pathfinder-personajes" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/pathfinder-personajes"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/personajes pathfinder/mago.png"
                 alt=""
@@ -99,7 +118,11 @@
               {{ "HEADER.CHARACTERS" | translate }}
             </a>
 
-            <a mat-menu-item routerLink="/pathfinder-mapas" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/pathfinder-mapas"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/mundos pathfinder/mapas.png"
                 alt=""
@@ -108,7 +131,11 @@
               {{ "HEADER.MAPS" | translate }}
             </a>
 
-            <a mat-menu-item routerLink="/pathfinder-sistema-de-juego" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/pathfinder-sistema-de-juego"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/sistema juego pathfinder/pathfinder.png"
                 alt=""
@@ -117,7 +144,11 @@
               {{ "HEADER.GAME_SYSTEM" | translate }}
             </a>
 
-            <a mat-menu-item routerLink="/pathfinder-historias" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/pathfinder-historias"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/historia pathfinder/historia.png"
                 alt=""
@@ -125,7 +156,11 @@
               />
               {{ "HEADER.HISTORY" | translate }}
             </a>
-            <a mat-menu-item routerLink="/pathfinder-bestiario" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/pathfinder-bestiario"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/bestiario pathfinder/bestiario.png"
                 alt=""
@@ -156,7 +191,11 @@
             class="pergamino-menu"
             backdropClass="transparent-backdrop"
           >
-            <a mat-menu-item routerLink="/anima-personajes" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/anima-personajes"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/personajes anima/personajes.png"
                 alt=""
@@ -164,7 +203,11 @@
               />
               {{ "HEADER.CHARACTERS" | translate }}
             </a>
-            <a mat-menu-item routerLink="/anima-mapas" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/anima-mapas"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/mundos anima/mapa.png"
                 alt=""
@@ -172,7 +215,11 @@
               />
               {{ "HEADER.MAPS" | translate }}
             </a>
-            <a mat-menu-item routerLink="/anima-sistema-de-juego" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/anima-sistema-de-juego"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/sistema juego anima/sistema de juego.png"
                 alt=""
@@ -180,7 +227,11 @@
               />
               {{ "HEADER.GAME_SYSTEM" | translate }}
             </a>
-            <a mat-menu-item routerLink="/anima-historias" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/anima-historias"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/historia anima/historia.png"
                 alt=""
@@ -188,7 +239,11 @@
               />
               {{ "HEADER.HISTORY" | translate }}
             </a>
-            <a mat-menu-item routerLink="/anima-bestiario" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/anima-bestiario"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/bestiario anima/bestiario.png"
                 alt=""
@@ -224,7 +279,11 @@
             class="pergamino-menu"
             backdropClass="transparent-backdrop"
           >
-            <a mat-menu-item routerLink="/warhammer-personajes" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/warhammer-personajes"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/personajes warhammer/personaje.png"
                 alt=""
@@ -232,7 +291,11 @@
               />
               {{ "HEADER.CHARACTERS" | translate }}
             </a>
-            <a mat-menu-item routerLink="/warhammer-mapas" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/warhammer-mapas"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/mapas warhammer/mapas.png"
                 alt=""
@@ -240,7 +303,11 @@
               />
               {{ "HEADER.MAPS" | translate }}
             </a>
-            <a mat-menu-item routerLink="/warhammer-sistema-de-juego" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/warhammer-sistema-de-juego"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/sistema juego warhammer/sistema juego.png"
                 alt=""
@@ -248,7 +315,11 @@
               />
               {{ "HEADER.GAME_SYSTEM" | translate }}
             </a>
-            <a mat-menu-item routerLink="/warhammer-historias" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/warhammer-historias"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/historia warhammer/historia.png"
                 alt=""
@@ -256,7 +327,11 @@
               />
               {{ "HEADER.HISTORY" | translate }}
             </a>
-            <a mat-menu-item routerLink="/warhammer-bestiario" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/warhammer-bestiario"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/bestiario warhammer/bestiario.png"
                 alt=""
@@ -289,7 +364,11 @@
             class="pergamino-menu"
             backdropClass="transparent-backdrop"
           >
-            <a mat-menu-item routerLink="/cthulhu-personajes" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/cthulhu-personajes"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/cthulhu personajes/personajes.png"
                 alt=""
@@ -297,7 +376,11 @@
               />
               {{ "HEADER.CHARACTERS" | translate }}
             </a>
-            <a mat-menu-item routerLink="/cthulhu-mapas" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/cthulhu-mapas"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/cthulhu mapas/mapa.png"
                 alt=""
@@ -305,7 +388,11 @@
               />
               {{ "HEADER.MAPS" | translate }}
             </a>
-            <a mat-menu-item routerLink="/cthulhu-sistema-de-juego" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/cthulhu-sistema-de-juego"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/cthulhu sistema de juego/sistema de juego.png"
                 alt=""
@@ -313,7 +400,11 @@
               />
               {{ "HEADER.GAME_SYSTEM" | translate }}
             </a>
-            <a mat-menu-item routerLink="/cthulhu-historias" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/cthulhu-historias"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/cthulhu historia/historia.png"
                 alt=""
@@ -321,7 +412,11 @@
               />
               {{ "HEADER.HISTORY" | translate }}
             </a>
-            <a mat-menu-item routerLink="/cthulhu-bestiario" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/cthulhu-bestiario"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/cthulhu bestiario/bestiario.png"
                 alt=""
@@ -359,7 +454,11 @@
             class="pergamino-menu"
             backdropClass="transparent-backdrop"
           >
-            <a mat-menu-item routerLink="/leyenda-5-anillos-personajes" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/leyenda-5-anillos-personajes"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/leyenda 5 anillos personajes/personajes.png"
                 alt=""
@@ -367,7 +466,11 @@
               />
               {{ "HEADER.CHARACTERS" | translate }}
             </a>
-            <a mat-menu-item routerLink="/leyenda-5-anillos-mapas" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/leyenda-5-anillos-mapas"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/leyenda 5 anillos mapa/mapa.png"
                 alt=""
@@ -378,7 +481,8 @@
             <button
               mat-menu-item
               routerLink="/leyenda-5-anillos-sistema-de-juego"
-             (click)="closeAllMenus()">
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/leyenda 5 anillos sistema de juego/sistema de juego.png"
                 alt=""
@@ -386,7 +490,11 @@
               />
               {{ "HEADER.GAME_SYSTEM" | translate }}
             </button>
-            <a mat-menu-item routerLink="/leyenda-5-anillos-historias" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/leyenda-5-anillos-historias"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/leyenda 5 anillos historia/historia.png"
                 alt=""
@@ -394,7 +502,11 @@
               />
               {{ "HEADER.HISTORY" | translate }}
             </a>
-            <a mat-menu-item routerLink="/leyenda-5-anillos-bestiario" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/leyenda-5-anillos-bestiario"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/leyenda 5 anillos bestiario/bestiario.png"
                 alt=""
@@ -425,7 +537,11 @@
             class="pergamino-menu"
             backdropClass="transparent-backdrop"
           >
-            <a mat-menu-item routerLink="/starwars/personajes" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/starwars/personajes"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/personajes star wars/jedi.png"
                 alt=""
@@ -433,7 +549,11 @@
               />
               {{ "HEADER.CHARACTERS" | translate }}
             </a>
-            <a mat-menu-item routerLink="/starwars/planetas" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/starwars/planetas"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/mundos star wars/mundos.png"
                 alt=""
@@ -441,7 +561,11 @@
               />
               {{ "HEADER.PLANETS" | translate }}
             </a>
-            <a mat-menu-item routerLink="/starwars/sistema-de-juego" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/starwars/sistema-de-juego"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/star wars sistema de juego/sistema de juego.png"
                 alt=""
@@ -449,7 +573,11 @@
               />
               {{ "HEADER.GAME_SYSTEM" | translate }}
             </a>
-            <a mat-menu-item routerLink="/starwars/historias" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/starwars/historias"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/star wars historia/historia.png"
                 alt=""
@@ -457,7 +585,11 @@
               />
               {{ "HEADER.STORIES" | translate }}
             </a>
-            <a mat-menu-item routerLink="/starwars/bestiario" (click)="closeAllMenus()">
+            <a
+              mat-menu-item
+              routerLink="/starwars/bestiario"
+              (click)="closeAllMenus()"
+            >
               <img
                 src="assets/img/star wars bestiario/bestiario.png"
                 alt=""
@@ -552,7 +684,9 @@
               (click)="logout()"
             >
               <span class="account-menu-icon" aria-hidden="true">⚔️</span>
-              <span class="account-menu-text">{{ "HEADER.LOGOUT" | translate }}</span>
+              <span class="account-menu-text">{{
+                "HEADER.LOGOUT" | translate
+              }}</span>
             </button>
             <a
               mat-menu-item
@@ -563,10 +697,36 @@
               <span class="account-menu-icon" aria-hidden="true">👤</span>
               <span class="account-menu-text">{{ accountLabel }}</span>
             </a>
+            <div class="theme-switcher-account" aria-label="Selector de tema">
+              <button
+                mat-menu-item
+                type="button"
+                class="account-menu-item theme-menu-item"
+                [class.active]="themeService.currentTheme === 'jedi'"
+                (click)="themeService.setTheme('jedi')"
+              >
+                <img src="assets/img/jedi.png" alt="Jedi" class="theme-menu-icon" />
+                <span class="account-menu-text">Jedi</span>
+              </button>
+              <button
+                mat-menu-item
+                type="button"
+                class="account-menu-item theme-menu-item"
+                [class.active]="themeService.currentTheme === 'sith'"
+                (click)="themeService.setTheme('sith')"
+              >
+                <img src="assets/img/sith.png" alt="Sith" class="theme-menu-icon" />
+                <span class="account-menu-text">Sith</span>
+              </button>
+            </div>
           </mat-menu>
         </div>
       } @else {
-        <button class="rpg-login-button" routerLink="/session/login" (click)="closeAllMenus()">
+        <button
+          class="rpg-login-button"
+          routerLink="/session/login"
+          (click)="closeAllMenus()"
+        >
           🛡️ {{ "HEADER.LOGIN" | translate }}
         </button>
       }

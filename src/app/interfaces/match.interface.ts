@@ -1,3 +1,7 @@
+/**
+ * Representa una partida creada en Rolverse.
+ * Incluye permisos calculados por backend para decidir que acciones mostrar.
+ */
 export interface Match {
   id: number;
   title: string;
@@ -22,11 +26,13 @@ export interface Match {
   role?: 'master' | 'player' | string | null;
 }
 
+/** Envoltorio comun de respuestas del backend para endpoints de partidas. */
 export interface MatchResponse<T> {
   message: string;
   data: T;
 }
 
+/** Mensaje publicado dentro de una partida, incluyendo tiradas de dados. */
 export interface MatchMessage {
   id: number;
   match_id: number;
@@ -42,6 +48,7 @@ export interface MatchMessage {
   user_name?: string;
 }
 
+/** Personaje asociado a una partida y a un usuario concreto. */
 export interface MatchCharacter {
   id: number;
   match_id: number;
@@ -52,6 +59,7 @@ export interface MatchCharacter {
   user_name?: string;
 }
 
+/** Documento o modulo subido por el director/jugadores a una partida. */
 export interface MatchModule {
   id: number;
   match_id: number;
@@ -61,6 +69,7 @@ export interface MatchModule {
   file_path: string;
 }
 
+/** Tablero visual usado como apoyo de escena en una partida. */
 export interface MatchBoard {
   id: number;
   match_id: number;
@@ -69,6 +78,7 @@ export interface MatchBoard {
   image_path: string;
 }
 
+/** Accion narrativa enviada por un jugador y revisada por el master. */
 export interface MatchAction {
   id: number;
   match_id: number;
@@ -83,6 +93,7 @@ export interface MatchAction {
   user_name?: string;
 }
 
+/** Invitacion pendiente o resuelta para acceder a una partida privada. */
 export interface MatchInvitation {
   id: number;
   match_id: number;
@@ -97,6 +108,7 @@ export interface MatchInvitation {
   created_at?: string;
 }
 
+/** Resultado minimo para invitar usuarios por email sin exponer mas datos. */
 export interface MatchUserSearchResult {
   id: number;
   name: string;

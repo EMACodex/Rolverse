@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { catchError, of } from 'rxjs';
 import { TranslatePipe } from '../../../pipes/translate.pipe';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-forum-page',
@@ -22,6 +23,10 @@ import { TranslatePipe } from '../../../pipes/translate.pipe';
   templateUrl: './forum-page.component.html',
   styleUrl: './forum-page.component.css',
 })
+/**
+ * Pagina principal del foro.
+ * Muestra salas publicas/privadas y acciones de administracion segun permisos.
+ */
 export class ForumPageComponent {
   userInfo: tokenData | null = null;
   allForums: ForumInterface[] = [];
@@ -43,6 +48,7 @@ export class ForumPageComponent {
     private route: ActivatedRoute
   ) {}
 
+  /** Gestiona la accion ngOnInit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   ngOnInit() {
     this.route.queryParamMap.subscribe((params) => {
       const page = Number(params.get('page'));
@@ -61,6 +67,7 @@ export class ForumPageComponent {
     this.loadForums();
   }
 
+  /** Gestiona la accion loadForums dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   loadForums() {
     this.forumService.getAllForums().subscribe({
       next: (forums: getForumsResponse) => {
@@ -70,11 +77,17 @@ export class ForumPageComponent {
         }
       },
       error: (error) => {
-        console.error('Error fetching forums:', error.message);
+        console.error('[ROLVERSE DATA] Forums load error:', {
+          url: `${environment.apiUrl}/forum/all`,
+          status: error?.status,
+          message: error?.message,
+          response: error?.error,
+        });
       },
     });
   }
 
+  /** Gestiona la accion openCreateForumDialog dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   openCreateForumDialog() {
     const dialogRef = this.dialog.open(CreateForumComponent, {
       width: 'min(500px, calc(100vw - 2rem))',
@@ -91,16 +104,22 @@ export class ForumPageComponent {
             this.currentPage = 1;
           },
           error: (error) => {
-            console.error('Error fetching updated forums:', error.message);
+            console.error('[ROLVERSE DATA] Forums refresh error:', {
+              url: `${environment.apiUrl}/forum/all`,
+              status: error?.status,
+              message: error?.message,
+              response: error?.error,
+            });
           },
         });
       }
     });
   }
 
+  /** Gestiona la accion onDeleteForum dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onDeleteForum(forumId: number): void {
     Swal.fire({
-      title: '¿Eliminar este foro?',
+      title: '¿Eliminar este foro?Eliminar este foro?',
       text: 'Esta acción no se puede deshacer.',
       icon: 'warning',
       showCancelButton: true,
@@ -134,6 +153,7 @@ export class ForumPageComponent {
     });
   }
 
+  /** Gestiona la accion canDeleteForum dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   canDeleteForum(forum: ForumInterface): boolean {
     if (!this.userInfo) {
       return false;
@@ -145,10 +165,12 @@ export class ForumPageComponent {
     );
   }
 
+  /** Gestiona la accion canEditForum dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   canEditForum(forum: ForumInterface): boolean {
     return this.canDeleteForum(forum);
   }
 
+  /** Gestiona la accion openEditForum dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   openEditForum(forum: ForumInterface, event: Event): void {
     event.stopPropagation();
     this.editingForum = forum;
@@ -160,11 +182,13 @@ export class ForumPageComponent {
     this.editForumError = '';
   }
 
+  /** Gestiona la accion closeEditForum dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   closeEditForum(): void {
     this.editingForum = null;
     this.editForumError = '';
   }
 
+  /** Gestiona la accion saveEditForum dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   saveEditForum(): void {
     if (!this.editingForum?.id) {
       return;
@@ -201,10 +225,12 @@ export class ForumPageComponent {
       });
   }
 
+  /** Gestiona la accion onForumClick dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onForumClick(forum_id: number): void {
     this.router.navigate(['/forum', forum_id]);
   }
 
+  /** Gestiona la accion openForumInNewTab dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   openForumInNewTab(event: MouseEvent, forumId: number): void {
     if (event.button !== 1) {
       return;
@@ -228,12 +254,14 @@ export class ForumPageComponent {
     return Math.max(1, Math.ceil(this.allForums.length / this.itemsPerPage));
   }
 
+  /** Gestiona la accion previousPage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   previousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
     }
   }
 
+  /** Gestiona la accion nextPage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;

@@ -1,47 +1,26 @@
+<!-- Vista warhammer stories de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="stories-bg">
   <div class="stories-container">
-    <h1 class="main-title">Historia de Warhammer</h1>
+    <h1 class="main-title">{{ 'WARHAMMER.WARHAMMER_STORIES.WARHAMMER_STORIES.HTML_H1_258' | translate }}</h1>
 
     <section class="stories-section">
       <article class="story-card main-history-card">
         <h2>La historia de Warhammer 40,000</h2>
 
-        <p>
-          Warhammer 40,000 presenta un futuro oscuro, violento y decadente donde
-          la humanidad se encuentra atrapada en una guerra interminable. No es
-          una historia de héroes perfectos ni de imperios luminosos, sino de
-          supervivencia, fanatismo, sacrificio y horror cósmico.
-        </p>
+        <p>{{ 'WARHAMMER.WARHAMMER_STORIES.WARHAMMER_STORIES.HTML_P_259' | translate }}</p>
 
-        <p>
-          En el centro de este universo se encuentra el Imperio de la Humanidad,
-          una civilización gigantesca que domina millones de mundos, pero que
-          vive consumida por la guerra, la burocracia, la religión y el miedo a
-          la corrupción. El Emperador es venerado como una figura divina, aunque
-          su imperio se mantiene en pie a base de sangre, disciplina y obediencia.
-        </p>
+        <p>{{ 'WARHAMMER.WARHAMMER_STORIES.WARHAMMER_STORIES.HTML_P_260' | translate }}</p>
 
-        <p>
-          Las historias de Warhammer pueden desarrollarse en campos de batalla,
-          ciudades colmena, fortalezas espaciales, mundos funerarios, planetas
-          salvajes, naves perdidas o regiones contaminadas por el Caos. Cada
-          escenario puede convertirse en una campaña donde los personajes deben
-          sobrevivir, investigar, luchar o tomar decisiones difíciles.
-        </p>
+        <p>{{ 'WARHAMMER.WARHAMMER_STORIES.WARHAMMER_STORIES.HTML_P_261' | translate }}</p>
 
-        <p>
-          La clave de una buena historia de Warhammer está en el tono: todo debe
-          sentirse enorme, peligroso y decadente. Una misión sencilla puede
-          esconder una conspiración, una reliquia puede atraer a varios ejércitos
-          y una victoria puede tener un precio terrible.
-        </p>
+        <p>{{ 'WARHAMMER.WARHAMMER_STORIES.WARHAMMER_STORIES.HTML_P_262' | translate }}</p>
       </article>
 
       <div class="stories-grid">
         @for (story of stories; track story.title) {
           <article class="story-card">
-            <h3>{{ story.title }}</h3>
-            <p>{{ story.description }}</p>
+            <h3>{{ story.title | translate }}</h3>
+            <p>{{ story.description | translate }}</p>
           </article>
         }
       </div>
@@ -54,9 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="stories-download-button"
-        >
-          Descargar historias de Warhammer
-        </a>
+        >{{ 'WARHAMMER.WARHAMMER_STORIES.WARHAMMER_STORIES.HTML_A_263' | translate }}</a>
       </div>
 
       }

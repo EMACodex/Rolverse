@@ -17,6 +17,10 @@ import { TranslatePipe } from '../../../pipes/translate.pipe';
   templateUrl: './create-forum.component.html',
   styleUrl: './create-forum.component.css',
 })
+/**
+ * Componente Angular de Rolverse para create forum.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class CreateForumComponent {
   forumForm!: FormGroup;
   errorMessage = '';
@@ -28,6 +32,7 @@ export class CreateForumComponent {
     private forumService: ForumService
   ) {}
 
+  /** Gestiona la accion ngOnInit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   ngOnInit() {
     this.forumForm = this.fb.group({
       title: ['', Validators.required],
@@ -36,6 +41,7 @@ export class CreateForumComponent {
     });
   }
 
+  /** Gestiona la accion onSubmit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onSubmit() {
     if (this.forumForm.invalid) {
       return;

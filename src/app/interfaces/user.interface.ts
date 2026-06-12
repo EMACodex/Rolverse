@@ -1,3 +1,6 @@
+/**
+ * Modelo de datos personalUser usado por Rolverse para tipar respuestas y vistas Angular.
+ */
 export interface personalUser {
   name: string;
   email: string;
@@ -10,11 +13,17 @@ export interface personalUser {
   creation_date: Date;
 }
 
+/**
+ * Modelo de datos personalUserResponse usado por Rolverse para tipar respuestas y vistas Angular.
+ */
 export interface personalUserResponse {
   data: personalUser;
   message: string;
 }
 
+/**
+ * Modelo de datos profileImageResponse usado por Rolverse para tipar respuestas y vistas Angular.
+ */
 export interface profileImageResponse {
   data: {
     id: number;

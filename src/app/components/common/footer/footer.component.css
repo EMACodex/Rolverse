@@ -1,4 +1,5 @@
-.footer-container {
+/* Estilos de la vista footer de Rolverse. Mantienen responsive y aspecto existente. */
+﻿.footer-container {
   width: 100%;
   background: rgba(20, 16, 12, 0.95);
   border-top: 4px solid var(--color-dorado);
@@ -29,6 +30,52 @@
   font-size: 0.9rem;
 }
 
+.footer-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin: 0 0 0.75rem;
+}
+
+.footer-social-link,
+.footer-app-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 38px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0.25rem 0.45rem;
+  box-sizing: border-box;
+  font-family: "Cinzel", serif;
+}
+
+.footer-social-icon,
+.footer-app-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.footer-app-button span {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.footer-social-link:hover .footer-social-icon,
+.footer-app-button:hover .footer-app-icon {
+  transform: translateY(-2px) scale(1.05);
+  filter: drop-shadow(0 0 6px rgba(217, 164, 65, 0.8));
+}
+
+
 @media (max-width: 768px) {
   .footer-container {
     padding: 1rem 0.8rem;
@@ -44,8 +91,28 @@
     font-size: 0.9rem;
   }
 
+  .footer-socials {
+    gap: 0.6rem;
+  }
+
+  .footer-app-button {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .footer-social-icon,
+  .footer-app-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .footer-app-button span {
+    font-size: 0.78rem;
+  }
+
   .footer-container p {
     font-size: 0.8rem;
     line-height: 1.4;
   }
 }
+

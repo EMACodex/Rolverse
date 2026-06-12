@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-warhammer-character',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './warhammer-character.component.html',
   styleUrls: ['./warhammer-character.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para warhammer character.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class WarhammerCharacterComponent {
   readonly authService = inject(AuthService);
   readonly warhammerCharactersUrl =
@@ -15,32 +21,32 @@ export class WarhammerCharacterComponent {
     {
       name: 'Marines Espaciales',
       description:
-        'Guerreros modificados genéticamente, entrenados para la guerra total y organizados en capítulos. Funcionan muy bien como personajes heroicos, disciplinados y marcados por el deber, la fe y el combate extremo.',
+        'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.TEXT_1',
     },
     {
       name: 'Guardia Imperial',
       description:
-        'Soldados humanos que sobreviven en un universo brutal gracias a la disciplina, el número y la resistencia. Son ideales para historias de supervivencia, batallas desesperadas y campañas donde cada decisión puede costar vidas.',
+        'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.TEXT_2',
     },
     {
-      name: 'Inquisidores y acólitos',
+      name: 'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.TEXT_3',
       description:
-        'Personajes centrados en investigación, herejía, secretos, corrupción y amenazas ocultas. Permiten partidas oscuras donde el grupo debe descubrir traidores, xenos, demonios o cultos antes de que sea demasiado tarde.',
+        'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.TEXT_4',
     },
     {
       name: 'Adeptus Mechanicus',
       description:
-        'Sacerdotes tecnológicos, tecnosacerdotes, exploradores y servidores vinculados al culto de la máquina. Funcionan muy bien en misiones de recuperación de tecnología antigua, ruinas industriales y secretos prohibidos.',
+        'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.TEXT_5',
     },
     {
-      name: 'Psíquicos',
+      name: 'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.TEXT_6',
       description:
-        'Personajes capaces de usar poderes mentales vinculados a la disformidad. Son muy poderosos, pero también peligrosos, porque sus habilidades pueden atraer entidades, corrupción o consecuencias imprevisibles.',
+        'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.TEXT_7',
     },
     {
       name: 'Herejes, xenos y renegados',
       description:
-        'Antagonistas o personajes de campañas más oscuras. Pueden representar cultistas del Caos, mutantes, mercenarios, alienígenas o individuos que han abandonado las leyes del Imperio para perseguir sus propios objetivos.',
+        'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.TEXT_8',
     },
   ];
 }

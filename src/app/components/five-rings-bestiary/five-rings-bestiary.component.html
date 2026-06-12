@@ -1,42 +1,24 @@
+<!-- Vista five rings bestiary de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="bestiary-bg">
   <div class="bestiary-container">
-    <h1 class="main-title">Bestiario de La Leyenda de los 5 Anillos</h1>
+    <h1 class="main-title">{{ 'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.HTML_H1_115' | translate }}</h1>
 
     <section class="bestiary-section">
       <article class="bestiary-card main-bestiary-card">
-        <h2>Qué es un bestiario en La Leyenda de los 5 Anillos</h2>
+        <h2>{{ 'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.HTML_H2_116' | translate }}</h2>
 
-        <p>
-          Un bestiario en La Leyenda de los 5 Anillos reúne criaturas,
-          espíritus, demonios, horrores de las Tierras Sombrías y seres
-          sobrenaturales que pueden aparecer en las historias de Rokugán. No
-          sirve únicamente para preparar combates, sino también para construir
-          misterio, tensión, corrupción espiritual y conflictos relacionados con
-          el honor, el deber y la tradición.
-        </p>
+        <p>{{ 'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.HTML_P_117' | translate }}</p>
 
-        <p>
-          En este tipo de juego, una criatura no siempre debe ser un enemigo que
-          se derrota con una espada. Puede ser una advertencia de los kami, una
-          consecuencia de una promesa rota, una maldición familiar, una prueba
-          para un samurái o una amenaza nacida de las Tierras Sombrías. Por eso,
-          cada criatura debería tener un propósito dentro de la historia.
-        </p>
+        <p>{{ 'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.HTML_P_118' | translate }}</p>
 
-        <p>
-          Para usar bien un bestiario, el director de juego puede pensar en tres
-          preguntas: qué representa la criatura, qué quiere y qué precio tendrá
-          enfrentarse a ella. Así, los monstruos dejan de ser simples obstáculos
-          y se convierten en parte del drama, la política, la espiritualidad y
-          el peligro de Rokugán.
-        </p>
+        <p>{{ 'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.HTML_P_119' | translate }}</p>
       </article>
 
       <div class="creatures-grid">
         @for (creature of creatures; track creature.name) {
           <article class="creature-card">
-            <h3>{{ creature.name }}</h3>
-            <p>{{ creature.description }}</p>
+            <h3>{{ creature.name | translate }}</h3>
+            <p>{{ creature.description | translate }}</p>
           </article>
         }
       </div>
@@ -49,9 +31,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="bestiary-download-button"
-        >
-          Descargar bestiario de la leyenda de los 5 anillos
-        </a>
+        >{{ 'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.HTML_A_120' | translate }}</a>
       </div>
 
       }

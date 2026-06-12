@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { InternalNews } from '../../interfaces/new.interface';
-import { RUTA_API } from '../../../environment';
+import { environment } from '../../../environments/environment';
 import { firstValueFrom } from 'rxjs';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
@@ -16,7 +16,12 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.css'],
 })
+/**
+ * Lista de noticias de Rolverse.
+ * Puede mostrarse como pagina completa o embebida en la home.
+ */
 export class NewsComponent implements OnInit {
+  apiBase = environment.apiUrl;
   @Input() embedded = false;
 
   posts: InternalNews[] = [];
@@ -34,6 +39,7 @@ export class NewsComponent implements OnInit {
     return html.replace(/<[^>]*>/g, '').trim();
   }
 
+  /** Gestiona la accion ngOnInit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params) => {
       const page = Number(params.get('page'));
@@ -44,6 +50,7 @@ export class NewsComponent implements OnInit {
     this.fetchAllNews();
   }
 
+  /** Gestiona la accion isInternalNews dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   isInternalNews(post: InternalNews): post is InternalNews {
     return (post as InternalNews).summary !== undefined;
   }
@@ -57,10 +64,12 @@ export class NewsComponent implements OnInit {
     return Math.max(1, Math.ceil(this.posts.length / this.itemsPerPage));
   }
 
+  /** Gestiona la accion fetchAllNews dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   async fetchAllNews(): Promise<void> {
+    const url = `${environment.apiUrl}/news`;
     try {
       const internalPosts = await firstValueFrom(
-        this.http.get<InternalNews[]>(`${RUTA_API}news`),
+        this.http.get<InternalNews[]>(url),
       );
 
       internalPosts.forEach((post) => {
@@ -73,8 +82,13 @@ export class NewsComponent implements OnInit {
           new Date(b.created_at || b.date).getTime() -
           new Date(a.created_at || a.date).getTime(),
       );
-    } catch (error) {
-      console.error('Error cargando noticias:', error);
+    } catch (error: any) {
+      console.error('[ROLVERSE DATA] News load error:', {
+        url,
+        status: error?.status,
+        message: error?.message,
+        response: error?.error,
+      });
       this.posts = [];
     } finally {
       if (this.currentPage > this.totalPages) {
@@ -84,22 +98,26 @@ export class NewsComponent implements OnInit {
     }
   }
 
+  /** Gestiona la accion previousPage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   previousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
     }
   }
 
+  /** Gestiona la accion nextPage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
     }
   }
 
+  /** Gestiona la accion canDeletePost dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   canDeletePost(post: InternalNews): boolean {
     return this.canEditPost(post);
   }
 
+  /** Gestiona la accion canEditPost dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   canEditPost(post: InternalNews): boolean {
     const currentUser = this.authService.getCurrentUser();
 
@@ -113,6 +131,7 @@ export class NewsComponent implements OnInit {
     );
   }
 
+  /** Gestiona la accion onDeletePost dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   async onDeletePost(id: number, event?: Event): Promise<void> {
     event?.preventDefault();
     event?.stopPropagation();
@@ -120,7 +139,7 @@ export class NewsComponent implements OnInit {
     if (!window.confirm('Seguro que quieres eliminar esta noticia?')) return;
 
     try {
-      await firstValueFrom(this.http.delete<{ message: string }>(`${RUTA_API}news/${id}`));
+      await firstValueFrom(this.http.delete<{ message: string }>(`${environment.apiUrl}/news/${id}`));
 
       this.posts = this.posts.filter(
         (p) => !(this.isInternalNews(p) && p.id === id),

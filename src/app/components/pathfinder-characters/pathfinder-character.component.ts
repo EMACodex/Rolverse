@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-pathfinder-character',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './pathfinder-character.component.html',
   styleUrls: ['./pathfinder-character.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para pathfinder character.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class PathfinderCharacterComponent {
   readonly authService = inject(AuthService);
   readonly pathfinderCharacterSheetUrl =
@@ -13,34 +19,34 @@ export class PathfinderCharacterComponent {
 
   characterTypes = [
     {
-      name: 'Guerreros y campeones',
+      name: 'PATHFINDER.PATHFINDER_CHARACTERS.PATHFINDER_CHARACTER.TEXT_1',
       description:
-        'Son personajes preparados para resistir el peligro y luchar en primera línea. En Pathfinder pueden representar soldados, protectores sagrados, mercenarios, duelistas o héroes que confían en la disciplina, la armadura y las armas para mantener vivo al grupo.',
+        'PATHFINDER.PATHFINDER_CHARACTERS.PATHFINDER_CHARACTER.TEXT_2',
     },
     {
-      name: 'Magos y arcanistas',
+      name: 'PATHFINDER.PATHFINDER_CHARACTERS.PATHFINDER_CHARACTER.TEXT_3',
       description:
-        'Dominan la magia mediante estudio, pactos, sangre sobrenatural o conocimiento oculto. Funcionan muy bien en historias de academias mágicas, reliquias antiguas, conjuros prohibidos, investigaciones arcanas y secretos que pueden cambiar el destino de una región.',
+        'PATHFINDER.PATHFINDER_CHARACTERS.PATHFINDER_CHARACTER.TEXT_4',
     },
     {
-      name: 'Clérigos y oráculos',
+      name: 'PATHFINDER.PATHFINDER_CHARACTERS.PATHFINDER_CHARACTER.TEXT_5',
       description:
-        'Están vinculados a poderes divinos, dioses, maldiciones o fuerzas espirituales. Pueden actuar como sanadores, profetas, guías religiosos, exorcistas o personajes marcados por una misión superior que no siempre comprenden del todo.',
+        'PATHFINDER.PATHFINDER_CHARACTERS.PATHFINDER_CHARACTER.TEXT_6',
     },
     {
-      name: 'Pícaros e investigadores',
+      name: 'PATHFINDER.PATHFINDER_CHARACTERS.PATHFINDER_CHARACTER.TEXT_7',
       description:
-        'Son expertos en moverse con sigilo, encontrar trampas, descubrir pistas, engañar enemigos y resolver problemas con inteligencia. Encajan en campañas urbanas, conspiraciones, robos, misterios, asesinatos y exploración de ruinas peligrosas.',
+        'PATHFINDER.PATHFINDER_CHARACTERS.PATHFINDER_CHARACTER.TEXT_8',
     },
     {
-      name: 'Exploradores y druidas',
+      name: 'PATHFINDER.PATHFINDER_CHARACTERS.PATHFINDER_CHARACTER.TEXT_9',
       description:
-        'Tienen una fuerte conexión con la naturaleza, los caminos salvajes, las bestias y los territorios olvidados. Son ideales para aventuras de viaje, bosques antiguos, montañas perdidas, criaturas primitivas y conflictos entre civilización y mundo natural.',
+        'PATHFINDER.PATHFINDER_CHARACTERS.PATHFINDER_CHARACTER.TEXT_10',
     },
     {
-      name: 'Bardos y personajes sociales',
+      name: 'PATHFINDER.PATHFINDER_CHARACTERS.PATHFINDER_CHARACTER.TEXT_11',
       description:
-        'Usan la palabra, el arte, el conocimiento y la presencia para influir en el mundo. Pueden inspirar aliados, negociar con enemigos, manipular cortes nobles, descubrir leyendas antiguas o convertirse en el rostro del grupo durante una campaña.',
+        'PATHFINDER.PATHFINDER_CHARACTERS.PATHFINDER_CHARACTER.TEXT_12',
     },
   ];
 }

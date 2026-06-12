@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-warhammer-world',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './warhammer-world.component.html',
   styleUrls: ['./warhammer-world.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para warhammer world.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class WarhammerWorldComponent {
   readonly authService = inject(AuthService);
   readonly warhammerMapsUrl =
@@ -13,34 +19,34 @@ export class WarhammerWorldComponent {
 
   mapTypes = [
     {
-      name: 'Mundos colmena',
+      name: 'WARHAMMER.WARHAMMER_WORLD.WARHAMMER_WORLD.TEXT_1',
       description:
-        'Planetas dominados por ciudades gigantescas, torres industriales, barrios oscuros y niveles inferiores llenos de bandas, mutantes y secretos. Funcionan muy bien para campañas urbanas, persecuciones, investigación y conflictos entre facciones.',
+        'WARHAMMER.WARHAMMER_WORLD.WARHAMMER_WORLD.TEXT_2',
     },
     {
-      name: 'Mundos forja',
+      name: 'WARHAMMER.WARHAMMER_WORLD.WARHAMMER_WORLD.TEXT_3',
       description:
-        'Territorios industriales controlados por el Adeptus Mechanicus, llenos de fábricas, templos máquina, laboratorios, hangares y zonas contaminadas. Son ideales para partidas con tecnología antigua, herejía mecánica y artefactos prohibidos.',
+        'WARHAMMER.WARHAMMER_WORLD.WARHAMMER_WORLD.TEXT_4',
     },
     {
       name: 'Campos de batalla',
       description:
-        'Mapas pensados para guerras abiertas, trincheras, ruinas bombardeadas, fortalezas, líneas defensivas y zonas arrasadas por artillería. Sirven para campañas militares, misiones de asalto o defensa desesperada.',
+        'WARHAMMER.WARHAMMER_WORLD.WARHAMMER_WORLD.TEXT_5',
     },
     {
       name: 'Pecios espaciales',
       description:
-        'Naves abandonadas, estaciones perdidas y restos espaciales a la deriva. Son escenarios perfectos para terror, exploración, encuentros cerrados, criaturas ocultas y secretos del pasado imperial.',
+        'WARHAMMER.WARHAMMER_WORLD.WARHAMMER_WORLD.TEXT_6',
     },
     {
-      name: 'Mundos muertos',
+      name: 'WARHAMMER.WARHAMMER_WORLD.WARHAMMER_WORLD.TEXT_7',
       description:
-        'Planetas arrasados, tumbas alienígenas, desiertos radiactivos y ruinas de civilizaciones desaparecidas. Funcionan muy bien para aventuras de exploración, supervivencia y descubrimientos peligrosos.',
+        'WARHAMMER.WARHAMMER_WORLD.WARHAMMER_WORLD.TEXT_8',
     },
     {
       name: 'Sectores y rutas espaciales',
       description:
-        'Mapas de grandes regiones del espacio, rutas de navegación, sistemas estelares, zonas de guerra y territorios disputados. Ayudan al Máster a organizar campañas largas con viajes, conquistas y amenazas en varios planetas.',
+        'WARHAMMER.WARHAMMER_WORLD.WARHAMMER_WORLD.TEXT_9',
     },
   ];
 }

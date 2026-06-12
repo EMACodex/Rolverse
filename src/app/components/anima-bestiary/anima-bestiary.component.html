@@ -1,50 +1,26 @@
+<!-- Vista anima bestiary de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="bestiary-bg">
   <div class="bestiary-container">
-    <h1 class="main-title">Bestiario de Ánima</h1>
+    <h1 class="main-title">{{ 'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.HTML_H1_1' | translate }}</h1>
 
     <section class="bestiary-section">
       <article class="bestiary-card main-bestiary-card">
-        <h2>Qué es un bestiario en Ánima</h2>
+        <h2>{{ 'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.HTML_H2_2' | translate }}</h2>
 
-        <p>
-          Un bestiario en Ánima es una colección de criaturas, enemigos,
-          entidades sobrenaturales y amenazas que el Director de Juego puede
-          utilizar para crear escenas de combate, investigación, exploración o
-          terror. No sirve únicamente para elegir monstruos, sino para dar forma
-          al tono oscuro, épico y misterioso del mundo de Gaïa.
-        </p>
+        <p>{{ 'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.HTML_P_3' | translate }}</p>
 
-        <p>
-          En Ánima, una criatura puede representar muchas cosas: un peligro
-          salvaje, una consecuencia de la magia, un experimento prohibido, una
-          entidad espiritual, un demonio oculto, un guardián ancestral o incluso
-          una persona con poderes extraordinarios. Por eso el bestiario debe
-          usarse como una herramienta narrativa, no solo como una lista de
-          enemigos.
-        </p>
+        <p>{{ 'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.HTML_P_4' | translate }}</p>
 
-        <p>
-          Para preparar una partida, el Director de Juego puede escoger una
-          criatura según el tipo de historia que quiera contar. Una bestia
-          salvaje funciona bien en viajes y bosques peligrosos; un demonio crea
-          una aventura de corrupción y culto; un constructo antiguo puede abrir
-          una trama de ruinas perdidas; y una entidad espiritual puede convertir
-          una simple misión en una historia de misterio.
-        </p>
+        <p>{{ 'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.HTML_P_5' | translate }}</p>
 
-        <p>
-          Lo importante es que cada criatura tenga un motivo para existir dentro
-          de la aventura: proteger un lugar, perseguir a los personajes, guardar
-          un secreto, obedecer a un villano, castigar una profanación o mostrar
-          que en Gaïa existen fuerzas mucho mayores que los propios héroes.
-        </p>
+        <p>{{ 'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.HTML_P_6' | translate }}</p>
       </article>
 
       <div class="creatures-grid">
         @for (creature of creatures; track creature.name) {
           <article class="creature-card">
-            <h3>{{ creature.name }}</h3>
-            <p>{{ creature.description }}</p>
+            <h3>{{ creature.name | translate }}</h3>
+            <p>{{ creature.description | translate }}</p>
           </article>
         }
       </div>
@@ -57,9 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="bestiary-download-button"
-        >
-          Descargar bestiario de Ánima
-        </a>
+        >{{ 'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.HTML_A_7' | translate }}</a>
       </div>
 
       }

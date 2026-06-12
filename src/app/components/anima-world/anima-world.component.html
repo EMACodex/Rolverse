@@ -1,48 +1,26 @@
+<!-- Vista anima world de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="world-bg">
   <div class="world-container">
-    <h1 class="main-title">Mapas de Ánima</h1>
+    <h1 class="main-title">{{ 'ANIMA.ANIMA_WORLD.ANIMA_WORLD.HTML_H1_32' | translate }}</h1>
 
     <section class="world-section">
       <article class="world-card main-world-card">
-        <h2>Qué representan los mapas en Ánima</h2>
+        <h2>{{ 'ANIMA.ANIMA_WORLD.ANIMA_WORLD.HTML_H2_33' | translate }}</h2>
 
-        <p>
-          En Ánima, los mapas no sirven solo para mostrar un territorio. Son una
-          herramienta para construir atmósfera, preparar viajes, organizar
-          investigaciones y dar peso al mundo de Gaïa. Cada región puede tener
-          su propia cultura, peligros, secretos, conflictos políticos y amenazas
-          sobrenaturales.
-        </p>
+        <p>{{ 'ANIMA.ANIMA_WORLD.ANIMA_WORLD.HTML_P_34' | translate }}</p>
 
-        <p>
-          Un mapa puede ayudar al Director de Juego a decidir dónde empieza la
-          aventura, qué rutas puede tomar el grupo, qué facciones controlan cada
-          zona y qué peligros aparecen durante el camino. También permite que los
-          jugadores entiendan mejor el lugar en el que se mueven y tomen
-          decisiones con más libertad.
-        </p>
+        <p>{{ 'ANIMA.ANIMA_WORLD.ANIMA_WORLD.HTML_P_35' | translate }}</p>
 
-        <p>
-          Las partidas de Ánima suelen mezclar fantasía, misterio, combate,
-          drama, poderes ocultos y grandes secretos. Por eso los mapas pueden
-          representar desde ciudades imperiales y fortalezas antiguas hasta
-          bosques malditos, templos olvidados, rutas comerciales o lugares donde
-          la realidad parece romperse.
-        </p>
+        <p>{{ 'ANIMA.ANIMA_WORLD.ANIMA_WORLD.HTML_P_36' | translate }}</p>
 
-        <p>
-          Para usar bien un mapa, piensa primero qué función tendrá dentro de la
-          historia: guiar un viaje, preparar un combate, esconder una pista,
-          marcar una frontera peligrosa o mostrar el dominio de una organización
-          importante.
-        </p>
+        <p>{{ 'ANIMA.ANIMA_WORLD.ANIMA_WORLD.HTML_P_37' | translate }}</p>
       </article>
 
       <div class="maps-grid">
         @for (section of mapSections; track section.name) {
           <article class="map-card">
             <h3>{{ section.name }}</h3>
-            <p>{{ section.description }}</p>
+            <p>{{ section.description | translate }}</p>
           </article>
         }
       </div>
@@ -55,9 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="world-download-button"
-        >
-          Descargar mapas de Ánima
-        </a>
+        >{{ 'ANIMA.ANIMA_WORLD.ANIMA_WORLD.HTML_A_38' | translate }}</a>
       </div>
 
       }

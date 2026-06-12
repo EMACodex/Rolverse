@@ -1,9 +1,10 @@
+/* Estilos de la vista send mail de Rolverse. Mantienen responsive y aspecto existente. */
 .send-mail-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url('/assets/img/fondo 3.jpg');
+  background-image: url('../../../../../assets/img/fondo 3.jpg');
   background-size: cover;
   padding: 1rem;
   box-sizing: border-box;

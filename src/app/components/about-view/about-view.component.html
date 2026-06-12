@@ -1,3 +1,4 @@
+<!-- Vista about view de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="about-view-container">
   @if (loading) {
   <p>Cargando reseñas de {{ authorName }}…</p>
@@ -20,7 +21,7 @@
       @for (rev of reviews; track rev.id) {
       <div class="review-card">
         <img
-          [src]="'http://localhost:3000' + rev.image_path"
+          [src]="apiBase + rev.image_path"
           alt="{{ rev.title }}"
           class="review-img"
         />

@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-warhammer-third-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './warhammer-third-edition.component.html',
   styleUrls: ['./warhammer-third-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para warhammer third edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class WarhammerThirdEditionComponent {
-  title = 'Warhammer 40,000 3ª edición';
+  title = 'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_1';
   period = '1998';
   intro =
-    'La tercera edición simplificó de forma fuerte el sistema, redujo complejidad y acercó Warhammer 40,000 al formato de wargame más rápido y masivo que dominaría durante años.';
+    'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_3',
       items: [
-        'Marca una ruptura importante con la complejidad de la segunda edición.',
-        'Reduce cartas, tablas y excepciones para hacer el juego más directo.',
-        'Facilita partidas con más miniaturas y ejércitos más grandes.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_4',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_5',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_6',
         'Define muchas bases del Warhammer moderno.',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_7',
       items: [
-        'Movimiento, disparo, asalto y moral se organizan de forma más limpia.',
-        'Las unidades se gestionan más como escuadras que como individuos aislados.',
-        'Se reducen muchos modificadores y reglas extremadamente específicas.',
-        'Los codex de ejército pasan a ser esenciales para construir listas.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_8',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_9',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_10',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_11',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_12',
       items: [
-        'El jugador construye una lista de ejército por puntos.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_13',
         'La partida se centra en maniobrar unidades, disparar, asaltar y controlar objetivos.',
-        'El ritmo es más rápido que en 2ª edición.',
-        'El juego se vuelve más adecuado para torneos y partidas estándar.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_14',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_15',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_16',
       items: [
         'Prepara una mesa con cobertura, ruinas y objetivos.',
-        'Elige una misión simple: aniquilación, control de zona o captura de objetivo.',
-        'Mueve tus unidades buscando líneas de tiro y cargas favorables.',
-        'Perfecta para jugar batallas más grandes sin tanto peso de reglas individuales.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_17',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_18',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.THIRD_EDITION.WARHAMMER_THIRD_EDITION.TEXT_19',
       ],
     },
   ];

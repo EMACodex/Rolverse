@@ -1,3 +1,4 @@
+/* Estilos de la vista personal de Rolverse. Mantienen responsive y aspecto existente. */
 * {
   box-sizing: border-box;
 }
@@ -9,7 +10,7 @@
   align-items: center;
   background:
     linear-gradient(#100d0baa, #21130ee8),
-    url("/assets/img/fondo 2.jpg") center/cover;
+    url("../../../../assets/img/fondo 2.jpg") center/cover;
   min-height: 100vh;
   overflow-x: hidden;
   color: #f3e3bd;

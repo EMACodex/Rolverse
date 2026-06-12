@@ -5,3 +5,7 @@
 @if (!hideFooter()) {
   <app-footer></app-footer>
 }
+
+@if (!hideFooter() && authService.isLoggedIn()) {
+  <app-chatbot-widget></app-chatbot-widget>
+}

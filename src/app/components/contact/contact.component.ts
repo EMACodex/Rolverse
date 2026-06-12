@@ -17,6 +17,10 @@ import { ContactService } from '../../services/contact.service';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para contact.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class ContactoComponent {
   contactForm: FormGroup;
 
@@ -56,6 +60,7 @@ export class ContactoComponent {
     });
   }
 
+  /** Gestiona la accion onSubmit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onSubmit(): void {
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();

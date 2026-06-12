@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-warhammer-sixth-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './warhammer-sixth-edition.component.html',
   styleUrls: ['./warhammer-sixth-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para warhammer sixth edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class WarhammerSixthEditionComponent {
-  title = 'Warhammer 40,000 6ª edición';
+  title = 'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_1';
   period = '2012';
   intro =
-    'La sexta edición añadió más elementos narrativos, aliados, voladores y nuevas capas de reglas que hicieron las partidas más espectaculares, aunque también más complejas.';
+    'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_3',
       items: [
-        'Introduce una etapa más ambiciosa y cargada de reglas.',
-        'Da presencia fuerte a unidades voladoras y alianzas entre ejércitos.',
-        'Aumenta la sensación cinematográfica de la batalla.',
-        'También incrementa la complejidad general del sistema.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_4',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_5',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_6',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_7',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_8',
       items: [
         'Aparecen reglas destacadas para voladores y fuego defensivo.',
         'Los aliados permiten combinar facciones bajo ciertas condiciones.',
-        'Los poderes psíquicos adquieren más presencia.',
-        'Se añaden objetivos secundarios y rasgos de señor de la guerra.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_9',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_10',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_11',
       items: [
-        'Las partidas tienen más capas tácticas y más elementos aleatorios.',
-        'El jugador debe considerar aire, tierra, psíquicos y sinergias de alianza.',
-        'Las listas pueden ser más variadas, pero también más difíciles de equilibrar.',
-        'El tono general es más espectacular y narrativo.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_12',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_13',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_14',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_15',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_16',
       items: [
-        'Define bien antes de empezar qué reglas opcionales y aliados se permiten.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_17',
         'Incluye objetivos variados para evitar que todo dependa de destruir unidades.',
-        'Prepara la mesa con terreno suficiente para evitar líneas de tiro excesivas.',
-        'Buena para campañas grandes, invasiones planetarias y batallas cinematográficas.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_18',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.SIXTH_EDITION.WARHAMMER_SIXTH_EDITION.TEXT_19',
       ],
     },
   ];

@@ -1,48 +1,26 @@
+<!-- Vista pathfinder bestiary de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="bestiary-bg">
   <div class="bestiary-container">
-    <h1 class="main-title">Bestiario de Pathfinder</h1>
+    <h1 class="main-title">{{ 'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.HTML_H1_155' | translate }}</h1>
 
     <section class="bestiary-section">
       <article class="bestiary-card main-bestiary-card">
-        <h2>Qué es un bestiario en Pathfinder</h2>
+        <h2>{{ 'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.HTML_H2_156' | translate }}</h2>
 
-        <p>
-          Un bestiario es una colección de criaturas, enemigos, monstruos y
-          amenazas que el Game Master puede usar para preparar encuentros,
-          aventuras y campañas. En Pathfinder, el bestiario no sirve solo para
-          elegir enemigos al azar: ayuda a construir el mundo, definir peligros y
-          dar personalidad a cada región.
-        </p>
+        <p>{{ 'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.HTML_P_157' | translate }}</p>
 
-        <p>
-          Cada criatura puede tener una función concreta dentro de la partida.
-          Algunas protegen ruinas antiguas, otras sirven a un villano, otras
-          viven en territorios salvajes y otras aparecen como consecuencia de
-          magia prohibida, pactos oscuros o errores del pasado.
-        </p>
+        <p>{{ 'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.HTML_P_158' | translate }}</p>
 
-        <p>
-          Pathfinder suele usar criaturas con reglas detalladas, habilidades
-          especiales, resistencias, debilidades y formas distintas de actuar en
-          combate. Por eso, preparar bien un encuentro no consiste solo en mirar
-          el daño de un monstruo, sino en pensar cómo se mueve, qué quiere y cómo
-          reacciona ante los personajes.
-        </p>
+        <p>{{ 'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.HTML_P_159' | translate }}</p>
 
-        <p>
-          Para usar bien un bestiario, el Game Master debe preguntarse tres
-          cosas: qué papel cumple la criatura en la historia, por qué está en ese
-          lugar y qué ocurrirá si los personajes deciden luchar, negociar,
-          investigar o huir. Así, cada monstruo se convierte en una pieza real de
-          la aventura.
-        </p>
+        <p>{{ 'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.HTML_P_160' | translate }}</p>
       </article>
 
       <div class="creatures-grid">
         @for (creature of creatures; track creature.name) {
           <article class="creature-card">
-            <h3>{{ creature.name }}</h3>
-            <p>{{ creature.description }}</p>
+            <h3>{{ creature.name | translate }}</h3>
+            <p>{{ creature.description | translate }}</p>
           </article>
         }
       </div>
@@ -55,9 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="bestiary-download-button"
-        >
-          Descargar bestiario de Pathfinder
-        </a>
+        >{{ 'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.HTML_A_161' | translate }}</a>
       </div>
 
       }

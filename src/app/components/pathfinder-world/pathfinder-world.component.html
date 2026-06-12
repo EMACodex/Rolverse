@@ -1,47 +1,26 @@
+<!-- Vista pathfinder world de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="maps-bg">
   <div class="maps-container">
-    <h1 class="main-title">Mapas de Pathfinder</h1>
+    <h1 class="main-title">{{ 'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.HTML_H1_184' | translate }}</h1>
 
     <section class="maps-section">
       <article class="maps-card main-maps-card">
-        <h2>Qué son los mapas en Pathfinder</h2>
+        <h2>{{ 'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.HTML_H2_185' | translate }}</h2>
 
-        <p>
-          Los mapas en Pathfinder sirven para organizar el mundo de juego y dar
-          forma a las aventuras. No son solo imágenes decorativas: ayudan al
-          Game Master a preparar escenas, rutas, encuentros, regiones y lugares
-          importantes dentro de la historia.
-        </p>
+        <p>{{ 'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.HTML_P_186' | translate }}</p>
 
-        <p>
-          Pathfinder suele trabajar con mundos de fantasía muy amplios, ciudades
-          llenas de facciones, mazmorras antiguas, templos perdidos, caminos
-          peligrosos y territorios marcados por magia, guerras o criaturas
-          extrañas. Un mapa permite que todo eso sea más claro para los
-          jugadores.
-        </p>
+        <p>{{ 'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.HTML_P_187' | translate }}</p>
 
-        <p>
-          Para el Game Master, un mapa ayuda a colocar enemigos, calcular
-          distancias, preparar encuentros tácticos y mantener la coherencia de
-          la campaña. Para los jugadores, permite tomar decisiones con más
-          facilidad: qué camino seguir, qué zona investigar o dónde preparar una
-          emboscada.
-        </p>
+        <p>{{ 'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.HTML_P_188' | translate }}</p>
 
-        <p>
-          En una partida rápida, un mapa puede ser una aldea, una ruta comercial
-          y unas ruinas cercanas. En una campaña larga, puede convertirse en una
-          región completa de Golarion con ciudades, dioses, facciones, amenazas
-          antiguas y secretos por descubrir.
-        </p>
+        <p>{{ 'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.HTML_P_189' | translate }}</p>
       </article>
 
       <div class="maps-grid">
         @for (mapType of mapTypes; track mapType.name) {
           <article class="map-card">
-            <h3>{{ mapType.name }}</h3>
-            <p>{{ mapType.description }}</p>
+            <h3>{{ mapType.name | translate }}</h3>
+            <p>{{ mapType.description | translate }}</p>
           </article>
         }
       </div>
@@ -54,9 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="maps-download-button"
-        >
-          Descargar mapas de Pathfinder
-        </a>
+        >{{ 'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.HTML_A_190' | translate }}</a>
       </div>
 
       }

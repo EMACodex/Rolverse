@@ -1,3 +1,4 @@
+/* Estilos de la vista add new de Rolverse. Mantienen responsive y aspecto existente. */
 .news-form-container {
   width: min(900px, calc(100% - 2rem));
   background: rgba(255, 248, 220, 0.94);
@@ -27,7 +28,7 @@
 .page-background {
   display: block;
   min-height: 100vh;
-  background-image: url("/assets/img/addnew.jpg");
+  background-image: url("../../../../assets/img/addnew.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

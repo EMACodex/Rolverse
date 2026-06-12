@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-starwars-saga-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './saga-edition.component.html',
   styleUrls: ['./saga-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para saga edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class SagaEditionComponent {
   title = 'Star Wars Saga Edition';
   period = '2007';
   intro =
-    'Una versión más moderna y simplificada del sistema d20. Reduce complejidad, usa árboles de talentos y busca una experiencia más ágil, heroica y adaptable a todas las eras de Star Wars.';
+    'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_1';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_2',
       items: [
-        'Publicada por Wizards of the Coast en 2007 como nueva edición del rol de Star Wars.',
-        'Fue diseñada para ser más sencilla y flexible que las versiones d20 anteriores.',
-        'Integra mejor la acción de las seis primeras películas y múltiples épocas de juego.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_3',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_4',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_5',
         'Es una de las ediciones preferidas por quienes quieren d20 pero con menos peso de reglas.',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_6',
       items: [
         'Usa d20, clases heroicas, talentos, dotes, defensas y puntos de golpe.',
-        'Reduce el número de clases principales y permite personalizar con árboles de talentos.',
-        'Sustituye muchas tiradas de salvación por defensas como Reflejos, Fortaleza y Voluntad.',
-        'El combate y las habilidades son más limpios que en d20 original/revisado.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_7',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_8',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_9',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_10',
       items: [
-        'Es heroico, táctico y más rápido que d20 Revised.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_11',
         'Permite representar Jedi, soldados, nobles, exploradores y bribones con mucha flexibilidad.',
-        'Funciona bien para campañas largas y personajes muy personalizados.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_12',
         'Las reglas siguen siendo estructuradas, pero menos pesadas que las anteriores.',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_13',
       items: [
-        'Define primero la era: Antigua República, Guerras Clon, Imperio, Rebelión o Nueva República.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_14',
         'Crea personajes con clase, talentos y dotes que refuercen su papel dentro del grupo.',
-        'Diseña encuentros variados: combate terrestre, negociación, persecución espacial, dilemas de la Fuerza.',
-        'Usa la condición, el daño y los recursos heroicos para mantener tensión cinematográfica.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_15',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.SAGA_EDITION.SAGA_EDITION.TEXT_16',
       ],
     },
   ];

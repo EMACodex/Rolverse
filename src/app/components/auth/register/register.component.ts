@@ -11,6 +11,10 @@ import { TranslatePipe } from '../../../pipes/translate.pipe';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+/**
+ * Formulario de registro de usuarios.
+ * Usa validaciones reactivas y delega la creacion en AuthService.
+ */
 export class RegisterComponent {
   registerForm: FormGroup;
   errorMessage = '';
@@ -29,6 +33,7 @@ export class RegisterComponent {
     });
   }
 
+  /** Gestiona la accion onSubmit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onSubmit(): void {
     if (this.registerForm.invalid) {
       this.errorMessage = 'Please fill out the form correctly.';

@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-anima-twilight-gods',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './anima-twilight-gods.component.html',
   styleUrls: ['./anima-twilight-gods.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para anima twilight gods.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class AnimaTwilightGodsComponent {
   title = 'El Ocaso de los Dioses';
-  period = 'Expansión autojugable';
+  period = 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_1';
   intro =
-    'El Ocaso de los Dioses continúa la línea de cartas de Ánima con una escala más épica. Mantiene la estructura autojugable y compatible, pero orientada a amenazas de gran poder.';
+    'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_3',
       items: [
-        'El título sugiere conflictos de escala divina, entidades superiores y amenazas capaces de cambiar el destino de Gaïa.',
-        'Forma parte de la línea de juegos de cartas no coleccionables de Ánima.',
-        'Puede jugarse como caja independiente o combinarse con las anteriores para crear campañas más amplias.',
-        'Refuerza el tono épico, trágico y sobrenatural que caracteriza al universo Ánima.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_4',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_5',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_6',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_7',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_8',
       items: [
-        'Usa cartas de héroes, encuentros, misiones, localizaciones y amenazas finales.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_9',
         'El grupo debe progresar antes de enfrentarse al conflicto definitivo.',
-        'La combinación con otras cajas aumenta la variedad de misiones y personajes.',
-        'La partida mantiene un formato cerrado, más rápido que el rol tradicional.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_10',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_11',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_12',
       items: [
-        'Está orientado a aventuras de mesa con preparación sencilla.',
-        'La tensión surge de gestionar el momento correcto para avanzar hacia la misión final.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_13',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_14',
         'Las cartas permiten crear situaciones variadas sin que el Director tenga que preparar todo desde cero.',
-        'Es adecuado para grupos que quieren sentir una campaña épica en formato compacto.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_15',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_16',
       items: [
-        'Selecciona héroes, prepara el mazo de localizaciones y define la amenaza principal.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_17',
         'Explora lugares, resuelve encuentros y acumula recursos.',
         'Controla el ritmo: avanzar demasiado pronto puede condenar al grupo, esperar demasiado puede fortalecer la amenaza.',
-        'Cierra la partida con una misión final de alto impacto narrativo.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_TWILIGHT_GODS.ANIMA_TWILIGHT_GODS.TEXT_18',
       ],
     },
   ];

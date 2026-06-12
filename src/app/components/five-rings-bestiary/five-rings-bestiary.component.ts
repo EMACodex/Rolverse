@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-five-rings-bestiary',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './five-rings-bestiary.component.html',
   styleUrls: ['./five-rings-bestiary.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para five rings bestiary.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class FiveRingsBestiaryComponent {
   readonly authService = inject(AuthService);
   readonly fiveRingsBestiaryPdfUrl =
@@ -15,32 +21,32 @@ export class FiveRingsBestiaryComponent {
     {
       name: 'Oni',
       description:
-        'Los oni son demonios ligados a la corrupción, la violencia y las Tierras Sombrías. Funcionan muy bien como enemigos principales, amenazas sobrenaturales o criaturas invocadas por cultos oscuros. Un oni no tiene por qué ser solo fuerza bruta: puede tentar, manipular y destruir poco a poco el honor de los personajes.',
+        'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.TEXT_1',
     },
     {
       name: 'Yōkai',
       description:
-        'Los yōkai son criaturas extrañas del folclore japonés que pueden ser peligrosas, burlonas, misteriosas o directamente sobrenaturales. Sirven para aventuras de investigación, bosques encantados, aldeas malditas y encuentros donde los jugadores deben comprender las reglas espirituales del lugar.',
+        'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.TEXT_2',
     },
     {
-      name: 'Kami y espíritus',
+      name: 'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.TEXT_3',
       description:
-        'Los kami representan fuerzas espirituales de la naturaleza, objetos, lugares o conceptos sagrados. No siempre son enemigos: pueden ser aliados, pruebas, jueces o entidades ofendidas por la falta de respeto de los humanos. Son ideales para partidas centradas en honor, tradición y equilibrio.',
+        'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.TEXT_4',
     },
     {
-      name: 'Criaturas de las Tierras Sombrías',
+      name: 'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.TEXT_5',
       description:
-        'Las Tierras Sombrías son una fuente constante de monstruos corruptos, engendros, bestias deformadas y horrores que amenazan Rokugán. Estas criaturas funcionan muy bien para campañas oscuras, misiones militares, defensa de fortalezas y viajes donde cada paso puede contaminar cuerpo y alma.',
+        'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.TEXT_6',
     },
     {
-      name: 'No muertos y maldiciones',
+      name: 'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.TEXT_7',
       description:
-        'Fantasmas, cadáveres animados, espíritus vengativos y ancestros malditos permiten crear historias donde el pasado no descansa. Son perfectos para tramas familiares, duelos inconclusos, traiciones antiguas o lugares donde una injusticia sigue reclamando reparación.',
+        'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.TEXT_8',
     },
     {
       name: 'Bestias, animales y guardianes',
       description:
-        'Lobos, osos, serpientes, aves sagradas, criaturas guardianas y animales simbólicos pueden aparecer en viajes, pruebas de clan o escenarios naturales. En La Leyenda de los 5 Anillos, una bestia puede ser un simple peligro físico o una señal espiritual con significado dentro de la historia.',
+        'L5R.FIVE_RINGS_BESTIARY.FIVE_RINGS_BESTIARY.TEXT_9',
     },
   ];
 }

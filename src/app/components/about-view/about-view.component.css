@@ -1,9 +1,10 @@
+/* Estilos de la vista about view de Rolverse. Mantienen responsive y aspecto existente. */
 :host {
   display: block;
   padding-top: 134px; /* altura del header + padding */
   padding-bottom: 2rem;
   min-height: calc(100vh - 134px - 100px);
-  background: url("/assets/img/contacto.jpg") no-repeat center center fixed;
+  background: url("../../../assets/img/contacto.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 

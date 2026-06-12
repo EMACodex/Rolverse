@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-starwars-d20-revised',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './d20-revised.component.html',
   styleUrls: ['./d20-revised.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para d20 revised.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class D20RevisedComponent {
   title = 'Star Wars D20 Revised';
   period = '2002';
   intro =
-    'Una revisión de la versión d20 que ajusta reglas, equilibrio y presentación. Mejora la experiencia de juego, pero mantiene la base de clases, niveles, dotes y tiradas d20.';
+    'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_1';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_2',
       items: [
-        'Aparece como revisión de la línea d20 original de Wizards of the Coast.',
-        'Busca pulir problemas de la primera versión y adaptarse mejor al tono de Star Wars.',
-        'Sigue siendo una edición muy conectada con D&D 3.x.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_3',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_4',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_5',
         'Sirve como puente entre el d20 original y la posterior Saga Edition.',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_6',
       items: [
         'Mantiene el uso de d20 para ataques, habilidades y dificultades.',
         'Refina clases, habilidades, dotes, combate y reglas de la Fuerza.',
-        'La progresión por niveles sigue siendo el centro del crecimiento del personaje.',
-        'El Game Master puede construir encuentros usando niveles, enemigos y desafíos estructurados.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_7',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_8',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_9',
       items: [
-        'Es más ordenado que el d20 original, pero todavía bastante técnico.',
-        'Premia la construcción de personaje y las elecciones mecánicas.',
-        'Funciona bien para campañas con mucha progresión, equipo, combate y desarrollo de poderes.',
-        'El tono puede ser más estratégico que cinematográfico si se juega con mucha cuadrícula.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_10',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_11',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_12',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_13',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_14',
       items: [
         'Prepara aventuras con misiones concretas y recompensas de experiencia.',
-        'Haz que cada escena tenga una función: información, peligro, decisión o combate.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_15',
         'Usa la Fuerza con consecuencias narrativas, no solo como lista de poderes.',
-        'Mantén el equilibrio entre tiroteos, pilotaje, negociación y drama galáctico.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_REVISED.D20_REVISED.TEXT_16',
       ],
     },
   ];

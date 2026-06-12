@@ -1,46 +1,26 @@
+<!-- Vista five rings character de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="characters-bg">
   <div class="characters-container">
-    <h1 class="main-title">Personajes de La Leyenda de los 5 Anillos</h1>
+    <h1 class="main-title">{{ 'L5R.FIVE_RINGS_CHARACTERS.FIVE_RINGS_CHARACTER.HTML_H1_121' | translate }}</h1>
 
     <section class="characters-section">
       <article class="character-card main-character-card">
-        <h2>Qué es un personaje en La Leyenda de los 5 Anillos</h2>
+        <h2>{{ 'L5R.FIVE_RINGS_CHARACTERS.FIVE_RINGS_CHARACTER.HTML_H2_122' | translate }}</h2>
 
-        <p>
-          Un personaje en La Leyenda de los 5 Anillos representa a una persona
-          marcada por el honor, el deber, el clan, la familia y las tensiones
-          internas del Imperio Esmeralda. No se trata solo de combatir: cada
-          personaje vive entre lo que desea, lo que siente y lo que la sociedad
-          espera de él.
-        </p>
+        <p>{{ 'L5R.FIVE_RINGS_CHARACTERS.FIVE_RINGS_CHARACTER.HTML_P_123' | translate }}</p>
 
-        <p>
-          En este juego, los personajes pueden ser samuráis, cortesanos,
-          sacerdotes, monjes, agentes secretos o ronin. Cada uno tiene una forma
-          distinta de enfrentarse al conflicto: con la espada, la palabra, la
-          tradición, los espíritus, la estrategia o el sacrificio personal.
-        </p>
+        <p>{{ 'L5R.FIVE_RINGS_CHARACTERS.FIVE_RINGS_CHARACTER.HTML_P_124' | translate }}</p>
 
-        <p>
-          Crear un personaje implica elegir un clan, una escuela, un papel
-          dentro de la sociedad y una personalidad. También es importante
-          definir sus lealtades, sus miedos, sus obligaciones y aquello que
-          podría hacerle romper su propio código de honor.
-        </p>
+        <p>{{ 'L5R.FIVE_RINGS_CHARACTERS.FIVE_RINGS_CHARACTER.HTML_P_125' | translate }}</p>
 
-        <p>
-          Un buen personaje no tiene que ser perfecto. Puede ser orgulloso,
-          reservado, ambicioso, compasivo, impulsivo o atormentado por un deber
-          imposible. Lo importante es que sus decisiones tengan peso dentro de
-          la historia y puedan afectar a su clan, su familia o su destino.
-        </p>
+        <p>{{ 'L5R.FIVE_RINGS_CHARACTERS.FIVE_RINGS_CHARACTER.HTML_P_126' | translate }}</p>
       </article>
 
       <div class="characters-grid">
         @for (character of characterTypes; track character.name) {
           <article class="character-type-card">
-            <h3>{{ character.name }}</h3>
-            <p>{{ character.description }}</p>
+            <h3>{{ character.name | translate }}</h3>
+            <p>{{ character.description | translate }}</p>
           </article>
         }
       </div>
@@ -53,9 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="characters-download-button"
-        >
-          Descargar hojas de personaje de la leyenda de los 5 anillos
-        </a>
+        >{{ 'L5R.FIVE_RINGS_CHARACTERS.FIVE_RINGS_CHARACTER.HTML_A_127' | translate }}</a>
       </div>
 
       }

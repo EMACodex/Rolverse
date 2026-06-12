@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-anima-bestiary',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './anima-bestiary.component.html',
   styleUrls: ['./anima-bestiary.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para anima bestiary.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class AnimaBestiaryComponent {
   readonly authService = inject(AuthService);
   readonly animaBestiaryPdfUrl =
@@ -15,32 +21,32 @@ export class AnimaBestiaryComponent {
     {
       name: 'Bestias de Gaïa',
       description:
-        'Criaturas salvajes que habitan bosques, montañas, ruinas y territorios alejados de la civilización. Pueden usarse como amenazas naturales, guardianes de zonas prohibidas o encuentros durante viajes peligrosos.',
+        'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.TEXT_1',
     },
     {
       name: 'Seres sobrenaturales',
       description:
-        'Entidades vinculadas a fuerzas ocultas, planos extraños, magia antigua o sucesos imposibles de explicar. Funcionan muy bien en historias de misterio, terror, investigación y fantasía oscura.',
+        'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.TEXT_2',
     },
     {
       name: 'Demonios y horrores',
       description:
-        'Criaturas corruptas, violentas o nacidas de poderes prohibidos. Son ideales para campañas oscuras donde los personajes investigan cultos, rituales, pactos o amenazas que no deberían existir en el mundo humano.',
+        'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.TEXT_3',
     },
     {
       name: 'Constructos y guardianes',
       description:
-        'Máquinas antiguas, armaduras animadas, autómatas, guardianes arcanos o creaciones de civilizaciones perdidas. Encajan especialmente bien en laboratorios secretos, templos olvidados y fortalezas protegidas por magia.',
+        'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.TEXT_4',
     },
     {
-      name: 'Criaturas espirituales',
+      name: 'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.TEXT_5',
       description:
-        'Presencias ligadas a almas, recuerdos, lugares malditos o energías invisibles. Pueden actuar como enemigos, guías, advertencias o consecuencias de tragedias antiguas que siguen marcando una región.',
+        'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.TEXT_6',
     },
     {
       name: 'Enemigos humanos especiales',
       description:
-        'No todo bestiario tiene que estar formado por monstruos. En Ánima también funcionan muy bien asesinos, inquisidores, ocultistas, caballeros, psíquicos, hechiceros y organizaciones secretas con habilidades únicas.',
+        'ANIMA.ANIMA_BESTIARY.ANIMA_BESTIARY.TEXT_7',
     },
   ];
 }

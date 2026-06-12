@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-pathfinder-bestiary',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './pathfinder-bestiary.component.html',
   styleUrls: ['./pathfinder-bestiary.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para pathfinder bestiary.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class PathfinderBestiaryComponent {
   readonly authService = inject(AuthService);
   readonly pathfinderBestiaryPdfUrl =
@@ -13,34 +19,34 @@ export class PathfinderBestiaryComponent {
 
   creatures = [
     {
-      name: 'Dragones',
+      name: 'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.TEXT_1',
       description:
-        'Los dragones son criaturas antiguas, inteligentes y poderosas. En Pathfinder pueden funcionar como jefes finales, guardianes de tesoros, señores de una región o amenazas que manipulan a otros desde las sombras. No son solo monstruos grandes: suelen tener planes, orgullo, territorio y una historia propia.',
+        'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.TEXT_2',
     },
     {
       name: 'Goblins',
       description:
-        'Los goblins son enemigos muy característicos de Pathfinder. Son caóticos, peligrosos, exagerados y perfectos para aventuras iniciales. Pueden atacar caminos, robar comida, prender fuego a aldeas o servir a una amenaza mayor sin comprender del todo el peligro que están desatando.',
+        'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.TEXT_3',
     },
     {
-      name: 'No muertos',
+      name: 'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.TEXT_4',
       description:
         'Esqueletos, zombis, espectros, vampiros y liches encajan muy bien en tumbas, ruinas antiguas, templos malditos o ciudades donde el pasado sigue vivo. Sirven para crear partidas oscuras, misterios de necromancia y enemigos ligados a secretos olvidados.',
     },
     {
       name: 'Bestias y monstruos salvajes',
       description:
-        'Lobos terribles, arañas gigantes, grifos, basiliscos, mantícoras y otras criaturas salvajes sirven para dar peligro a bosques, montañas, pantanos y rutas de viaje. No siempre deben ser malvadas: muchas solo protegen su territorio o reaccionan al miedo.',
+        'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.TEXT_5',
     },
     {
       name: 'Demonios, diablos y seres extraplanares',
       description:
-        'Estas criaturas representan corrupción, pactos, cultos, tentaciones y amenazas de otros planos. Funcionan muy bien como enemigos principales en campañas donde los personajes deben cerrar portales, romper contratos infernales o impedir rituales prohibidos.',
+        'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.TEXT_6',
     },
     {
-      name: 'Constructos y guardianes mágicos',
+      name: 'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.TEXT_7',
       description:
-        'Gólems, armaduras animadas, autómatas y guardianes arcanos son ideales para mazmorras antiguas, laboratorios mágicos, fortalezas perdidas y templos protegidos por magia. Normalmente no actúan por odio, sino porque cumplen una orden antigua.',
+        'PATHFINDER.PATHFINDER_BESTIARY.PATHFINDER_BESTIARY.TEXT_8',
     },
   ];
 }

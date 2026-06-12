@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-cthulhu-stories',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './cthulhu-stories.component.html',
   styleUrls: ['./cthulhu-stories.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para cthulhu stories.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class CthulhuStoriesComponent {
   readonly authService = inject(AuthService);
   readonly cthulhuStoriesPdfUrl =
@@ -15,32 +21,32 @@ export class CthulhuStoriesComponent {
     {
       title: 'Investigaciones y misterios',
       description:
-        'Las historias de Cthulhu suelen comenzar con un suceso extraño: una desaparición, un asesinato imposible, un diario antiguo, una expedición perdida o un objeto que no debería existir. La aventura avanza cuando los investigadores reúnen pistas y conectan hechos aparentemente separados.',
+        'CTHULHU.CTHULHU_STORIES.CTHULHU_STORIES.TEXT_1',
     },
     {
-      title: 'Horror cósmico',
+      title: 'CTHULHU.CTHULHU_STORIES.CTHULHU_STORIES.TEXT_2',
       description:
-        'El miedo no nace solo de monstruos visibles, sino de descubrir que el universo es mucho más antiguo, indiferente y peligroso de lo que la humanidad puede comprender. Los personajes pueden sobrevivir, pero no siempre salen intactos mentalmente.',
+        'CTHULHU.CTHULHU_STORIES.CTHULHU_STORIES.TEXT_3',
     },
     {
       title: 'Sectas y conocimiento prohibido',
       description:
-        'Muchas historias giran alrededor de cultos secretos, rituales ocultos, libros malditos y personas que buscan poder a cualquier precio. El conflicto no siempre se resuelve luchando, sino entendiendo qué está ocurriendo y cómo detenerlo a tiempo.',
+        'CTHULHU.CTHULHU_STORIES.CTHULHU_STORIES.TEXT_4',
     },
     {
       title: 'Lugares inquietantes',
       description:
-        'Mansiones aisladas, pueblos costeros, hospitales antiguos, universidades, bibliotecas, sótanos, faros y ruinas olvidadas son escenarios perfectos para crear tensión. Cada lugar debe esconder pistas, secretos y una amenaza que crece poco a poco.',
+        'CTHULHU.CTHULHU_STORIES.CTHULHU_STORIES.TEXT_5',
     },
     {
-      title: 'Investigadores vulnerables',
+      title: 'CTHULHU.CTHULHU_STORIES.CTHULHU_STORIES.TEXT_6',
       description:
-        'A diferencia de otros juegos de fantasía, los protagonistas no suelen ser héroes invencibles. Son personas normales enfrentadas a horrores enormes: periodistas, médicos, profesores, detectives, arqueólogos, soldados retirados o curiosos que han visto demasiado.',
+        'CTHULHU.CTHULHU_STORIES.CTHULHU_STORIES.TEXT_7',
     },
     {
       title: 'Finales con consecuencias',
       description:
-        'Una buena historia de Cthulhu no siempre termina con una victoria limpia. Detener un ritual puede costar cordura, reputación, aliados o vidas. A veces el grupo solo logra retrasar una amenaza que volverá más adelante.',
+        'CTHULHU.CTHULHU_STORIES.CTHULHU_STORIES.TEXT_8',
     },
   ];
 }

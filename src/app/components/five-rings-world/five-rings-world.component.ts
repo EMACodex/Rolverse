@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-five-rings-world',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './five-rings-world.component.html',
   styleUrls: ['./five-rings-world.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para five rings world.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class FiveRingsWorldComponent {
   readonly authService = inject(AuthService);
   readonly fiveRingsMapsPdfUrl =
@@ -13,9 +19,9 @@ export class FiveRingsWorldComponent {
 
   mapTypes = [
     {
-      name: 'Rokugán y sus provincias',
+      name: 'L5R.FIVE_RINGS_WORLD.FIVE_RINGS_WORLD.TEXT_1',
       description:
-        'Los mapas generales sirven para situar el Imperio Esmeralda, sus grandes clanes, fronteras, rutas comerciales, tierras sagradas, montañas, costas y regiones en conflicto. Son perfectos para campañas largas centradas en política, guerra, viajes y deber samurái.',
+        'L5R.FIVE_RINGS_WORLD.FIVE_RINGS_WORLD.TEXT_2',
     },
     {
       name: 'Castillos y fortalezas',
@@ -25,22 +31,22 @@ export class FiveRingsWorldComponent {
     {
       name: 'Aldeas y tierras de clan',
       description:
-        'Las aldeas muestran la vida cotidiana del imperio: campesinos, templos, caminos, arrozales, mercados y casas de té. Son ideales para historias donde el honor de un samurái se cruza con problemas humildes, rumores locales o tensiones entre familias.',
+        'L5R.FIVE_RINGS_WORLD.FIVE_RINGS_WORLD.TEXT_3',
     },
     {
       name: 'Templos, santuarios y lugares espirituales',
       description:
-        'Los espacios sagrados ayudan a introducir kami, ancestros, monjes, visiones, maldiciones y pruebas espirituales. Funcionan muy bien en partidas donde la fe, la tradición y el equilibrio entre el mundo humano y espiritual tienen mucho peso.',
+        'L5R.FIVE_RINGS_WORLD.FIVE_RINGS_WORLD.TEXT_4',
     },
     {
-      name: 'Bosques, montañas y caminos peligrosos',
+      name: 'L5R.FIVE_RINGS_WORLD.FIVE_RINGS_WORLD.TEXT_5',
       description:
-        'Los viajes por Rokugán pueden incluir pasos montañosos, bosques cerrados, puentes, caminos vigilados o zonas controladas por bandidos. Estos mapas son útiles para emboscadas, escoltas, persecuciones y encuentros con criaturas o espíritus.',
+        'L5R.FIVE_RINGS_WORLD.FIVE_RINGS_WORLD.TEXT_6',
     },
     {
-      name: 'Tierras sombrías y zonas corruptas',
+      name: 'L5R.FIVE_RINGS_WORLD.FIVE_RINGS_WORLD.TEXT_7',
       description:
-        'Las regiones marcadas por corrupción, oscuridad o amenazas sobrenaturales sirven para aventuras más peligrosas. En estos mapas el entorno puede ser enemigo: ruinas malditas, fortalezas caídas, campos devastados y lugares donde el honor se pone a prueba.',
+        'L5R.FIVE_RINGS_WORLD.FIVE_RINGS_WORLD.TEXT_8',
     },
   ];
 }

@@ -1,51 +1,57 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-starwars-west-end-second',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './west-end-second.component.html',
   styleUrls: ['./west-end-second.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para west end second.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class WestEndSecondComponent {
-  title = 'WEG D6 2ª Edición / Revised';
+  title = 'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_1';
   period = '1992 - 1996';
   intro =
-    'La evolución del sistema D6 de West End Games. Mantiene la base rápida de la primera edición, pero organiza mejor reglas, habilidades, combate, naves y dirección de partidas.';
+    'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_3',
       items: [
-        'La segunda edición apareció en los años 90 y después tuvo una versión revisada y ampliada.',
-        'Consolidó el Star Wars clásico de mesa durante una etapa muy importante para el universo expandido.',
-        'Añadió más claridad, más opciones y más apoyo para campañas largas.',
-        'Es una de las versiones más queridas por jugadores veteranos del rol de Star Wars.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_4',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_5',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_6',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_7',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_8',
       items: [
         'Sigue usando atributos y habilidades expresadas en dados D6.',
-        'La versión revisada mejora organización, ejemplos y herramientas para el Game Master.',
-        'Incluye reglas más completas para naves, persecuciones, heridas y escenas de acción.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_9',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_10',
         'La dificultad se resuelve sumando dados y comparando con una cifra objetivo.',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_11',
       items: [
-        'Es flexible, cinematográfico y fácil de adaptar.',
-        'Permite campañas con rebeldes, imperiales, cazarrecompensas, comerciantes o Jedi ocultos.',
-        'La acción se resuelve rápido y el director puede improvisar dificultades con facilidad.',
-        'El sistema favorece la sensación de aventura clásica de Star Wars.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_12',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_13',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_14',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_15',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_16',
       items: [
-        'Define una era de juego: República, Imperio, Rebelión, Nueva República o campaña propia.',
-        'Entrega a cada jugador un papel fuerte dentro del grupo: piloto, técnico, tirador, negociador o usuario de la Fuerza.',
-        'Usa misiones episódicas con inicio, problema, giro y huida final.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_17',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_18',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_SECOND.WEST_END_SECOND.TEXT_19',
         'Haz que el Imperio, los sindicatos criminales o una amenaza Sith presionen constantemente al grupo.',
       ],
     },

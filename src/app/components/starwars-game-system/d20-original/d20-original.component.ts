@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-starwars-d20-original',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './d20-original.component.html',
   styleUrls: ['./d20-original.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para d20 original.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class D20OriginalComponent {
   title = 'Star Wars D20 Original';
   period = '2000';
   intro =
-    'La primera versión de Wizards of the Coast basada en el sistema d20. Se acerca más a Dungeons & Dragons, con clases, niveles, dotes, habilidades y tiradas de veinte caras.';
+    'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_1';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_2',
       items: [
-        'Wizards of the Coast tomó la licencia tras la etapa de West End Games.',
-        'La versión d20 conectó Star Wars con jugadores acostumbrados a D&D 3ª edición.',
-        'Permitió construir personajes mediante clases, niveles y progresión mecánica clara.',
-        'Fue una etapa más táctica y estructurada que el sistema D6.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_3',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_4',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_5',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_6',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_7',
       items: [
         'La base es tirar 1d20, sumar modificadores y superar una dificultad o defensa.',
         'Los personajes tienen clases, niveles, habilidades, dotes y equipo.',
-        'El combate se organiza por iniciativa, turnos, ataques, defensa y daño.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_8',
         'La Fuerza se gestiona mediante habilidades, poderes y requisitos de personaje.',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_9',
       items: [
-        'Es más técnico que WEG D6 y requiere más preparación de ficha.',
-        'Permite progresión detallada de personajes a lo largo de campañas.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_10',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_11',
         'Funciona bien para grupos que ya entienden D&D o sistemas d20.',
-        'Puede ralentizar escenas si se abusa del combate y de las reglas específicas.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_12',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_13',
       items: [
         'Crea personajes con clase, especie, atributos, habilidades, dotes y equipo.',
-        'Usa misiones con estructura clara: investigación, viaje, encuentro, combate y resolución.',
-        'Tira d20 cuando una acción tenga riesgo real.',
-        'Reserva los combates importantes para momentos dramáticos: duelos, asaltos, persecuciones o batallas de nave.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_14',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_15',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.D20_ORIGINAL.D20_ORIGINAL.TEXT_16',
       ],
     },
   ];

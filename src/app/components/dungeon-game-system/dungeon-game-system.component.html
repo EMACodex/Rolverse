@@ -1,15 +1,14 @@
+<!-- Vista dungeon game system de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="system-bg">
   <div class="system-container">
-    <h1 class="main-title">Sistema de Juego</h1>
+    <h1 class="main-title">{{ 'DND.DUNGEON_GAME_SYSTEM.DUNGEON_GAME_SYSTEM.HTML_H1_93' | translate }}</h1>
 
     <div class="tabs-wrapper">
       <button
         class="tab-button"
         [class.active]="selectedTab === 'resumen'"
         (click)="setTab('resumen')"
-      >
-        Resumen
-      </button>
+      >{{ 'DND.DUNGEON_GAME_SYSTEM.DUNGEON_GAME_SYSTEM.HTML_BUTTON_100' | translate }}</button>
 
       <button
         class="tab-button"
@@ -64,32 +63,18 @@
       <section class="summary-section">
         <div class="questions-grid">
           <article class="question-card question-card-wide">
-            <h3>Qué es Dungeons & Dragons</h3>
-            <p>
-              Es un juego de rol de mesa de fantasía donde un grupo de jugadores
-              interpreta personajes y vive aventuras guiadas por un Dungeon
-              Master. Se juega hablando, tirando dados y tomando decisiones
-              dentro de una historia compartida.
-            </p>
+            <h3>{{ 'DND.DUNGEON_GAME_SYSTEM.DUNGEON_GAME_SYSTEM.HTML_H3_94' | translate }}</h3>
+            <p>{{ 'DND.DUNGEON_GAME_SYSTEM.DUNGEON_GAME_SYSTEM.HTML_P_97' | translate }}</p>
           </article>
 
           <article class="question-card">
-            <h3>Cómo evolucionó el sistema</h3>
-            <p>
-              Pasó de reglas muy experimentales y cercanas al wargame a sistemas
-              más organizados, luego a reglas técnicas con d20, después a
-              combate táctico y finalmente a una versión más accesible y
-              narrativa.
-            </p>
+            <h3>{{ 'DND.DUNGEON_GAME_SYSTEM.DUNGEON_GAME_SYSTEM.HTML_H3_95' | translate }}</h3>
+            <p>{{ 'DND.DUNGEON_GAME_SYSTEM.DUNGEON_GAME_SYSTEM.HTML_P_98' | translate }}</p>
           </article>
 
           <article class="question-card">
-            <h3>Qué edición se juega más actualmente</h3>
-            <p>
-              Actualmente la base más jugada es D&D 5e, junto con su revisión de
-              2024. Es la edición más accesible para principiantes y la más
-              popular en comunidades actuales.
-            </p>
+            <h3>{{ 'DND.DUNGEON_GAME_SYSTEM.DUNGEON_GAME_SYSTEM.HTML_H3_96' | translate }}</h3>
+            <p>{{ 'DND.DUNGEON_GAME_SYSTEM.DUNGEON_GAME_SYSTEM.HTML_P_99' | translate }}</p>
           </article>
         </div>
 
@@ -101,9 +86,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="manual-download-button"
-          >
-            Descargar sistema de juego de D&D
-          </a>
+          >{{ 'DND.DUNGEON_GAME_SYSTEM.DUNGEON_GAME_SYSTEM.HTML_A_101' | translate }}</a>
         </div>
 
         }

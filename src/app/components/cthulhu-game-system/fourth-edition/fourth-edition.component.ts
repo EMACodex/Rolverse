@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-cthulhu-fourth-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './fourth-edition.component.html',
   styleUrls: ['./fourth-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para fourth edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class CthulhuFourthEditionComponent {
-  title = 'La Llamada de Cthulhu 4ª Edición';
+  title = 'CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_1';
   period = '1989';
   intro =
-    'La cuarta edición presentó el juego en formato de libro y reforzó una forma de jugar más cómoda para campañas e investigaciones largas sin abandonar el sistema clásico.';
+    'CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_2';
 
   cards = [
     {
-        "title": "Historia",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_3",
         "items": [
-            "La cuarta edición reunió y ordenó material que antes estaba repartido entre cajas y suplementos.",
-            "Ayudó a consolidar La Llamada de Cthulhu como juego de horror de referencia.",
-            "El tono seguía muy vinculado a investigación histórica, ocultismo, sociedades secretas y amenaza cósmica.",
-            "Es una etapa donde el juego ya tenía una comunidad sólida y muchas aventuras publicadas."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_4",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_5",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_6",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_7"
         ]
     },
     {
-        "title": "Reglas principales",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_8",
         "items": [
             "Mantiene habilidades porcentuales y profesiones como base de los investigadores.",
-            "La Cordura sigue siendo una de las mecánicas centrales.",
-            "El Guardián decide cuándo una escena requiere tirada y cuándo basta la interpretación o la investigación.",
-            "Los combates siguen siendo letales, rápidos y secundarios frente al misterio."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_9",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_10",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_11"
         ]
     },
     {
-        "title": "Sistema de juego",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_12",
         "items": [
-            "Funciona muy bien para módulos de investigación clásica.",
-            "El diseño favorece recoger pistas, consultar libros, viajar y descubrir patrones.",
-            "El Guardián debe medir bien qué información es obligatoria para que la aventura avance.",
-            "La atmósfera se construye con detalles cotidianos que poco a poco se vuelven imposibles."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_13",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_14",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_15",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_16"
         ]
     },
     {
-        "title": "Forma de jugar",
+        "title": "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_17",
         "items": [
-            "Prepara una línea temporal de lo que hará el culto si nadie interviene.",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_18",
             "Coloca pistas en lugares diferentes para que el grupo no dependa de una sola tirada.",
-            "Usa PNJ con motivos humanos: miedo, ambición, culpa o fanatismo.",
-            "Cierra la partida con una verdad que los investigadores preferirían no haber descubierto."
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_19",
+            "CTHULHU.CTHULHU_GAME_SYSTEM.FOURTH_EDITION.FOURTH_EDITION.TEXT_20"
         ]
     }
 ];

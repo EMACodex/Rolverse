@@ -9,6 +9,10 @@ import {
 import { Observable } from 'rxjs';
 
 @Injectable()
+/**
+ * Interceptor HTTP de autenticacion.
+ * Adjunta el token JWT guardado en localStorage a las peticiones al backend.
+ */
 export class AuthInterceptor implements HttpInterceptor {
   intercept(
     req: HttpRequest<any>,

@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-adnd-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './adnd-edition.component.html',
   styleUrls: ['./adnd-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para adnd edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class AdndEditionComponent {
   title = 'Advanced Dungeons & Dragons';
-  period = '1ª edición y 2ª edición';
+  period = 'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_1';
   intro =
-    'AD&D intentó ordenar y ampliar las reglas originales. Es una etapa más dura, con muchas tablas, más clases, más reglas y una identidad muy marcada dentro del rol clásico.';
+    'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_3',
       items: [
-        'AD&D 1ª edición organizó mejor las reglas y separó el juego en manuales principales.',
-        'La 2ª edición suavizó parte del tono y dio más peso al juego heroico y narrativo.',
-        'Fue una edición muy importante durante los años 80 y 90.',
-        'Baldur’s Gate clásico está basado en AD&D 2ª edición.',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_4',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_5',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_6',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_7',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_8',
       items: [
         'Uso de THAC0 para calcular impactos en combate.',
-        'Clase de armadura descendente: cuanto más baja, mejor defensa.',
-        'Muchas tablas para ataques, salvaciones, experiencia y progresión.',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_9',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_10',
         'Restricciones fuertes de raza, clase y nivel.',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_11',
       items: [
-        'Sistema más estructurado que D&D Original, pero todavía muy exigente.',
-        'El combate seguía siendo peligroso y menos cinematográfico que en 5e.',
-        'Los magos eran débiles al principio y muy poderosos en niveles altos.',
-        'La exploración, la gestión de recursos y las decisiones tácticas seguían siendo esenciales.',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_12',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_13',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_14',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_15',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_16',
       items: [
-        'Muy orientado a campañas largas, mundos densos y partidas exigentes.',
-        'La 1ª edición es más dura, técnica y cercana al old school.',
-        'La 2ª edición favorece más la narrativa, los mundos de campaña y el tono heroico.',
-        'Es una edición ideal para grupos que quieren dificultad, reglas clásicas y mucho peso del Dungeon Master.',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_17',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_18',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_19',
+        'DND.DUNGEON_GAME_SYSTEM.ADND_EDITION.ADND_EDITION.TEXT_20',
       ],
     },
   ];

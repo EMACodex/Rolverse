@@ -1,40 +1,24 @@
+<!-- Vista cthulhu character de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="cthulhu-character-bg">
   <div class="cthulhu-character-container">
-    <h1 class="main-title">Personajes de Cthulhu</h1>
+    <h1 class="main-title">{{ 'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.HTML_H1_46' | translate }}</h1>
 
     <section class="character-section">
       <article class="character-card main-character-card">
-        <h2>Qué representa un personaje en Cthulhu</h2>
+        <h2>{{ 'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.HTML_H2_47' | translate }}</h2>
 
-        <p>
-          En una partida de Cthulhu, los personajes no suelen ser héroes
-          invencibles. Son investigadores, personas curiosas o supervivientes
-          que descubren secretos demasiado grandes para la mente humana. Su
-          objetivo no siempre es vencer, sino comprender el misterio, sobrevivir
-          y evitar que algo terrible despierte.
-        </p>
+        <p>{{ 'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.HTML_P_48' | translate }}</p>
 
-        <p>
-          A diferencia de otros juegos de fantasía o acción, aquí el miedo, la
-          investigación y la cordura tienen mucho peso. Un personaje puede ser
-          inteligente, valiente o experto en su profesión, pero sigue siendo
-          vulnerable ante los Mitos, los cultos, los rituales y las criaturas
-          antiguas que habitan más allá del conocimiento humano.
-        </p>
+        <p>{{ 'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.HTML_P_49' | translate }}</p>
 
-        <p>
-          Para crear una buena partida, cada personaje debe tener una profesión,
-          una motivación clara y una razón para seguir investigando aunque todo
-          indique que lo más sensato sería huir. Esa tensión entre curiosidad,
-          deber y terror es una de las claves del juego.
-        </p>
+        <p>{{ 'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.HTML_P_50' | translate }}</p>
       </article>
 
       <div class="characters-grid">
         @for (character of characters; track character.name) {
           <article class="character-card">
-            <h3>{{ character.name }}</h3>
-            <p>{{ character.description }}</p>
+            <h3>{{ character.name | translate }}</h3>
+            <p>{{ character.description | translate }}</p>
           </article>
         }
       </div>
@@ -47,9 +31,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="character-download-button"
-        >
-          Descargar personajes de Cthulhu
-        </a>
+        >{{ 'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.HTML_A_51' | translate }}</a>
       </div>
 
       }

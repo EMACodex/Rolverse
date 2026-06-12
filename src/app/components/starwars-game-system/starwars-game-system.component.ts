@@ -6,6 +6,7 @@ import { D20OriginalComponent } from './d20-original/d20-original.component';
 import { D20RevisedComponent } from './d20-revised/d20-revised.component';
 import { SagaEditionComponent } from './saga-edition/saga-edition.component';
 import { FfgEdgeComponent } from './ffg-edge/ffg-edge.component';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 type StarwarsSystemTab =
   | 'resumen'
@@ -20,6 +21,7 @@ type StarwarsSystemTab =
   selector: 'app-starwars-game-system',
   standalone: true,
   imports: [
+    TranslatePipe,
     WestEndFirstComponent,
     WestEndSecondComponent,
     D20OriginalComponent,
@@ -30,6 +32,10 @@ type StarwarsSystemTab =
   templateUrl: './starwars-game-system.component.html',
   styleUrls: ['./starwars-game-system.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para starwars game system.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class StarwarsGameSystemComponent {
   readonly authService = inject(AuthService);
   selectedTab: StarwarsSystemTab = 'resumen';
@@ -37,6 +43,7 @@ export class StarwarsGameSystemComponent {
   readonly starwarsGameSystemPdfUrl =
     'https://drive.google.com/uc?export=download&id=1noc8tBqLgT3bvpbIZo5AGOjrQ4JOIism';
 
+  /** Gestiona la accion setTab dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   setTab(tab: StarwarsSystemTab): void {
     this.selectedTab = tab;
   }

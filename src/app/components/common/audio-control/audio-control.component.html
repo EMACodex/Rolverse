@@ -1,0 +1,30 @@
+<!-- Vista audio control de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
+<div class="audio-control">
+  <button
+    type="button"
+    class="audio-button"
+    [class.active]="musicService.isPlaying"
+    (click)="toggleAudio()"
+    [attr.aria-label]="
+      musicService.isPlaying ? 'Pausar música' : 'Reproducir música'
+    "
+    [attr.title]="musicService.isPlaying ? 'Pausar música' : 'Reproducir música'"
+  >
+    @if (musicService.isPlaying) {
+      <span class="audio-symbol">II</span>
+    } @else {
+      <span class="audio-symbol">&#9654;</span>
+    }
+  </button>
+
+  <input
+    class="volume-slider"
+    type="range"
+    min="0"
+    max="1"
+    step="0.01"
+    [value]="musicService.volume"
+    (input)="changeVolume($event)"
+    aria-label="Volumen de la música"
+  />
+</div>

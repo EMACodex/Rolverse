@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-warhammer-rogue-trader',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './warhammer-rogue-trader.component.html',
   styleUrls: ['./warhammer-rogue-trader.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para warhammer rogue trader.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class WarhammerRogueTraderComponent {
   title = 'Warhammer 40,000: Rogue Trader';
-  period = '1ª edición · 1987';
+  period = 'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_1';
   intro =
-    'La primera edición de Warhammer 40,000 mezclaba wargame, rol, ciencia ficción oscura y mucho espacio para la improvisación. Tenía una sensación más narrativa, caótica y experimental que las ediciones modernas.';
+    'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_3',
       items: [
-        'Nace como una expansión de las ideas de Warhammer Fantasy hacia un futuro oscuro y militarizado.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_4',
         'Presenta el universo del Imperio de la Humanidad, los xenos, el Caos y las guerras eternas del milenio 41.',
-        'Tenía una identidad más cercana al rol y a las partidas narrativas con escenarios personalizados.',
-        'Fue la base sobre la que después se construiría el wargame masivo moderno de Warhammer 40,000.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_5',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_6',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_7',
       items: [
-        'Uso de perfiles con muchas características individuales para cada miniatura.',
-        'Reglas detalladas para armas, equipo, cobertura, moral, vehículos y situaciones especiales.',
-        'Las partidas podían incluir elementos de árbitro o director de juego.',
-        'El equilibrio competitivo no era el centro: pesaban más la historia, el escenario y la creatividad.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_8',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_9',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_10',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_11',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_12',
       items: [
-        'Cada jugador controla pequeñas fuerzas o bandas dentro de una misión concreta.',
-        'El tablero representa un campo de batalla con escenografía, líneas de visión y objetivos.',
-        'Las reglas permiten mucha personalización de equipo, personajes y situaciones.',
-        'Es una edición ideal para partidas narrativas y campañas pequeñas con mucha personalidad.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_13',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_14',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_15',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_16',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_17',
       items: [
-        'Prepara una misión sencilla: rescate, exploración, sabotaje o asalto a una instalación.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_18',
         'Define las fuerzas, el terreno, los objetivos y condiciones especiales de la batalla.',
         'Juega con mentalidad narrativa: lo importante es lo que ocurre en la mesa, no solo ganar.',
-        'Funciona muy bien si quieres una experiencia old school, caótica y cinematográfica.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.ROGUE_TRADER.WARHAMMER_ROGUE_TRADER.TEXT_19',
       ],
     },
   ];

@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-cthulhu-character',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './cthulhu-character.component.html',
   styleUrls: ['./cthulhu-character.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para cthulhu character.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class CthulhuCharacterComponent {
   readonly authService = inject(AuthService);
   readonly cthulhuCharactersPdfUrl =
@@ -13,34 +19,34 @@ export class CthulhuCharacterComponent {
 
   characters = [
     {
-      name: 'Investigadores',
+      name: 'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.TEXT_1',
       description:
-        'Son los protagonistas habituales de una partida de Cthulhu. Pueden ser periodistas, profesores, médicos, detectives, arqueólogos, policías, escritores o personas corrientes que tropiezan con un misterio imposible de explicar.',
+        'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.TEXT_2',
     },
     {
       name: 'Ocultistas',
       description:
-        'Personajes atraídos por libros prohibidos, símbolos antiguos, rituales y conocimientos que no deberían ser conocidos. Funcionan muy bien en historias donde la curiosidad es tan peligrosa como cualquier monstruo.',
+        'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.TEXT_3',
     },
     {
-      name: 'Académicos',
+      name: 'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.TEXT_4',
       description:
-        'Profesores, historiadores, lingüistas, bibliotecarios o expertos en civilizaciones antiguas. Su papel suele ser interpretar pistas, traducir textos, investigar archivos y descubrir la verdad oculta detrás del caso.',
+        'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.TEXT_5',
     },
     {
-      name: 'Detectives y policías',
+      name: 'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.TEXT_6',
       description:
-        'Personajes centrados en seguir huellas, interrogar testigos, registrar escenarios y reconstruir sucesos extraños. Son ideales para partidas de investigación, desapariciones, asesinatos rituales o conspiraciones.',
+        'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.TEXT_7',
     },
     {
-      name: 'Supervivientes',
+      name: 'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.TEXT_8',
       description:
-        'Personas normales que no buscaban el horror, pero han quedado atrapadas en él. Pueden ser vecinos, trabajadores, marineros, soldados retirados o viajeros que deben sobrevivir usando ingenio y prudencia.',
+        'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.TEXT_9',
     },
     {
-      name: 'Personajes marcados por el horror',
+      name: 'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.TEXT_10',
       description:
-        'Algunos personajes ya han visto demasiado: sueños imposibles, cultos secretos, criaturas innombrables o sucesos que han dañado su cordura. Son útiles para campañas oscuras donde el miedo pesa desde el principio.',
+        'CTHULHU.CTHULHU_CHARACTERS.CTHULHU_CHARACTER.TEXT_11',
     },
   ];
 }

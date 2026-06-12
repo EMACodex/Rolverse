@@ -1,9 +1,10 @@
+/* Estilos de la vista five rings game system de Rolverse. Mantienen responsive y aspecto existente. */
 .system-bg {
   position: relative;
   min-height: calc(100vh - 100px);
   padding-top: 140px;
   padding-bottom: 4rem;
-  background: url("/assets/img/leyenda 5 anillos sistema de juego/fondo.png")
+  background: url("../../../assets/img/leyenda 5 anillos sistema de juego/fondo.png")
     no-repeat center center;
   background-size: cover;
   text-align: center;

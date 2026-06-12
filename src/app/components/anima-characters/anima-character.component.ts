@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-anima-character',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './anima-character.component.html',
   styleUrls: ['./anima-character.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para anima character.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class AnimaCharacterComponent {
   readonly authService = inject(AuthService);
   readonly animaCharactersPdfUrl =
@@ -13,34 +19,34 @@ export class AnimaCharacterComponent {
 
   archetypes = [
     {
-      name: 'Guerreros',
+      name: 'ANIMA.ANIMA_CHARACTERS.ANIMA_CHARACTER.TEXT_1',
       description:
-        'Personajes centrados en el combate físico, el uso de armas, la defensa y la resistencia. Funcionan muy bien como protectores del grupo, duelistas, soldados, mercenarios o caballeros marcados por un pasado difícil.',
+        'ANIMA.ANIMA_CHARACTERS.ANIMA_CHARACTER.TEXT_2',
     },
     {
-      name: 'Místicos',
+      name: 'ANIMA.ANIMA_CHARACTERS.ANIMA_CHARACTER.TEXT_3',
       description:
-        'Usuarios de poderes sobrenaturales, magia y conocimientos ocultos. Suelen estar ligados a secretos antiguos, pactos, escuelas arcanas o dones difíciles de controlar. Son ideales para campañas con misterio, investigación y fuerzas invisibles.',
+        'ANIMA.ANIMA_CHARACTERS.ANIMA_CHARACTER.TEXT_4',
     },
     {
-      name: 'Psíquicos',
+      name: 'ANIMA.ANIMA_CHARACTERS.ANIMA_CHARACTER.TEXT_5',
       description:
-        'Personajes que usan capacidades mentales, percepción extrasensorial y poderes internos. Pueden destacar como investigadores, manipuladores, videntes o individuos perseguidos por organizaciones que desean controlar sus habilidades.',
+        'ANIMA.ANIMA_CHARACTERS.ANIMA_CHARACTER.TEXT_6',
     },
     {
       name: 'Maestros del Ki',
       description:
-        'Combatientes que desarrollan su energía interior para realizar técnicas imposibles. Encajan muy bien como artistas marciales, espadachines legendarios, asesinos disciplinados o héroes que entrenan para superar los límites humanos.',
+        'ANIMA.ANIMA_CHARACTERS.ANIMA_CHARACTER.TEXT_7',
     },
     {
       name: 'Invocadores',
       description:
-        'Personajes capaces de contactar, llamar o pactar con entidades. Pueden convertirse en una pieza muy importante de la historia, ya que sus poderes suelen implicar riesgos, deudas, secretos y consecuencias sobrenaturales.',
+        'ANIMA.ANIMA_CHARACTERS.ANIMA_CHARACTER.TEXT_8',
     },
     {
-      name: 'Exploradores y sombras',
+      name: 'ANIMA.ANIMA_CHARACTERS.ANIMA_CHARACTER.TEXT_9',
       description:
-        'Especialistas en sigilo, rastreo, infiltración, robo, espionaje o supervivencia. Sirven para campañas de intriga, viajes peligrosos, persecuciones, misiones secretas y conflictos donde no todo se resuelve con fuerza bruta.',
+        'ANIMA.ANIMA_CHARACTERS.ANIMA_CHARACTER.TEXT_10',
     },
   ];
 }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { RUTA_API } from '../../../environment';
+import { environment } from '../../../environments/environment';
 import { Person } from '../../interfaces/about.interface';
 import { NewsItem } from '../../interfaces/about.interface';
 
@@ -14,7 +14,12 @@ import { NewsItem } from '../../interfaces/about.interface';
   templateUrl: './about-view.component.html',
   styleUrls: ['./about-view.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para about view.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class AboutViewComponent implements OnInit {
+  apiBase = environment.apiUrl;
   authorName = '';
   person: Person | null = null;
   reviews: NewsItem[] = [];
@@ -31,6 +36,7 @@ export class AboutViewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
+  /** Gestiona la accion ngOnInit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   async ngOnInit() {
     // 1) se recoge el parámetro “name” de la ruta
     this.authorName = this.route.snapshot.paramMap.get('name') || '';
@@ -44,7 +50,7 @@ export class AboutViewComponent implements OnInit {
     try {
       // 3) se trae todas las noticias
       const all: NewsItem[] = await firstValueFrom(
-        this.http.get<NewsItem[]>(`${RUTA_API}news`)
+        this.http.get<NewsItem[]>(`${environment.apiUrl}/news`)
       );
 
       // 4) Generar un “target” que solo sea la primera palabra del nombre

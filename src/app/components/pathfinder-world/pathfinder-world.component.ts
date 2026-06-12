@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-pathfinder-world',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './pathfinder-world.component.html',
   styleUrls: ['./pathfinder-world.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para pathfinder world.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class PathfinderWorldComponent {
   readonly authService = inject(AuthService);
   readonly pathfinderMapsPdfUrl =
@@ -15,32 +21,32 @@ export class PathfinderWorldComponent {
     {
       name: 'Golarion y regiones de aventura',
       description:
-        'Los mapas generales de Pathfinder ayudan a situar campañas dentro de Golarion, mostrando reinos, fronteras, rutas, mares, montañas, ciudades importantes y zonas donde pueden comenzar nuevas misiones.',
+        'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.TEXT_1',
     },
     {
       name: 'Mazmorras, ruinas y templos antiguos',
       description:
-        'Son mapas ideales para exploración, trampas, cámaras secretas, reliquias perdidas, guardianes mágicos y encuentros tácticos. Funcionan muy bien para partidas centradas en investigación y combate.',
+        'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.TEXT_2',
     },
     {
       name: 'Ciudades, puertos y asentamientos',
       description:
-        'Permiten organizar escenas sociales, persecuciones, gremios, tabernas, mercados, templos, barrios nobles y zonas peligrosas. En Pathfinder una ciudad puede convertirse en el centro de toda una campaña.',
+        'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.TEXT_3',
     },
     {
       name: 'Caminos, bosques y tierras salvajes',
       description:
-        'Estos mapas sirven para viajes, emboscadas, exploración, campamentos, encuentros con criaturas y decisiones de ruta. Son perfectos para aventuras entre ciudades o expediciones hacia lugares olvidados.',
+        'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.TEXT_4',
     },
     {
       name: 'Fortalezas, castillos y guaridas enemigas',
       description:
-        'Son útiles para asaltos, infiltraciones, defensas y enfrentamientos contra villanos. Cada sala puede tener patrullas, trampas, pistas, tesoros o decisiones tácticas importantes para el grupo.',
+        'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.TEXT_5',
     },
     {
-      name: 'Planos, portales y lugares mágicos',
+      name: 'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.TEXT_6',
       description:
-        'Pathfinder permite usar lugares extraños, planos de existencia, zonas malditas y territorios alterados por magia. Estos mapas ayudan a crear escenas más fantásticas, peligrosas y memorables.',
+        'PATHFINDER.PATHFINDER_WORLD.PATHFINDER_WORLD.TEXT_7',
     },
   ];
 }

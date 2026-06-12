@@ -12,6 +12,10 @@ import { TranslatePipe } from '../../../../pipes/translate.pipe';
   templateUrl: './send-mail.component.html',
   styleUrl: './send-mail.component.css'
 })
+/**
+ * Componente Angular de Rolverse para send mail.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class SendMailComponent {
   formGroup: FormGroup;
   isSubmitting = false;
@@ -31,6 +35,7 @@ export class SendMailComponent {
     });
   }
 
+  /** Gestiona la accion enviarRecuperacion dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   enviarRecuperacion() {
     if (this.formGroup.invalid || this.isSubmitting) {
       this.formGroup.markAllAsTouched();

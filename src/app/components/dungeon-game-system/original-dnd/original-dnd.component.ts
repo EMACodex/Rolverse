@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-original-dnd',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './original-dnd.component.html',
   styleUrls: ['./original-dnd.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para original dnd.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class OriginalDndComponent {
   title = 'D&D Original';
   period = '1974';
   intro =
-    'La primera versión de Dungeons & Dragons. Era experimental, muy cercana a los wargames y todavía no tenía muchas de las reglas modernas que hoy asociamos con el rol de mesa.';
+    'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_1';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_2',
       items: [
-        'Nace como una evolución de los juegos de guerra con miniaturas.',
-        'Introduce la idea de interpretar personajes individuales en vez de controlar ejércitos completos.',
-        'El Dungeon Master era fundamental porque muchas reglas dependían de su interpretación.',
-        'Fue el punto de partida del rol moderno de fantasía.',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_3',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_4',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_5',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_6',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_7',
       items: [
-        'Reglas poco unificadas y a veces ambiguas.',
-        'Uso de dados diferentes para resolver ataques, daño y situaciones concretas.',
-        'Clases básicas como guerrero, mago y clérigo.',
-        'Gran dependencia de tablas, improvisación y decisiones del director de juego.',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_8',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_9',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_10',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_11',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_12',
       items: [
-        'Exploración de mazmorras como núcleo principal.',
-        'Gestión de recursos: antorchas, comida, equipo, oro y puntos de vida.',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_13',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_14',
         'Combate peligroso y poco heroico comparado con ediciones modernas.',
-        'La experiencia solía venir mucho del tesoro conseguido, no solo de derrotar enemigos.',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_15',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_16',
       items: [
-        'Muy orientado a supervivencia, exploración y saqueo de mazmorras.',
-        'Los personajes eran frágiles y podían morir con facilidad.',
-        'La narrativa existía, pero el peso principal estaba en el reto y la exploración.',
-        'Ideal para campañas old school donde el ingenio del jugador pesa más que la ficha.',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_17',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_18',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_19',
+        'DND.DUNGEON_GAME_SYSTEM.ORIGINAL_DND.ORIGINAL_DND.TEXT_20',
       ],
     },
   ];

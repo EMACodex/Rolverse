@@ -1,15 +1,14 @@
+<!-- Vista anima game system de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="system-bg">
   <div class="system-container">
-    <h1 class="main-title">Sistema de Juego de Ánima</h1>
+    <h1 class="main-title">{{ 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_GAME_SYSTEM.HTML_H1_15' | translate }}</h1>
 
     <div class="tabs-wrapper">
       <button
         class="tab-button"
         [class.active]="selectedTab === 'resumen'"
         (click)="setTab('resumen')"
-      >
-        Resumen
-      </button>
+      >{{ 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_GAME_SYSTEM.HTML_BUTTON_22' | translate }}</button>
 
       <button
         class="tab-button"
@@ -39,9 +38,7 @@
         class="tab-button"
         [class.active]="selectedTab === 'beyondGoodEvil'"
         (click)="setTab('beyondGoodEvil')"
-      >
-        Más Allá del Bien y del Mal
-      </button>
+      >{{ 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_GAME_SYSTEM.HTML_BUTTON_23' | translate }}</button>
 
       <button
         class="tab-button"
@@ -56,39 +53,18 @@
       <section class="summary-section">
         <div class="questions-grid">
           <article class="question-card question-card-wide">
-            <h3>Qué es Ánima</h3>
-            <p>
-              Ánima es un juego de rol de fantasía oscura y épica ambientado en
-              el mundo de Gaïa, un escenario lleno de imperios, organizaciones
-              secretas, criaturas sobrenaturales, poderes ocultos, magia, artes
-              marciales, mentalismo y conflictos entre fuerzas humanas y
-              divinas. Los jugadores interpretan personajes con habilidades muy
-              diferentes, desde guerreros, hechiceros y psíquicos hasta expertos
-              en Ki, invocadores, asesinos, nobles, exploradores o seres
-              marcados por poderes especiales.
-            </p>
+            <h3>{{ 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_GAME_SYSTEM.HTML_H3_16' | translate }}</h3>
+            <p>{{ 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_GAME_SYSTEM.HTML_P_19' | translate }}</p>
           </article>
 
           <article class="question-card">
-            <h3>Cómo evolucionó el sistema</h3>
-            <p>
-              Ánima comenzó con Beyond Fantasy como juego de rol principal, un
-              sistema muy completo y detallado. Después fue ampliándose con
-              revisiones, suplementos y líneas de juego como Core Exxet, además
-              de juegos de cartas y mesa como La Sombra de Omega, Más Allá del
-              Bien y del Mal y El Ocaso de los Dioses.
-            </p>
+            <h3>{{ 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_GAME_SYSTEM.HTML_H3_17' | translate }}</h3>
+            <p>{{ 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_GAME_SYSTEM.HTML_P_20' | translate }}</p>
           </article>
 
           <article class="question-card">
-            <h3>Qué versión se recomienda actualmente</h3>
-            <p>
-              Para jugar rol de mesa, la base más completa es Ánima: Beyond
-              Fantasy junto con Core Exxet. Para una experiencia más rápida y
-              cerrada, las cajas de cartas y mesa como La Sombra de Omega
-              permiten partidas más directas, con personajes, misiones,
-              localizaciones y enemigos ya preparados.
-            </p>
+            <h3>{{ 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_GAME_SYSTEM.HTML_H3_18' | translate }}</h3>
+            <p>{{ 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_GAME_SYSTEM.HTML_P_21' | translate }}</p>
           </article>
         </div>
 
@@ -100,9 +76,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="manual-download-button"
-          >
-            Descargar sistema de juego de Ánima
-          </a>
+          >{{ 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_GAME_SYSTEM.HTML_A_24' | translate }}</a>
         </div>
 
         }

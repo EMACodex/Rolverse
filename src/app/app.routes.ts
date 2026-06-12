@@ -11,6 +11,10 @@ import { ForumPageComponent } from './components/forum/forum-page/forum-page.com
 import { ForumDetailComponent } from './components/forum/forum-detail/forum-detail.component';
 import { NewsComponent } from './components/news/news.component';
 
+/**
+ * Mapa principal de rutas de Angular.
+ * Las secciones pesadas se cargan de forma diferida para mantener ligero el arranque.
+ */
 export const routes: Routes = [
   {
     path: '',

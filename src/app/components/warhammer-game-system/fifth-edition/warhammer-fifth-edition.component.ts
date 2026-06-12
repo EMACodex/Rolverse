@@ -1,51 +1,57 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-warhammer-fifth-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './warhammer-fifth-edition.component.html',
   styleUrls: ['./warhammer-fifth-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para warhammer fifth edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class WarhammerFifthEditionComponent {
-  title = 'Warhammer 40,000 5ª edición';
+  title = 'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_1';
   period = '2008';
   intro =
-    'La quinta edición reforzó el juego por objetivos, el uso de transportes y una experiencia de batalla más dinámica, manteniendo una base muy reconocible para jugadores clásicos.';
+    'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_3',
       items: [
-        'Continúa la línea de 3ª y 4ª edición con ajustes importantes.',
-        'Se recuerda por la fuerza de vehículos, transportes y mecanización.',
-        'Las tropas básicas ganan importancia al controlar objetivos.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_4',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_5',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_6',
         'Fue una etapa muy popular para partidas de club y torneos.',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_7',
       items: [
-        'Mecánicas claras de movimiento, disparo, asalto y moral.',
-        'Los vehículos y transportes tienen mucho peso en la estrategia.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_8',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_9',
         'Controlar objetivos es clave para ganar muchas misiones.',
-        'Las unidades de línea son fundamentales para puntuar.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_10',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_11',
       items: [
-        'El ejército debe avanzar, proteger unidades clave y controlar zonas.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_12',
         'La movilidad es tan importante como la potencia de fuego.',
-        'Los vehículos permiten llevar tropas a puntos decisivos.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_13',
         'Las partidas tienen un equilibrio fuerte entre matar y puntuar.',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_14',
       items: [
         'Prepara varios objetivos en el tablero desde el inicio.',
         'Usa transportes para mover unidades importantes.',
-        'Protege tus tropas de línea hasta el final de la partida.',
+        'WARHAMMER.WARHAMMER_GAME_SYSTEM.FIFTH_EDITION.WARHAMMER_FIFTH_EDITION.TEXT_15',
         'Funciona bien para partidas militares con avances, defensas y contraataques.',
       ],
     },

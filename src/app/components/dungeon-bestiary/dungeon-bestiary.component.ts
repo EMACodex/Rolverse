@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-dungeon-bestiary',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './dungeon-bestiary.component.html',
   styleUrls: ['./dungeon-bestiary.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para dungeon bestiary.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class DungeonBestiaryComponent {
   readonly authService = inject(AuthService);
   readonly dndBestiaryPdfUrl =
@@ -13,34 +19,34 @@ export class DungeonBestiaryComponent {
 
   creatures = [
     {
-      name: 'Dragones',
+      name: 'DND.DUNGEON_BESTIARY.DUNGEON_BESTIARY.TEXT_1',
       description:
-        'Son una de las criaturas más icónicas de Dungeons & Dragons. Pueden actuar como jefes finales, guardianes de tesoros, amenazas antiguas o incluso aliados peligrosos. Cada dragón puede tener personalidad, territorio, ambición y una relación directa con la historia del mundo.',
+        'DND.DUNGEON_BESTIARY.DUNGEON_BESTIARY.TEXT_2',
     },
     {
-      name: 'No muertos',
+      name: 'DND.DUNGEON_BESTIARY.DUNGEON_BESTIARY.TEXT_3',
       description:
-        'Incluyen esqueletos, zombis, espectros, vampiros, liches y otras criaturas ligadas a la muerte. Funcionan muy bien en criptas, cementerios, ruinas malditas y campañas oscuras donde el pasado vuelve para perseguir a los vivos.',
+        'DND.DUNGEON_BESTIARY.DUNGEON_BESTIARY.TEXT_4',
     },
     {
       name: 'Bestias salvajes',
       description:
-        'Lobos gigantes, osos lechuza, arañas enormes, serpientes, grifos o criaturas de bosque sirven para encuentros de exploración, viajes peligrosos y regiones dominadas por la naturaleza. No siempre tienen que ser malvadas: muchas solo protegen su territorio.',
+        'DND.DUNGEON_BESTIARY.DUNGEON_BESTIARY.TEXT_5',
     },
     {
       name: 'Demonios y diablos',
       description:
-        'Representan amenazas extraplanares, pactos oscuros, corrupción y tentaciones. Son ideales para historias donde los personajes deben enfrentarse a cultos, contratos infernales o decisiones morales peligrosas.',
+        'DND.DUNGEON_BESTIARY.DUNGEON_BESTIARY.TEXT_6',
     },
     {
       name: 'Goblins, orcos y kobolds',
       description:
-        'Son enemigos clásicos de bajo nivel, pero pueden ser mucho más que simples monstruos. Pueden formar tribus, servir a un señor oscuro, defender sus cuevas o incluso negociar con los aventureros si la situación lo permite.',
+        'DND.DUNGEON_BESTIARY.DUNGEON_BESTIARY.TEXT_7',
     },
     {
-      name: 'Constructos y criaturas mágicas',
+      name: 'DND.DUNGEON_BESTIARY.DUNGEON_BESTIARY.TEXT_8',
       description:
-        'Gólems, armaduras animadas, guardianes arcanos y experimentos mágicos funcionan muy bien en torres de magos, laboratorios antiguos, templos perdidos o fortalezas protegidas por magia olvidada.',
+        'DND.DUNGEON_BESTIARY.DUNGEON_BESTIARY.TEXT_9',
     },
   ];
 }

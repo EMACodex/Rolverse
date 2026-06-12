@@ -1,58 +1,64 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-pathfinder-second-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './pathfinder-second-edition.component.html',
   styleUrls: ['./pathfinder-second-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para pathfinder second edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class PathfinderSecondEditionComponent {
   readonly pathfinderManualPdf =
     'assets/docs/manual_reglas_pathfinder_por_edicion.pdf';
 
-  title = 'Pathfinder 2ª Edición';
+  title = 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_1';
   period = '2019';
   intro =
-    'Pathfinder 2ª edición reconstruye el sistema desde cero. Mantiene la fantasía heroica, pero ordena mucho mejor la acción, el combate, la progresión y la dificultad.';
+    'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_3',
       items: [
-        'Aparece como una nueva versión completa de Pathfinder, no como una simple corrección de la primera edición.',
+        'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_4',
         'Busca reducir parte de la complejidad excesiva de Pathfinder 1e.',
-        'Mantiene el mundo de Golarion, pero con reglas más equilibradas y modernas.',
-        'Se convierte en una opción muy fuerte para grupos que quieren fantasía táctica y reglas claras.',
+        'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_5',
+        'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_6',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_7',
       items: [
         'La base sigue siendo tirar 1d20, sumar modificadores y comparar contra una dificultad.',
-        'Introduce tres acciones por turno, lo que hace el combate más claro y flexible.',
+        'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_8',
         'Cada personaje tiene ascendencia, trasfondo, clase, atributos, habilidades, dotes y equipo.',
-        'El sistema usa grados de éxito: éxito crítico, éxito, fallo y fallo crítico.',
+        'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_9',
         'La competencia se organiza por rangos como entrenado, experto, maestro y legendario.',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_10',
       items: [
-        'El turno de combate es muy fácil de explicar: cada personaje tiene tres acciones y una reacción.',
+        'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_11',
         'Moverse, atacar, lanzar algunos conjuros, levantar escudo o interactuar consumen acciones.',
-        'Atacar varias veces en el mismo turno aplica penalizadores, por lo que conviene pensar tácticamente.',
-        'Los monstruos y encuentros están mejor calculados por nivel.',
-        'El sistema premia la cooperación, las condiciones, la posición y el uso inteligente de acciones.',
+        'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_12',
+        'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_13',
+        'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_14',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_15',
       items: [
-        'El Game Master prepara una misión, varios encuentros y una recompensa clara.',
+        'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_16',
         'Los jugadores describen lo que quieren hacer y se resuelve con tiradas d20 cuando hay riesgo.',
         'Fuera de combate se usan habilidades como Atletismo, Sigilo, Diplomacia, Medicina o Saber.',
         'En combate cada jugador reparte sus tres acciones entre moverse, atacar, defenderse, usar habilidades o lanzar conjuros.',
-        'Es ideal para grupos que quieren reglas tácticas, pero más limpias que Pathfinder 1e.',
+        'PATHFINDER.PATHFINDER_GAME_SYSTEM.PATHFINDER_SECOND_EDITION.PATHFINDER_SECOND_EDITION.TEXT_17',
       ],
     },
   ];

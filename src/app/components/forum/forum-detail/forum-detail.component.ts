@@ -11,7 +11,7 @@ import {
 import { MessageInterface } from 'app/interfaces/message';
 import { CommonModule, DatePipe } from '@angular/common';
 import { jwtDecode } from 'jwt-decode';
-import { RUTA_API } from '../../../../environment';
+import { environment } from '../../../../environments/environment';
 import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 interface ForumUserInfo {
@@ -27,6 +27,10 @@ interface ForumUserInfo {
   templateUrl: './forum-detail.component.html',
   styleUrl: './forum-detail.component.css',
 })
+/**
+ * Componente Angular de Rolverse para forum detail.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class ForumDetailComponent {
   @ViewChild('messageFileInput') messageFileInput?: ElementRef<HTMLInputElement>;
 
@@ -59,7 +63,7 @@ export class ForumDetailComponent {
   editForumError = '';
   private inviteSearchTimer: ReturnType<typeof setTimeout> | null = null;
 
-  private apiBase = RUTA_API.replace(/\/$/, '');
+  private apiBase = environment.apiUrl;
 
   constructor(
     private route: ActivatedRoute,
@@ -68,6 +72,7 @@ export class ForumDetailComponent {
     private fb: FormBuilder
   ) {}
 
+  /** Gestiona la accion ngOnInit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   ngOnInit(): void {
     this.forumId = Number(this.route.snapshot.paramMap.get('id'));
     this.initForm();
@@ -83,6 +88,7 @@ export class ForumDetailComponent {
     }
   }
 
+  /** Gestiona la accion initForm dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   initForm(): void {
     this.messageForm = this.fb.group({
       text: ['', [Validators.maxLength(1000)]],
@@ -119,6 +125,7 @@ export class ForumDetailComponent {
     return this.canManageForumPrivacy();
   }
 
+  /** Gestiona la accion canManageForumPrivacy dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   canManageForumPrivacy(): boolean {
     if (!this.userInfo || !this.forum) {
       return false;
@@ -130,10 +137,12 @@ export class ForumDetailComponent {
     );
   }
 
+  /** Gestiona la accion canEditForum dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   canEditForum(): boolean {
     return this.canManageForumPrivacy();
   }
 
+  /** Gestiona la accion openEditForum dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   openEditForum(): void {
     if (!this.forum) {
       return;
@@ -147,12 +156,14 @@ export class ForumDetailComponent {
     });
   }
 
+  /** Gestiona la accion closeEditForum dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   closeEditForum(): void {
     this.editingForum = false;
     this.editForumSaving = false;
     this.editForumError = '';
   }
 
+  /** Gestiona la accion saveEditForum dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   saveEditForum(): void {
     if (!this.forum || this.editForumForm.invalid || this.editForumSaving) {
       this.editForumError = 'Titulo y descripcion son obligatorios.';
@@ -196,6 +207,7 @@ export class ForumDetailComponent {
       });
   }
 
+  /** Gestiona la accion changeForumVisibility dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   changeForumVisibility(visibility: 'public' | 'private'): void {
     if (!this.forum || this.forum.visibility === visibility || this.privacyUpdating) {
       return;
@@ -225,6 +237,7 @@ export class ForumDetailComponent {
     });
   }
 
+  /** Gestiona la accion onImageSelected dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onImageSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0] || null;
@@ -246,6 +259,7 @@ export class ForumDetailComponent {
     reader.readAsDataURL(file);
   }
 
+  /** Gestiona la accion createMessage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   createMessage(): void {
     if (!this.canSubmitMessage) {
       return;
@@ -270,6 +284,7 @@ export class ForumDetailComponent {
     });
   }
 
+  /** Gestiona la accion startEditMessage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   startEditMessage(message: MessageInterface): void {
     this.editingMessage = message;
     this.selectedEditImage = null;
@@ -280,6 +295,7 @@ export class ForumDetailComponent {
     });
   }
 
+  /** Gestiona la accion cancelEditMessage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   cancelEditMessage(): void {
     this.editingMessage = null;
     this.selectedEditImage = null;
@@ -287,6 +303,7 @@ export class ForumDetailComponent {
     this.editMessageForm.reset({ text: '', image: null });
   }
 
+  /** Gestiona la accion onEditImageSelected dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onEditImageSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0] || null;
@@ -308,6 +325,7 @@ export class ForumDetailComponent {
     reader.readAsDataURL(file);
   }
 
+  /** Gestiona la accion saveEditMessage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   saveEditMessage(): void {
     if (!this.editingMessage || !this.canSubmitEditMessage) {
       return;
@@ -335,6 +353,7 @@ export class ForumDetailComponent {
     });
   }
 
+  /** Gestiona la accion resetMessageForm dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   resetMessageForm(): void {
     this.messageForm.reset({ text: '', image: null });
     this.selectedImage = null;
@@ -344,6 +363,7 @@ export class ForumDetailComponent {
     }
   }
 
+  /** Gestiona la accion getForumDetails dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   getForumDetails(): void {
     this.forumService.getForumById(this.forumId).subscribe({
       next: (response: getForumResponse) => {
@@ -355,6 +375,7 @@ export class ForumDetailComponent {
     });
   }
 
+  /** Gestiona la accion getMessages dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   getMessages(): void {
     this.messageService.getAllMessages(this.forumId).subscribe({
       next: (response: any) => {
@@ -366,6 +387,7 @@ export class ForumDetailComponent {
     });
   }
 
+  /** Gestiona la accion searchUsers dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   searchUsers(): void {
     const email = this.inviteEmail.trim();
 
@@ -401,6 +423,7 @@ export class ForumDetailComponent {
     });
   }
 
+  /** Gestiona la accion onInviteEmailInput dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onInviteEmailInput(value: string): void {
     this.inviteEmail = value;
     this.selectedUserToInvite = null;
@@ -421,6 +444,7 @@ export class ForumDetailComponent {
     }, 300);
   }
 
+  /** Gestiona la accion selectUserToInvite dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   selectUserToInvite(user: PrivateForumUser): void {
     this.selectedUserToInvite = user;
     this.inviteEmail = user.email;
@@ -429,6 +453,7 @@ export class ForumDetailComponent {
     this.inviteError = '';
   }
 
+  /** Gestiona la accion inviteSelectedUser dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   inviteSelectedUser(): void {
     if (!this.selectedUserToInvite) {
       this.inviteError = 'Selecciona un usuario valido para invitar.';
@@ -469,6 +494,7 @@ export class ForumDetailComponent {
     this.searchLoading = false;
   }
 
+  /** Gestiona la accion getUploadUrl dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   getUploadUrl(path: string | null | undefined): string {
     if (!path) {
       return '';
@@ -481,6 +507,7 @@ export class ForumDetailComponent {
     return `${this.apiBase}${path.startsWith('/') ? path : `/${path}`}`;
   }
 
+  /** Gestiona la accion deleteMessage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   deleteMessage(messageId: number): void {
     this.messageService.deleteMessage(messageId).subscribe({
       next: () => {
@@ -492,6 +519,7 @@ export class ForumDetailComponent {
     });
   }
 
+  /** Gestiona la accion canDeleteMessage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   canDeleteMessage(message: MessageInterface): boolean {
     if (!this.userInfo) {
       return false;
@@ -503,6 +531,7 @@ export class ForumDetailComponent {
     );
   }
 
+  /** Gestiona la accion canEditMessage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   canEditMessage(message: MessageInterface): boolean {
     return this.canDeleteMessage(message);
   }

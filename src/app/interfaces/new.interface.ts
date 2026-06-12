@@ -1,3 +1,6 @@
+/**
+ * Modelo de datos InternalNews usado por Rolverse para tipar respuestas y vistas Angular.
+ */
 export interface InternalNews {
   id: number;
   title: string;

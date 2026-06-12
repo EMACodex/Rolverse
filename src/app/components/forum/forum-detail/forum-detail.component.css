@@ -1,3 +1,4 @@
+/* Estilos de la vista forum detail de Rolverse. Mantienen responsive y aspecto existente. */
 :host {
   --g: #d9b66b;
   --p: #f3e3bd;
@@ -12,7 +13,7 @@
   padding: 142px 1rem 4rem;
   background:
     linear-gradient(#100d0baa, #21130ee8),
-    url("/assets/img/fondo.jpg") center/cover;
+    url("../../../../assets/img/fondo.jpg") center/cover;
   color: var(--p);
   font-family: "Merriweather", Georgia, serif;
 }

@@ -1,48 +1,26 @@
+<!-- Vista cthulhu world de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="maps-bg">
   <div class="maps-container">
-    <h1 class="main-title">Mapas de Cthulhu</h1>
+    <h1 class="main-title">{{ 'CTHULHU.CTHULHU_WORLD.CTHULHU_WORLD.HTML_H1_72' | translate }}</h1>
 
     <section class="maps-section">
       <article class="maps-card main-maps-card">
-        <h2>Qué son los mapas en Cthulhu</h2>
+        <h2>{{ 'CTHULHU.CTHULHU_WORLD.CTHULHU_WORLD.HTML_H2_73' | translate }}</h2>
 
-        <p>
-          Los mapas en Cthulhu son una herramienta para construir misterio,
-          tensión e investigación. No sirven únicamente para saber dónde están
-          los personajes, sino para marcar pistas, zonas prohibidas, lugares
-          peligrosos y rutas que poco a poco llevan a una verdad demasiado
-          grande para ser comprendida.
-        </p>
+        <p>{{ 'CTHULHU.CTHULHU_WORLD.CTHULHU_WORLD.HTML_P_74' | translate }}</p>
 
-        <p>
-          En una partida de Cthulhu, un mapa puede representar una ciudad
-          oscura, una mansión abandonada, un hospital, una biblioteca, unas
-          ruinas arqueológicas, una isla perdida o una red de túneles bajo una
-          iglesia antigua. Cada localización puede esconder documentos,
-          símbolos, testigos, cultistas o señales de una presencia que no
-          pertenece a este mundo.
-        </p>
+        <p>{{ 'CTHULHU.CTHULHU_WORLD.CTHULHU_WORLD.HTML_P_75' | translate }}</p>
 
-        <p>
-          Para el Guardián, los mapas ayudan a organizar la investigación y a
-          decidir dónde aparecen las pistas importantes. Para los jugadores,
-          permiten conectar escenas, planear movimientos, seguir sospechosos y
-          entender cómo se relacionan los lugares de la historia.
-        </p>
+        <p>{{ 'CTHULHU.CTHULHU_WORLD.CTHULHU_WORLD.HTML_P_76' | translate }}</p>
 
-        <p>
-          Un buen mapa de Cthulhu no tiene que estar lleno de combates. Su fuerza
-          está en la atmósfera, los detalles inquietantes y la sensación de que
-          cada habitación, calle o pasillo puede acercar a los investigadores a
-          una revelación peligrosa.
-        </p>
+        <p>{{ 'CTHULHU.CTHULHU_WORLD.CTHULHU_WORLD.HTML_P_77' | translate }}</p>
       </article>
 
       <div class="maps-grid">
         @for (mapType of mapTypes; track mapType.name) {
           <article class="map-card">
-            <h3>{{ mapType.name }}</h3>
-            <p>{{ mapType.description }}</p>
+            <h3>{{ mapType.name | translate }}</h3>
+            <p>{{ mapType.description | translate }}</p>
           </article>
         }
       </div>
@@ -55,9 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="maps-download-button"
-        >
-          Descargar mapas de Cthulhu
-        </a>
+        >{{ 'CTHULHU.CTHULHU_WORLD.CTHULHU_WORLD.HTML_A_78' | translate }}</a>
       </div>
 
       }

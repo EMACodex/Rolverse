@@ -1,3 +1,4 @@
+/* Estilos de la vista matches list de Rolverse. Mantienen responsive y aspecto existente. */
 :host {
   --gold: #d9b66b;
   --paper: #f3e3bd;
@@ -11,7 +12,7 @@
 .matches-shell {
   min-height: 100vh;
   padding: 142px 1rem 4rem;
-  background: linear-gradient(#100d0baa, #21130ee8), url("/assets/img/partidas/fondo.png") center/cover;
+  background: linear-gradient(#100d0baa, #21130ee8), url("../../../../assets/img/partidas/fondo.png") center/cover;
   color: var(--paper);
   font-family: "Merriweather", Georgia, serif;
   overflow-x: hidden;

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { RUTA_API } from '../../../../environment';
+import { environment } from '../../../../environments/environment';
 import { Match } from '../../../interfaces/match.interface';
 import { AuthService } from '../../../services/auth.service';
 import { MatchService } from '../../../services/match.service';
@@ -15,6 +15,10 @@ import { TranslatePipe } from '../../../pipes/translate.pipe';
   templateUrl: './match-play.component.html',
   styleUrl: './match-play.component.css',
 })
+/**
+ * Componente Angular de Rolverse para match play.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class MatchPlayComponent implements OnInit {
   match: Match | null = null;
   loading = true;
@@ -26,7 +30,7 @@ export class MatchPlayComponent implements OnInit {
   accessMessage = '';
   accessError = '';
 
-  private apiBase = RUTA_API.replace(/\/$/, '');
+  private apiBase = environment.apiUrl;
   readonly fallbackCover = 'assets/img/partidas/partidas.png';
 
   constructor(
@@ -35,10 +39,12 @@ export class MatchPlayComponent implements OnInit {
     private matchService: MatchService,
   ) {}
 
+  /** Gestiona la accion ngOnInit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   ngOnInit(): void {
     this.loadMatch();
   }
 
+  /** Gestiona la accion loadMatch dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   loadMatch(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (!id) {
@@ -61,6 +67,7 @@ export class MatchPlayComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion coverUrl dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   coverUrl(): string {
     const cover = this.match?.cover_image_path;
     if (!cover) return this.fallbackCover;
@@ -73,6 +80,7 @@ export class MatchPlayComponent implements OnInit {
     return text.length > 500 ? `${text.slice(0, 500)}...` : text;
   }
 
+  /** Gestiona la accion canJoin dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   canJoin(): boolean {
     return Boolean(
       this.match &&
@@ -84,6 +92,7 @@ export class MatchPlayComponent implements OnInit {
     );
   }
 
+  /** Gestiona la accion joinMatch dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   joinMatch(): void {
     if (!this.match) return;
 
@@ -104,6 +113,7 @@ export class MatchPlayComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion canManageMatch dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   canManageMatch(): boolean {
     const currentUser = this.authService.getCurrentUser();
     if (!currentUser || !this.match) {
@@ -116,6 +126,7 @@ export class MatchPlayComponent implements OnInit {
     );
   }
 
+  /** Gestiona la accion changeMatchAccessType dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   changeMatchAccessType(accessType: 'public' | 'private'): void {
     if (!this.match || this.match.access_type === accessType || this.accessUpdating) {
       return;

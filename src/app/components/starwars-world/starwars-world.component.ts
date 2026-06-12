@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-starwars-world',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './starwars-world.component.html',
   styleUrls: ['./starwars-world.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para starwars world.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class StarwarsWorldComponent {
   readonly authService = inject(AuthService);
   readonly starwarsWorldsPdfUrl =
@@ -13,34 +19,34 @@ export class StarwarsWorldComponent {
 
   worldTypes = [
     {
-      name: 'Planetas núcleo',
+      name: 'STAR_WARS.STARWARS_WORLD.STARWARS_WORLD.TEXT_1',
       description:
-        'Son mundos centrales de la galaxia, llenos de poder político, comercio, tecnología y conflictos entre grandes facciones. Funcionan muy bien para historias de Senado, diplomacia, espionaje o persecuciones urbanas.',
+        'STAR_WARS.STARWARS_WORLD.STARWARS_WORLD.TEXT_2',
     },
     {
-      name: 'Mundos del Borde Exterior',
+      name: 'STAR_WARS.STARWARS_WORLD.STARWARS_WORLD.TEXT_3',
       description:
-        'Son planetas más alejados, peligrosos y menos controlados por las autoridades. Son perfectos para contrabandistas, cazarrecompensas, bases rebeldes, colonias aisladas y aventuras con mucho riesgo.',
+        'STAR_WARS.STARWARS_WORLD.STARWARS_WORLD.TEXT_4',
     },
     {
       name: 'Lunas y estaciones espaciales',
       description:
-        'Sirven para partidas de infiltración, sabotaje, rescate o supervivencia. Una estación orbital puede esconder prisioneros, laboratorios secretos, hangares militares o mercados ilegales.',
+        'STAR_WARS.STARWARS_WORLD.STARWARS_WORLD.TEXT_5',
     },
     {
       name: 'Templos y ruinas antiguas',
       description:
-        'Estos lugares permiten introducir misterios de la Fuerza, órdenes olvidadas, reliquias perdidas y pruebas espirituales. Encajan muy bien con personajes sensibles a la Fuerza o campañas centradas en leyendas antiguas.',
+        'STAR_WARS.STARWARS_WORLD.STARWARS_WORLD.TEXT_6',
     },
     {
       name: 'Desiertos, junglas y mundos helados',
       description:
-        'Los entornos extremos crean desafíos de exploración, supervivencia y combate. Un planeta hostil puede ser tan importante como cualquier enemigo si obliga al grupo a gestionar recursos y tomar decisiones difíciles.',
+        'STAR_WARS.STARWARS_WORLD.STARWARS_WORLD.TEXT_7',
     },
     {
       name: 'Rutas hiperespaciales',
       description:
-        'Las rutas entre mundos ayudan a organizar viajes, persecuciones, emboscadas y conexiones entre misiones. Una simple ruta comercial puede convertirse en el centro de una campaña de contrabando o guerra galáctica.',
+        'STAR_WARS.STARWARS_WORLD.STARWARS_WORLD.TEXT_8',
     },
   ];
 }

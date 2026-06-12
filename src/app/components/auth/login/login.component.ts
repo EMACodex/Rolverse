@@ -12,6 +12,10 @@ import { TranslatePipe } from '../../../pipes/translate.pipe';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+/**
+ * Formulario de inicio de sesion.
+ * Valida email/contrasena, llama a AuthService y guarda el JWT recibido.
+ */
 export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
@@ -24,6 +28,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {}
 
+  /** Gestiona la accion ngOnInit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -31,6 +36,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion onSubmit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onSubmit(): void {
     if (this.loginForm.invalid) {
       this.errorMessage = 'Please fill out all fields correctly.';

@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-anima-beyond-good-evil',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './anima-beyond-good-evil.component.html',
   styleUrls: ['./anima-beyond-good-evil.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para anima beyond good evil.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class AnimaBeyondGoodEvilComponent {
-  title = 'Más Allá del Bien y del Mal';
-  period = 'Expansión autojugable';
+  title = 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_1';
+  period = 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_2';
   intro =
-    'Más Allá del Bien y del Mal amplía el juego de cartas de Ánima con nuevas cartas, misiones y posibilidades, funcionando como caja independiente y también como complemento combinable.';
+    'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_3';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_4',
       items: [
-        'La expansión sigue explorando conflictos sobrenaturales y decisiones morales dentro de Gaïa.',
-        'El título refuerza la idea de que en Ánima los héroes no siempre actúan dentro de un bien o mal absoluto.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_5',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_6',
         'Las misiones pueden presentar enemigos ambiguos, pactos peligrosos y recompensas con consecuencias.',
-        'Puede jugarse sola o mezclarse con La Sombra de Omega para crear partidas más variadas.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_7',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_8',
       items: [
         'Mantiene la estructura de personajes, localizaciones, encuentros, misiones y crisis final.',
-        'Añade nuevas cartas para ampliar estrategias y combinaciones.',
-        'Permite crear partidas más rejugables al mezclar contenido con otras cajas.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_9',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_10',
         'El objetivo sigue siendo preparar al grupo para superar la amenaza final.',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_11',
       items: [
-        'Es un sistema de mesa basado en gestión de cartas y resolución de encuentros.',
-        'Las decisiones importantes están ligadas a qué lugares visitar, qué riesgos asumir y cuándo avanzar hacia la misión final.',
-        'La dificultad se puede ajustar mediante selección de misiones y ritmo de juego.',
-        'Funciona especialmente bien para partidas de una tarde con tono de campaña épica condensada.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_12',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_13',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_14',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_15',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_16',
       items: [
-        'Elige héroes y una misión principal.',
-        'Explora localizaciones para conseguir recursos, aliados, poderes o información.',
-        'Resuelve encuentros con las cartas disponibles y decide cuándo arriesgar o retirarte.',
-        'Cuando el grupo esté preparado, activa la parte final y resuelve la amenaza principal.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_17',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_18',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_19',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_GOOD_EVIL.ANIMA_BEYOND_GOOD_EVIL.TEXT_20',
       ],
     },
   ];

@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-starwars-character',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './starwars-character.component.html',
   styleUrls: ['./starwars-character.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para starwars character.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class StarwarsCharacterComponent {
   readonly authService = inject(AuthService);
   readonly starwarsCharacterPdfUrl =
@@ -13,34 +19,34 @@ export class StarwarsCharacterComponent {
 
   characterTypes = [
     {
-      name: 'Jedi',
+      name: 'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.TEXT_1',
       description:
-        'Son guardianes de la paz y usuarios de la Fuerza. Funcionan muy bien como personajes marcados por la disciplina, la compasión, el deber y el conflicto entre obedecer el Código Jedi o actuar según sus emociones.',
+        'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.TEXT_2',
     },
     {
       name: 'Sith y usuarios del lado oscuro',
       description:
-        'Representan la ambición, el poder, la corrupción y la tentación. Pueden ser villanos principales, antiguos aprendices caídos o personajes que luchan por controlar la oscuridad que llevan dentro.',
+        'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.TEXT_3',
     },
     {
-      name: 'Contrabandistas y pilotos',
+      name: 'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.TEXT_4',
       description:
-        'Son personajes rápidos, carismáticos y acostumbrados a vivir al límite. Encajan en historias de persecuciones espaciales, deudas con criminales, rutas secretas, cargamentos peligrosos y decisiones improvisadas.',
+        'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.TEXT_5',
     },
     {
       name: 'Cazarrecompensas',
       description:
-        'Son especialistas en rastrear objetivos, capturar enemigos y sobrevivir en los márgenes de la galaxia. Pueden trabajar por créditos, honor, venganza o por un código personal que los diferencia de simples mercenarios.',
+        'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.TEXT_6',
     },
     {
-      name: 'Soldados y rebeldes',
+      name: 'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.TEXT_7',
       description:
-        'Representan la guerra galáctica desde el frente. Pueden ser miembros de la Rebelión, soldados imperiales, comandos, veteranos o desertores que han visto demasiado y buscan una causa por la que luchar.',
+        'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.TEXT_8',
     },
     {
-      name: 'Droides',
+      name: 'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.TEXT_9',
       description:
-        'Aportan apoyo, inteligencia, reparación, pirateo y soluciones inesperadas. Son ideales para aventuras con naves averiadas, bases infiltradas, sistemas de seguridad, información secreta y tecnología antigua.',
+        'STAR_WARS.STARWARS_CHARACTER.STARWARS_CHARACTER.TEXT_10',
     },
   ];
 }

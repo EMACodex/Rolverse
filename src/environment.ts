@@ -1,1 +1,4 @@
-export const RUTA_API = 'http://localhost:3000/';
+import { environment } from './environments/environment';
+
+export { environment };
+export const RUTA_API = environment.apiUrl + '/';

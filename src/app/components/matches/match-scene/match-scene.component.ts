@@ -3,7 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
-import { RUTA_API } from '../../../../environment';
+import { environment } from '../../../../environments/environment';
 import {
   Match,
   MatchAction,
@@ -24,6 +24,10 @@ import { TranslatePipe } from '../../../pipes/translate.pipe';
   templateUrl: './match-scene.component.html',
   styleUrl: './match-scene.component.css',
 })
+/**
+ * Componente Angular de Rolverse para match scene.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class MatchSceneComponent implements OnInit {
   @ViewChild('messageImageInput') messageImageInput?: ElementRef<HTMLInputElement>;
   @ViewChild('characterImageInput') characterImageInput?: ElementRef<HTMLInputElement>;
@@ -67,7 +71,7 @@ export class MatchSceneComponent implements OnInit {
   selectedInviteUser: MatchUserSearchResult | null = null;
   inviteMessage = '';
 
-  private apiBase = RUTA_API.replace(/\/$/, '');
+  private apiBase = environment.apiUrl;
   readonly fallbackCover = 'assets/img/partidas/partidas.png';
   readonly fallbackCharacter = 'assets/img/perfil.png';
 
@@ -78,6 +82,7 @@ export class MatchSceneComponent implements OnInit {
     private matchService: MatchService,
   ) {}
 
+  /** Gestiona la accion ngOnInit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   ngOnInit(): void {
     this.loadAll();
   }
@@ -94,6 +99,7 @@ export class MatchSceneComponent implements OnInit {
     return Boolean(this.match?.canManage);
   }
 
+  /** Gestiona la accion loadAll dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   loadAll(): void {
     if (!this.matchId) {
       this.error = 'Partida no encontrada.';
@@ -117,6 +123,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion loadSections dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   loadSections(): void {
     this.loadMessages();
     this.loadCharacters();
@@ -125,6 +132,7 @@ export class MatchSceneComponent implements OnInit {
     this.loadActions();
   }
 
+  /** Gestiona la accion loadMessages dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   loadMessages(): void {
     this.matchService.getMessages(this.matchId).subscribe({
       next: (response) => (this.messages = response.data || []),
@@ -132,6 +140,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion loadCharacters dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   loadCharacters(): void {
     this.matchService.getCharacters(this.matchId).subscribe({
       next: (response) => (this.characters = response.data || []),
@@ -139,6 +148,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion loadModules dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   loadModules(): void {
     this.matchService.getModules(this.matchId).subscribe({
       next: (response) => (this.modules = response.data || []),
@@ -146,6 +156,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion loadBoards dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   loadBoards(): void {
     this.matchService.getBoards(this.matchId).subscribe({
       next: (response) => (this.boards = response.data || []),
@@ -153,6 +164,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion loadActions dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   loadActions(): void {
     this.matchService.getActions(this.matchId).subscribe({
       next: (response) => (this.actions = response.data || []),
@@ -160,6 +172,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion canSeeAction dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   canSeeAction(action: MatchAction): boolean {
     if (action.status === 'approved') {
       return true;
@@ -168,6 +181,7 @@ export class MatchSceneComponent implements OnInit {
     return this.canManage;
   }
 
+  /** Gestiona la accion syncEditForm dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   syncEditForm(): void {
     if (!this.match) return;
     this.editForm = {
@@ -180,12 +194,14 @@ export class MatchSceneComponent implements OnInit {
     };
   }
 
+  /** Gestiona la accion assetUrl dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   assetUrl(path: string | null | undefined, fallback: string): string {
     if (!path) return fallback;
     if (path.startsWith('http://') || path.startsWith('https://')) return path;
     return `${this.apiBase}${path.startsWith('/') ? path : `/${path}`}`;
   }
 
+  /** Gestiona la accion onFileSelected dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onFileSelected(event: Event, target: 'cover' | 'message' | 'character' | 'module' | 'board'): void {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0] || null;
@@ -197,6 +213,7 @@ export class MatchSceneComponent implements OnInit {
     if (target === 'board') this.selectedBoardImage = file;
   }
 
+  /** Gestiona la accion saveEdit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   saveEdit(): void {
     if (!this.match) return;
     this.editError = '';
@@ -224,6 +241,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion finishMatch dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   finishMatch(): void {
     if (!this.match || !window.confirm('Finalizar esta partida?')) return;
     this.matchService.finishMatch(this.match.id).subscribe({
@@ -232,6 +250,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion deleteMatch dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   deleteMatch(): void {
     if (!this.match || !window.confirm('Eliminar esta partida?')) return;
     this.matchService.deleteMatch(this.match.id).subscribe({
@@ -240,6 +259,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion sendMessage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   sendMessage(): void {
     if (!this.canInteract) return;
     const text = this.messageForm.text.trim();
@@ -258,6 +278,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion rollDice dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   rollDice(): void {
     if (!this.canInteract) return;
     this.matchService.rollDice(this.matchId).subscribe({
@@ -266,6 +287,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion saveCharacter dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   saveCharacter(): void {
     if (!this.canInteract) return;
     const name = this.characterForm.name.trim();
@@ -286,6 +308,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion uploadModule dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   uploadModule(): void {
     if (!this.canManage || !this.selectedModuleFile || !this.moduleForm.title.trim()) return;
     const formData = new FormData();
@@ -303,6 +326,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion deleteModule dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   deleteModule(moduleId: number): void {
     this.matchService.deleteModule(this.matchId, moduleId).subscribe({
       next: () => this.loadModules(),
@@ -310,6 +334,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion uploadBoard dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   uploadBoard(): void {
     if (!this.canManage || !this.selectedBoardImage || !this.boardForm.title.trim()) return;
     const formData = new FormData();
@@ -326,6 +351,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion deleteBoard dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   deleteBoard(boardId: number): void {
     this.matchService.deleteBoard(this.matchId, boardId).subscribe({
       next: () => this.loadBoards(),
@@ -333,6 +359,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion sendAction dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   sendAction(): void {
     if (!this.canInteract || !this.actionText.trim()) return;
     this.matchService
@@ -350,6 +377,7 @@ export class MatchSceneComponent implements OnInit {
       });
   }
 
+  /** Gestiona la accion reviewAction dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   reviewAction(action: MatchAction, status: 'approved' | 'rejected'): void {
     const response = this.reviewResponses[action.id] || '';
     this.matchService.reviewAction(this.matchId, action.id, status, response).subscribe({
@@ -361,6 +389,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion searchInviteUsers dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   searchInviteUsers(): void {
     const email = this.inviteEmail.trim();
     this.selectedInviteUser = null;
@@ -386,6 +415,7 @@ export class MatchSceneComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion selectInviteUser dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   selectInviteUser(user: MatchUserSearchResult): void {
     this.selectedInviteUser = user;
     this.inviteEmail = user.email;
@@ -393,6 +423,7 @@ export class MatchSceneComponent implements OnInit {
     this.inviteMessage = '';
   }
 
+  /** Gestiona la accion inviteSelectedUser dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   inviteSelectedUser(): void {
     if (!this.selectedInviteUser || !this.canManage) return;
     this.matchService.inviteUser(this.matchId, this.selectedInviteUser.email).subscribe({

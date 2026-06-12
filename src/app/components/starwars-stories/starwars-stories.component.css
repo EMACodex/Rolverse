@@ -1,9 +1,10 @@
+/* Estilos de la vista starwars stories de Rolverse. Mantienen responsive y aspecto existente. */
 .stories-bg {
   position: relative;
   min-height: calc(100vh - 100px);
   padding-top: 140px;
   padding-bottom: 4rem;
-  background: url("/assets/img/star wars historia/fondo.png") no-repeat center
+  background: url("../../../assets/img/star wars historia/fondo.png") no-repeat center
     center;
   background-size: cover;
   text-align: center;

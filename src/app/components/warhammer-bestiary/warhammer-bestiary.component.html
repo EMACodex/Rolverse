@@ -1,41 +1,24 @@
+<!-- Vista warhammer bestiary de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="bestiary-bg">
   <div class="bestiary-container">
-    <h1 class="main-title">Bestiario de Warhammer 40,000</h1>
+    <h1 class="main-title">{{ 'WARHAMMER.WARHAMMER_BESTIARY.WARHAMMER_BESTIARY.HTML_H1_228' | translate }}</h1>
 
     <section class="bestiary-section">
       <article class="bestiary-card main-bestiary-card">
-        <h2>Qué es un bestiario en Warhammer 40,000</h2>
+        <h2>{{ 'WARHAMMER.WARHAMMER_BESTIARY.WARHAMMER_BESTIARY.HTML_H2_229' | translate }}</h2>
 
-        <p>
-          El bestiario de Warhammer 40,000 reúne las criaturas, razas,
-          facciones enemigas y amenazas que pueden aparecer en una partida.
-          No se trata solo de monstruos para combatir, sino de fuerzas que
-          representan el horror, la guerra, la corrupción, la tecnología antigua
-          y la supervivencia dentro de un universo oscuro y brutal.
-        </p>
+        <p>{{ 'WARHAMMER.WARHAMMER_BESTIARY.WARHAMMER_BESTIARY.HTML_P_230' | translate }}</p>
 
-        <p>
-          En Warhammer, cada enemigo debe sentirse como parte del conflicto
-          galáctico. Un enjambre tiránido puede convertir una misión en una
-          lucha desesperada por escapar, una tumba necrona puede transformar una
-          expedición en una pesadilla arqueotecnológica, y un culto del Caos
-          puede hacer que una simple investigación termine en una guerra contra
-          la disformidad.
-        </p>
+        <p>{{ 'WARHAMMER.WARHAMMER_BESTIARY.WARHAMMER_BESTIARY.HTML_P_231' | translate }}</p>
 
-        <p>
-          Para usar bien un bestiario, el director de juego debe pensar en tres
-          cosas: qué amenaza representa la criatura, qué quiere conseguir y cómo
-          cambia el escenario cuando aparece. Así, cada enemigo tiene peso
-          narrativo y no se queda solo en una ficha de combate.
-        </p>
+        <p>{{ 'WARHAMMER.WARHAMMER_BESTIARY.WARHAMMER_BESTIARY.HTML_P_232' | translate }}</p>
       </article>
 
       <div class="creatures-grid">
         @for (creature of creatures; track creature.name) {
           <article class="creature-card">
-            <h3>{{ creature.name }}</h3>
-            <p>{{ creature.description }}</p>
+            <h3>{{ creature.name | translate }}</h3>
+            <p>{{ creature.description | translate }}</p>
           </article>
         }
       </div>
@@ -48,9 +31,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="bestiary-download-button"
-        >
-          Descargar bestiario de Warhammer
-        </a>
+        >{{ 'WARHAMMER.WARHAMMER_BESTIARY.WARHAMMER_BESTIARY.HTML_A_233' | translate }}</a>
       </div>
 
       }

@@ -10,7 +10,7 @@ import {
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
-import { RUTA_API } from '../../../../environment';
+import { environment } from '../../../../environments/environment';
 import { AuthService } from '../../../services/auth.service';
 import { InternalNews } from '../../../interfaces/new.interface';
 import { TranslatePipe } from '../../../pipes/translate.pipe';
@@ -22,6 +22,10 @@ import { TranslatePipe } from '../../../pipes/translate.pipe';
   templateUrl: './add-new.component.html',
   styleUrls: ['./add-new.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para add new.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class AddNewComponent implements OnInit {
   newsForm!: FormGroup;
   currentUser: { id: number; name: string } | null = null;
@@ -32,7 +36,7 @@ export class AddNewComponent implements OnInit {
   newsId: number | null = null;
   isEditMode = false;
 
-  private apiBase = RUTA_API.replace(/\/$/, '');
+  private apiBase = environment.apiUrl;
 
   fechaActual = new Date().toLocaleDateString('es-ES', {
     year: 'numeric',
@@ -48,6 +52,7 @@ export class AddNewComponent implements OnInit {
     private authService: AuthService
   ) {}
 
+  /** Gestiona la accion ngOnInit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser() as {
       id: number;
@@ -70,10 +75,11 @@ export class AddNewComponent implements OnInit {
     }
   }
 
+  /** Gestiona la accion loadNewsForEdit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   async loadNewsForEdit(newsId: number): Promise<void> {
     try {
       const news = await firstValueFrom(
-        this.http.get<InternalNews>(`${RUTA_API}news/${newsId}`)
+        this.http.get<InternalNews>(`${environment.apiUrl}/news/${newsId}`)
       );
 
       this.newsForm.patchValue({
@@ -88,6 +94,7 @@ export class AddNewComponent implements OnInit {
     }
   }
 
+  /** Gestiona la accion onImageSelected dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onImageSelected(event: Event): void {
     const file = (event.target as HTMLInputElement).files?.[0];
     if (!file) return;
@@ -101,6 +108,7 @@ export class AddNewComponent implements OnInit {
     reader.readAsDataURL(file);
   }
 
+  /** Gestiona la accion onSubmit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   async onSubmit(): Promise<void> {
     const title = this.newsForm.value.title?.trim();
     const summary = this.newsForm.value.summary?.trim() || '';
@@ -133,11 +141,11 @@ export class AddNewComponent implements OnInit {
     try {
       if (this.isEditMode && this.newsId) {
         await firstValueFrom(
-          this.http.put(`${RUTA_API}news/${this.newsId}`, formData, { headers })
+          this.http.put(`${environment.apiUrl}/news/${this.newsId}`, formData, { headers })
         );
       } else {
         await firstValueFrom(
-          this.http.post(`${RUTA_API}news`, formData, { headers })
+          this.http.post(`${environment.apiUrl}/news`, formData, { headers })
         );
       }
 
@@ -158,6 +166,7 @@ export class AddNewComponent implements OnInit {
     }
   }
 
+  /** Gestiona la accion getUploadUrl dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   getUploadUrl(path: string): string {
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path;
@@ -166,6 +175,7 @@ export class AddNewComponent implements OnInit {
     return `${this.apiBase}${path.startsWith('/') ? path : `/${path}`}`;
   }
 
+  /** Gestiona la accion closeError dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   closeError(): void {
     this.errorMessage = null;
   }

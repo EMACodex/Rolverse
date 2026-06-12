@@ -1,23 +1,20 @@
+<!-- Vista starwars game system de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="system-bg">
   <div class="system-container">
-    <h1 class="main-title">Sistema de Juego Star Wars</h1>
+    <h1 class="main-title">{{ 'STAR_WARS.STARWARS_GAME_SYSTEM.STARWARS_GAME_SYSTEM.HTML_H1_205' | translate }}</h1>
 
     <div class="tabs-wrapper">
       <button
         class="tab-button"
         [class.active]="selectedTab === 'resumen'"
         (click)="setTab('resumen')"
-      >
-        Resumen
-      </button>
+      >{{ 'STAR_WARS.STARWARS_GAME_SYSTEM.STARWARS_GAME_SYSTEM.HTML_BUTTON_212' | translate }}</button>
 
       <button
         class="tab-button"
         [class.active]="selectedTab === 'wegFirst'"
         (click)="setTab('wegFirst')"
-      >
-        WEG D6 1ª Edición
-      </button>
+      >{{ 'STAR_WARS.STARWARS_GAME_SYSTEM.STARWARS_GAME_SYSTEM.HTML_BUTTON_213' | translate }}</button>
 
       <button
         class="tab-button"
@@ -64,37 +61,18 @@
       <section class="summary-section">
         <div class="questions-grid">
           <article class="question-card question-card-wide">
-            <h3>Qué es el sistema de juego de Star Wars</h3>
-            <p>
-              Star Wars ha tenido varias líneas de rol de mesa, cada una con una
-              forma distinta de representar aventuras galácticas. Algunas se
-              centran en dados de seis caras y acción cinematográfica rápida,
-              otras usan reglas d20 cercanas a Dungeons & Dragons, y las más
-              modernas emplean dados narrativos para mezclar éxito, amenaza,
-              ventaja, complicaciones y drama en una misma tirada.
-            </p>
+            <h3>{{ 'STAR_WARS.STARWARS_GAME_SYSTEM.STARWARS_GAME_SYSTEM.HTML_H3_206' | translate }}</h3>
+            <p>{{ 'STAR_WARS.STARWARS_GAME_SYSTEM.STARWARS_GAME_SYSTEM.HTML_P_209' | translate }}</p>
           </article>
 
           <article class="question-card">
-            <h3>Cómo evolucionó el sistema</h3>
-            <p>
-              Primero llegó la etapa de West End Games con el sistema D6, muy
-              ágil y cinematográfico. Después Wizards of the Coast publicó las
-              versiones d20 y Saga Edition. Más tarde Fantasy Flight Games y
-              Edge Studio desarrollaron una línea narrativa dividida en
-              contrabandistas, rebeldes y usuarios de la Fuerza.
-            </p>
+            <h3>{{ 'STAR_WARS.STARWARS_GAME_SYSTEM.STARWARS_GAME_SYSTEM.HTML_H3_207' | translate }}</h3>
+            <p>{{ 'STAR_WARS.STARWARS_GAME_SYSTEM.STARWARS_GAME_SYSTEM.HTML_P_210' | translate }}</p>
           </article>
 
           <article class="question-card">
-            <h3>Qué versión elegir para jugar</h3>
-            <p>
-              Si quieres rapidez clásica, WEG D6 funciona muy bien. Si prefieres
-              algo parecido a D&D, d20 o Saga son más familiares. Si buscas
-              partidas narrativas con consecuencias, tensión cinematográfica y
-              mucha improvisación, la línea FFG / Edge Studio es la opción más
-              moderna.
-            </p>
+            <h3>{{ 'STAR_WARS.STARWARS_GAME_SYSTEM.STARWARS_GAME_SYSTEM.HTML_H3_208' | translate }}</h3>
+            <p>{{ 'STAR_WARS.STARWARS_GAME_SYSTEM.STARWARS_GAME_SYSTEM.HTML_P_211' | translate }}</p>
           </article>
         </div>
 
@@ -106,9 +84,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="manual-download-button"
-          >
-            Descargar sistema de juego de Star Wars
-          </a>
+          >{{ 'STAR_WARS.STARWARS_GAME_SYSTEM.STARWARS_GAME_SYSTEM.HTML_A_214' | translate }}</a>
         </div>
 
         }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 interface Pregunta {
   texto: string;
@@ -18,10 +19,17 @@ interface Puntuaciones {
 @Component({
   selector: 'app-thecreator',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    TranslatePipe,
+    CommonModule, FormsModule
+  ],
   templateUrl: './thecreator.component.html',
   styleUrls: ['./thecreator.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para thecreator.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class TheCreatorComponent {
   // Índice de la pregunta actual (0…9)
   idx = 0;
@@ -41,119 +49,119 @@ export class TheCreatorComponent {
   // Las 10 preguntas con sus opciones
   preguntas: Pregunta[] = [
     {
-      texto: '1. ¿Qué valor consideras más importante en una aventura?',
+      texto: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_1',
       opciones: [
-        { label: '🍺 Compañerismo y buena comida', key: 'Hobbit' },
-        { label: '🧠 Conocimiento y sabiduría', key: 'Mago' },
-        { label: '🏹 Precisión y armonía con la naturaleza', key: 'Elfo' },
-        { label: '⚔️ Honor y valentía', key: 'GuerreroHumano' },
-        { label: '⛏️ Resistencia y lealtad', key: 'Enano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_2', key: 'Hobbit' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_3', key: 'Mago' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_4', key: 'Elfo' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_5', key: 'GuerreroHumano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_35', key: 'Enano' },
       ],
     },
     {
-      texto: '2. ¿Qué lugar prefieres para vivir?',
+      texto: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_6',
       opciones: [
-        { label: '🏡 Una acogedora aldea en la colina', key: 'Hobbit' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_36', key: 'Hobbit' },
         {
-          label: '📚 Una gran torre llena de libros y artefactos',
+          label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_37',
           key: 'Mago',
         },
-        { label: '🌲 Un bosque antiguo lleno de secretos', key: 'Elfo' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_38', key: 'Elfo' },
         {
-          label: '🛡️ Una ciudadela en el centro del reino',
+          label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_39',
           key: 'GuerreroHumano',
         },
-        { label: '🪓 Una fortaleza en la montaña', key: 'Enano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_7', key: 'Enano' },
       ],
     },
     {
-      texto: '3. ¿Qué arma elegirías?',
+      texto: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_8',
       opciones: [
-        { label: '🔪 Daga o honda', key: 'Hobbit' },
-        { label: '📖 Bastón mágico', key: 'Mago' },
-        { label: '🏹 Arco largo', key: 'Elfo' },
-        { label: '🗡️ Espada o lanza', key: 'GuerreroHumano' },
-        { label: '🔨 Hacha de guerra', key: 'Enano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_40', key: 'Hobbit' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_9', key: 'Mago' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_41', key: 'Elfo' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_42', key: 'GuerreroHumano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_43', key: 'Enano' },
       ],
     },
     {
-      texto: '4. ¿Cómo resuelves los conflictos?',
+      texto: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_10',
       opciones: [
-        { label: '😅 Evitándolos con sentido del humor', key: 'Hobbit' },
-        { label: '🧩 Pensando con lógica y estrategia', key: 'Mago' },
-        { label: '🎯 Con precisión y palabras suaves', key: 'Elfo' },
-        { label: '💥 Enfrentándolos con determinación', key: 'GuerreroHumano' },
-        { label: '😠 Con fuerza bruta y determinación', key: 'Enano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_11', key: 'Hobbit' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_12', key: 'Mago' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_13', key: 'Elfo' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_14', key: 'GuerreroHumano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_15', key: 'Enano' },
       ],
     },
     {
-      texto: '5. ¿Cuál es tu relación con la magia?',
+      texto: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_16',
       opciones: [
-        { label: '🤔 “Me suena, pero prefiero el té”', key: 'Hobbit' },
-        { label: '🌿 “Es parte de mí, la estudio y domino”', key: 'Mago' },
-        { label: '✨ “La respeto como una fuerza natural”', key: 'Elfo' },
-        { label: '🙄 “Solo si es útil en combate”', key: 'GuerreroHumano' },
-        { label: '😡 “Desconfío de ella”', key: 'Enano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_17', key: 'Hobbit' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_18', key: 'Mago' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_44', key: 'Elfo' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_19', key: 'GuerreroHumano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_20', key: 'Enano' },
       ],
     },
     {
-      texto: '6. ¿Qué te motiva a salir de aventura?',
+      texto: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_21',
       opciones: [
-        { label: '🧁 Curiosidad... y buenos pasteles', key: 'Hobbit' },
-        { label: '🔎 Descubrir antiguos secretos', key: 'Mago' },
-        { label: '🌿 Proteger la armonía natural', key: 'Elfo' },
-        { label: '🛡️ Defender a los inocentes', key: 'GuerreroHumano' },
-        { label: '💰 Honor, gloria y riqueza', key: 'Enano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_45', key: 'Hobbit' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_46', key: 'Mago' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_22', key: 'Elfo' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_47', key: 'GuerreroHumano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_48', key: 'Enano' },
       ],
     },
     {
-      texto: '7. ¿Qué tipo de aliados prefieres?',
+      texto: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_23',
       opciones: [
-        { label: '👨‍👩‍👦 Amigos leales, aunque no sean fuertes', key: 'Hobbit' },
-        { label: '📚 Sabios, estudiosos o místicos', key: 'Mago' },
-        { label: '🦌 Elegantes, tranquilos y equilibrados', key: 'Elfo' },
-        { label: '⚔️ Valientes y decididos a luchar', key: 'GuerreroHumano' },
-        { label: '🍻 Rudos, fuertes y constantes', key: 'Enano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_49', key: 'Hobbit' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_24', key: 'Mago' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_50', key: 'Elfo' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_51', key: 'GuerreroHumano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_52', key: 'Enano' },
       ],
     },
     {
-      texto: '8. ¿Qué bebida elegirías en una taberna?',
+      texto: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_25',
       opciones: [
-        { label: '🍻 Cerveza casera', key: 'Enano' },
-        { label: '🍷 Vino de frutos silvestres', key: 'Elfo' },
-        { label: '🍵 Infusión con hierbas raras', key: 'Mago' },
-        { label: '🥛 Leche y un trozo de pastel', key: 'Hobbit' },
-        { label: '🥃 Grog o cualquier cosa fuerte', key: 'GuerreroHumano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_53', key: 'Enano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_54', key: 'Elfo' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_26', key: 'Mago' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_55', key: 'Hobbit' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_56', key: 'GuerreroHumano' },
       ],
     },
     {
-      texto: '9. ¿Cómo vistes normalmente?',
+      texto: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_27',
       opciones: [
-        { label: '👣 Pies descalzos, camisa cómoda', key: 'Hobbit' },
-        { label: '🧥 Túnica con runas y bolsillos secretos', key: 'Mago' },
-        { label: '🌿 Atuendo ligero, verde y natural', key: 'Elfo' },
-        { label: '🛡️ Armadura ligera o de cuero', key: 'GuerreroHumano' },
-        { label: '🪓 Armadura pesada, casco, y botas firmes', key: 'Enano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_28', key: 'Hobbit' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_29', key: 'Mago' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_57', key: 'Elfo' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_58', key: 'GuerreroHumano' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_59', key: 'Enano' },
       ],
     },
     {
-      texto: '10. ¿Cómo te gustaría ser recordado?',
+      texto: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_30',
       opciones: [
-        { label: '😄 Como alguien que hizo reír y compartió', key: 'Hobbit' },
+        { label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_31', key: 'Hobbit' },
         {
-          label: '🧙 Como una mente brillante que dejó sabiduría',
+          label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_32',
           key: 'Mago',
         },
         {
-          label: '🌟 Como un espíritu noble y protector de la belleza',
+          label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_33',
           key: 'Elfo',
         },
         {
-          label: '🛡️ Como un héroe que defendió a su pueblo',
+          label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_34',
           key: 'GuerreroHumano',
         },
         {
-          label: '⛏️ Como un luchador duro y leal hasta el final',
+          label: 'HOME_CHARACTER_CREATOR.THECREATOR.THECREATOR.TEXT_60',
           key: 'Enano',
         },
       ],
@@ -165,6 +173,7 @@ export class TheCreatorComponent {
    * Suma +1 al arquetipo correspondiente y pasa a la siguiente pregunta
    * o, si era la última, calcula resultado.
    */
+  /** Gestiona la accion elegir dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   elegir(key: keyof Puntuaciones) {
     this.scores[key]++;
     if (this.idx < this.preguntas.length - 1) {

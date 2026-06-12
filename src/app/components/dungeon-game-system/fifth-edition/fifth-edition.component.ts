@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-fifth-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './fifth-edition.component.html',
   styleUrls: ['./fifth-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para fifth edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class FifthEditionComponent {
   title = 'D&D 5e';
   period = '2014';
   intro =
-    'La edición más popular de Dungeons & Dragons. Simplificó reglas, hizo el juego más accesible y ayudó al enorme crecimiento moderno del rol de mesa.';
+    'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_1';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_2',
       items: [
-        'Nació después de la división que provocó D&D 4e.',
-        'Buscó recuperar sensaciones clásicas, pero con reglas más modernas y sencillas.',
-        'Su popularidad creció mucho gracias a internet, streams, Critical Role, Stranger Things y Baldur’s Gate 3.',
-        'Es la edición que más gente reconoce actualmente.',
+        'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_3',
+        'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_4',
+        'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_5',
+        'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_6',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_7',
       items: [
-        'Sistema d20 simplificado.',
+        'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_8',
         'Ventaja y desventaja: tirar dos d20 y quedarse con el mejor o el peor.',
         'Competencia como bonificador general que escala con el nivel.',
         'Trasfondos para dar identidad narrativa y habilidades extra al personaje.',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_9',
       items: [
-        'Menos matemática y menos modificadores que 3.5.',
+        'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_10',
         'Subclases para personalizar personajes sin complicar demasiado la base.',
-        'Equilibrio entre combate, exploración e interpretación.',
-        'Reglas fáciles de explicar a jugadores nuevos.',
+        'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_11',
+        'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_12',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_13',
       items: [
         'Muy adecuada para principiantes.',
-        'Funciona bien tanto para campañas narrativas como para aventuras de mazmorra.',
+        'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_14',
         'Da bastante libertad al Dungeon Master.',
-        'No es tan técnica como 3.5 ni tan táctica como 4e, pero es mucho más accesible.',
+        'DND.DUNGEON_GAME_SYSTEM.FIFTH_EDITION.FIFTH_EDITION.TEXT_15',
       ],
     },
   ];

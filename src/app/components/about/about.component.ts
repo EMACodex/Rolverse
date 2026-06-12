@@ -10,6 +10,10 @@ import { Person } from '../../interfaces/about.interface';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para about.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class AboutComponent {
   people: Person[] = [
     {

@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-warhammer-bestiary',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './warhammer-bestiary.component.html',
   styleUrls: ['./warhammer-bestiary.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para warhammer bestiary.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class WarhammerBestiaryComponent {
   readonly authService = inject(AuthService);
   readonly warhammerBestiaryPdfUrl =
@@ -13,29 +19,29 @@ export class WarhammerBestiaryComponent {
 
   creatures = [
     {
-      name: 'Tiránidos',
+      name: 'WARHAMMER.WARHAMMER_BESTIARY.WARHAMMER_BESTIARY.TEXT_1',
       description:
-        'Los tiránidos son enjambres alienígenas que devoran mundos enteros. Funcionan muy bien como amenaza de invasión, plaga biológica o enemigo imparable que obliga a los jugadores a sobrevivir, evacuar o resistir hasta el último momento.',
+        'WARHAMMER.WARHAMMER_BESTIARY.WARHAMMER_BESTIARY.TEXT_2',
     },
     {
       name: 'Orkos',
       description:
-        'Los orkos son brutales, numerosos y caóticos. Son perfectos para partidas de guerra abierta, saqueos, emboscadas, vehículos improvisados y combates salvajes donde la fuerza bruta pesa más que la estrategia refinada.',
+        'WARHAMMER.WARHAMMER_BESTIARY.WARHAMMER_BESTIARY.TEXT_3',
     },
     {
       name: 'Necrones',
       description:
-        'Los necrones son antiguos guerreros metálicos despertados de tumbas milenarias. Encajan muy bien en historias de ruinas prohibidas, tecnología olvidada, mundos muertos y amenazas que regresan desde un pasado imposible.',
+        'WARHAMMER.WARHAMMER_BESTIARY.WARHAMMER_BESTIARY.TEXT_4',
     },
     {
       name: 'Demonios del Caos',
       description:
-        'Los demonios representan la corrupción de la disformidad. Sirven para partidas oscuras donde aparecen cultos, posesiones, pactos prohibidos, rituales y zonas donde la realidad empieza a romperse.',
+        'WARHAMMER.WARHAMMER_BESTIARY.WARHAMMER_BESTIARY.TEXT_5',
     },
     {
       name: 'Herejes y Marines del Caos',
       description:
-        'Los seguidores del Caos pueden ser cultistas, traidores, psíquicos corruptos o antiguos Marines Espaciales caídos. Son enemigos ideales para campañas de investigación, guerra santa, corrupción imperial y traición.',
+        'WARHAMMER.WARHAMMER_BESTIARY.WARHAMMER_BESTIARY.TEXT_6',
     },
     {
       name: 'Aeldari y Drukhari',

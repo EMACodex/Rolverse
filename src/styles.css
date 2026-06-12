@@ -1,4 +1,4 @@
-/* ========================
+﻿/* ========================
    Fuentes importadas
    ======================== */
 
@@ -142,7 +142,7 @@ button:hover,
 }
 
 /* ========================
-   Menú lateral (.sidebar)
+   Menu lateral (.sidebar)
    ======================== */
 .sidebar {
   background-color: var(--color-marron-tost);
@@ -178,7 +178,7 @@ select:focus {
 }
 
 /* ========================
-   Títulos de sección (.section-title)
+   Titulos de seccion (.section-title)
    ======================== */
 .section-title {
   font-family: "Cinzel Decorative", serif;
@@ -229,10 +229,10 @@ footer {
 }
 
 /* ========================
-   Header específico
+   Header especifico
    ======================== */
 .header-container {
-  background-image: url("/assets/img/header.jpg");
+  background-image: url("assets/img/header.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -244,7 +244,7 @@ footer {
 .home-background {
   display: block;
   min-height: 100vh;
-  background-image: url("/assets/img/fondo.jpg");
+  background-image: url("assets/img/fondo.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -280,11 +280,11 @@ body {
 
 ::ng-deep .cdk-overlay-container,
 ::ng-deep .cdk-overlay-pane {
-  z-index: 2000 !important; /* asegúrate de que va por encima */
+  z-index: 2000 !important; /* asegurate de que va por encima */
   pointer-events: auto !important;
 }
 
-/* ===== Layout app completo para “push footer” ===== */
+/* ===== Layout app completo para push footer ===== */
 app-root {
   display: flex;
   flex-direction: column;
@@ -368,3 +368,112 @@ router-outlet + * {
 .forum-dialog-panel .mat-mdc-dialog-surface {
   border-radius: 8px !important;
 }
+
+
+/* ========================
+   Tema Sith
+   ======================== */
+body.theme-jedi {
+  /* El modo Jedi conserva los estilos claros actuales. */
+}
+
+body.theme-sith {
+  background-color: #090606;
+  color: #f8e2a0;
+}
+
+body.theme-sith app-root {
+  background: #090606;
+}
+
+body.theme-sith .container,
+body.theme-sith .main-container,
+body.theme-sith .page-container,
+body.theme-sith .profile-card,
+body.theme-sith .news-card,
+body.theme-sith .forum-card,
+body.theme-sith .match-card,
+body.theme-sith .character-card,
+body.theme-sith .character-type-card,
+body.theme-sith .maps-card,
+body.theme-sith .map-card,
+body.theme-sith .world-card,
+body.theme-sith .world-type-card,
+body.theme-sith .story-card,
+body.theme-sith .bestiary-card,
+body.theme-sith .creature-card,
+body.theme-sith .edition-card,
+body.theme-sith .question-card,
+body.theme-sith .result-card {
+  background: rgba(15, 8, 8, 0.92);
+  color: #f8e2a0;
+  border-color: #b8862b;
+}
+
+body.theme-sith h1,
+body.theme-sith h2,
+body.theme-sith h3,
+body.theme-sith h4,
+body.theme-sith .main-title,
+body.theme-sith .section-title {
+  color: #f5d98b;
+  text-shadow: 1px 1px #120606;
+}
+
+body.theme-sith p,
+body.theme-sith li,
+body.theme-sith label,
+body.theme-sith span {
+  color: inherit;
+}
+
+body.theme-sith input,
+body.theme-sith textarea,
+body.theme-sith select {
+  background: #120c0c;
+  color: #f8e2a0;
+  border-color: #b8862b;
+}
+
+body.theme-sith input::placeholder,
+body.theme-sith textarea::placeholder {
+  color: rgba(248, 226, 160, 0.7);
+}
+
+body.theme-sith button,
+body.theme-sith .rol-button,
+body.theme-sith .btn-primary,
+body.theme-sith .btn-secondary {
+  border-color: #d9a441;
+}
+
+body.theme-sith .header-container {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+}
+
+body.theme-sith .pergamino-menu,
+body.theme-sith ::ng-deep .pergamino-menu {
+  background-color: #150b08 !important;
+  color: #f8e2a0;
+  border-color: #b8862b;
+}
+
+body.theme-sith .mat-mdc-menu-item,
+body.theme-sith ::ng-deep .mat-mdc-menu-item {
+  color: #f8e2a0;
+}
+
+body.theme-sith .center-wrapper.open {
+  background: rgba(15, 8, 8, 0.97);
+  border-color: #b8862b;
+}
+
+body.theme-sith .center-wrapper.open .logo-wrapper {
+  background: rgba(50, 22, 18, 0.55);
+  border-color: rgba(217, 164, 65, 0.45);
+}
+
+body.theme-sith .center-wrapper.open .tooltip-text {
+  color: #f8e2a0;
+}
+

@@ -6,7 +6,17 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "electron:dev": "concurrently -k \"ng serve\" \"wait-on http://localhost:4200 && electron . --dev\"",
+    "electron:start": "ng build --configuration production --base-href ./ && electron .",
+    "electron:build": "ng build --configuration production --base-href ./ && electron-builder",
+    "cap:build": "ng build --configuration capacitor && npx cap sync",
+    "cap:sync": "npx cap sync",
+    "cap:android": "ng build --configuration capacitor && npx cap sync android && npx cap open android",
+    "cap:android:local": "ng build --configuration android-local && npx cap sync android",
+    "cap:assets": "npx capacitor-assets generate --assetPath src/assets/img/appmovil.png",
+    "electron:start:local": "ng build --configuration electron-local --base-href ./ && electron .",
+    "electron:build:local": "ng build --configuration electron-local --base-href ./ && electron-builder"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +31,8 @@
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@auth0/angular-jwt": "^5.2.0",
+    "@capacitor/android": "^8.4.0",
+    "@capacitor/core": "^8.4.0",
     "angular-jwt": "^0.1.11",
     "howler": "^2.2.4",
     "jwt-decode": "^4.0.0",
@@ -36,13 +48,38 @@
     "@angular-devkit/build-angular": "^19.2.11",
     "@angular/cli": "^19.2.11",
     "@angular/compiler-cli": "^19.2.0",
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.4.0",
+    "@types/howler": "^2.2.13",
     "@types/jasmine": "~5.1.0",
+    "concurrently": "^10.0.3",
+    "electron": "^42.4.0",
+    "electron-builder": "^26.15.2",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.7.2"
+    "typescript": "~5.7.2",
+    "wait-on": "^9.0.10"
+  },
+  "main": "electron/main.js",
+  "build": {
+    "appId": "com.rolverse.desktop",
+    "productName": "Rolverse",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "!dist/**/assets/downloads/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "src/assets/img/app.png"
+    }
   }
 }

@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-anima-beyond-fantasy',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './anima-beyond-fantasy.component.html',
   styleUrls: ['./anima-beyond-fantasy.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para anima beyond fantasy.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class AnimaBeyondFantasyComponent {
-  title = 'Ánima: Beyond Fantasy';
+  title = 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_1';
   period = 'Juego de rol principal';
   intro =
-    'La base del juego de rol de Ánima. Presenta Gaïa como ambientación principal y un sistema muy amplio para crear personajes de fantasía oscura, épica, anime y sobrenatural.';
+    'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_3',
       items: [
-        'Es el juego principal de la línea Ánima y el punto de entrada al mundo de Gaïa.',
-        'Combina fantasía occidental, estética anime, artes marciales, misterio sobrenatural y organizaciones ocultas.',
-        'Gaïa se presenta como un mundo donde la gente común cree que la magia y los monstruos son leyendas, aunque en realidad siguen existiendo en secreto.',
-        'El Director de Juego puede usar el mundo oficial o adaptar el sistema a una ambientación propia.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_4',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_5',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_6',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_7',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_8',
       items: [
         'Los personajes se construyen con atributos, habilidades, ventajas, desventajas, clase, puntos de desarrollo y capacidades especiales.',
-        'El sistema permite usar combate físico, magia, Ki, mentalismo, convocación, poderes sobrenaturales y habilidades sociales o técnicas.',
-        'La resolución se basa en tiradas, bonificadores, dificultades y comparación de resultados.',
-        'El combate tiene ataque, defensa, daño, armadura, acciones, maniobras y consecuencias más detalladas que en juegos sencillos.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_9',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_10',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_11',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_12',
       items: [
-        'Es un sistema profundo, personalizable y más exigente que un juego de rol ligero.',
-        'La creación de personaje es una parte importante de la experiencia porque permite personajes muy diferentes entre sí.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_13',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_14',
         'El Director de Juego debe preparar bien enemigos, escenas, poderes y dificultad de los conflictos.',
-        'Funciona especialmente bien para campañas dramáticas, oscuras, épicas y con secretos ocultos.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_15',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_16',
       items: [
-        'Primero se define el tono de la campaña: investigación, fantasía épica, horror sobrenatural, aventura o conspiración.',
-        'Después cada jugador crea un personaje con historia, motivación, capacidades y vínculos con Gaïa.',
-        'Cuando una acción tiene riesgo, se resuelve con tiradas y modificadores adecuados.',
-        'El Director alterna escenas de interpretación, exploración, investigación y combate según el ritmo de la partida.',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_17',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_18',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_19',
+        'ANIMA.ANIMA_GAME_SYSTEM.ANIMA_BEYOND_FANTASY.ANIMA_BEYOND_FANTASY.TEXT_20',
       ],
     },
   ];

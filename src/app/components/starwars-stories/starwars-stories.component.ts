@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-starwars-stories',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './starwars-stories.component.html',
   styleUrls: ['./starwars-stories.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para starwars stories.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class StarwarsStoriesComponent {
   readonly authService = inject(AuthService);
   readonly starwarsStoriesPdfUrl =
@@ -15,32 +21,32 @@ export class StarwarsStoriesComponent {
     {
       name: 'La lucha entre la luz y la oscuridad',
       description:
-        'Las historias de Star Wars suelen girar alrededor del conflicto entre esperanza, miedo, poder y corrupción. Los personajes pueden verse obligados a elegir entre proteger a otros, obedecer órdenes, usar la Fuerza con equilibrio o caer en decisiones peligrosas.',
+        'STAR_WARS.STARWARS_STORIES.STARWARS_STORIES.TEXT_1',
     },
     {
-      name: 'Rebelión contra imperios',
+      name: 'STAR_WARS.STARWARS_STORIES.STARWARS_STORIES.TEXT_2',
       description:
-        'Una campaña puede centrarse en grupos rebeldes, células secretas, pilotos, espías y soldados que luchan contra un régimen autoritario. Este tipo de historia funciona muy bien con misiones de sabotaje, rescate, infiltración y combate espacial.',
+        'STAR_WARS.STARWARS_STORIES.STARWARS_STORIES.TEXT_3',
     },
     {
-      name: 'Contrabandistas y cazarrecompensas',
+      name: 'STAR_WARS.STARWARS_STORIES.STARWARS_STORIES.TEXT_4',
       description:
-        'No todos los protagonistas tienen que ser héroes clásicos. En Star Wars también hay lugar para mercenarios, pilotos, comerciantes ilegales y buscavidas que sobreviven entre deudas, persecuciones, encargos peligrosos y alianzas incómodas.',
+        'STAR_WARS.STARWARS_STORIES.STARWARS_STORIES.TEXT_5',
     },
     {
       name: 'Jedi, Sith y usuarios de la Fuerza',
       description:
-        'Las historias centradas en la Fuerza pueden tratar sobre entrenamiento, visiones, templos antiguos, reliquias, tentaciones del lado oscuro y conflictos espirituales. Sirven para partidas más místicas y épicas.',
+        'STAR_WARS.STARWARS_STORIES.STARWARS_STORIES.TEXT_6',
     },
     {
-      name: 'Guerras galácticas',
+      name: 'STAR_WARS.STARWARS_STORIES.STARWARS_STORIES.TEXT_7',
       description:
-        'Las campañas bélicas pueden mostrar batallas entre flotas, invasiones planetarias, defensa de bases, operaciones militares y sacrificios personales dentro de una guerra mucho mayor que los propios personajes.',
+        'STAR_WARS.STARWARS_STORIES.STARWARS_STORIES.TEXT_8',
     },
     {
-      name: 'Exploración de mundos desconocidos',
+      name: 'STAR_WARS.STARWARS_STORIES.STARWARS_STORIES.TEXT_9',
       description:
-        'El universo de Star Wars permite visitar planetas desérticos, lunas heladas, ciudades industriales, templos ocultos, estaciones espaciales y regiones olvidadas. Cada localización puede esconder secretos, enemigos y decisiones importantes.',
+        'STAR_WARS.STARWARS_STORIES.STARWARS_STORIES.TEXT_10',
     },
   ];
 }

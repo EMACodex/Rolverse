@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-third-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './third-edition.component.html',
   styleUrls: ['./third-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para third edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class ThirdEditionComponent {
   title = 'D&D 3 / 3.5';
   period = '2000 - 2003';
   intro =
-    'Una de las ediciones más importantes. Unificó muchas reglas bajo el sistema d20, aumentó muchísimo la personalización y sirvió como base para Pathfinder.';
+    'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_1';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_2',
       items: [
-        'La 3ª edición fue la primera gran versión publicada por Wizards of the Coast.',
-        'Eliminó el nombre “Advanced” y volvió a llamarse simplemente Dungeons & Dragons.',
-        'La versión 3.5 ajustó reglas, equilibrio, monstruos, clases y hechizos.',
-        'Pathfinder nació como heredero directo del estilo de D&D 3.5.',
+        'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_3',
+        'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_4',
+        'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_5',
+        'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_6',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_7',
       items: [
-        'Sistema d20: tirar un dado de 20 caras, sumar modificadores y superar una dificultad.',
-        'Introducción fuerte de habilidades y dotes.',
-        'Multiclase mucho más flexible que en ediciones anteriores.',
+        'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_8',
+        'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_9',
+        'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_10',
         'Clases de prestigio para especializar personajes en niveles avanzados.',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_11',
       items: [
-        'Sistema muy técnico y profundo.',
-        'Gran importancia de la creación de personaje y optimización.',
-        'Combate táctico con cuadrícula, ataques de oportunidad, posiciones y movimiento.',
-        'Muchas reglas específicas para situaciones concretas.',
+        'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_12',
+        'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_13',
+        'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_14',
+        'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_15',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_16',
       items: [
         'Muy buena para jugadores que disfrutan construyendo personajes complejos.',
-        'Permite campañas con muchísimo detalle mecánico.',
+        'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_17',
         'Puede resultar pesada para principiantes por la cantidad de reglas.',
-        'Premia el conocimiento del sistema y la planificación del personaje.',
+        'DND.DUNGEON_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_18',
       ],
     },
   ];

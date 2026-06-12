@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-dungeon-world',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './dungeon-world.component.html',
   styleUrls: ['./dungeon-world.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para dungeon world.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class DungeonWorldComponent {
   readonly authService = inject(AuthService);
   readonly dndMapsPdfUrl =
@@ -13,34 +19,34 @@ export class DungeonWorldComponent {
 
   mapTypes = [
     {
-      name: 'Reinos y continentes',
+      name: 'DND.DUNGEON_WORLD.DUNGEON_WORLD.TEXT_1',
       description:
-        'Los mapas de mundo sirven para situar grandes campañas. Permiten mostrar reinos, fronteras, mares, montañas, capitales, rutas comerciales y zonas peligrosas donde pueden empezar nuevas aventuras.',
+        'DND.DUNGEON_WORLD.DUNGEON_WORLD.TEXT_2',
     },
     {
-      name: 'Mazmorras y ruinas',
+      name: 'DND.DUNGEON_WORLD.DUNGEON_WORLD.TEXT_3',
       description:
-        'Son mapas pensados para la exploración paso a paso. Pueden incluir salas, pasillos, trampas, puertas secretas, tesoros, enemigos y zonas donde los personajes deben tomar decisiones con cuidado.',
+        'DND.DUNGEON_WORLD.DUNGEON_WORLD.TEXT_4',
     },
     {
-      name: 'Ciudades y aldeas',
+      name: 'DND.DUNGEON_WORLD.DUNGEON_WORLD.TEXT_5',
       description:
         'Ayudan a organizar escenas sociales, investigaciones, persecuciones, tabernas, mercados, templos, gremios y lugares importantes donde los personajes pueden descansar o recibir misiones.',
     },
     {
-      name: 'Bosques, montañas y caminos',
+      name: 'DND.DUNGEON_WORLD.DUNGEON_WORLD.TEXT_6',
       description:
-        'Funcionan muy bien para viajes, emboscadas, exploración salvaje y encuentros aleatorios. Un camino aparentemente sencillo puede convertirse en una aventura completa si el entorno está bien planteado.',
+        'DND.DUNGEON_WORLD.DUNGEON_WORLD.TEXT_7',
     },
     {
-      name: 'Fortalezas y castillos',
+      name: 'DND.DUNGEON_WORLD.DUNGEON_WORLD.TEXT_8',
       description:
-        'Son perfectos para asaltos, infiltraciones, defensas, reuniones políticas o enfrentamientos contra villanos. Cada sala puede tener guardias, pistas, tesoros o secretos importantes.',
+        'DND.DUNGEON_WORLD.DUNGEON_WORLD.TEXT_9',
     },
     {
-      name: 'Planos y lugares mágicos',
+      name: 'DND.DUNGEON_WORLD.DUNGEON_WORLD.TEXT_10',
       description:
-        'Representan zonas extrañas donde las reglas normales del mundo pueden cambiar. Sirven para aventuras con portales, dioses, demonios, sueños, maldiciones o energía arcana descontrolada.',
+        'DND.DUNGEON_WORLD.DUNGEON_WORLD.TEXT_11',
     },
   ];
 }

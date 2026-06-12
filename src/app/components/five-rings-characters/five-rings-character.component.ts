@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-five-rings-character',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './five-rings-character.component.html',
   styleUrls: ['./five-rings-character.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para five rings character.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class FiveRingsCharacterComponent {
   readonly authService = inject(AuthService);
   readonly fiveRingsCharacterSheetUrl =
@@ -15,32 +21,32 @@ export class FiveRingsCharacterComponent {
     {
       name: 'Bushi',
       description:
-        'Son samuráis guerreros entrenados para el combate, el honor y la defensa de su clan. Funcionan muy bien como duelistas, protectores, soldados de élite o personajes divididos entre su deber y sus emociones personales.',
+        'L5R.FIVE_RINGS_CHARACTERS.FIVE_RINGS_CHARACTER.TEXT_1',
     },
     {
       name: 'Shugenja',
       description:
-        'Son sacerdotes y practicantes espirituales capaces de comunicarse con los kami. Sus historias suelen girar alrededor de rituales, espíritus, profecías, secretos religiosos y conflictos entre el mundo humano y el mundo sobrenatural.',
+        'L5R.FIVE_RINGS_CHARACTERS.FIVE_RINGS_CHARACTER.TEXT_2',
     },
     {
       name: 'Cortesanos',
       description:
-        'Son expertos en política, etiqueta, negociación e intriga. En una partida pueden vencer sin desenvainar una espada, usando palabras, alianzas, favores, reputación y secretos para cambiar el destino de una familia o de todo un clan.',
+        'L5R.FIVE_RINGS_CHARACTERS.FIVE_RINGS_CHARACTER.TEXT_3',
     },
     {
       name: 'Monjes',
       description:
-        'Buscan la iluminación, el equilibrio interior y la comprensión espiritual. Pueden ser consejeros, viajeros, pacificadores o combatientes disciplinados que resuelven los conflictos desde una visión distinta a la de los samuráis tradicionales.',
+        'L5R.FIVE_RINGS_CHARACTERS.FIVE_RINGS_CHARACTER.TEXT_4',
     },
     {
       name: 'Shinobi y agentes secretos',
       description:
-        'Se mueven entre sombras, información y misiones encubiertas. Aunque el honor samurái desprecia muchas de sus técnicas, pueden ser esenciales para descubrir traiciones, infiltrarse en fortalezas o proteger al clan desde el anonimato.',
+        'L5R.FIVE_RINGS_CHARACTERS.FIVE_RINGS_CHARACTER.TEXT_5',
     },
     {
       name: 'Ronin',
       description:
-        'Son samuráis sin señor, marcados por la pérdida, el exilio o la independencia. Permiten historias muy personales sobre redención, supervivencia, venganza, libertad y búsqueda de un nuevo propósito dentro del Imperio Esmeralda.',
+        'L5R.FIVE_RINGS_CHARACTERS.FIVE_RINGS_CHARACTER.TEXT_6',
     },
   ];
 }

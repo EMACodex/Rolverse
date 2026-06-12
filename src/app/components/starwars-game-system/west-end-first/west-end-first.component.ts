@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-starwars-west-end-first',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './west-end-first.component.html',
   styleUrls: ['./west-end-first.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para west end first.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class WestEndFirstComponent {
-  title = 'WEG D6 1ª Edición';
+  title = 'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_1';
   period = '1987';
   intro =
-    'La primera gran adaptación de Star Wars al rol de mesa. Usa el sistema D6 de West End Games y busca reproducir el ritmo aventurero, rápido y cinematográfico de la trilogía original.';
+    'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_3',
       items: [
-        'Publicada por West End Games en los años 80, ayudó a expandir el universo de Star Wars fuera del cine.',
-        'Aportó mucho material de ambientación que después inspiró novelas, cómics y otros productos.',
-        'Su enfoque era claro: héroes rebeldes, imperiales, contrabandistas, pilotos y usuarios de la Fuerza viviendo aventuras rápidas.',
-        'Es una edición muy recordada por su sencillez y tono pulp espacial.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_4',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_5',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_6',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_7',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_8',
       items: [
-        'Usa reservas de dados de seis caras según atributo y habilidad.',
-        'Para resolver una acción se tiran varios d6 y se compara el total contra una dificultad.',
-        'El director de juego ajusta la dificultad según riesgo, situación y drama de la escena.',
-        'La Fuerza se representa con poderes y puntos del Lado Oscuro cuando el personaje actúa de forma corrupta o cruel.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_9',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_10',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_11',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_12',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_13',
       items: [
-        'Está pensado para escenas rápidas, persecuciones, tiroteos y decisiones heroicas.',
-        'Las fichas son más ligeras que en sistemas d20 y permiten empezar rápido.',
-        'El combate es peligroso, pero el tono favorece la acción de película.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_14',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_15',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_16',
         'Funciona muy bien para aventuras rebeldes, contrabando, rescates, infiltraciones y duelos improvisados.',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_17',
       items: [
-        'Crea personajes con arquetipos claros: piloto, contrabandista, soldado rebelde, diplomático, droide o sensible a la Fuerza.',
-        'Prepara una misión sencilla: robar planos, rescatar a alguien, escapar del Imperio o sabotear una base.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_18',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_19',
         'Cuando haya riesgo, tira la reserva de d6 adecuada y compara el resultado con la dificultad.',
-        'Mantén el ritmo alto: pocos cálculos, mucha descripción y consecuencias rápidas.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.WEST_END_FIRST.WEST_END_FIRST.TEXT_20',
       ],
     },
   ];

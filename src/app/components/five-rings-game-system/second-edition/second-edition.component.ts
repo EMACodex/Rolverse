@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-five-rings-second-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './second-edition.component.html',
   styleUrls: ['./second-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para second edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class SecondEditionComponent {
-  title = 'La Leyenda de los 5 Anillos 2ª Edición';
+  title = 'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_1';
   period = '1999 - 2000';
   intro =
-    'La segunda edición mantiene el núcleo clásico de Rokugán y pule reglas, escuelas y opciones de personaje, reforzando el juego político, social y marcial.';
+    'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_3',
       items: [
-        'Continúa desarrollando la línea clásica de La Leyenda de los 5 Anillos.',
-        'Amplía el peso de los clanes, familias, escuelas y conflictos del Imperio Esmeralda.',
-        'Da más herramientas para campañas largas centradas en intriga, guerra y espiritualidad.',
-        'Consolida muchas ideas que hicieron reconocible al juego durante años.',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_4',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_5',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_6',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_7',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_8',
       items: [
         'Mantiene el sistema Roll & Keep con dados de diez caras.',
-        'Refina la creación de personajes con mejores opciones de escuela, habilidades y ventajas.',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_9',
         'El honor, la gloria y el estatus siguen siendo elementos importantes de la ficha.',
         'El combate, los duelos y la corte se resuelven mediante tiradas contra dificultades establecidas por el director.',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_10',
       items: [
-        'Favorece partidas donde la reputación y las consecuencias sociales importan mucho.',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_11',
         'Los personajes pueden destacar como bushi, cortesanos, shugenja, monjes o especialistas de clan.',
-        'El sistema permite mezclar investigación, negociación, viajes, guerras y duelos formales.',
-        'La dificultad de una escena no depende solo del enemigo, sino también del contexto social.',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_12',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_13',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_14',
       items: [
-        'Es adecuada para campañas de corte, secretos familiares, conflictos entre clanes y misiones oficiales.',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_15',
         'El Game Master debe preparar consecuencias claras para las decisiones deshonrosas.',
         'Los jugadores deben cuidar sus palabras, alianzas y juramentos.',
-        'Es una edición pensada para grupos que disfrutan de la tradición clásica del juego.',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.SECOND_EDITION.SECOND_EDITION.TEXT_16',
       ],
     },
   ];

@@ -1,3 +1,4 @@
+/* Estilos de la vista create forum de Rolverse. Mantienen responsive y aspecto existente. */
 .create-container {
   max-width: 450px;
   width: min(450px, calc(100vw - 2rem));

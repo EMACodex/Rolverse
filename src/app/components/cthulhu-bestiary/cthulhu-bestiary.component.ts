@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-cthulhu-bestiary',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './cthulhu-bestiary.component.html',
   styleUrls: ['./cthulhu-bestiary.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para cthulhu bestiary.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class CthulhuBestiaryComponent {
   readonly authService = inject(AuthService);
   readonly cthulhuBestiaryPdfUrl =
@@ -13,34 +19,34 @@ export class CthulhuBestiaryComponent {
 
   creatures = [
     {
-      name: 'Primigenios y entidades cósmicas',
+      name: 'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.TEXT_1',
       description:
-        'Son fuerzas antiguas y casi incomprensibles para la mente humana. No suelen funcionar como enemigos normales, sino como presencias, amenazas lejanas o centros de culto capaces de alterar pueblos, sueños y cordura.',
+        'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.TEXT_2',
     },
     {
       name: 'Sectarios y adoradores',
       description:
-        'Los cultistas son una de las amenazas más útiles en una partida de Cthulhu. Pueden ser vecinos, académicos, nobles, marineros o médicos que han descubierto secretos prohibidos y sirven a una entidad que apenas comprenden.',
+        'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.TEXT_3',
     },
     {
-      name: 'Híbridos y criaturas deformes',
+      name: 'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.TEXT_4',
       description:
-        'Representan la corrupción física y espiritual. Pueden aparecer como habitantes extraños de una aldea costera, familias marcadas por pactos antiguos o víctimas transformadas por rituales y conocimientos prohibidos.',
+        'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.TEXT_5',
     },
     {
       name: 'Horrores de las profundidades',
       description:
-        'Criaturas marinas, seres anfibios, sombras bajo el agua y amenazas vinculadas a ciudades hundidas. Son perfectas para historias de faros, puertos, barcos desaparecidos, tormentas y pueblos aislados junto al mar.',
+        'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.TEXT_6',
     },
     {
       name: 'Seres invisibles o extradimensionales',
       description:
-        'No siempre se ven directamente. Pueden manifestarse como ruidos, cambios de temperatura, símbolos, sueños o desapariciones. Funcionan muy bien para mantener el misterio antes de mostrar el verdadero horror.',
+        'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.TEXT_7',
     },
     {
       name: 'Objetos malditos y presencias invocadas',
       description:
-        'En Cthulhu, el monstruo no siempre tiene forma de criatura. Un libro, una máscara, una estatua, una melodía o una reliquia pueden ser el origen de la investigación y provocar muertes, visiones o rituales peligrosos.',
+        'CTHULHU.CTHULHU_BESTIARY.CTHULHU_BESTIARY.TEXT_8',
     },
   ];
 }

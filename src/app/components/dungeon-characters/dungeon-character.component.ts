@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 @Component({
   selector: 'app-dungeon-character',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './dungeon-character.component.html',
   styleUrls: ['./dungeon-character.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para dungeon character.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class DungeonCharacterComponent {
   readonly authService = inject(AuthService);
   readonly dndCharacterSheetUrl =
@@ -13,34 +19,34 @@ export class DungeonCharacterComponent {
 
   characterTypes = [
     {
-      name: 'Guerreros',
+      name: 'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.TEXT_1',
       description:
-        'Son personajes centrados en el combate físico, la resistencia y el uso de armas. Funcionan muy bien como protectores del grupo, líderes en batalla o aventureros marcados por el honor, la disciplina o la venganza.',
+        'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.TEXT_2',
     },
     {
-      name: 'Magos',
+      name: 'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.TEXT_3',
       description:
-        'Son estudiosos de la magia arcana. Sus historias suelen girar alrededor del conocimiento prohibido, antiguas escuelas mágicas, pactos peligrosos, libros perdidos o el deseo de comprender fuerzas que otros temen.',
+        'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.TEXT_4',
     },
     {
-      name: 'Clérigos y paladines',
+      name: 'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.TEXT_5',
       description:
-        'Representan la fe, los juramentos y el vínculo con poderes divinos. Pueden ser sanadores, defensores sagrados, cazadores de no muertos o campeones que luchan por una causa mayor que ellos mismos.',
+        'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.TEXT_6',
     },
     {
-      name: 'Pícaros',
+      name: 'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.TEXT_7',
       description:
-        'Son especialistas en sigilo, trampas, engaño y movimiento rápido. Encajan muy bien en historias de ladrones, espías, exploradores urbanos, asesinos redimidos o supervivientes de los bajos fondos.',
+        'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.TEXT_8',
     },
     {
-      name: 'Exploradores y druidas',
+      name: 'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.TEXT_9',
       description:
-        'Están unidos a la naturaleza, los caminos salvajes y las criaturas del mundo. Sirven para campañas de viaje, bosques antiguos, amenazas naturales, ruinas perdidas y conflictos entre civilización y naturaleza.',
+        'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.TEXT_10',
     },
     {
-      name: 'Bardos y personajes sociales',
+      name: 'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.TEXT_11',
       description:
-        'Son personajes centrados en la palabra, la música, la inspiración y las relaciones. Pueden cambiar el rumbo de una escena mediante negociación, engaño, liderazgo o conocimiento de antiguas leyendas.',
+        'DND.DUNGEON_CHARACTERS.DUNGEON_CHARACTER.TEXT_12',
     },
   ];
 }

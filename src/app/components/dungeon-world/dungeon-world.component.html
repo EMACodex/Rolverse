@@ -1,46 +1,26 @@
+<!-- Vista dungeon world de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="maps-bg">
   <div class="maps-container">
-    <h1 class="main-title">Mapas de Dungeons & Dragons</h1>
+    <h1 class="main-title">{{ 'DND.DUNGEON_WORLD.DUNGEON_WORLD.HTML_H1_108' | translate }}</h1>
 
     <section class="maps-section">
       <article class="maps-card main-maps-card">
-        <h2>Qué son los mapas en Dungeons & Dragons</h2>
+        <h2>{{ 'DND.DUNGEON_WORLD.DUNGEON_WORLD.HTML_H2_109' | translate }}</h2>
 
-        <p>
-          Los mapas en Dungeons & Dragons son una herramienta para organizar el
-          mundo de juego y ayudar a los jugadores a imaginar dónde están, hacia
-          dónde pueden ir y qué peligros pueden encontrar. No son solo dibujos
-          decorativos: sirven para construir la aventura.
-        </p>
+        <p>{{ 'DND.DUNGEON_WORLD.DUNGEON_WORLD.HTML_P_110' | translate }}</p>
 
-        <p>
-          Un buen mapa puede mostrar un reino completo, una ciudad importante,
-          una mazmorra abandonada, una fortaleza enemiga, un bosque encantado o
-          una ruta de viaje. Cada lugar puede esconder misiones, secretos,
-          enemigos, aliados y decisiones importantes para el grupo.
-        </p>
+        <p>{{ 'DND.DUNGEON_WORLD.DUNGEON_WORLD.HTML_P_111' | translate }}</p>
 
-        <p>
-          Para el Dungeon Master, los mapas ayudan a preparar encuentros,
-          calcular distancias, colocar enemigos, organizar escenas y mantener la
-          coherencia de la partida. Para los jugadores, hacen que el mundo sea
-          más fácil de entender y les permiten tomar decisiones con más
-          claridad.
-        </p>
+        <p>{{ 'DND.DUNGEON_WORLD.DUNGEON_WORLD.HTML_P_112' | translate }}</p>
 
-        <p>
-          En una partida rápida, un mapa puede ser tan sencillo como una aldea,
-          una cueva y un camino peligroso entre ambas. En una campaña larga,
-          puede convertirse en un continente lleno de reinos, dioses antiguos,
-          guerras, ruinas y lugares legendarios.
-        </p>
+        <p>{{ 'DND.DUNGEON_WORLD.DUNGEON_WORLD.HTML_P_113' | translate }}</p>
       </article>
 
       <div class="maps-grid">
         @for (mapType of mapTypes; track mapType.name) {
           <article class="map-card">
-            <h3>{{ mapType.name }}</h3>
-            <p>{{ mapType.description }}</p>
+            <h3>{{ mapType.name | translate }}</h3>
+            <p>{{ mapType.description | translate }}</p>
           </article>
         }
       </div>
@@ -53,9 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="maps-download-button"
-        >
-          Descargar mapas de D&D
-        </a>
+        >{{ 'DND.DUNGEON_WORLD.DUNGEON_WORLD.HTML_A_114' | translate }}</a>
       </div>
 
       }

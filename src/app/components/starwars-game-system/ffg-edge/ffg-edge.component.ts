@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-starwars-ffg-edge',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './ffg-edge.component.html',
   styleUrls: ['./ffg-edge.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para ffg edge.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class FfgEdgeComponent {
   title = 'FFG / Edge Studio';
   period = '2012 - Actualidad';
   intro =
-    'La línea narrativa moderna de Star Wars. Incluye Edge of the Empire, Age of Rebellion y Force and Destiny, tres enfoques compatibles que usan dados especiales para crear resultados narrativos.';
+    'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_1';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_2',
       items: [
-        'Fantasy Flight Games inició una nueva etapa del rol de Star Wars en 2012.',
-        'La línea se organizó en tres grandes enfoques: frontera criminal, guerra rebelde y usuarios de la Fuerza.',
-        'Edge Studio continuó la línea después, manteniendo el sistema y sus libros principales.',
-        'Es la versión moderna más centrada en narración compartida y consecuencias dramáticas.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_3',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_4',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_5',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_6',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_7',
       items: [
-        'Usa dados narrativos especiales con símbolos de éxito, fallo, ventaja, amenaza, triunfo y desesperación.',
-        'Una tirada no solo dice si algo sale bien o mal, también introduce consecuencias positivas o negativas.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_8',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_9',
         'Los personajes progresan comprando talentos, habilidades y especializaciones.',
-        'La Fuerza, la obligación, el deber y la moralidad ayudan a conectar reglas con historia.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_10',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_11',
       items: [
-        'Es muy narrativo y cinematográfico.',
-        'El Game Master interpreta símbolos para crear giros, complicaciones y oportunidades.',
-        'Funciona muy bien sin tablero, usando teatro de la mente y escenas dinámicas.',
-        'Permite mezclar contrabandistas, rebeldes y sensibles a la Fuerza en una misma campaña.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_12',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_13',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_14',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_15',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_16',
       items: [
-        'Decide el tono: criminales de los bajos fondos, escuadrón rebelde, aprendices de la Fuerza o grupo mixto.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_17',
         'Prepara escenas con objetivos claros, pero deja espacio para que los dados generen giros.',
-        'Cuando se tire, interpreta no solo éxito o fallo, sino ventajas, amenazas, triunfos y desesperaciones.',
-        'Haz que las decisiones del grupo cambien relaciones, reputación, deuda, deber y vínculo con la Fuerza.',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_18',
+        'STAR_WARS.STARWARS_GAME_SYSTEM.FFG_EDGE.FFG_EDGE.TEXT_19',
       ],
     },
   ];

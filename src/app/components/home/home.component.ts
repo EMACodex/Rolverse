@@ -8,7 +8,7 @@ import { ForumInterface } from '../../interfaces/forum.interface';
 import { ForumService } from '../../services/forum.service';
 import { Match } from '../../interfaces/match.interface';
 import { MatchService } from '../../services/match.service';
-import { RUTA_API } from '../../../environment';
+import { environment } from '../../../environments/environment';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
@@ -25,6 +25,10 @@ import { TranslatePipe } from '../../pipes/translate.pipe';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
+/**
+ * Pantalla principal de Rolverse.
+ * Reune carrusel, noticias, partidas, foros y creador de personajes.
+ */
 export class HomeComponent implements OnInit, OnDestroy {
   private startX: number = 0;
   private dragging: boolean = false;
@@ -40,7 +44,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   matchesError = '';
   matchesCurrentPage = 1;
   readonly itemsPerPage = 8;
-  private apiBase = RUTA_API.replace(/\/$/, '');
+  private apiBase = environment.apiUrl;
   readonly fallbackMatchCover = 'assets/img/partidas/partidas.png';
 
   constructor(
@@ -48,7 +52,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private matchService: MatchService,
   ) {}
 
-  // Lista de los cuatro banners. Ajusta las rutas a las tuyas dentro de src/assets/img/
+  /** Banners estaticos de portada ubicados en assets/img. */
   slides: { id: number; img: string }[] = [
     { id: 0, img: 'assets/img/banner1.png' },
     { id: 1, img: 'assets/img/banner2.png' },
@@ -56,20 +60,22 @@ export class HomeComponent implements OnInit, OnDestroy {
     { id: 3, img: 'assets/img/banner4.png' },
   ];
 
-  // Índice en slides[] del banner que está “al frente” (center)
+  /** Indice del banner visible en el centro del carrusel. */
   currentCenterIndex = 0;
+  /** Gestiona la accion ngOnInit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   ngOnInit(): void {
     this.loadForums();
     this.loadMatches();
 
-    // Inicia la rotación automática cada 5 segundos
+    // Mantiene el carrusel activo sin depender de interaccion del usuario.
     this.autoRotateInterval = setInterval(() => {
       this.next();
     }, 5000);
   }
 
+  /** Gestiona la accion ngOnDestroy dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   ngOnDestroy(): void {
-    // Limpia el intervalo al destruir el componente
+    // Evita que el intervalo siga vivo al navegar fuera de la home.
     clearInterval(this.autoRotateInterval);
   }
 
@@ -81,6 +87,7 @@ export class HomeComponent implements OnInit, OnDestroy {
    * - 'right'    → es el banner a la derecha
    * - 'back'     → es el banner “detrás”
    */
+  /** Gestiona la accion getPositionClass dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   getPositionClass(i: number): 'center' | 'left' | 'right' | 'back' {
     const total = this.slides.length; // 4
     const center = this.currentCenterIndex;
@@ -107,12 +114,14 @@ export class HomeComponent implements OnInit, OnDestroy {
       (this.currentCenterIndex + this.slides.length - 1) % this.slides.length;
   }
 
+  /** Gestiona la accion onMouseDown dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onMouseDown(event: MouseEvent): void {
     this.startX = event.clientX;
     this.dragging = true;
     this.moved = false;
   }
 
+  /** Gestiona la accion onMouseMove dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onMouseMove(event: MouseEvent): void {
     if (!this.dragging) return;
 
@@ -124,6 +133,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
+  /** Gestiona la accion onMouseUp dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onMouseUp(event: MouseEvent): void {
     if (!this.dragging) return;
 
@@ -141,14 +151,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   private loadForums(): void {
     this.forumsLoading = true;
     this.forumsError = '';
-
     this.forumService.getAllForums().subscribe({
       next: (response) => {
         this.forums = response.data || [];
         this.forumsCurrentPage = Math.min(this.forumsCurrentPage, this.forumsTotalPages);
         this.forumsLoading = false;
       },
-      error: () => {
+      error: (error) => {
+        console.error('[ROLVERSE DATA] Forums load error:', {
+          url: `${environment.apiUrl}/forum/all`,
+          status: error?.status,
+          message: error?.message,
+          response: error?.error,
+        });
         this.forums = [];
         this.forumsError = 'No se han podido cargar los foros.';
         this.forumsLoading = false;
@@ -159,14 +174,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   private loadMatches(): void {
     this.matchesLoading = true;
     this.matchesError = '';
-
     this.matchService.getMatches().subscribe({
       next: (response) => {
         this.matches = response.data || [];
         this.matchesCurrentPage = Math.min(this.matchesCurrentPage, this.matchesTotalPages);
         this.matchesLoading = false;
       },
-      error: () => {
+      error: (error) => {
+        console.error('[ROLVERSE DATA] Matches load error:', {
+          url: `${environment.apiUrl}/matches`,
+          status: error?.status,
+          message: error?.message,
+          response: error?.error,
+        });
         this.matches = [];
         this.matchesError = 'No se han podido cargar las partidas.';
         this.matchesLoading = false;
@@ -174,6 +194,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
   }
 
+  /** Gestiona la accion matchCoverUrl dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   matchCoverUrl(match: Match): string {
     const cover = match.cover_image_path;
 
@@ -197,12 +218,14 @@ export class HomeComponent implements OnInit, OnDestroy {
     return Math.max(1, Math.ceil(this.forums.length / this.itemsPerPage));
   }
 
+  /** Gestiona la accion previousForumsPage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   previousForumsPage(): void {
     if (this.forumsCurrentPage > 1) {
       this.forumsCurrentPage--;
     }
   }
 
+  /** Gestiona la accion nextForumsPage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   nextForumsPage(): void {
     if (this.forumsCurrentPage < this.forumsTotalPages) {
       this.forumsCurrentPage++;
@@ -218,12 +241,14 @@ export class HomeComponent implements OnInit, OnDestroy {
     return Math.max(1, Math.ceil(this.matches.length / this.itemsPerPage));
   }
 
+  /** Gestiona la accion previousMatchesPage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   previousMatchesPage(): void {
     if (this.matchesCurrentPage > 1) {
       this.matchesCurrentPage--;
     }
   }
 
+  /** Gestiona la accion nextMatchesPage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   nextMatchesPage(): void {
     if (this.matchesCurrentPage < this.matchesTotalPages) {
       this.matchesCurrentPage++;

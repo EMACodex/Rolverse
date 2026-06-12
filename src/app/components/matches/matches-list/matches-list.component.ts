@@ -1,12 +1,13 @@
-import { CommonModule } from '@angular/common';
+﻿import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { RUTA_API } from '../../../../environment';
+import { environment } from '../../../../environments/environment';
 import { Match } from '../../../interfaces/match.interface';
 import { AuthService } from '../../../services/auth.service';
 import { MatchService } from '../../../services/match.service';
 import { TranslatePipe } from '../../../pipes/translate.pipe';
+import { TranslateService } from '../../../services/translate.service';
 
 @Component({
   selector: 'app-matches-list',
@@ -15,6 +16,10 @@ import { TranslatePipe } from '../../../pipes/translate.pipe';
   templateUrl: './matches-list.component.html',
   styleUrl: './matches-list.component.css',
 })
+/**
+ * Pantalla de listado y gestion de partidas.
+ * Carga partidas publicas/privadas visibles y permite crear o editar segun permisos.
+ */
 export class MatchesListComponent implements OnInit {
   matches: Match[] = [];
   search = '';
@@ -48,15 +53,17 @@ export class MatchesListComponent implements OnInit {
     access_type: 'public' as 'public' | 'private',
   };
 
-  private apiBase = RUTA_API.replace(/\/$/, '');
+  private apiBase = environment.apiUrl;
   readonly fallbackCover = 'assets/img/partidas/partidas.png';
 
   constructor(
     public authService: AuthService,
     private matchService: MatchService,
     private route: ActivatedRoute,
+    private translateService: TranslateService,
   ) {}
 
+  /** Gestiona la accion ngOnInit dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params) => {
       const page = Number(params.get('page'));
@@ -76,10 +83,10 @@ export class MatchesListComponent implements OnInit {
     return Math.max(1, Math.ceil(this.matches.length / this.itemsPerPage));
   }
 
+  /** Gestiona la accion loadMatches dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   loadMatches(): void {
     this.loading = true;
     this.error = '';
-
     this.matchService.getMatches(this.search).subscribe({
       next: (response) => {
         this.matches = response.data || [];
@@ -87,7 +94,13 @@ export class MatchesListComponent implements OnInit {
       },
       error: (error) => {
         this.matches = [];
-        this.error = error.error?.message || 'No se pudieron cargar las partidas.';
+        console.error('[ROLVERSE DATA] Matches load error:', {
+          url: `${environment.apiUrl}/matches`,
+          status: error?.status,
+          message: error?.message,
+          response: error?.error,
+        });
+        this.error = this.translateService.translate('MATCHES.LOAD_ERROR');
         this.loading = false;
       },
       complete: () => {
@@ -96,6 +109,7 @@ export class MatchesListComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion coverUrl dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   coverUrl(match: Match): string {
     const cover = match.cover_image_path;
     if (!cover) return this.fallbackCover;
@@ -103,11 +117,13 @@ export class MatchesListComponent implements OnInit {
     return `${this.apiBase}${cover.startsWith('/') ? cover : `/${cover}`}`;
   }
 
+  /** Gestiona la accion openCreateModal dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   openCreateModal(): void {
     this.showCreateModal = true;
     this.createError = '';
   }
 
+  /** Gestiona la accion closeCreateModal dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   closeCreateModal(): void {
     this.showCreateModal = false;
     this.createError = '';
@@ -122,11 +138,13 @@ export class MatchesListComponent implements OnInit {
     };
   }
 
+  /** Gestiona la accion onCoverSelected dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onCoverSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.selectedCover = input.files?.[0] || null;
   }
 
+  /** Gestiona la accion createMatch dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   createMatch(): void {
     this.createError = '';
     const title = this.form.title.trim();
@@ -167,6 +185,7 @@ export class MatchesListComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion canEditMatch dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   canEditMatch(match: Match): boolean {
     const currentUser = this.authService.getCurrentUser();
     if (!currentUser) {
@@ -179,6 +198,7 @@ export class MatchesListComponent implements OnInit {
     );
   }
 
+  /** Gestiona la accion openEditMatch dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   openEditMatch(match: Match): void {
     this.editingMatch = match;
     this.showEditModal = true;
@@ -194,6 +214,7 @@ export class MatchesListComponent implements OnInit {
     };
   }
 
+  /** Gestiona la accion closeEditModal dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   closeEditModal(): void {
     this.showEditModal = false;
     this.editError = '';
@@ -202,11 +223,13 @@ export class MatchesListComponent implements OnInit {
     this.selectedEditCover = null;
   }
 
+  /** Gestiona la accion onEditCoverSelected dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   onEditCoverSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.selectedEditCover = input.files?.[0] || null;
   }
 
+  /** Gestiona la accion saveEditedMatch dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   saveEditedMatch(): void {
     if (!this.editingMatch) {
       return;
@@ -254,15 +277,18 @@ export class MatchesListComponent implements OnInit {
     });
   }
 
+  /** Gestiona la accion previousPage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   previousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
     }
   }
 
+  /** Gestiona la accion nextPage dentro de esta vista sin cambiar responsabilidades de rutas o servicios. */
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
     }
   }
 }
+

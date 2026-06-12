@@ -1,41 +1,24 @@
+<!-- Vista warhammer character de Rolverse. Estructura seccionada sin alterar rutas ni permisos. -->
 <div class="characters-bg">
   <div class="characters-container">
-    <h1 class="main-title">Personajes de Warhammer</h1>
+    <h1 class="main-title">{{ 'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.HTML_H1_234' | translate }}</h1>
 
     <section class="characters-section">
       <article class="character-card main-character-card">
-        <h2>Qué representa un personaje en Warhammer</h2>
+        <h2>{{ 'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.HTML_H2_235' | translate }}</h2>
 
-        <p>
-          En Warhammer, un personaje no es solo una ficha de combate. Es una
-          pieza dentro de un universo brutal, religioso, militar y decadente,
-          donde la guerra, la corrupción, la fe y la supervivencia marcan cada
-          decisión. Cada personaje puede pertenecer a una facción, servir a un
-          señor, obedecer una doctrina o intentar sobrevivir en medio de un
-          conflicto mucho más grande que él.
-        </p>
+        <p>{{ 'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.HTML_P_236' | translate }}</p>
 
-        <p>
-          Las partidas pueden centrarse en soldados enviados a una guerra
-          imposible, inquisidores investigando herejías, psíquicos perseguidos
-          por sus propios dones, tecnosacerdotes buscando reliquias antiguas o
-          guerreros enfrentados a amenazas xenos, demoníacas o traidoras.
-        </p>
+        <p>{{ 'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.HTML_P_237' | translate }}</p>
 
-        <p>
-          Para crear un personaje útil en una partida de Warhammer conviene
-          definir tres cosas: a qué facción pertenece, qué deber o misión lo
-          empuja hacia delante y qué precio está dispuesto a pagar para cumplir
-          su objetivo. Esa mezcla de deber, miedo, fanatismo y supervivencia es
-          lo que da fuerza al personaje.
-        </p>
+        <p>{{ 'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.HTML_P_238' | translate }}</p>
       </article>
 
       <div class="character-types-grid">
         @for (character of characterTypes; track character.name) {
           <article class="character-type-card">
-            <h3>{{ character.name }}</h3>
-            <p>{{ character.description }}</p>
+            <h3>{{ character.name | translate }}</h3>
+            <p>{{ character.description | translate }}</p>
           </article>
         }
       </div>
@@ -48,9 +31,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="characters-download-button"
-        >
-          Descargar personajes de Warhammer
-        </a>
+        >{{ 'WARHAMMER.WARHAMMER_CHARACTERS.WARHAMMER_CHARACTER.HTML_A_239' | translate }}</a>
       </div>
 
       }

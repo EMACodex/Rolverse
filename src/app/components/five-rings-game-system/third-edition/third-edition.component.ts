@@ -1,52 +1,58 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-five-rings-third-edition',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './third-edition.component.html',
   styleUrls: ['./third-edition.component.css'],
 })
+/**
+ * Componente Angular de Rolverse para third edition.
+ * Encapsula la vista, estado local y acciones de usuario de esta pantalla sin alterar rutas ni permisos.
+ */
 export class ThirdEditionComponent {
-  title = 'La Leyenda de los 5 Anillos 3ª Edición';
+  title = 'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_1';
   period = '2005';
   intro =
-    'La tercera edición aumenta la profundidad mecánica, reorganiza opciones y ofrece una versión más completa del sistema clásico Roll & Keep.';
+    'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_2';
 
   cards = [
     {
-      title: 'Historia',
+      title: 'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_3',
       items: [
-        'Aparece como una edición más desarrollada y completa para campañas avanzadas.',
-        'Profundiza en escuelas, técnicas, clanes, amenazas y estilos de personaje.',
-        'Refuerza la identidad de Rokugán como un mundo de intriga, tragedia, deber y peligro espiritual.',
-        'Tuvo una versión revisada que ajustó y ordenó parte del contenido.',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_4',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_5',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_6',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_7',
       ],
     },
     {
-      title: 'Reglas principales',
+      title: 'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_8',
       items: [
         'Sigue usando Roll & Keep, con tiradas de d10 y dados conservados.',
-        'Da mucho peso a las técnicas de escuela y a la progresión del personaje.',
-        'Los anillos, rasgos, habilidades, ventajas y desventajas permiten mucha personalización.',
-        'Las reglas de combate y duelos son más detalladas que en las primeras ediciones.',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_9',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_10',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_11',
       ],
     },
     {
-      title: 'Sistema de juego',
+      title: 'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_12',
       items: [
-        'El sistema se vuelve más completo y exigente.',
-        'Permite campañas con más detalle mecánico, especialmente en combate, magia y técnicas especiales.',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_13',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_14',
         'Los shugenja, cortesanos y bushi tienen papeles muy diferenciados dentro del grupo.',
-        'El director debe equilibrar escenas de acción con escenas sociales y consecuencias morales.',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_15',
       ],
     },
     {
-      title: 'Forma de jugar',
+      title: 'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_16',
       items: [
-        'Funciona bien para grupos que quieren más opciones y personajes muy definidos.',
-        'Las partidas pueden girar alrededor de guerras de clan, conspiraciones imperiales o corrupción espiritual.',
-        'Los jugadores deben conocer mejor su ficha y sus técnicas.',
-        'Es una edición útil para campañas largas con mucho crecimiento del personaje.',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_17',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_18',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_19',
+        'L5R.FIVE_RINGS_GAME_SYSTEM.THIRD_EDITION.THIRD_EDITION.TEXT_20',
       ],
     },
   ];
