@@ -6,5 +6,3 @@ export const environment = {
   production: true,
   apiUrl: 'https://rolverseproyecto.onrender.com',
 };
-
-export const RUTA_API = environment.apiUrl + '/';
